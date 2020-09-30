@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no,minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <title>黑石博客 - Hexo博客</title>
+    <link rel="icon" type="image/png" href="https://pic.heson10.com/wallpapers/favicon.png">
+    <link href="https://pic.heson10.com/wallpapers/favicon.png" rel="icon">
+    <link rel="apple-touch-icon-precomposed" href="https://pic.heson10.com/wallpapers/favicon.png">
+    <meta name="description" content="黑石博客，草根博客站长Heson的博客站点。" />
+    <meta name="keywords" content="typecho,php,blog,草根" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+    
+<link rel="stylesheet" href="/css/app.min.css">
+
+    
+<link rel="stylesheet" href="/css/duta.css">
+
+    
+<link rel="stylesheet" href="/css/Main.css">
+
+    
+<link rel="stylesheet" href="/css/UI.css">
+
+    <script async src="//at.alicdn.com/t/font_1826851_x246yki7bra.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+    
+<script src="/js/loading.js"></script>
+
+    
+<script src="/js/app.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;900&display=swap" rel="stylesheet">
+    
+
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="黑石博客 - Hexo博客" type="application/atom+xml">
+</head>
+<style>
+    body,
+    input,
+    select,
+    textarea {
+        font-family: 'Mulish', -apple-system, 'Noto Serif SC', "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif
+    }
+
+    .ajaxcard:hover {
+        transform: unset;
+    }
+</style>
+<script> CUTEEN_SETTING = { PJAX: true, HERO_IMG: true, IS_MOBILE: false, NOPA: false, SITE_URL: "https://typecho.heson10.com/index.php/search/", THEME_COLOR: 0, STATIC_PATH: "https://typecho.heson10.com/usr/themes/Cuteen/", AJAX_PAGE: false, HEADROOM: false, CDN_PATH: "https://typecho.heson10.com/usr/themes/Cuteen/Static", MUSICDATA1: "115762175", MUSICDATA2: "netease", QIPAO: true, }</script>
+<body class="">
+    <!--
+<div id="page-loading">
+    <div class="circle"></div>
+  </div>
+    -->
+    <div class="nav w100 fixed clearfix border-box haveimg nobg p1">
+    <div class="flex justify-between mx-auto nav-content items-center">  
+        <ul class="bold table nowrap">
+            <li class="pr1 h2 table-cell align-middle sitetitle"><a href="/">黑石博客</a></li>         
+          
+
+                    <li class="xs-hide px1 h4 table-cell align-middle relative dropdown"><a>🔎找文章 </a>
+                        <div class="mt1 absolute dropblur rounded">
+                            <ul class=" py1">
+                                <li><a class="block px2 p1"
+                                        target="_blank" rel="noopener" href="https://typecho.heson10.com/index.php/category/child1/">归档</a></li>
+                                <li><a class="block px2 p1"
+                                        target="_blank" rel="noopener" href="https://typecho.heson10.com/index.php/category/child2/">标签</a></li>
+                                <li><a class="block px2 p1"
+                                        target="_blank" rel="noopener" href="https://typecho.heson10.com/index.php/category/child3/">分类</a></li>
+                            </ul>
+                        </div>
+                    </li>
+            <li class="xs-hide px1 h4 table-cell align-middle relative dropdown"><a> 页面 </a>
+                <div class="mt1 absolute dropblur rounded">
+                    <ul class=" py1">
+                        <li><a class="block px2 p1"
+                                href="/links/">友链</a></li>
+                        <li><a  class="block px2 p1"  href="/bb/" no-pjax>说说</a></li>
+                        <li><a class="block px2 p1"
+                                href="/about/">关于</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul> 
+        <ul class="table">
+            <li class="table-cell align-middle">
+                <div id="CTPlayer" class="relative flex items-center">
+                </div>
+            </li> <a class="table-cell align-middle" href="javascript:void(0)" onclick="CuteenFunc.SwitchDarkMode();">
+                <li class="center circle icon ml1 icon align-middle"> <svg class="icon" aria-hidden="true">
+                        <use id="modeicon" xlink:href="#icon-_moon"></use>
+                    </svg> </li>
+            </a> <a class="table-cell align-middle" href="#" data-izimodal-open="#searchbox"
+                data-izimodal-transitionin="fadeInDown">
+                <li class="center circle icon ml1 icon align-middle"> <svg class="icon" aria-hidden="true" width="128"
+                        height="128">
+                        <use xlink:href="#icon-chazhao"></use>
+                    </svg> </li>
+            </a>
+        </ul>
+    </div>
+</div>
+    <div id="pjax">
+        
+            <div id="hero" class="w100 overflow-hidden flex relative mb2 pt4 hero-bai" style="height:600px">
+    
+        <div class="w100 h100 left-0 top-0 absolute hero-img"> <img class="w100 h100 hero_image lazyload"
+            data-src="http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images"> </div>
+    
+    <div class="z4 relative hero-title p4 mb3 flex w100 justify-center self-center">
+        <div class="bas-title center">
+            <p class="big-title bold">归档</p>
+            
+        </div>
+    </div>
+</div>
+        
+        
+        <div class="card-box clearfix mx-auto ">
+            <div class="card-content mx-auto" style='max-width: 1200px'>
+                <div class="cuteup xs-col-12 lg-col lg-col-9">
+    <div class="mybox m1 mb2 ">
+        <div class="Post_content_box">
+               
+                    <article id="arc" class="post article white-box reveal">
+                        <div class="bold h3 mb1" style="margin-bottom: 15px;"><i class="fas fa-book-open"></i> 文章归档</div>
+                        
+                        
+                            
+                            
+                                
+                                    
+                                    <h2>2020</h2>
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/31061.html">
+                                                <time>09-28</time>
+                                                
+                                                    测试多彩标签
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/59108.html">
+                                                <time>09-24</time>
+                                                
+                                                    Hexo 标签函数 list_tags 用法
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/62369.html">
+                                                <time>09-19</time>
+                                                
+                                                    16种人格类型，你属于哪一种？
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/53612.html">
+                                                <time>09-08</time>
+                                                
+                                                    记录一次24H在线要饭系统的搭建
+                                                
+                                                
+                                                
+                                                
+                                                    &nbsp;<i class="fas fa-fire" aria-hidden="true"></i>
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/32383.html">
+                                                <time>09-07</time>
+                                                
+                                                    如何找一款漂亮的字体并快速应用？iFonts字体助手！
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/5892.html">
+                                                <time>09-02</time>
+                                                
+                                                    给博客增加彩色标签云
+                                                
+                                                
+                                                
+                                                
+                                                    &nbsp;<i class="fas fa-fire" aria-hidden="true"></i>
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/7207.html">
+                                                <time>08-28</time>
+                                                
+                                                    Hexo博客调用Valine最新评论
+                                                
+                                                
+                                                
+                                                
+                                                    &nbsp;<i class="fas fa-fire" aria-hidden="true"></i>
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/899.html">
+                                                <time>08-24</time>
+                                                
+                                                    用Python给Markdown文件优雅更名
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/19736.html">
+                                                <time>08-21</time>
+                                                
+                                                    给Hexo Volantis主题添加图片轮播功能
+                                                
+                                                
+                                                
+                                                
+                                                    &nbsp;<i class="fas fa-fire" aria-hidden="true"></i>
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/35039.html">
+                                                <time>08-16</time>
+                                                
+                                                    优化Volantis主题中文章页面h1—h6标签（排版更清爽）
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/28396.html">
+                                                <time>08-16</time>
+                                                
+                                                    所有关于Valine评论系统的配置都在这里【合集】
+                                                
+                                                
+                                                
+                                                
+                                                    &nbsp;<i class="fas fa-fire" aria-hidden="true"></i>
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/30982.html">
+                                                <time>08-13</time>
+                                                
+                                                    hexo博客访问速度优化：又拍云CDN
+                                                
+                                                
+                                                
+                                                
+                                                    &nbsp;<i class="fas fa-fire" aria-hidden="true"></i>
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/44528.html">
+                                                <time>08-12</time>
+                                                
+                                                    在腾讯云服务器上搭建WordPress博客
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/27150.html">
+                                                <time>08-09</time>
+                                                
+                                                    Hexo在coding上持续集成
+                                                
+                                                
+                                                
+                                                
+                                                    &nbsp;<i class="fas fa-fire" aria-hidden="true"></i>
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/38770.html">
+                                                <time>08-07</time>
+                                                
+                                                    Vercel+Github+Coding三线部署HEXO,提升访问速度
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/18256.html">
+                                                <time>08-05</time>
+                                                
+                                                    jsDelivr CDN加速Github仓库图片做博客图床
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/31426.html">
+                                                <time>08-02</time>
+                                                
+                                                    SEO优化：Hexo-abbrlink插件生成永久固定链接
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/19246.html">
+                                                <time>08-01</time>
+                                                
+                                                    Next7.8主题更换思源宋体
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/2635.html">
+                                                <time>07-29</time>
+                                                
+                                                    hexo删除algolia搜索增加本地搜索功能
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/8045.html">
+                                                <time>07-29</time>
+                                                
+                                                    帮助网友搭建WORDPRESS博客
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/57815.html">
+                                                <time>07-27</time>
+                                                
+                                                    Coding Studio实现hexo的云环境部署
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/47102.html">
+                                                <time>07-24</time>
+                                                
+                                                    hexo+next设置微信打赏功能
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/16996.html">
+                                                <time>07-23</time>
+                                                
+                                                    给hexo博客添加fancybox图片灯箱功能
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/49693.html">
+                                                <time>07-23</time>
+                                                
+                                                    hexo添加相关文章功能
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/60484.html">
+                                                <time>07-23</time>
+                                                
+                                                    解决Hexo分类页面访问404问题
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/10441.html">
+                                                <time>07-22</time>
+                                                
+                                                    关于Hexo+next主题的SEO优化
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/38720.html">
+                                                <time>07-21</time>
+                                                
+                                                    Typora+Picgo+七牛云实现图片快速上传
+                                                
+                                                
+                                                
+                                                
+                                                    &nbsp;<i class="fas fa-fire" aria-hidden="true"></i>
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/3243.html">
+                                                <time>07-19</time>
+                                                
+                                                    Hexo+next主题自定义友情链接页面
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/795.html">
+                                                <time>07-19</time>
+                                                
+                                                    Hexo博客添加canvas-nest几何条纹动态背景
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/46662.html">
+                                                <time>07-19</time>
+                                                
+                                                    hexo+next设置网站运行时间
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/51572.html">
+                                                <time>07-13</time>
+                                                
+                                                    为Hexo增加algolia搜索功能
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/52911.html">
+                                                <time>07-12</time>
+                                                
+                                                    Hexo+Next7.X 博客美化教程合集
+                                                
+                                                
+                                                
+                                                
+                                                    &nbsp;<i class="fas fa-fire" aria-hidden="true"></i>
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/14925.html">
+                                                <time>07-12</time>
+                                                
+                                                    小米10降级回稳定版教程
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/54971.html">
+                                                <time>07-11</time>
+                                                
+                                                    Hexo在GitHub和Coding双线部署教程
+                                                
+                                                
+                                                
+                                                
+                                                    &nbsp;<i class="fas fa-fire" aria-hidden="true"></i>
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/121.html">
+                                                <time>07-08</time>
+                                                
+                                                    用hexo+github pages+独立域名搭建个人博客
+                                                
+                                                
+                                                
+                                                
+                                                    &nbsp;<i class="fas fa-fire" aria-hidden="true"></i>
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/18074.html">
+                                                <time>07-06</time>
+                                                
+                                                    写在最开始
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                            
+                            
+                                
+                                    
+                                    <h2>2018</h2>
+                                
+                                    <div class='timenode'>
+                                            <a class="meta" href="/posts/38719.html">
+                                                <time>07-16</time>
+                                                
+                                                    Hexo中next主题启用文章置顶功能
+                                                
+                                                
+                                                
+                                                
+                                            </a>
+                                    </div>
+                            
+                        
+                  </article>
+               
+            
+        </div>
+    </div>
+</div>
+                <div id="qjcbl" class="qjcbl md-hide lg-col lg-col-3">
+    <div id="sidebar">
+        <div class="p1">
+            <div class=" mybox relative">
+                <div class="widthhhh">
+                    <div class="banner w100 overflow-hidden relative"
+                        style="background-image:url(https://tva3.sinaimg.cn/large/0084aYsLgy1ggstmn4t0mj30pk08cwgg.jpg)">
+                    </div>
+                    <div class="center"><a target="_self" href="/about/" ><img class="circle absolute datou"
+                            src="https://cdn.jsdelivr.net/gh/heson525/pic@master/pic/avatar03.png" /></a>
+                    </div>
+                    <h3 class="center" style="padding-top: 2.5rem">Heson</h3>
+                    <div class="flex center justify-around p2">
+                        <div class="flex flex-column"> <a class="forside_a" style="display: block;width:28px;" href="/archives/"><span
+                            class="font-theme font-weight-bold text-md">37</span><small
+                                    class="d-block text-xs text-muted">文章</small> </a>
+                                </div>
+                        <div class="flex flex-column"> 
+                            <a  class="forside_a" style="display: block;width:28px;" href="/categories/"><span
+                                class="font-theme font-weight-bold text-md">&nbsp;7&nbsp;</span><small
+                                class="d-block text-xs text-muted">分类</small></a> </div>
+                        <div class="flex flex-column">  <a  class="forside_a" style="display: block;width:28px;" href="/tags/"><span
+                                class="font-theme font-weight-bold text-md">72</span><small
+                                class="d-block text-xs text-muted">标签</small></a> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p1">
+    <div class=" sidebar-1 mybox relative">
+        <div class="p2"><i class="fab fa-facebook-messenger mr1"></i>最新回复</div>
+
+
+        <div id="hot-comments">
+            
+
+
+        </div>
+        
+    </div>
+</div>
+        
+        
+
+
+
+
+
+        
+    </div>
+</div>
+            </div>
+        </div>
+        <div id="RightDownBtn" class="fixed p1 yj shadow z4 flex flex-column flex-end">
+    <a id="btn" href="javascript:void(0)" target="_self">
+        <svg style=' width: 1.5em;height: 1.5em;' class='icon' aria-hidden='true'>
+            <use xlink:href='#icon-xuanfufanhuidingbu'></use>
+        </svg>
+    </a>
+</div>
+    </div>
+    <div id="searchbox">
+    <div class="flex mx2 mb1 mt2">
+        <div class="col-10" action=""> 
+            <input autocomplete="off" onkeydown="CuteenFunc.Entersearch(this)" id="local-search-input" class="input mr1 form-control" name="q" results="0" type="text" placeholder="请输入搜索关键词……" required />
+            <div id="local-search-result"></div>
+        </div> <button id="searchbtn" class="btn lv col-2"
+            onclick="CuteenFunc.startSearch('#searchNameAccept');$('#searchbox').iziModal('close')">搜索</button>
+    </div>
+    <div class="px3 pb3 pt1">
+        <div class="bold h3 mb1"><i class="fas fa-cloud"></i> 标签云</div> <a
+            onclick="$(function () {$('#searchbox').iziModal('close')})"
+            target="_blank" rel="noopener" href="https://typecho.heson10.com/index.php/tag/%E6%BA%90%E7%A0%81/" class="h5 mt1 tags lan"> 源码 </a> <a
+            onclick="$(function () {$('#searchbox').iziModal('close')})"
+            target="_blank" rel="noopener" href="https://typecho.heson10.com/index.php/tag/%E6%90%AD%E5%BB%BA/" class="h5 mt1 tags lan"> 搭建 </a> <a
+            onclick="$(function () {$('#searchbox').iziModal('close')})"
+            target="_blank" rel="noopener" href="https://typecho.heson10.com/index.php/tag/hexo/" class="h5 mt1 tags hong"> hexo </a> <a
+            onclick="$(function () {$('#searchbox').iziModal('close')})"
+            target="_blank" rel="noopener" href="https://typecho.heson10.com/index.php/tag/%E6%A0%87%E7%AD%BE/" class="h5 mt1 tags lan"> 标签 </a>
+    </div>
+</div>
+    <footer id="footer" class="mx-auto w100 p3 mt3">
+    <div class="Footer_content center">
+        <p class="h5"> &copy; 2020 <a href="https://www.heson10.com/">黑石博客</a> </p>
+
+        <p class="h5"> <a href="https://hexo.io/zh-cn/" target="_blank">Hexo</a> 强力驱动 | 主题 <a
+                href="https://blog.zwying.com/archives/39.html" target="_blank">Cuteen</a> | 由 <a
+                href="https://www.heson10.com" title="由 HESON 移植到 Hexo" target="_blank">Heson</a> 移植</p>
+
+        <p class="h5 mb1"><span id="lc-sv"><i class="fas fa-eye"></i> &nbsp;<span id='number'><i class="fas fa-circle-notch fa-spin fa-fw"
+                        aria-hidden="true"></i></span> 次</span>
+            <span id="lc-uv"> &nbsp;&nbsp;<i class="fas fa-user"></i> &nbsp;<span id='number'><i class="fas fa-circle-notch fa-spin fa-fw"
+                        aria-hidden="true"></i></span> 人</span></p>
+        <p class="h5 mb1"> <svg style=' width: 1.5em;height: 1.5em;' class='icon' aria-hidden='true'>
+                <use xlink:href='#icon-ICP'></use>
+            </svg> <a href="http://beian.miit.gov.cn" target="_blank"> 赣ICP备20008960号</a></p>
+    </div>
+</footer>
+<div id="post-menu" class="fixed top-0 bottom-0 h100 z1 table shadow">
+    <div id="MENU"> </div>
+</div>
+<script src="/js/code-and-copy.min.js"></script>
+<link rel="stylesheet" href="/Func/OwO/OwO.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.min.css"
+    rel="stylesheet">
+<script async src="/js/Smooth.js"></script>
+<script src="/js/circleMagic.min.js"></script>
+<script async src="/js/Player.js"></script>
+<script src="/js/sidebar-follow-jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+<script async src="/js/Main.js"></script>
+
+<script src="/js/valine.js"></script>
+
+
+
+<script src="/js/issues.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+<script> $(document).pjax('a:not(a[target="_blank"], a[no-pjax])', { container: '#pjax', fragment: '#pjax', timeout: 8000 }).on('pjax:send', function () { before_pjax(); }).on('pjax:complete', function () { after_pjax(); addAlt(); LCCounter.refreshCounter(); colortag(); newcomment(); loadIssuesJS(); }).on('pjax:end', function () { end_pjax(); pjax_valine(); });
+
+
+</script>
+    <script defer>
+
+  const LCCounter = {
+    app_id: 'C1qWqsDatomXVctTafBuJADI-gzGzoHsz',
+    app_key: 'J4CujIoElz1Wo7yLUbY4SOO5',
+    custom_api_server: 'https://valineapi.heson10.com',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'https://www.heson10.com' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'https://www.heson10.com' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'https://www.heson10.com' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              if (pv.getAttribute('data-path') == window.location.pathname) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == window.location.pathname) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+ 
+</script>
+
+   </body>
+</html>

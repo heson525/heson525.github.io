@@ -1,0 +1,745 @@
+/*All*/
+
+.btn:focus, input:focus, textarea:focus {
+	outline: none;
+}
+
+.progress, .message {
+	margin: 1rem 0;
+}
+
+/*表单*/
+
+.label {
+	font-size: .875rem;
+	font-weight: bold;
+	display: block;
+	margin-bottom: .5rem;
+}
+
+.input {
+	font-family: inherit;
+	font-size: inherit;
+	display: block;
+	width: 100%;
+	height: 2.5rem;
+	padding: .5rem;
+	margin-bottom: 1rem;
+	border: 3px solid rgba(26, 188, 156, 0.4);
+	border-radius: var(--yj);
+	box-sizing: border-box;
+}
+
+.input:focus {
+	border: 3px solid #1ABC9C;
+}
+
+.select {
+	font-family: inherit;
+	font-size: inherit;
+	display: block;
+	width: 100%;
+	height: 2.5rem;
+	padding: .5rem;
+	margin-bottom: 1rem;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	box-sizing: border-box;
+}
+
+.textarea {
+	font-family: inherit;
+	font-size: inherit;
+	display: block;
+	min-height: 6rem;
+	max-width: 100%;
+	min-width: 100%;
+	width: 100%;
+	padding: .5rem;
+	margin-bottom: 1rem;
+	border: 3px solid rgba(26, 188, 156, 0.4);
+	border-radius: var(--yj);
+	box-sizing: border-box;
+}
+
+.textarea:focus {
+	outline: none;
+	border: 3px solid #1ABC9C;
+}
+
+/*按钮*/
+
+.btn {
+	font-size: 1rem;
+	text-decoration: none;
+	display: inline-block;
+	font-weight: bold;
+	text-align: center;
+	box-sizing: border-box;
+	padding: 0;
+	padding: 0.2rem 1rem;
+	line-height: normal;
+	background: none;
+	color: var(--hei);
+	border-style: solid;
+	border-width: 3px;
+	border-color: var(--mhei);
+	border-radius: 10rem;
+	letter-spacing: 0.4px;
+	transition: .18s ease-out;
+	-webkit-transition: .18s ease-out;
+	font-family: 'Mulish', -apple-system, "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif
+}
+
+.btn:hover {
+	background: var(--hei);
+	color: var(--bai);
+	transition: .18s ease-out;
+	-webkit-transition: .18s ease-out;
+}
+
+.btn.lan:hover, .btn.zi:hover, .btn.lv:hover, .btn.huang:hover, .btn.hong:hover {
+	color: var(--bai);
+}
+
+.btn.hong {
+	color: var(--hong);
+}
+
+.btn.hong {
+	border-color: var(--mhong);
+}
+
+.btn.hong:hover {
+	background: var(--mhong);
+}
+
+.btn.huang {
+	color: var(--huang);
+}
+
+.btn.huang {
+	border-color: var(--mhuang);
+}
+
+.btn.huang:hover {
+	background: var(--mhuang);
+}
+
+.btn.lv {
+	color: var(--lv);
+}
+
+.btn.lv {
+	border-color: var(--mlv);
+}
+
+.btn.lv:hover {
+	background: var(--mlv);
+}
+
+.btn.lan {
+	color: var(--lan);
+}
+
+.btn.lan {
+	border-color: var(--mlan);
+}
+
+.btn.lan:hover {
+	background: var(--mlan);
+}
+
+.btn.zi {
+	color: var(--zi);
+}
+
+.btn.zi {
+	border-color: var(--mzi);
+}
+
+.btn.zi:hover {
+	background: var(--mzi);
+}
+
+/*画廊*/
+
+.photos {
+	width: 100%;
+	max-width: 100%;
+	display: flex;
+	position: relative;
+}
+
+.photos a:first-of-type {
+	margin-left: 0;
+}
+
+.photos a {
+	display: block;
+	flex: 1;
+	border: none;
+	margin: 0 5px;
+}
+
+.photos a:hover {
+	border-bottom: unset
+}
+
+/*刮刮乐*/
+
+blur-text, blur-text * {
+	text-shadow: rgba(0, 0, 0, 0.701961) 0px 0px 10px;
+	color: transparent;
+	padding-top: 3px;
+}
+
+/*黑幕*/
+
+darkb-text, darkb-text * {
+	background-color: #12121c;
+	color: #12121c;
+	text-shadow: none;
+	transition: color 0.3s;
+	padding-top: 3px;
+}
+
+darkb-text:hover, darkb-text:active {
+	color: #FFF;
+}
+
+/*彩虹文字*/
+
+rainbow-text, rainbow-text * {
+	padding-top: 3px;
+	background-image: linear-gradient( to left, orangered, orange, gold, lightgreen, cyan, dodgerblue, mediumpurple, hotpink, orangered);
+	background-size: 110vw;
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	-webkit-animation: rainbowan 60s linear infinite;
+	animation: rainbowan 60s linear infinite;
+}
+
+@-webkit-keyframes rainbowan {
+	to {
+		background-position: -2000vw;
+	}
+}
+
+@keyframes rainbowan {
+	to {
+		background-position: -2000vw;
+	}
+}
+
+/*进度条*/
+
+.progress {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	border: none;
+	border-radius: 290486px;
+	display: block;
+	height: 1rem;
+	overflow: hidden;
+	padding: 0;
+	width: 100%;
+}
+
+.progress.hong::-webkit-progress-bar {
+	background-color: var(--lhong);
+}
+
+.progress.huang::-webkit-progress-bar {
+	background-color: var(--lhuang)
+}
+
+.progress.lan::-webkit-progress-bar {
+	background-color: var(--llan)
+}
+
+.progress.lv::-webkit-progress-bar {
+	background-color: var(--llv)
+}
+
+.progress.zi::-webkit-progress-bar {
+	background-color: var(--lzi)
+}
+
+.progress::-webkit-progress-value {
+	background-color: #4a4a4a;
+}
+
+.progress::-moz-progress-bar {
+	background-color: #4a4a4a;
+}
+
+.progress::-ms-fill {
+	background-color: #4a4a4a;
+	border: none;
+}
+
+.progress.hong::-webkit-progress-value {
+	background-color: var(--mhong);
+}
+
+.progress.hong::-moz-progress-bar {
+	background-color: var(--mhong);
+}
+
+.progress.hong::-ms-fill {
+	background-color: var(--mhong);
+}
+
+.progress.hong:indeterminate {
+	background-image: linear-gradient(to right, var(--mhong) 30%, #ededed 30%);
+}
+
+.progress.lan::-webkit-progress-value {
+	background-color: var(--mlan);
+}
+
+.progress.lan::-moz-progress-bar {
+	background-color: var(--mlan);
+}
+
+.progress.lan::-ms-fill {
+	background-color: var(--mlan);
+}
+
+.progress.lan:indeterminate {
+	background-image: linear-gradient(to right, var(--mlan) 30%, #ededed 30%);
+}
+
+.progress.huang::-webkit-progress-value {
+	background-color: var(--mhuang);
+}
+
+.progress.huang::-moz-progress-bar {
+	background-color: var(--mhuang);
+}
+
+.progress.huang::-ms-fill {
+	background-color: var(--mhuang);
+}
+
+.progress.huang:indeterminate {
+	background-image: linear-gradient(to right, var(--mhuang) 30%, #ededed 30%);
+}
+
+.progress.zi::-webkit-progress-value {
+	background-color: var(--mzi);
+}
+
+.progress.zi::-moz-progress-bar {
+	background-color: var(--mzi);
+}
+
+.progress.zi::-ms-fill {
+	background-color: var(--mzi);
+}
+
+.progress.zi:indeterminate {
+	background-image: linear-gradient(to right, var(--mzi) 30%, #ededed 30%);
+}
+
+.progress.lv::-webkit-progress-value {
+	background-color: var(--mlv);
+}
+
+.progress.lv::-moz-progress-bar {
+	background-color: var(--mlv);
+}
+
+.progress.lv::-ms-fill {
+	background-color: var(--mlv);
+}
+
+.progress.lv:indeterminate {
+	background-image: linear-gradient(to right, var(--mlv) 30%, #ededed 30%);
+}
+
+.progress:indeterminate {
+	-webkit-animation-duration: 1.5s;
+	animation-duration: 1.5s;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-webkit-animation-name: moveIndeterminate;
+	animation-name: moveIndeterminate;
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;
+	background-color: #ededed;
+	background-image: linear-gradient(to right, #4a4a4a 30%, #ededed 30%);
+	background-position: top left;
+	background-repeat: no-repeat;
+	background-size: 150% 150%;
+}
+
+.progress:indeterminate::-webkit-progress-bar {
+	background-color: transparent;
+}
+
+.progress:indeterminate::-moz-progress-bar {
+	background-color: transparent;
+}
+
+@-webkit-keyframes moveIndeterminate {
+	from {
+		background-position: 200% 0;
+	}
+	to {
+		background-position: -200% 0;
+	}
+}
+
+@keyframes moveIndeterminate {
+	from {
+		background-position: 200% 0;
+	}
+	to {
+		background-position: -200% 0;
+	}
+}
+
+/*折叠面板*/
+
+.accordion {
+	margin: 1rem 0;
+	padding: 0;
+	list-style: none;
+}
+
+.open .accordion-thumb {
+	color: var(--bai) !important;
+	border-bottom-right-radius: unset;
+	border-bottom-left-radius: unset;
+}
+
+.accordion.lan>.open>.accordion-thumb {
+	background-color: var(--mlan);
+}
+
+.accordion.zi>.open>.accordion-thumb {
+	background-color: var(--mzi);
+}
+
+.accordion.hong>.open>.accordion-thumb {
+	background-color: var(--mhong);
+}
+
+.accordion.lv>.open>.accordion-thumb {
+	background-color: var(--mlv);
+}
+
+.accordion.huang>.open>.accordion-thumb {
+	background-color: var(--mhuang);
+}
+
+.accordion.lan .accordion-thumb, .accordion.lan .accordion-panel, .accordion.lan .accordion-panel * {
+	background-color: var(--llan);
+	color: var(--lan);
+}
+
+.accordion.lv .accordion-thumb, .accordion.lv .accordion-panel, .accordion.lv .accordion-panel * {
+	background-color: var(--llv);
+	color: var(--lv);
+}
+
+.accordion.huang .accordion-thumb, .accordion.huang .accordion-panel, .accordion.huang .accordion-panel * {
+	background-color: var(--lhuang);
+	color: var(--huang);
+}
+
+.accordion.hong .accordion-thumb, .accordion.hong .accordion-panel, .accordion.hong .accordion-panel * {
+	background-color: var(--lhong);
+	color: var(--hong);
+}
+
+.accordion.zi .accordion-thumb, .accordion.zi .accordion-panel, .accordion.zi .accordion-panel * {
+	background-color: var(--lzi);
+	color: var(--zi);
+}
+
+.accordion-thumb {
+	line-height: 1.6;
+	border-radius: var(--yj);
+	padding: 0.75em 1em;
+	cursor: pointer;
+	transition: all 0.4s ease;
+}
+
+.accordion-thumb::before {
+	content: '';
+	display: inline-block;
+	height: 7px;
+	width: 7px;
+	margin-right: 1rem;
+	margin-left: .5rem;
+	vertical-align: middle;
+	border-right: 1px solid;
+	border-bottom: 1px solid;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	-webkit-transition: -webkit-transform .2s ease-out;
+	transition: -webkit-transform .2s ease-out;
+	transition: transform .2s ease-out;
+}
+
+.accordion-panel {
+	margin: 0;
+	padding: 1.25em 1.5em;
+	display: none;
+	border-bottom-right-radius: var(--yj);
+	border-bottom-left-radius: var(--yj);
+}
+
+.accordion-item.open .accordion-thumb::before {
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+/*信息板*/
+
+.message {
+	background-color: whitesmoke;
+	border-radius: 4px;
+	font-size: 1rem;
+}
+
+.message strong {
+	color: currentColor;
+}
+
+.message a {
+	color: currentColor;
+	text-decoration: underline;
+}
+
+.message.lv, .tags.lv {
+	background-color: var(--llv);
+}
+
+.message.lv .message_header {
+	background-color: var(--mlv);
+	color: #fff;
+}
+
+.message.lv .message_body *, .tags.lv {
+	color: var(--lv);
+}
+
+.message.lv .message_body {
+	border-color: var(--lv);
+	color: var(--lv);
+}
+
+.message.lan, .tags.lan {
+	background-color: var(--llan);
+}
+
+.message.lan .message_header {
+	background-color: var(--mlan);
+	color: #fff;
+}
+
+.message.lan .message_body {
+	border-color: var(--lan);
+	color: var(--lan);
+}
+
+.message.lan .message_body *, .tags.lan {
+	color: var(--lan);
+}
+
+.message.hong, .tags.hong {
+	background-color: var(--lhong);
+}
+
+.message.hong .message_header {
+	background-color: var(--mhong);
+	color: #fff;
+}
+
+.message.hong .message_body *, .tags.hong {
+	color: var(--hong);
+}
+
+.message.hong .message_body {
+	border-color: var(--hong);
+	color: var(--hong);
+}
+
+.message.huang, .tags.huang {
+	background-color: var(--lhuang);
+}
+
+.message.huang .message_header {
+	background-color: var(--mhuang);
+	color: #fff;
+}
+
+.message.huang .message_body {
+	border-color: var(--huang);
+	color: var(--huang);
+}
+
+.message.huang .message_body *, .tags.huang {
+	color: var(--huang);
+}
+
+.message.zi, .tags.zi {
+	background-color: var(--lzi);
+}
+
+.message.zi .message_header {
+	background-color: var(--mzi);
+	color: #fff;
+}
+
+.message.zi .message_body {
+	border-color: var(--zi);
+	color: var(--zi);
+}
+
+.message.zi .message_body *, .tags.zi {
+	color: var(--zi);
+}
+
+.message_header {
+	align-items: center;
+	background-color: #4a4a4a;
+	border-radius: 4px 4px 0 0;
+	color: #fff;
+	display: flex;
+	font-weight: 700;
+	justify-content: space-between;
+	line-height: 1.25;
+	padding: 0.75em 1em;
+	position: relative;
+}
+
+.message_header+.message_body {
+	border-width: 0;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.message_body {
+	border-color: #dbdbdb;
+	border-radius: 4px;
+	border-style: solid;
+	border-width: 0 0 0 4px;
+	color: #4a4a4a;
+	padding: 1.25em 1.5em;
+	word-break: break-all;
+}
+
+.message_body code, .message_body pre {
+	background-color: white;
+}
+
+.message_body pre code {
+	background-color: transparent;
+}
+
+/*Tabs*/
+
+.tabs-wrap {
+	border-radius: 6px;
+	max-width: 100%;
+	display: -webkit-box;
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+	list-style: none;
+	background-color: #fff;
+	margin: 40px 0;
+	border: 1px solid rgba(0, 0, 0, 0.23);
+}
+
+.tabs-wrap label {
+	border-radius: 6px 6px 0 0;
+	cursor: pointer;
+	display: block;
+	text-decoration: none;
+	color: #333;
+	-webkit-box-flex: 3;
+	flex-grow: 3;
+	text-align: center;
+	background-color: #f2f2f2;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	text-align: center;
+	-webkit-transition: 0.3s background-color ease, 0.3s box-shadow ease;
+	transition: 0.3s background-color ease, 0.3s box-shadow ease;
+	height: 50px;
+	box-sizing: border-box;
+	padding: 15px;
+	line-height: 24px;
+}
+
+.tabs-wrap label:first-of-type:not(:last-of-type) {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.tabs-wrap label:not(:first-of-type):not(:last-of-type) {
+	border-radius: 0;
+}
+
+.tabs-wrap label:last-of-type:not(:first-of-type) {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.tabs-item.active {
+	background: #fff;
+}
+
+.tabs-main {
+	width: 100%;
+	background: #fff;
+	padding: 1rem;
+}
+
+.tabs-content.active {
+	opacity: 1;
+	position: relative;
+	top: 0;
+	z-index: 1;
+	-webkit-transform: translateY(0px);
+	transform: translateY(0px);
+	text-shadow: 0 0 0;
+	display: block;
+}
+
+.tabs-content {
+	padding: 10px 25px;
+	background-color: transparent;
+	position: absolute;
+	width: 100%;
+	z-index: -1;
+	opacity: 0;
+	left: 0;
+	-webkit-transform: translateY(-3px);
+	transform: translateY(-3px);
+	border-radius: 6px;
+	display:none
+}
+
+/*tags*/
+
+.tags {
+	align-items: center;
+	border-radius: var(--yj);
+	display: inline-flex;
+	height: 2em;
+	justify-content: center;
+	line-height: 1.5;
+	padding-left: .75em;
+	padding-right: .75em;
+	white-space: nowrap;
+}

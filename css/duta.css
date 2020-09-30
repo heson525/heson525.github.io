@@ -1,0 +1,285 @@
+
+.duta {
+    font-family: 'Mulish', -apple-system, "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif;
+    line-height: 2.3rem;
+    letter-spacing: .3px;
+}
+.duta h1::before,.duta h2::before,.duta h3::before,.duta h4::before,.duta h5::before,.duta h6::before {
+    display: block;
+    content: " ";
+    height: 80px;
+    margin-top: -80px;
+    visibility: hidden;
+}
+.duta h1,.duta h2,.duta h3,.duta h4,.duta h5,.duta h6 {
+	font-family: 'Mulish', -apple-system, 'Noto Serif SC', "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif;
+}
+
+.duta a {
+    text-decoration: none
+}
+
+.duta a:not(.btn):not(*[data-fancybox]):not(.mc-link):hover {
+    border-bottom: 1px solid
+}
+
+.duta abbr {
+    border-bottom: 1px dotted;
+    cursor: help
+}
+
+.duta cite {
+    font-style: italic
+}
+
+.duta hr {
+    background: #e6e6e6;
+    border: none;
+    display: block;
+    height: 1px;
+    margin-bottom: 1.4em;
+    margin-top: 1.4em
+}
+
+.duta img {
+    vertical-align: text-bottom
+}
+
+.duta ins {
+    background-color: lime;
+    text-decoration: none
+}
+
+.duta mark {
+    background-color: #ff0
+}
+
+.duta small {
+    font-size: 0.8em
+}
+
+.duta strong {
+    font-weight: 700
+}
+
+.duta sub, .duta sup {
+    font-size: 0.8em
+}
+
+.duta sub {
+    vertical-align: sub
+}
+
+.duta sup {
+    vertical-align: super
+}
+
+.duta p, .duta dl, .duta ol, .duta ul, .duta blockquote, .duta pre, .duta table {
+    margin-bottom: 1rem
+}
+
+.duta li p,.duta p:last-child, .duta dl:last-child, .duta ol:last-child, .duta ul:last-child, .duta blockquote:last-child, .duta pre:last-child, .duta table:last-child {
+    margin-bottom: 0
+}
+
+.duta p:empty {
+    display: none
+}
+
+.duta h1, .duta h2, .duta h3, .duta h4, .duta h5, .duta h6 {
+    font-weight: 700;
+    line-height: 1.2
+}
+
+.duta h1:first-child, .duta h2:first-child, .duta h3:first-child, .duta h4:first-child, .duta h5:first-child, .duta h6:first-child {
+    margin-top: 0
+}
+
+
+
+.duta h1 {
+    font-size: 2.4em;
+    margin-bottom: .58333em;
+    margin-top: .58333em;
+    line-height: 1
+}
+
+.duta h2 {
+    font-size: 1.6em;
+    margin-bottom: .875em;
+    margin-top: 1.75em;
+    line-height: 1.1
+}
+
+.duta h3 {
+    font-size: 1.3em;
+    margin-bottom: 1.07692em;
+    margin-top: 1.07692em
+}
+
+.duta h4 {
+    font-size: 1.2em;
+    margin-bottom: 1.16667em;
+    margin-top: 1.16667em
+}
+
+.duta h5 {
+    font-size: 1.1em;
+    margin-bottom: 1.27273em;
+    margin-top: 1.27273em
+}
+
+.duta h6 {
+    font-size: 1em;
+    margin-bottom: 1.4em;
+    margin-top: 1.4em
+}
+
+.duta dd {
+    margin-left: 1.4em
+}
+
+.duta ol, .duta ul {
+    list-style-position: outside;
+    margin-left: 1.4em
+}
+
+.duta ol {
+    list-style-type: decimal
+}
+
+.duta ol ol {
+    list-style-type: lower-alpha
+}
+
+.duta ol ol ol {
+    list-style-type: lower-roman
+}
+
+.duta ol ol ol ol {
+    list-style-type: lower-greek
+}
+
+.duta ol ol ol ol ol {
+    list-style-type: decimal
+}
+
+.duta ol ol ol ol ol ol {
+    list-style-type: lower-alpha
+}
+
+.duta ul {
+    list-style-type: disc
+}
+
+.duta ul ul {
+    list-style-type: circle
+}
+
+.duta ul ul ul {
+    list-style-type: square
+}
+
+.duta ul ul ul ul {
+    list-style-type: circle
+}
+
+.duta ul ul ul ul ul {
+    list-style-type: disc
+}
+
+.duta ul ul ul ul ul ul {
+    list-style-type: circle
+}
+
+.duta blockquote {
+    border-left: 4px solid #e6e6e6;
+    padding: 0.6em 1.2em
+}
+
+.duta blockquote p {
+    margin-bottom: 0
+}
+
+/* .duta code, */
+
+.duta kbd, .duta samp
+/*,  .duta pre */
+
+    {
+    -moz-osx-font-smoothing: auto;
+    -webkit-font-smoothing: auto;
+    background-color: #f2f2f2;
+    color: #333;
+    font-size: 0.9em
+}
+
+/* .duta code ,*/
+
+.duta kbd, .duta samp {
+    border-radius: 3px;
+    line-height: 1.77778;
+    padding: 0.1em 0.4em 0.2em;
+    vertical-align: baseline
+}
+
+/* .duta pre {
+    overflow: auto;
+    padding: 1em 1.2em
+}
+
+.duta pre code {
+    background: none;
+    font-size: 1em;
+    line-height: 1em
+} */
+
+.duta figure {
+    margin-bottom: 2.8em;
+    text-align: center
+}
+
+.duta figure:first-child {
+    margin-top: 0
+}
+
+.duta figure:last-child {
+    margin-bottom: 0
+}
+
+.duta figcaption {
+    font-size: 0.8em;
+    margin-top: .875em
+}
+
+.duta table {
+    width: 100%
+}
+
+.duta table pre {
+    white-space: pre-wrap
+}
+
+.duta th, .duta td {
+    font-size: 1em;
+    padding: .7em;
+    border: 1px solid #e6e6e6;
+    line-height: 1.4
+}
+
+.duta thead tr, .duta tfoot tr {
+    background-color: #f5f5f5
+}
+
+.duta thead th, .duta thead td, .duta tfoot th, .duta tfoot td {
+    font-size: .9em;
+    padding: .77778em
+}
+
+.duta thead th code, .duta thead td code, .duta tfoot th code, .duta tfoot td code {
+    background-color: #fff
+}
+
+.duta tbody tr {
+    background-color: #fff
+}
