@@ -2176,11 +2176,35 @@ bilibili>iframe {
 .DarkMode .duta th, .DarkMode .duta td {
 	border: 1px solid #909090;
 }
+
+/* 自增暗黑模式 */
 .DarkMode .moren p{
 	color: #555;
 }
-
-
+.DarkMode .timenode meta p{
+	color: #fff;
+}
+.DarkMode .timenode p,.DarkMode .timenode li{
+	color: #555;
+}
+.DarkMode .timenode blockquote p{
+	color:#cfcfcf
+}
+.DarkMode .timenode p a{
+	color: rgb(36, 122, 62);
+}
+.DarkMode .timenode .body {
+	background: #c4c4c4;
+}
+.DarkMode .vcontent p{
+	color: #b3b3b3!important;
+}
+.DarkMode .vpanel .vheader input{
+	color: #b3b3b3!important;
+}
+.DarkMode .vhead span.vsys{
+	color: #6b6a6a;
+}
 article emp {
     color: var(--color-text);
     border-bottom: 4px dotted #fe5f58;
