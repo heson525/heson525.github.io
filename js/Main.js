@@ -724,7 +724,7 @@ function colortag(){
 			var link = wangzhi(comments[i]._serverData.link);
 			var updatedAt = timeago(comments[i].updatedAt);
 			var commentId = '#' + comments[i].id;
-			hotComments.append('<li class="px1 pb2 flex items-center"><img style="width: 40px;height:40px" class="circle mx1 listavatar" src="'+mail+'"><div class="w100"><div class="flex justify-between"><div class="h6 listauthor overflow-hidden" title="' + nick + '"><a  target="_blank" rel="noopener external nofollow noreferrer" href="' + link + '">' + nick + '</a></div><span class="h6 mr1 listdate wenzi hang1">' + updatedAt + '</span></div> <a target="_blank" rel="noopener" href="' + url + commentId +'"><div class="h5 list-comcontent overflow-hidden">' + newcontent + '</div></a></div></li>');
+			hotComments.append('<li class="px1 pb2 flex items-center"><img style="width: 40px;height:40px" class="circle mx1 listavatar" src="'+mail+'"><div class="w100"><div class="flex justify-between"><div class="h6 listauthor overflow-hidden" title="' + nick + '"><a  target="_blank" rel="noopener external nofollow noreferrer" href="' + link + '">' + nick + '</a></div><span class="h6 mr1 listdate wenzi hang1">' + updatedAt + '</span></div> <a href="' + url + commentId +'"><div class="h5 list-comcontent overflow-hidden">' + newcontent + '</div></a></div></li>');
 		  }
 		});
 	};
@@ -767,7 +767,10 @@ function colortag(){
 	}
 	
 	$(function () {
-        pjax_valine();
+		pjax_valine();
+		
+		dingwei();
+
 	});
 	
 	function loadScript(src, cb) {
@@ -789,3 +792,15 @@ function colortag(){
 		loadIssuesJS();
 	  });
 
+
+function dingwei(){
+			/*锚点定位*/
+if(window.location.hash){
+	var checkExist = setInterval(function() {
+	   if (typeof jQuery == 'undefined'){return;}
+	   if ($("#"+decodeURI(window.location.hash.split("#")[1]).replace(/\ /g,"-")).length) {
+		  $('html, body').animate({scrollTop: $("#"+decodeURI(window.location.hash.split("#")[1]).replace(/\ /g,"-")).offset().top-100}, 500);
+		  clearInterval(checkExist);
+	   }
+	}, 100);}
+};
