@@ -898,3 +898,7 @@ var searchFunc = function(path, search_id, content_id) {
         }
     });
 }
+
+var search_path = "search.xml";
+var path = "/" + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
