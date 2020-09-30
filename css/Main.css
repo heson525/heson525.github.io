@@ -2178,6 +2178,7 @@ bilibili>iframe {
 }
 
 /* 自增暗黑模式 */
+
 .DarkMode .moren p{
 	color: #555;
 }
@@ -2810,8 +2811,12 @@ article#tag .all-tags ul {
 
   /* valine评论 */
   .postcount a{color: #fff;}
-
-
+.DarkMode .v[data-class=v] .vcards .vcard .vcontent.expand:before{
+	background: linear-gradient(180deg,rgba(95, 95, 95, 0),rgba(92, 92, 92, 0.9));
+}
+.DarkMode .v[data-class=v] .vcards .vcard .vcontent.expand:after{
+	background: rgb(92, 92, 92, 0.9)
+}
   /* 搜索框标签 */
 
   .searchbox_tags{display: inline;margin-right: 8px;}
@@ -2825,4 +2830,31 @@ article#tag .all-tags ul {
 	   margin-left: 0!important;
 	   margin-right: 0!important;
 	}
+  }
+
+   /* 搜索框 */
+   ul.search-result-list {
+	padding-left: 10px;
+  }
+  ul.search-result-list li{
+    list-style: none;
+    margin:10px 0;	
+  }
+  ul.search-result-list li a{
+font-size: 1.2rem;
+  }
+  a.search-result-title {
+	font-weight: bold;
+  }
+  
+  p.search-result {
+	text-indent: 2em;
+	color=#555;
+	padding: 10px 24px 24px 10px;
+  }
+  
+  em.search-keyword {
+	border-bottom: 1px dashed #ff0000;
+	font-weight: bold;
+	color:#ff0000 ;
   }
