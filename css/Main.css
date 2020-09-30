@@ -2816,3 +2816,13 @@ article#tag .all-tags ul {
 
   .searchbox_tags{display: inline;margin-right: 8px;}
   .searchbox_tags a{ padding: 4px; border-radius:2px ; -webkit-border-radius:2px ; -moz-border-radius:2px ; -ms-border-radius:2px ; -o-border-radius:2px ; }
+
+  /* 自加样式 */
+  
+
+  @media screen and (max-width:960px){
+	.mx3{
+	   margin-left: 0!important;
+	   margin-right: 0!important;
+	}
+  }
