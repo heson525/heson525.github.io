@@ -2176,7 +2176,9 @@ bilibili>iframe {
 .DarkMode .duta th, .DarkMode .duta td {
 	border: 1px solid #909090;
 }
-
+.DarkMode .moren p{
+	color: #555;
+}
 
 
 article emp {

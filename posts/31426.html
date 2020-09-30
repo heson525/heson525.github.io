@@ -195,10 +195,10 @@
             <article id="Post_wysiwyg" class="duta">
    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hexo默认的静态URL格式是 <code>:year/:month/:day/:title</code>，也就是按照年、月、日、标题来生成固定链接的。如<code>http://xxx.yy.com/2020/07/06/hello-world</code></p>
 <p>这种默认配置的缺点就是一般文件名是中文，导致url链接里有中文出现，这会造成很多问题，也不利于seo，另外就是年月日都会有分隔符。<a id="more"></a></p>
-<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><article class="message"><div class="message_body"><p>info,百度蜘蛛抓取网页的规则: 对于蜘蛛说网页权重越高、信用度越高抓取越频繁，例如网站的首页和内页。蜘蛛先抓取网站的首页，因为首页权重更高，并且大部分的链接都是指向首页。然后通过首页抓取网站的内页，并不是所有内页蜘蛛都会去抓取。</p></div></article>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><article class="message moren"><div class="message_body"><p>info,百度蜘蛛抓取网页的规则: 对于蜘蛛说网页权重越高、信用度越高抓取越频繁，例如网站的首页和内页。蜘蛛先抓取网站的首页，因为首页权重更高，并且大部分的链接都是指向首页。然后通过首页抓取网站的内页，并不是所有内页蜘蛛都会去抓取。</p></div></article>
 
 
-<article class="message"><div class="message_body"><p>success,搜索引擎认为对于一般的中小型站点，3层足够承受所有的内容了，所以蜘蛛经常抓取的内容是前三层，而超过三层的内容蜘蛛认为那些内容并不重要，所以不经常爬取。出于这个原因所以permalink后面跟着的最好不要超过2个斜杠。</p></div></article>
+<article class="message moren"><div class="message_body"><p>success,搜索引擎认为对于一般的中小型站点，3层足够承受所有的内容了，所以蜘蛛经常抓取的内容是前三层，而超过三层的内容蜘蛛认为那些内容并不重要，所以不经常爬取。出于这个原因所以permalink后面跟着的最好不要超过2个斜杠。</p></div></article>
 
 <p>使用 hexo-abbrlink 插件可以完美解决，具体使用方法如下：</p>
 <h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><ul>
@@ -218,7 +218,7 @@
 </ul>
 <h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">crc16 &amp; hex</span><br><span class="line">https://www.heson10.com/posts/55c6.html</span><br><span class="line">crc16 &amp; dec</span><br><span class="line">https://www.heson10.com/posts/43212.html</span><br><span class="line"></span><br><span class="line">crc32 &amp; hex</span><br><span class="line">https://www.heson10.com/posts/6ec16a2c.html</span><br><span class="line">crc32 &amp; dec</span><br><span class="line">https://www.heson10.com/posts/1521457752.html</span><br></pre></td></tr></table></figure>
 
-<article class="message"><div class="message_body"><p>danger,注意在生成之前就要改好算法和形式。不然后面再改的话会导致链接不统一。我就踩过坑，但后来是一个文章一个文章删除<code>abbrlink:</code>的值才改过来的，还好我文章不是很多。</p></div></article>
+<article class="message moren"><div class="message_body"><p>danger,注意在生成之前就要改好算法和形式。不然后面再改的话会导致链接不统一。我就踩过坑，但后来是一个文章一个文章删除<code>abbrlink:</code>的值才改过来的，还好我文章不是很多。</p></div></article>
 
 <p>话说最近看到了Hexo-abbrlink2这个插件，可以从1.html开始编。</p>
 <p>我试用了一下，会导致文章重复，正在研究如何解决。如果能从1开始编写的话，这样更容易看得出写了多少篇文章，当前上传和修改的是哪一篇。后面再研究。</p>
@@ -375,14 +375,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/52911.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/899.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 12 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/52911.html"
-                            class="list-title overflow-hidden h6">Hexo+Next7.X 博客美化教程合集</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 24 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/899.html"
+                            class="list-title overflow-hidden h6">用Python给Markdown文件优雅更名</a> </div>
                 </div>
             </div>
 
@@ -403,14 +403,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/46662.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/795.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
                     <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 19 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/46662.html"
-                            class="list-title overflow-hidden h6">hexo+next设置网站运行时间</a> </div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/795.html"
+                            class="list-title overflow-hidden h6">Hexo博客添加canvas-nest几何条纹动态背景</a> </div>
                 </div>
             </div>
 
@@ -431,14 +431,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/18074.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/38720.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 06 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/18074.html"
-                            class="list-title overflow-hidden h6">写在最开始</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 21 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/38720.html"
+                            class="list-title overflow-hidden h6">Typora+Picgo+七牛云实现图片快速上传</a> </div>
                 </div>
             </div>
 
