@@ -211,7 +211,7 @@
                             
                             
                             次</li> </div>
-                        <li class="mr1"><i class="fas fa-pen-nib"></i> 344 字</li>
+                        <li class="mr1"><i class="fas fa-pen-nib"></i> 343 字</li>
 
                         
                         
@@ -259,38 +259,27 @@
 <p><img src="https://pic.heson10.com/img/image-20200719000704508.png" alt="image-20200719000704508"></p>
 <p>1.找到<code>hexo\themes\next\layout\_partials\footer.swig</code>添加如下代码：<a id="more"></a></p>
 <pre><code class="html">&lt;!--添加网站运行时间 --&gt;
-&lt;% if (theme.running_time &amp;&amp; theme.running_time.enable &amp;&amp; theme.running_time.create_time)&#123; %&gt;
+&#123;%- if (theme.running_time && theme.running_time.enable && theme.running_time.create_time)&#123; %&#125;
     &lt;span id=&quot;timeDate&quot;&gt;载入天数...&lt;/span&gt;&lt;span id=&quot;times&quot;&gt;载入时分秒...&lt;/span&gt;
     &lt;script&gt;
-    var now = new Date();
-
     function createtime() &#123;
-        //此处修改你的建站时间或者网站上线时间
-        var create_time = &#39;&lt;%- theme.running_time.create_time %&gt;&#39;;
-        now.setTime(now.getTime() + 250);
-        days = (now - grt) / 1000 / 60 / 60 / 24;
-        dnum = Math.floor(days);
-        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
-        hnum = Math.floor(hours);
-        if (String(hnum).length == 1) &#123;
-            hnum = &quot;0&quot; + hnum;
-        &#125;
-        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
-        mnum = Math.floor(minutes);
-        if (String(mnum).length == 1) &#123;
-            mnum = &quot;0&quot; + mnum;
-        &#125;
-        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
-        snum = Math.round(seconds);
-        if (String(snum).length == 1) &#123;
-            snum = &quot;0&quot; + snum;
-        &#125;
-        document.getElementById(&quot;timeDate&quot;).innerHTML = &quot; | 本站已安全运行 &quot; + dnum + &quot; 天 &quot;;
+        var now = new Date();
+        function createtime() &#123;
+        var grt= new Date(&#123;%- theme.running_time.create_time %&#125;);//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 )&#123;hnum = &quot;0&quot; + hnum;&#125; minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 )&#123;mnum = &quot;0&quot; + mnum;&#125;
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 )&#123;snum = &quot;0&quot; + snum;&#125;
+        document.getElementById(&quot;timeDate&quot;).innerHTML = &quot;本站已安全运行 &quot;+dnum+&quot; 天 &quot;;
         document.getElementById(&quot;times&quot;).innerHTML = hnum + &quot; 小时 &quot; + mnum + &quot; 分 &quot; + snum + &quot; 秒&quot;;
     &#125;
-    setInterval(&quot;createtime()&quot;, 250);
+setInterval(&quot;createtime()&quot;,250);
+
     &lt;/script&gt;
-&lt;% &#125; %&gt;
+&#123;%- &#125; %&#125;
 &lt;!-- 添加网站运行时间 --&gt;</code></pre>
 <p>2.修改主题配置文件<code>_config.yml</code>添加如下代码</p>
 <pre><code class="shell"># 网站运行时间，格式形如：“本站已安全运行 12 天 11 小时 16 分 31 秒”
@@ -451,14 +440,14 @@ running_time:
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/31061.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/30982.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 09 月 28 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/31061.html"
-                            class="list-title overflow-hidden h6">测试多彩标签</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 13 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/30982.html"
+                            class="list-title overflow-hidden h6">hexo博客访问速度优化：又拍云CDN</a> </div>
                 </div>
             </div>
 
@@ -479,14 +468,14 @@ running_time:
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/19736.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/28396.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 21 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/19736.html"
-                            class="list-title overflow-hidden h6">给Hexo Volantis主题添加图片轮播功能</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 16 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/28396.html"
+                            class="list-title overflow-hidden h6">所有关于Valine评论系统的配置都在这里【合集】</a> </div>
                 </div>
             </div>
 
@@ -507,14 +496,14 @@ running_time:
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/38719.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/49693.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 16 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/38719.html"
-                            class="list-title overflow-hidden h6">Hexo中next主题启用文章置顶功能</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 23 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/49693.html"
+                            class="list-title overflow-hidden h6">hexo添加相关文章功能</a> </div>
                 </div>
             </div>
 
@@ -590,6 +579,7 @@ running_time:
         <p class="h5 mb1"> <svg style=' width: 1.5em;height: 1.5em;' class='icon' aria-hidden='true'>
                 <use xlink:href='#icon-ICP'></use>
             </svg> <a href="http://beian.miit.gov.cn" target="_blank"> 赣ICP备20008960号</a></p>
+            
     </div>
 </footer>
 <div id="post-menu" class="fixed top-0 bottom-0 h100 z1 table shadow">
@@ -615,6 +605,7 @@ running_time:
 
 
 </script>
+
     <script defer>
 
   const LCCounter = {

@@ -486,7 +486,7 @@ git clone https://...
 
 1.找到hexo\themes\next\layout\_partials\footer.swig添加如下代码：
 &lt;!--添加网站运行时间 --&gt;
-&lt;% if (theme.running...
+&#123;%- if (theme.runn...
                     </div>
                 </a>
             </div>
@@ -717,6 +717,7 @@ $ npm install hexo-generator-index-pin-top --sa...
         <p class="h5 mb1"> <svg style=' width: 1.5em;height: 1.5em;' class='icon' aria-hidden='true'>
                 <use xlink:href='#icon-ICP'></use>
             </svg> <a href="http://beian.miit.gov.cn" target="_blank"> 赣ICP备20008960号</a></p>
+            
     </div>
 </footer>
 <div id="post-menu" class="fixed top-0 bottom-0 h100 z1 table shadow">
@@ -742,6 +743,7 @@ $ npm install hexo-generator-index-pin-top --sa...
 
 
 </script>
+
     <script defer>
 
   const LCCounter = {
