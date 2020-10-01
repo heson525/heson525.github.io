@@ -2822,6 +2822,7 @@ article#tag .all-tags ul {
   .searchbox_tags{display: inline;margin-right: 8px;}
   .searchbox_tags a{ padding: 4px; border-radius:2px ; -webkit-border-radius:2px ; -moz-border-radius:2px ; -ms-border-radius:2px ; -o-border-radius:2px ; }
 
+
   /* 自加样式 */
   
 .playController svg{
@@ -2853,7 +2854,7 @@ font-size: 1.2rem;
   
   p.search-result {
 	text-indent: 2em;
-	color=#555;
+	color:#555;
 	padding: 10px 24px 24px 10px;
   }
   
@@ -2861,6 +2862,13 @@ font-size: 1.2rem;
 	border-bottom: 1px dashed #ff0000;
 	font-weight: bold;
 	color:#ff0000 ;
+  }
+
+  .DarkMode #local-search-input{
+	  color: #706d6d;
+  }
+  .DarkMode p.search-result, .DarkMode ul.search-result-list a{
+	color: #706d6d;
   }
 /*响应式设计*/
   .d-n{
