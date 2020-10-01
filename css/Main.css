@@ -2824,7 +2824,9 @@ article#tag .all-tags ul {
 
   /* 自加样式 */
   
-
+.playController svg{
+	cursor: pointer;
+}
   @media screen and (max-width:960px){
 	.mx3{
 	   margin-left: 0!important;

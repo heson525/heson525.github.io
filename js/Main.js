@@ -633,13 +633,9 @@ function colortag(){
 		} else { 
 			var datetime = new Date(); 
 			datetime.setTime(dateTimeStamp); 
-			var Nyear = datetime.getFullYear(); 
 			var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1; 
 			var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate(); 
-			var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours(); 
-			var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes(); 
-			var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds(); 
-			result = Nyear + "-" + Nmonth + "-" + Ndate 
+			result = Nmonth + "-" + Ndate 
 		} 
 		return result; 
 	} 
@@ -668,7 +664,7 @@ function colortag(){
 		  }
 		}
 		var valine = new Valine({
-		  el: '#valine_container_ba（因为主题已经有valine的这些参数了，这里随意填都行）',
+		  el: '#v123131',
 		  app_id: 'C1qWqsDatomXVctTafBuJADI-gzGzoHsz',
 		  app_key: 'J4CujIoElz1Wo7yLUbY4SOO5',
 		  placeholder: '',
@@ -702,8 +698,6 @@ function colortag(){
 		//获取头像
        function getAvater(mail){
 		   var a = mail.slice(-5,-6)
-           
-		
 		   return '//v1.alapi.cn/api/avatar?email='+mail+'&size=100'
 	   }
 
@@ -718,7 +712,7 @@ function colortag(){
 			}
 			var nick = bozhu(comments[i]._serverData.nick);
 			var content = comments[i]._serverData.comment;
-			var newcontent = content.substring(0, 50).replace(/<[^>]+>/g,"");
+			var newcontent = content.replace(/<[^>]+>/g,"").substring(0, 50);
 			var url = comments[i]._serverData.url;
 			var mail = getAvater(comments[i]._serverData.mail);
 			var link = wangzhi(comments[i]._serverData.link);
