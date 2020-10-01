@@ -896,3 +896,32 @@ var searchFunc = function(path, search_id, content_id) {
 var search_path = "search.xml";
 var path = "/" + search_path;
 searchFunc(path, 'local-search-input', 'local-search-result');
+
+
+//jquery响应式设计
+
+	$(window).resize(function() {
+		var width_resize = $(this).width();
+		var device_width = 800 
+		if ( width_resize < device_width ) {	
+		   $('#forpc').removeClass('d-d').addClass('d-n');
+		   $('#formobile,.formobile').removeClass('d-n').addClass('d-d');
+		   
+
+		} else {
+
+			$('#forpc').removeClass('d-n').addClass('d-d');
+			$('#formobile,.formobile').removeClass('d-d').addClass('d-n');
+
+		}
+	});
+
+	$(function(){
+		var width = $(window).width();
+		var device_width = 800 
+		if ( width < device_width ) {	
+			$('#forpc').addClass('d-n');
+			$('#formobile,.formobile').removeClass('d-n').addClass('d-d');
+
+		 } 
+	}); 

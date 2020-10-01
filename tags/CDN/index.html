@@ -75,7 +75,7 @@
     <div class="circle"></div>
   </div>
     -->
-    <div class="nav w100 fixed clearfix border-box haveimg nobg p1">
+    <div id="forpc" class="nav w100 fixed clearfix border-box haveimg nobg p1">
     <div class="flex justify-between mx-auto nav-content items-center">  
         <ul class="bold table nowrap">
             <li class="pr1 h2 table-cell align-middle sitetitle"><a href="/">黑石博客</a></li>         
@@ -114,6 +114,7 @@
         <ul class="table">
             <li class="table-cell align-middle">
                 <div id="CTPlayer" class="relative flex items-center">
+                    
                 </div>
             </li> <a class="table-cell align-middle" href="javascript:void(0)" onclick="CuteenFunc.SwitchDarkMode();">
                 <li class="center circle icon ml1 icon align-middle"> <svg class="icon" aria-hidden="true">
@@ -129,6 +130,61 @@
         </ul>
     </div>
 </div>
+    <div id="formobile" class="d-n">
+    <div class="nav w100 fixed clearfix border-box haveimg nobg p1">
+    <div class="flex justify-between items-center z4 mobile_nav">
+        <div id="left-menu" onclick="CuteenFunc.MobileMenu()" class="h3"><i class="fas fa-bars"></i></div>
+        <div class="pr1 h2 table-cell align-middle sitetitle"><a href="/">黑石博客</a></div>
+        <div class="h3"> <a href="#" data-izimodal-open="#searchbox" data-izimodal-transitionin="fadeInDown"> <i
+                    class="fas fa-search"></i> </a> </div>
+    </div>
+</div>
+    <div id="mobar">
+    <nav id="site-navigation" class="fixed top-0 bottom-0 z4 sidebar no-user-select">
+        <div id="nav" class="h100 absolute top-0 bottom-0">
+            <hr>
+            <div class="mt4">
+                <div class="Nav_mobile_content flex justify-center items-center"> <a onclick="CuteenFunc.MobileMenu()"
+                        class="Nav_mobile_logo block circle" target="_blank" rel="noopener" href="https://typecho.heson10.com/"
+                        style="background-image:url(//sdn.geekzu.org/avatar/fc2c9b067f65c9e2d7057ba797f7cfca?s=140)"></a>
+                </div>
+            </div>
+            <div class="h4 bold center"> 黑石博客 </div>
+            <div class="h5 center mt1"> 人生在勤，不索何获 </div>
+            <hr>
+            <div class="h6 p2">
+                <li class="fas fa-stream pr1"></li>独立页面
+            </div>
+            <li class="px3 py1 h5"><a class="ml2" href="/guestbook/" title="留言板">📬留言板</a></li>
+            <li class="px3 py1 h5"><a class="ml2" href="/links/" title="友链">🤝友链</a></li>
+            <li class="px3 py1 h5"><a class="ml2" href="/bb/" title="说说">🔊说说</a></li>
+            <li class="px3 py1 h5"><a class="ml2" href="/about/" title="关于">👑关于</a></li>
+            <hr>
+            <div class="h6 p2">
+                <li class="fas fa-stream pr1"></li>分类页面
+            </div>
+            <li class="px3 py1 h5"><a class="ml2"
+                    href="/categories/hexo/" title="">🍹
+                    HEXO</a></li>
+            <li class="px3 py1 h5"><a class="ml2"
+                    href="/categories/生活随笔/" title="生活随笔">🍹
+                    生活随笔</a></li>
+            <li class="px3 py1 h5 mobfl"><span class="ml2 mobzk flex justify-between items-center">
+                    <p> 其他 </p><i class="fas fa-angle-right"></i>
+                </span></li>
+            <ul class="mobzkcon pl3 h5 ">
+                <li class="p1"><a class="ml3" target="_blank" rel="noopener" href="https://box.heson10.com/" title="百宝箱">💖百宝箱</a></li>
+                <li class="p1"><a class="ml3" target="_blank" rel="noopener" href="https://travellings.now.sh/" title="开往">🚀开往</a></li>
+
+            </ul>
+        </div>
+        <div class="side-toolbar bottom-0 fixed flex items-center justify-center">
+            <div id="CTPlayer-mob" class="relative flex items-center">
+            </div>
+        </div>
+    </nav>
+</div>
+    </div>
     <div id="pjax">
         
         
@@ -372,6 +428,14 @@ jsDelivr 是国外的一家优秀的公共 CDN 服务...
             <use xlink:href='#icon-xuanfufanhuidingbu'></use>
         </svg>
     </a>
+    <div class="formobile d-n">
+        <a href="javascript:void(0)" onclick="CuteenFunc.SwitchDarkMode();">
+            <svg style=" width: 1.5em;height: 1.5em;" class="icon" aria-hidden="true">
+                <use xlink:href="#icon-_moon"></use>
+            </svg>
+        </a>
+    </div>
+    
 </div>
     </div>
     <div id="searchbox">

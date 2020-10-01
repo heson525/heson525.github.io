@@ -2833,7 +2833,9 @@ article#tag .all-tags ul {
 	   margin-right: 0!important;
 	}
   }
-
+  .hero-title{
+	  z-index: 1;
+  }
    /* 搜索框 */
    ul.search-result-list {
 	padding-left: 10px;
@@ -2860,3 +2862,20 @@ font-size: 1.2rem;
 	font-weight: bold;
 	color:#ff0000 ;
   }
+/*响应式设计*/
+  .d-n{
+	  display: none;
+  }
+
+  .d-d{
+	  display: block;
+  }
+  .p1 .mobile_nav a,  .p1  .mobile_nav i{
+	  color: #ffffff;
+  }
+  .p2 .mobile_nav a,  .p2  .mobile_nav i{
+	color: #252525;
+}
+.DarkMode .p2 .mobile_nav a, .DarkMode  .p2  .mobile_nav i{
+	color: #e4e4e4;
+}
