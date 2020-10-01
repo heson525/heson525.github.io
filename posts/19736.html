@@ -155,7 +155,7 @@
                             
                             
                             次</li> </div>
-                        <li class="mr1"><i class="fas fa-pen-nib"></i> 1.9k 字</li>
+                        <li class="mr1"><i class="fas fa-pen-nib"></i> 1.8k 字</li>
 
                         
                         
@@ -208,42 +208,393 @@
 <p>3.引用所需的jq库（主题自带）、js和css；</p>
 <p>4.修改配置文件，增加轮播开关和图片替换等功能。</p>
 <h2 id="教程开始"><a href="#教程开始" class="headerlink" title="教程开始"></a>教程开始</h2><h3 id="下载JQuery插件"><a href="#下载JQuery插件" class="headerlink" title="下载JQuery插件"></a>下载JQuery插件</h3><p>我已经上传到网盘：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">链接：https://pan.baidu.com/s/1D0ytw6w33uRCyXDX-4ubPA </span><br><span class="line">提取码：q4hg</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">链接：https://pan.baidu.com/s/1D0ytw6w33uRCyXDX-4ubPA 
+提取码：q4hg</code></pre>
 <h3 id="增加轮播框架"><a href="#增加轮播框架" class="headerlink" title="增加轮播框架"></a>增加轮播框架</h3><ul>
 <li>在<code>themes\volantis\layout\_widget</code>中新建<code>main_banner.ejs</code>文件</li>
 <li>在main_banner.ejs文件中写入以下代码：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;heson_row&quot;&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;main_banner shadow floatable blur&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;banners&quot;&gt;</span><br><span class="line">            &lt;!--加上左右箭头》》--&gt;</span><br><span class="line">            &lt;div class&#x3D;&quot;click_left&quot;&gt;</span><br><span class="line">                &lt;img class&#x3D;&quot;get_height&quot; onclick&#x3D;&quot;banner_left_right(&#39;left&#39;)&quot; src&#x3D;&quot;..&#x2F;img&#x2F;banner_left.png&quot;&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">            &lt;div class&#x3D;&quot;click_right&quot;&gt;</span><br><span class="line">                &lt;img onclick&#x3D;&quot;banner_left_right(&#39;right&#39;)&quot; src&#x3D;&quot;..&#x2F;img&#x2F;banner_right.png&quot;&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">            &lt;!--《《加上左右箭头--&gt;</span><br><span class="line">            &lt;div class&#x3D;&quot;number&quot;&gt;</span><br><span class="line">                &lt;div class&#x3D;&quot;numbers&quot;&gt;</span><br><span class="line">                &lt;&#x2F;div&gt;</span><br><span class="line">                &lt;div style&#x3D;&quot;clear: both;&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">            &lt;div class&#x3D;&quot;banner_img&quot;&gt;</span><br><span class="line">                &lt;!--主题config中配置参数--&gt;</span><br><span class="line">                &lt;%- theme.plugins.main_banner.pics %&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">            &lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;</span><br><span class="line">                var speed &#x3D; &lt;%&#x3D; theme.plugins.main_banner.speed %&gt;;&#x2F;&#x2F;配置中调用切换等待时间</span><br><span class="line">                var banner_max &#x3D; &lt;%&#x3D; theme.plugins.main_banner.banner_max %&gt;;&#x2F;&#x2F;配置中调用banner总数</span><br><span class="line">            &lt;&#x2F;script&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;hot_post&quot;&gt;</span><br><span class="line">        &lt;!--热门文章含图片--&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;index-banner&quot;&gt;</span><br><span class="line">            &lt;a href&#x3D;&quot;&lt;%- theme.plugins.hot_post.post_one %&gt;&quot; target&#x3D;&quot;_blank&quot;&gt;</span><br><span class="line">                &lt;img src&#x3D;&quot;&lt;%- theme.plugins.hot_post.pic_one %&gt;&quot; style&#x3D;&quot;width: 100%;&quot;&gt;</span><br><span class="line">            &lt;&#x2F;a&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;index-banner forpadding&quot;&gt;</span><br><span class="line">            &lt;a href&#x3D;&quot;&lt;%- theme.plugins.hot_post.post_two %&gt;&quot; target&#x3D;&quot;_blank&quot;&gt;</span><br><span class="line">                &lt;img src&#x3D;&quot;&lt;%- theme.plugins.hot_post.pic_two %&gt;&quot; style&#x3D;&quot;width: 100%;&quot;&gt;</span><br><span class="line">            &lt;&#x2F;a&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="ejs">&lt;div class=&quot;heson_row&quot;&gt;
+    &lt;div class=&quot;main_banner shadow floatable blur&quot;&gt;
+        &lt;div class=&quot;banners&quot;&gt;
+            &lt;!--加上左右箭头》》--&gt;
+            &lt;div class=&quot;click_left&quot;&gt;
+                &lt;img class=&quot;get_height&quot; onclick=&quot;banner_left_right(&#39;left&#39;)&quot; src=&quot;../img/banner_left.png&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;click_right&quot;&gt;
+                &lt;img onclick=&quot;banner_left_right(&#39;right&#39;)&quot; src=&quot;../img/banner_right.png&quot;&gt;
+            &lt;/div&gt;
+            &lt;!--《《加上左右箭头--&gt;
+            &lt;div class=&quot;number&quot;&gt;
+                &lt;div class=&quot;numbers&quot;&gt;
+                &lt;/div&gt;
+                &lt;div style=&quot;clear: both;&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;banner_img&quot;&gt;
+                &lt;!--主题config中配置参数--&gt;
+                &lt;%- theme.plugins.main_banner.pics %&gt;
+            &lt;/div&gt;
+            &lt;script type=&quot;text/javascript&quot;&gt;
+                var speed = &lt;%= theme.plugins.main_banner.speed %&gt;;//配置中调用切换等待时间
+                var banner_max = &lt;%= theme.plugins.main_banner.banner_max %&gt;;//配置中调用banner总数
+            &lt;/script&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;hot_post&quot;&gt;
+        &lt;!--热门文章含图片--&gt;
+        &lt;div class=&quot;index-banner&quot;&gt;
+            &lt;a href=&quot;&lt;%- theme.plugins.hot_post.post_one %&gt;&quot; target=&quot;_blank&quot;&gt;
+                &lt;img src=&quot;&lt;%- theme.plugins.hot_post.pic_one %&gt;&quot; style=&quot;width: 100%;&quot;&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;index-banner forpadding&quot;&gt;
+            &lt;a href=&quot;&lt;%- theme.plugins.hot_post.post_two %&gt;&quot; target=&quot;_blank&quot;&gt;
+                &lt;img src=&quot;&lt;%- theme.plugins.hot_post.pic_two %&gt;&quot; style=&quot;width: 100%;&quot;&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
 <h3 id="增加CSS样式和所需图片"><a href="#增加CSS样式和所需图片" class="headerlink" title="增加CSS样式和所需图片"></a>增加CSS样式和所需图片</h3><ul>
 <li><p>把前面网盘里面文件下载，找到img里的箭头图标，放进<code>themes\volantis\source\img</code><br><img src="https://picup.heson10.com/img/image-20200821203336667.png" alt="image-20200821203336667"></p>
 </li>
 <li><p>在themes\volantis\source\css\style.css中，增加代码：</p>
 </li>
 </ul>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> hexo-config(<span class="string">&#x27;plugins.main_banner.enable&#x27;</span>)</span><br><span class="line">    @import <span class="string">&#x27;_other/main_banner&#x27;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="stylus">if hexo-config(&#39;plugins.main_banner.enable&#39;)
+    @import &#39;_other/main_banner&#39;</code></pre>
 <ul>
 <li>在<code>themes\volantis\source\css\_other</code>文件夹<strong>（没有请新建）</strong>里增加文件<code>main_banner.styl</code>，并在其添加如下代码：</li>
 </ul>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><span class="line">.main_banner</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">66%</span></span><br><span class="line">  <span class="attribute">float</span>:left</span><br><span class="line">  img</span><br><span class="line">   <span class="attribute">border-radius</span>: <span class="number">8px</span>;</span><br><span class="line">  <span class="attribute">height</span>:<span class="number">100%</span></span><br><span class="line">  @media screen and (<span class="attribute">max-width</span>: <span class="number">800px</span>) </span><br><span class="line">   <span class="attribute">width</span>:<span class="number">100%</span></span><br><span class="line">   <span class="attribute">height</span>:<span class="number">40vw</span></span><br><span class="line">   <span class="attribute">float</span>:left </span><br><span class="line"></span><br><span class="line">.hot_post</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">33%</span></span><br><span class="line">  <span class="attribute">height</span>:<span class="number">100%</span></span><br><span class="line">  <span class="attribute">float</span>:left</span><br><span class="line">  <span class="attribute">padding</span>:<span class="number">0</span> <span class="number">0px</span> <span class="number">0</span> <span class="number">1vw</span></span><br><span class="line">  @media screen and (<span class="attribute">max-width</span>: <span class="number">800px</span>) </span><br><span class="line">   <span class="attribute">width</span>:<span class="number">100%</span></span><br><span class="line">   <span class="attribute">height</span>:<span class="number">50vw</span></span><br><span class="line">   <span class="attribute">float</span>:left</span><br><span class="line">   <span class="attribute">margin-top</span>:<span class="number">1vw</span></span><br><span class="line">   <span class="attribute">padding</span>:<span class="number">0</span></span><br><span class="line">  .forpadding</span><br><span class="line">    <span class="attribute">padding-top</span>:<span class="number">0.5vw</span> </span><br><span class="line">  .index-banner</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">50%</span></span><br><span class="line"></span><br><span class="line">.heson_row</span><br><span class="line">  <span class="attribute">background-color</span>: none</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">100%</span></span><br><span class="line">  <span class="attribute">height</span>:<span class="number">20vw</span></span><br><span class="line">  <span class="attribute">max-height</span>:<span class="number">400px</span></span><br><span class="line">  <span class="attribute">margin-top</span>:<span class="number">20px</span>;</span><br><span class="line">  @media screen and (<span class="attribute">max-width</span>: <span class="number">800px</span>) </span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100%</span></span><br><span class="line">	<span class="attribute">height</span>:<span class="number">65vw</span></span><br><span class="line">  @media screen and (<span class="attribute">max-width</span>: <span class="variable">$device</span>-<span class="number">2</span>k) </span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100%</span></span><br><span class="line">	<span class="attribute">height</span>:<span class="number">25vw</span></span><br><span class="line">   </span><br><span class="line">.banners</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">background-color</span>: rgba(<span class="number">200</span>,<span class="number">200</span>,<span class="number">200</span>,<span class="number">0.5</span>)</span><br><span class="line">  @media screen and (<span class="attribute">max-width</span>: <span class="number">600px</span>) </span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100%</span></span><br><span class="line">    <span class="attribute">height</span>:<span class="number">40vw</span></span><br><span class="line">    <span class="attribute">float</span>:left</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hot_post</span> <span class="selector-tag">img</span> </span><br><span class="line">&#123;</span><br><span class="line">   <span class="attribute">height</span>:<span class="number">100%</span></span><br><span class="line">   <span class="attribute">border-radius</span>:<span class="number">8px</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">	  </span><br><span class="line"><span class="selector-class">.banners</span>:hover .click_left</span><br><span class="line">&#123;</span><br><span class="line">	<span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.banners</span>:hover .click_right</span><br><span class="line">&#123;</span><br><span class="line">	<span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.click_left</span><br><span class="line">&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">1vw</span>;</span><br><span class="line">	<span class="attribute">position</span>: absolute;</span><br><span class="line">	<span class="attribute">z-index</span>: <span class="number">10</span>;</span><br><span class="line">	<span class="attribute">left</span>: <span class="number">2vw</span>;</span><br><span class="line">	<span class="attribute">top</span>:<span class="number">2.5vw</span>;</span><br><span class="line">	<span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.click_right</span><br><span class="line">&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">1vw</span>;</span><br><span class="line">	<span class="attribute">position</span>: absolute;</span><br><span class="line">	<span class="attribute">z-index</span>: <span class="number">10</span>;</span><br><span class="line">	<span class="attribute">right</span>: <span class="number">2vw</span>;</span><br><span class="line">	<span class="attribute">top</span>:<span class="number">2.5vw</span>;</span><br><span class="line">	<span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.click_left</span> <span class="selector-tag">img</span>,<span class="selector-class">.click_right</span> img</span><br><span class="line">&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.number</span><br><span class="line">&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">1vw</span>;</span><br><span class="line">	<span class="attribute">line-height</span>: <span class="number">1vw</span>;</span><br><span class="line">	<span class="attribute">position</span>: absolute;</span><br><span class="line">	<span class="attribute">z-index</span>: <span class="number">10</span>;</span><br><span class="line">	<span class="attribute">text-align</span>: center;</span><br><span class="line">	<span class="attribute">bottom</span>: <span class="number">1.5vw</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.numbers</span><br><span class="line">&#123;</span><br><span class="line">	<span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.numbers</span> span</span><br><span class="line">&#123;</span><br><span class="line">	<span class="attribute">color</span>: white;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">0.7vw</span>;</span><br><span class="line">	<span class="attribute">display</span>: block;</span><br><span class="line">	<span class="attribute">float</span>: left;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">1vw</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">1vw</span>;</span><br><span class="line">	<span class="attribute">line-height</span>: <span class="number">1vw</span>;</span><br><span class="line">	<span class="attribute">text-align</span>: center;</span><br><span class="line">	<span class="attribute">border-radius</span>: <span class="number">100vw</span>;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">0</span> <span class="number">0.5vw</span>;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">0vw</span>;</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">0.1vw</span> solid white;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.numbers</span> <span class="selector-tag">span</span>:hover</span><br><span class="line">&#123;</span><br><span class="line">	<span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.banner_img</span><br><span class="line">&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.banner_img</span> img</span><br><span class="line">&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">position</span>: absolute;</span><br><span class="line">	<span class="attribute">break-inside</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.l_main</span> <span class="selector-class">.post-list</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span> auto!important;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="stylus">.main_banner
+  width:66%
+  float:left
+  img
+   border-radius: 8px;
+  height:100%
+  @media screen and (max-width: 800px) 
+   width:100%
+   height:40vw
+   float:left 
 
+.hot_post
+  width:33%
+  height:100%
+  float:left
+  padding:0 0px 0 1vw
+  @media screen and (max-width: 800px) 
+   width:100%
+   height:50vw
+   float:left
+   margin-top:1vw
+   padding:0
+  .forpadding
+    padding-top:0.5vw 
+  .index-banner
+    position: relative;
+    height:50%
+
+.heson_row
+  background-color: none
+  width:100%
+  height:20vw
+  max-height:400px
+  margin-top:20px;
+  @media screen and (max-width: 800px) 
+    width:100%
+    height:65vw
+  @media screen and (max-width: $device-2k) 
+    width:100%
+    height:25vw
+
+.banners
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(200,200,200,0.5)
+  @media screen and (max-width: 600px) 
+    width:100%
+    height:40vw
+    float:left
+
+.hot_post img 
+&#123;
+   height:100%
+   border-radius:8px
+
+&#125;
+
+.banners:hover .click_left
+&#123;
+    display: block;
+&#125;
+
+.banners:hover .click_right
+&#123;
+    display: block;
+&#125;
+
+.click_left
+&#123;
+    width: 1vw;
+    position: absolute;
+    z-index: 10;
+    left: 2vw;
+    top:2.5vw;
+    display: none;
+&#125;
+
+.click_right
+&#123;
+    width: 1vw;
+    position: absolute;
+    z-index: 10;
+    right: 2vw;
+    top:2.5vw;
+    display: none;
+&#125;
+
+.click_left img,.click_right img
+&#123;
+    width: 100%;
+    height: 100%;
+&#125;
+
+.number
+&#123;
+    width: 100%;
+    height: 1vw;
+    line-height: 1vw;
+    position: absolute;
+    z-index: 10;
+    text-align: center;
+    bottom: 1.5vw;
+&#125;
+
+.numbers
+&#123;
+    display: inline-block;
+&#125;
+
+.numbers span
+&#123;
+    color: white;
+    font-size: 0.7vw;
+    display: block;
+    float: left;
+    width: 1vw;
+    height: 1vw;
+    line-height: 1vw;
+    text-align: center;
+    border-radius: 100vw;
+    margin: 0 0.5vw;
+    padding: 0vw;
+    border: 0.1vw solid white;
+&#125;
+
+.numbers span:hover
+&#123;
+    cursor: pointer;
+&#125;
+
+.banner_img
+&#123;
+    width: 100%;
+    height: 100%;
+&#125;
+
+.banner_img img
+&#123;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    break-inside: 1;
+&#125;
+
+.l_main .post-list &#123;
+    margin:0 auto!important;
+    float: left;
+&#125;</code></pre>
 <h3 id="增加JS文件"><a href="#增加JS文件" class="headerlink" title="增加JS文件"></a>增加JS文件</h3><ul>
 <li>在<code>themes\volantis\layout\layout.ejs</code>中<code>&lt;/body&gt;</code>上加上代码:</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.plugins.main_banner.enable &#x3D;&#x3D; true) &#123; %&gt;</span><br><span class="line">  &lt;script src&#x3D;&quot;..&#x2F;js&#x2F;main_banner.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="ejs">  &lt;% if (theme.plugins.main_banner.enable == true) &#123; %&gt;
+    &lt;script src=&quot;../js/main_banner.js&quot;&gt;&lt;/script&gt;
+  &lt;% &#125; %&gt;</code></pre>
 <ul>
 <li>在<code>themes\volantis\source\js</code>中增加<code>main_banner.js</code>，其中代码为：</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*图片轮播*/</span></span><br><span class="line"><span class="keyword">var</span> banners = <span class="number">1</span>;<span class="comment">//banner显示的第一幅画面1~banner_max范围内任意选择</span></span><br><span class="line"><span class="keyword">var</span> timer;<span class="comment">//计时器对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//img标签后直接调用运行</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loads</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> img_num = banner_max</span><br><span class="line">	$(<span class="string">&quot;.banner_img&quot;</span> + banners).fadeTo(<span class="number">100</span>, <span class="number">1</span>);<span class="comment">//显示设置的第一张banner</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> numbers_span = <span class="string">&quot;&quot;</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= img_num; ++i) &#123;</span><br><span class="line">		numbers_span += <span class="string">&#x27;&lt;span class=&quot;num&#x27;</span> + i + <span class="string">&#x27;&quot; onclick=&quot;manual_replace_banner(&#x27;</span> + i + <span class="string">&#x27;)&quot;&gt;&#x27;</span> + i + <span class="string">&#x27;&lt;/span&gt;&#x27;</span>; <span class="comment">//循环赋值到字符串</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	$(<span class="string">&quot;.numbers&quot;</span>).html(numbers_span);<span class="comment">//设置对应banner的数字</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//自适应修改行高</span></span><br><span class="line">	<span class="keyword">var</span> banners_height = $(<span class="string">&quot;.banners&quot;</span>).height();</span><br><span class="line">	$(<span class="string">&quot;.banners&quot;</span>).css(<span class="string">&quot;line-height&quot;</span>, banners_height + <span class="string">&quot;px&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//窗口事件修改行高</span></span><br><span class="line"></span><br><span class="line">$(<span class="built_in">window</span>).resize(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> banners_height = $(<span class="string">&quot;.banners&quot;</span>).height();</span><br><span class="line">	$(<span class="string">&quot;.banners&quot;</span>).css(<span class="string">&quot;line-height&quot;</span>, banners_height + <span class="string">&quot;px&quot;</span>);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//页面文件加载完毕后自动调用</span></span><br><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">	banner_number();<span class="comment">//banner页数高亮显示</span></span><br><span class="line"></span><br><span class="line">	timer = <span class="built_in">setInterval</span>(auto_replace_banner, speed * <span class="number">1000</span>);<span class="comment">//banner切换计时器</span></span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//点击左右按钮更换banner</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">banner_left_right</span>(<span class="params">sj</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> sjs;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (sj == <span class="string">&quot;left&quot;</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> (banners == <span class="number">1</span>) &#123;</span><br><span class="line">			sjs = banner_max;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			sjs = banners - <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> (banners == banner_max) &#123;</span><br><span class="line">			sjs = <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			sjs = banners + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	manual_replace_banner(sjs);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//点击数字切换</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">manual_replace_banner</span>(<span class="params">sj</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> bannerz = banners;</span><br><span class="line"></span><br><span class="line">	banners = sj;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (banners == bannerz) &#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">clearInterval</span>(timer);<span class="comment">//停止计时器</span></span><br><span class="line"></span><br><span class="line">	fade_in_out(bannerz, banners);<span class="comment">//调用切换函数</span></span><br><span class="line"></span><br><span class="line">	timer = <span class="built_in">setInterval</span>(auto_replace_banner, speed * <span class="number">1000</span>);<span class="comment">//banner切换计时器重新启动</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//自动更换banner</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">auto_replace_banner</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> bannerz = banners;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (banners == banner_max) &#123;</span><br><span class="line">		banners = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		banners += <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fade_in_out(bannerz, banners);<span class="comment">//调用切换函数</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//淡入淡出效果方法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fade_in_out</span>(<span class="params">bannerz, banners</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> out_id = <span class="string">&quot;.banner_img&quot;</span> + bannerz;<span class="comment">//淡出标签的ID名</span></span><br><span class="line">	<span class="keyword">var</span> banner_out = $(out_id);<span class="comment">//获取淡出对象</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> in_id = <span class="string">&quot;.banner_img&quot;</span> + banners;<span class="comment">//淡入标签的ID名</span></span><br><span class="line">	<span class="keyword">var</span> bannet_in = $(in_id);<span class="comment">//获取淡入对象</span></span><br><span class="line"></span><br><span class="line">	banner_out.fadeTo(<span class="number">600</span>, <span class="number">0</span>);<span class="comment">//JQuery方法淡出到指定透明度,参数1为速度，参数2为透明度</span></span><br><span class="line">	bannet_in.fadeTo(<span class="number">500</span>, <span class="number">1</span>);<span class="comment">//JQuery方法淡入,参数1为速度，参数2为透明度</span></span><br><span class="line"></span><br><span class="line">	banner_number();<span class="comment">//调用数字颜色更换</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//banner数字显示</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">banner_number</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= banner_max; i++) &#123;</span><br><span class="line">		<span class="keyword">var</span> num_id = <span class="string">&quot;.num&quot;</span> + i;</span><br><span class="line">		<span class="keyword">var</span> num_object = $(num_id);</span><br><span class="line">		<span class="keyword">if</span> (banners == i) &#123;</span><br><span class="line">			num_object.css(<span class="string">&quot;color&quot;</span>, <span class="string">&quot;black&quot;</span>);</span><br><span class="line">			num_object.css(<span class="string">&quot;backgroundColor&quot;</span>, <span class="string">&quot;white&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			num_object.css(<span class="string">&quot;color&quot;</span>, <span class="string">&quot;white&quot;</span>);</span><br><span class="line">			num_object.css(<span class="string">&quot;backgroundColor&quot;</span>, <span class="string">&quot;rgba(0,0,0,0)&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//banner链接跳转</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">link</span>(<span class="params">url, mode = true</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (mode == <span class="literal">true</span>) &#123;</span><br><span class="line">		<span class="built_in">window</span>.open(url);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">window</span>.location.href = url;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">loads();</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">/*图片轮播*/
+var banners = 1;//banner显示的第一幅画面1~banner_max范围内任意选择
+var timer;//计时器对象
+
+//img标签后直接调用运行
+function loads() &#123;
+
+    var img_num = banner_max
+    $(&quot;.banner_img&quot; + banners).fadeTo(100, 1);//显示设置的第一张banner
+
+    var numbers_span = &quot;&quot;;
+    for (var i = 1; i &lt;= img_num; ++i) &#123;
+        numbers_span += &#39;&lt;span class=&quot;num&#39; + i + &#39;&quot; onclick=&quot;manual_replace_banner(&#39; + i + &#39;)&quot;&gt;&#39; + i + &#39;&lt;/span&gt;&#39;; //循环赋值到字符串
+    &#125;
+
+    $(&quot;.numbers&quot;).html(numbers_span);//设置对应banner的数字
+
+    //自适应修改行高
+    var banners_height = $(&quot;.banners&quot;).height();
+    $(&quot;.banners&quot;).css(&quot;line-height&quot;, banners_height + &quot;px&quot;);
+
+
+&#125;
+
+//窗口事件修改行高
+
+$(window).resize(function () &#123;
+
+    var banners_height = $(&quot;.banners&quot;).height();
+    $(&quot;.banners&quot;).css(&quot;line-height&quot;, banners_height + &quot;px&quot;);
+
+&#125;);
 
 
 
+//页面文件加载完毕后自动调用
+$(document).ready(function () &#123;
+
+    banner_number();//banner页数高亮显示
+
+    timer = setInterval(auto_replace_banner, speed * 1000);//banner切换计时器
+
+&#125;);
+
+
+
+//点击左右按钮更换banner
+function banner_left_right(sj) &#123;
+    var sjs;
+
+    if (sj == &quot;left&quot;) &#123;
+        if (banners == 1) &#123;
+            sjs = banner_max;
+        &#125;
+        else &#123;
+            sjs = banners - 1;
+        &#125;
+    &#125;
+    else &#123;
+        if (banners == banner_max) &#123;
+            sjs = 1;
+        &#125;
+        else &#123;
+            sjs = banners + 1;
+        &#125;
+    &#125;
+
+    manual_replace_banner(sjs);
+&#125;
+
+
+
+//点击数字切换
+function manual_replace_banner(sj) &#123;
+    var bannerz = banners;
+
+    banners = sj;
+
+    if (banners == bannerz) &#123;
+        return;
+    &#125;
+
+    clearInterval(timer);//停止计时器
+
+    fade_in_out(bannerz, banners);//调用切换函数
+
+    timer = setInterval(auto_replace_banner, speed * 1000);//banner切换计时器重新启动
+&#125;
+
+
+
+//自动更换banner
+function auto_replace_banner() &#123;
+    var bannerz = banners;
+
+    if (banners == banner_max) &#123;
+        banners = 1;
+    &#125;
+    else &#123;
+        banners += 1;
+    &#125;
+
+    fade_in_out(bannerz, banners);//调用切换函数
+&#125;
+
+
+
+//淡入淡出效果方法
+function fade_in_out(bannerz, banners) &#123;
+    var out_id = &quot;.banner_img&quot; + bannerz;//淡出标签的ID名
+    var banner_out = $(out_id);//获取淡出对象
+
+    var in_id = &quot;.banner_img&quot; + banners;//淡入标签的ID名
+    var bannet_in = $(in_id);//获取淡入对象
+
+    banner_out.fadeTo(600, 0);//JQuery方法淡出到指定透明度,参数1为速度，参数2为透明度
+    bannet_in.fadeTo(500, 1);//JQuery方法淡入,参数1为速度，参数2为透明度
+
+    banner_number();//调用数字颜色更换
+&#125;
+
+
+
+//banner数字显示
+function banner_number() &#123;
+    for (var i = 1; i &lt;= banner_max; i++) &#123;
+        var num_id = &quot;.num&quot; + i;
+        var num_object = $(num_id);
+        if (banners == i) &#123;
+            num_object.css(&quot;color&quot;, &quot;black&quot;);
+            num_object.css(&quot;backgroundColor&quot;, &quot;white&quot;);
+        &#125;
+        else &#123;
+            num_object.css(&quot;color&quot;, &quot;white&quot;);
+            num_object.css(&quot;backgroundColor&quot;, &quot;rgba(0,0,0,0)&quot;);
+        &#125;
+    &#125;
+&#125;
+
+
+//banner链接跳转
+function link(url, mode = true) &#123;
+    if (mode == true) &#123;
+        window.open(url);
+    &#125;
+    else &#123;
+        window.location.href = url;
+    &#125;
+&#125;
+
+loads();</code></pre>
 <h3 id="修改主题配置文件"><a href="#修改主题配置文件" class="headerlink" title="修改主题配置文件"></a>修改主题配置文件</h3><p>在plugins:下增加如下代码：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">main_banner:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span>    <span class="comment"># 开启图片轮播</span></span><br><span class="line">  <span class="attr">banner_max:</span> <span class="number">3</span>   <span class="comment">#图片数量</span></span><br><span class="line">  <span class="attr">speed:</span> <span class="number">2</span>        <span class="comment">#切换秒数</span></span><br><span class="line">  <span class="attr">pics:</span>   <span class="comment"># 在此更换图片   &lt;img class=&quot;banner_img（注意这里填1、2、3、4、5）&quot; src=&quot;图片地址&quot; onclick=&quot;link(&quot;跳转地址&quot;,true（代表新窗口打开）)&quot; style=&quot;opacity: 1;&quot;(第一个填1，后面填0)&gt;</span></span><br><span class="line">     <span class="string">&#x27;</span></span><br><span class="line"><span class="string">     &lt;img class=&quot;banner_img1&quot; src=&quot;https://cdn.jsdelivr.net/gh/heson10/pic@master/img/Texture-1.png&quot; onclick=&quot;link(&quot;https://www.heson10.com&quot;,true)&quot; style=&quot;opacity: 1;&quot;&gt;</span></span><br><span class="line"><span class="string">	 &lt;img class=&quot;banner_img2&quot; src=&quot;https://cdn.jsdelivr.net/gh/heson10/pic@master/img/Texture-2.png&quot; onclick=&quot;link(&quot;https://www.heson10.com&quot;,false)&quot; style=&quot;opacity: 0;&quot;&gt;</span></span><br><span class="line"><span class="string">     &lt;img class=&quot;banner_img3&quot; src=&quot;https://cdn.jsdelivr.net/gh/heson10/pic@master/img/Texture-3.png&quot; onclick=&quot;link(&quot;https://www.heson10.com&quot;,true)&quot; style=&quot;opacity: 0;&quot;&gt;</span></span><br><span class="line"><span class="string">     &#x27;</span></span><br><span class="line"><span class="comment">########### 热门帖子 ##############</span></span><br><span class="line"><span class="attr">hot_post:</span></span><br><span class="line">  <span class="comment">###### 热门1 #####</span></span><br><span class="line">  <span class="attr">pic_one:</span> <span class="string">https://picup.heson10.com/img/spring-boot-learning.png</span></span><br><span class="line">  <span class="attr">post_one:</span> <span class="string">https://www.heson10.com</span></span><br><span class="line">  <span class="comment">###### 热门2 #####</span></span><br><span class="line">  <span class="attr">pic_two:</span> <span class="string">https://picup.heson10.com/img/spring-cloud-learning.png</span>  </span><br><span class="line">  <span class="attr">post_two:</span> <span class="string">https://www.heson10.com</span>   </span><br></pre></td></tr></table></figure>
-
+<pre><code class="yaml">  main_banner:
+    enable: true    # 开启图片轮播
+    banner_max: 3   #图片数量
+    speed: 2        #切换秒数
+    pics:   # 在此更换图片   &lt;img class=&quot;banner_img（注意这里填1、2、3、4、5）&quot; src=&quot;图片地址&quot; onclick=&quot;link(&quot;跳转地址&quot;,true（代表新窗口打开）)&quot; style=&quot;opacity: 1;&quot;(第一个填1，后面填0)&gt;
+       &#39;
+       &lt;img class=&quot;banner_img1&quot; src=&quot;https://cdn.jsdelivr.net/gh/heson10/pic@master/img/Texture-1.png&quot; onclick=&quot;link(&quot;https://www.heson10.com&quot;,true)&quot; style=&quot;opacity: 1;&quot;&gt;
+             &lt;img class=&quot;banner_img2&quot; src=&quot;https://cdn.jsdelivr.net/gh/heson10/pic@master/img/Texture-2.png&quot; onclick=&quot;link(&quot;https://www.heson10.com&quot;,false)&quot; style=&quot;opacity: 0;&quot;&gt;
+       &lt;img class=&quot;banner_img3&quot; src=&quot;https://cdn.jsdelivr.net/gh/heson10/pic@master/img/Texture-3.png&quot; onclick=&quot;link(&quot;https://www.heson10.com&quot;,true)&quot; style=&quot;opacity: 0;&quot;&gt;
+       &#39;
+  ########### 热门帖子 ##############
+  hot_post:
+    ###### 热门1 #####
+    pic_one: https://picup.heson10.com/img/spring-boot-learning.png
+    post_one: https://www.heson10.com
+    ###### 热门2 #####
+    pic_two: https://picup.heson10.com/img/spring-cloud-learning.png  
+    post_two: https://www.heson10.com   </code></pre>
 <h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><p><img src="https://picup.heson10.com/img/lunboxiaoguo.png" alt="lunboxiaoguo"></p>
 
 </article>
@@ -397,14 +748,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/52911.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/19246.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 12 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/52911.html"
-                            class="list-title overflow-hidden h6">Hexo+Next7.X 博客美化教程合集</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 01 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/19246.html"
+                            class="list-title overflow-hidden h6">Next7.8主题更换思源宋体</a> </div>
                 </div>
             </div>
 
@@ -425,14 +776,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/16996.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/31426.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 23 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/16996.html"
-                            class="list-title overflow-hidden h6">给hexo博客添加fancybox图片灯箱功能</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 02 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/31426.html"
+                            class="list-title overflow-hidden h6">SEO优化：Hexo-abbrlink插件生成永久固定链接</a> </div>
                 </div>
             </div>
 
@@ -453,14 +804,13 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/49693.html"
-                            target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
-                 
-                        
+                <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/7207.html"
+                    target="_blank" style="background-image: url(https://picup.heson10.com/img/upyun/newcomment.png);"> </a>
+                    
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 23 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/49693.html"
-                            class="list-title overflow-hidden h6">hexo添加相关文章功能</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 28 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/7207.html"
+                            class="list-title overflow-hidden h6">Hexo博客调用Valine最新评论</a> </div>
                 </div>
             </div>
 
@@ -507,7 +857,7 @@
 
     <div class="px3 pb3 pt1">
         <div class="bold h3 mb1"><i class="fas fa-cloud"></i> 标签云</div> 
-        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
+        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
             
          
        

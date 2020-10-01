@@ -202,8 +202,52 @@
    <h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="https://pic.heson10.com/img/image-20200801094412407.png" alt="image-20200801094412407"></p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>Google Fonts在2018年12月7日支持思源宋体。<strong>这是一款适合长时间阅读的字体。</strong></p>
 <p>国内的网络对 Google 的域名并不友好，建议将<code>fonts.googleapis.com</code>修改为<a target="_blank" rel="noopener" href="https://sb.sb/blog/css-cdn/">烧饼博客</a>提供的镜像<code>fonts.loli.net</code><a id="more"></a>&gt;</p>
-<h3 id="Next7-8主题配置文件-config-yml"><a href="#Next7-8主题配置文件-config-yml" class="headerlink" title="Next7.8主题配置文件_config.yml"></a>Next7.8主题配置文件<code>_config.yml</code></h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">font:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Uri of fonts host, e.g. https://fonts.googleapis.com (Default).</span></span><br><span class="line">  <span class="comment"># 使用烧饼博客的CDN</span></span><br><span class="line">  <span class="attr">host:</span> <span class="string">https://fonts.loli.net</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font options:</span></span><br><span class="line">  <span class="comment"># `external: true` will load this font family from `host` above.</span></span><br><span class="line">  <span class="comment"># `family: Times New Roman`. Without any quotes.</span></span><br><span class="line">  <span class="comment"># `size: x.x`. Use `em` as unit. Default: 1 (16px)</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Global font settings used for all elements inside &lt;body&gt;.</span></span><br><span class="line">  <span class="comment"># 全局字体设置</span></span><br><span class="line">  <span class="attr">global:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">#family: EB Garamond</span></span><br><span class="line">    <span class="attr">family:</span> <span class="string">Noto</span> <span class="string">Serif</span> <span class="string">SC</span></span><br><span class="line">    <span class="attr">size:</span> <span class="number">0.9</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font settings for site title (.site-title).</span></span><br><span class="line">  <span class="comment"># .site-title 站点标题字体设置</span></span><br><span class="line">  <span class="attr">title:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">family:</span> <span class="string">Lobster</span> <span class="string">Two</span></span><br><span class="line">    <span class="attr">size:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font settings for headlines (&lt;h1&gt; to &lt;h6&gt;).</span></span><br><span class="line">  <span class="comment"># 文章标题字体设置</span></span><br><span class="line">  <span class="attr">headings:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">#family: Roboto Slab</span></span><br><span class="line">    <span class="attr">family:</span> <span class="string">EB</span> <span class="string">Garamond</span></span><br><span class="line">    <span class="attr">size:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font settings for posts (.post-body).</span></span><br><span class="line">  <span class="comment"># 文章页面字体设置</span></span><br><span class="line">  <span class="attr">posts:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">#family: Roboto Slab</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font settings for &lt;code&gt; and code blocks.</span></span><br><span class="line">  <span class="comment"># 代码块字体设置</span></span><br><span class="line">  <span class="attr">codes:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">family:</span> <span class="string">Source</span> <span class="string">Code</span> <span class="string">Pro</span></span><br></pre></td></tr></table></figure>
+<h3 id="Next7-8主题配置文件-config-yml"><a href="#Next7-8主题配置文件-config-yml" class="headerlink" title="Next7.8主题配置文件_config.yml"></a>Next7.8主题配置文件<code>_config.yml</code></h3><pre><code class="yaml">font:
+  enable: true
 
+  # Uri of fonts host, e.g. https://fonts.googleapis.com (Default).
+  # 使用烧饼博客的CDN
+  host: https://fonts.loli.net
+
+  # Font options:
+  # `external: true` will load this font family from `host` above.
+  # `family: Times New Roman`. Without any quotes.
+  # `size: x.x`. Use `em` as unit. Default: 1 (16px)
+
+  # Global font settings used for all elements inside &lt;body&gt;.
+  # 全局字体设置
+  global:
+    external: true
+    #family: EB Garamond
+    family: Noto Serif SC
+    size: 0.9
+
+  # Font settings for site title (.site-title).
+  # .site-title 站点标题字体设置
+  title:
+    external: true
+    family: Lobster Two
+    size:
+
+  # Font settings for headlines (&lt;h1&gt; to &lt;h6&gt;).
+  # 文章标题字体设置
+  headings:
+    external: true
+    #family: Roboto Slab
+    family: EB Garamond
+    size:
+
+  # Font settings for posts (.post-body).
+  # 文章页面字体设置
+  posts:
+    external: true
+    #family: Roboto Slab
+
+  # Font settings for &lt;code&gt; and code blocks.
+  # 代码块字体设置
+  codes:
+    external: true
+    family: Source Code Pro</code></pre>
 <p>改为我上面的配置就可以了。解释说明已经在上方注释，按需修改。</p>
 
 </article>
@@ -357,14 +401,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/28396.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/18256.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 16 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/28396.html"
-                            class="list-title overflow-hidden h6">所有关于Valine评论系统的配置都在这里【合集】</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 05 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/18256.html"
+                            class="list-title overflow-hidden h6">jsDelivr CDN加速Github仓库图片做博客图床</a> </div>
                 </div>
             </div>
 
@@ -413,14 +457,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/57815.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/16996.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 27 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/57815.html"
-                            class="list-title overflow-hidden h6">Coding Studio实现hexo的云环境部署</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 23 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/16996.html"
+                            class="list-title overflow-hidden h6">给hexo博客添加fancybox图片灯箱功能</a> </div>
                 </div>
             </div>
 
@@ -467,7 +511,7 @@
 
     <div class="px3 pb3 pt1">
         <div class="bold h3 mb1"><i class="fas fa-cloud"></i> 标签云</div> 
-        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
+        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
             
          
        

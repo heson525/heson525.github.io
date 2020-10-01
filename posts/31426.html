@@ -155,7 +155,7 @@
                             
                             
                             次</li> </div>
-                        <li class="mr1"><i class="fas fa-pen-nib"></i> 688 字</li>
+                        <li class="mr1"><i class="fas fa-pen-nib"></i> 695 字</li>
 
                         
                         
@@ -210,20 +210,29 @@
 <h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><ul>
 <li>安装npm包：</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">  npm install hexo-abbrlink --save</code></pre>
 <ul>
 <li>修改<code>_config.yml</code>文件中的配置项（记得把原来的<code>permalink:</code>删除掉）:</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">设置永久链接</span></span><br><span class="line">permalink: posts/:abbrlink.html  # 此处可以自己设置，也可以直接使用 :/abbrlink</span><br><span class="line">abbrlink:</span><br><span class="line">    alg: crc16   #算法： crc16(default) and crc32</span><br><span class="line">    rep: dec     #进制： dec(default) and hex</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">#设置永久链接
+permalink: posts/:abbrlink.html  # 此处可以自己设置，也可以直接使用 :/abbrlink
+abbrlink:
+    alg: crc16   #算法： crc16(default) and crc32
+    rep: dec     #进制： dec(default) and hex</code></pre>
 <h2 id="关于插件设置"><a href="#关于插件设置" class="headerlink" title="关于插件设置"></a>关于插件设置</h2><p>Abbrlink插件拥有两项设置选项:</p>
 <ul>
 <li><code>alg</code>: 算法(目前支持<code>crc16</code>和<code>crc32</code>算法，默认值是<code>crc16</code>)</li>
 <li><code>rep</code>: 形式(生成的链接可以是十六进制格式也可以是十进制格式，默认值是十进制格式)</li>
 </ul>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">crc16 &amp; hex</span><br><span class="line">https://www.heson10.com/posts/55c6.html</span><br><span class="line">crc16 &amp; dec</span><br><span class="line">https://www.heson10.com/posts/43212.html</span><br><span class="line"></span><br><span class="line">crc32 &amp; hex</span><br><span class="line">https://www.heson10.com/posts/6ec16a2c.html</span><br><span class="line">crc32 &amp; dec</span><br><span class="line">https://www.heson10.com/posts/1521457752.html</span><br></pre></td></tr></table></figure>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><pre><code class="html">crc16 &amp; hex
+https://www.heson10.com/posts/55c6.html
+crc16 &amp; dec
+https://www.heson10.com/posts/43212.html
 
+crc32 &amp; hex
+https://www.heson10.com/posts/6ec16a2c.html
+crc32 &amp; dec
+https://www.heson10.com/posts/1521457752.html</code></pre>
 <article class="message moren"><div class="message_body"><p>danger,注意在生成之前就要改好算法和形式。不然后面再改的话会导致链接不统一。我就踩过坑，但后来是一个文章一个文章删除<code>abbrlink:</code>的值才改过来的，还好我文章不是很多。</p></div></article>
 
 <p>话说最近看到了Hexo-abbrlink2这个插件，可以从1.html开始编。</p>
@@ -381,14 +390,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/18256.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/38719.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 05 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/18256.html"
-                            class="list-title overflow-hidden h6">jsDelivr CDN加速Github仓库图片做博客图床</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 16 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/38719.html"
+                            class="list-title overflow-hidden h6">Hexo中next主题启用文章置顶功能</a> </div>
                 </div>
             </div>
 
@@ -409,14 +418,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/30982.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/46662.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 13 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/30982.html"
-                            class="list-title overflow-hidden h6">hexo博客访问速度优化：又拍云CDN</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 19 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/46662.html"
+                            class="list-title overflow-hidden h6">hexo+next设置网站运行时间</a> </div>
                 </div>
             </div>
 
@@ -437,14 +446,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/38770.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/10441.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 07 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/38770.html"
-                            class="list-title overflow-hidden h6">Vercel+Github+Coding三线部署HEXO,提升访问速度</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 22 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/10441.html"
+                            class="list-title overflow-hidden h6">关于Hexo+next主题的SEO优化</a> </div>
                 </div>
             </div>
 
@@ -491,7 +500,7 @@
 
     <div class="px3 pb3 pt1">
         <div class="bold h3 mb1"><i class="fas fa-cloud"></i> 标签云</div> 
-        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
+        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
             
          
        

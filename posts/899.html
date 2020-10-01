@@ -155,7 +155,7 @@
                             
                             
                             次</li> </div>
-                        <li class="mr1"><i class="fas fa-pen-nib"></i> 458 字</li>
+                        <li class="mr1"><i class="fas fa-pen-nib"></i> 460 字</li>
 
                         
                         
@@ -205,8 +205,50 @@
 <p><img src="https://picup.heson10.com/img/rename.gif" alt="rename"></p>
 <h2 id="食用方法"><a href="#食用方法" class="headerlink" title="食用方法"></a>食用方法</h2><p>首页得要安装python的环境，这个网上教程一大堆，自行出门左拐找度娘。</p>
 <p>直接上代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">modify_md_content</span>(<span class="params">top</span>):</span></span><br><span class="line">    <span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.walk(top, topdown=<span class="literal">False</span>):</span><br><span class="line">        <span class="comment"># 循环文件</span></span><br><span class="line">        <span class="keyword">for</span> file_name <span class="keyword">in</span> files:</span><br><span class="line">            file_name_split = file_name.split(<span class="string">&#x27;.&#x27;</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="keyword">if</span> file_name_split[<span class="number">-1</span>] == <span class="string">&#x27;md&#x27;</span>:</span><br><span class="line">                    <span class="comment"># 找到md文件并且复制一份md文件路径</span></span><br><span class="line">                    md_file_path = os.path.join(root, <span class="string">&#x27;.&#x27;</span>.join(file_name_split))</span><br><span class="line">                    copy_md_file_path = os.path.join(root, <span class="string">&#x27;.&#x27;</span>.join([<span class="string">f&#x27;<span class="subst">&#123;file_name_split[<span class="number">0</span>]&#125;</span>_copy&#x27;</span>, file_name_split[<span class="number">1</span>]]))</span><br><span class="line"></span><br><span class="line">                    <span class="comment"># 打开md文件然后进行替换</span></span><br><span class="line">                    <span class="keyword">with</span> open(md_file_path, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf8&#x27;</span>) <span class="keyword">as</span> fr, \</span><br><span class="line">                            open(copy_md_file_path, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf8&#x27;</span>) <span class="keyword">as</span> fw:</span><br><span class="line">                        data = fr.read()</span><br><span class="line">                        <span class="comment"># 选择md文件中想要替换的字段</span></span><br><span class="line">                        data = re.sub(<span class="string">&#x27;https://pic.heson.xyz/img/&#x27;</span>, <span class="string">&#x27;https://pic.heson10.com/img/&#x27;</span>, data)</span><br><span class="line"></span><br><span class="line">                        fw.write(data)  <span class="comment"># 新文件一次性写入原文件内容</span></span><br><span class="line">                        <span class="comment"># fw.flush()</span></span><br><span class="line"></span><br><span class="line">                    <span class="comment"># 删除原文件</span></span><br><span class="line">                    os.remove(md_file_path)</span><br><span class="line">                    <span class="comment"># 重命名新文件名为原文件名</span></span><br><span class="line">                    os.rename(copy_md_file_path, md_file_path)</span><br><span class="line">                    print(<span class="string">f&#x27;<span class="subst">&#123;md_file_path&#125;</span> done...&#x27;</span>)</span><br><span class="line">                    time.sleep(<span class="number">0.5</span>)</span><br><span class="line">            <span class="keyword">except</span> FileNotFoundError <span class="keyword">as</span> e:</span><br><span class="line">                print(e)</span><br><span class="line">        time.sleep(<span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    top = <span class="string">r&#x27;D:\hexo\source\_posts&#x27;</span></span><br><span class="line">    modify_md_content(top)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="python">#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+import os
+import re
+import time
 
+
+def modify_md_content(top):
+    for root, dirs, files in os.walk(top, topdown=False):
+        # 循环文件
+        for file_name in files:
+            file_name_split = file_name.split(&#39;.&#39;)
+
+            try:
+                if file_name_split[-1] == &#39;md&#39;:
+                    # 找到md文件并且复制一份md文件路径
+                    md_file_path = os.path.join(root, &#39;.&#39;.join(file_name_split))
+                    copy_md_file_path = os.path.join(root, &#39;.&#39;.join([f&#39;&#123;file_name_split[0]&#125;_copy&#39;, file_name_split[1]]))
+
+                    # 打开md文件然后进行替换
+                    with open(md_file_path, &#39;r&#39;, encoding=&#39;utf8&#39;) as fr, \
+                            open(copy_md_file_path, &#39;w&#39;, encoding=&#39;utf8&#39;) as fw:
+                        data = fr.read()
+                        # 选择md文件中想要替换的字段
+                        data = re.sub(&#39;https://pic.heson.xyz/img/&#39;, &#39;https://pic.heson10.com/img/&#39;, data)
+
+                        fw.write(data)  # 新文件一次性写入原文件内容
+                        # fw.flush()
+
+                    # 删除原文件
+                    os.remove(md_file_path)
+                    # 重命名新文件名为原文件名
+                    os.rename(copy_md_file_path, md_file_path)
+                    print(f&#39;&#123;md_file_path&#125; done...&#39;)
+                    time.sleep(0.5)
+            except FileNotFoundError as e:
+                print(e)
+        time.sleep(0.5)
+
+
+if __name__ == &#39;__main__&#39;:
+    top = r&#39;D:\hexo\source\_posts&#39;
+    modify_md_content(top)
+</code></pre>
 <p>其中由三个变量需要自己修改：</p>
 <p>1.<code>https://pic.heson.xyz/img/</code> 这是原来的字符</p>
 <p>2.<code>https://pic.heson10.com/img/</code>这是用来替换的字符</p>
@@ -364,14 +406,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/18256.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/47102.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 05 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/18256.html"
-                            class="list-title overflow-hidden h6">jsDelivr CDN加速Github仓库图片做博客图床</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 24 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/47102.html"
+                            class="list-title overflow-hidden h6">hexo+next设置微信打赏功能</a> </div>
                 </div>
             </div>
 
@@ -392,14 +434,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/57815.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/14925.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 27 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/57815.html"
-                            class="list-title overflow-hidden h6">Coding Studio实现hexo的云环境部署</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 12 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/14925.html"
+                            class="list-title overflow-hidden h6">小米10降级回稳定版教程</a> </div>
                 </div>
             </div>
 
@@ -420,14 +462,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/51572.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/46662.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 13 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/51572.html"
-                            class="list-title overflow-hidden h6">为Hexo增加algolia搜索功能</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 19 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/46662.html"
+                            class="list-title overflow-hidden h6">hexo+next设置网站运行时间</a> </div>
                 </div>
             </div>
 
@@ -474,7 +516,7 @@
 
     <div class="px3 pb3 pt1">
         <div class="bold h3 mb1"><i class="fas fa-cloud"></i> 标签云</div> 
-        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
+        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
             
          
        

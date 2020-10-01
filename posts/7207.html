@@ -212,21 +212,111 @@
 <p><strong>9月4日更新</strong>:</p>
 <p><strong>修改为保姆级教程，附上修改位置图。见修改思路。</strong></p>
 <h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="引用文件"><a href="#引用文件" class="headerlink" title="引用文件"></a>引用文件</h3><p>这个是leancloud sdk，必须在最开始调用，否则会报错</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js</span><br></pre></td></tr></table></figure>
-
+<pre><code class="html">//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js</code></pre>
 <p>接下来就是valine.js的调用，这个主题都自带</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js</span><br></pre></td></tr></table></figure>
-
+<pre><code class="html">//cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js</code></pre>
 <h3 id="js核心代码"><a href="#js核心代码" class="headerlink" title="js核心代码"></a>js核心代码</h3><p>把功能代码封装成名为 <code>newcomment()</code> 的函数：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">newcomment</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">queryLeanCloud</span>(<span class="params">k</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">let</span> root = <span class="built_in">this</span>;</span><br><span class="line">      <span class="keyword">let</span> len = <span class="built_in">arguments</span>.length;</span><br><span class="line">      <span class="keyword">if</span> (len == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> notExist = <span class="keyword">new</span> AV.Query(<span class="string">&quot;Comment&quot;</span>);</span><br><span class="line">        notExist.doesNotExist(<span class="string">&#x27;rid&#x27;</span>);</span><br><span class="line">        <span class="keyword">let</span> isEmpty = <span class="keyword">new</span> AV.Query(<span class="string">&quot;Comment&quot;</span>);</span><br><span class="line">        isEmpty.equalTo(<span class="string">&#x27;rid&#x27;</span>, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">        <span class="keyword">let</span> q = AV.Query.or(notExist, isEmpty);</span><br><span class="line">        <span class="keyword">if</span> (k === <span class="string">&#x27;*&#x27;</span>) q.exists(<span class="string">&#x27;url&#x27;</span>);</span><br><span class="line">        <span class="keyword">else</span> q.equalTo(<span class="string">&#x27;url&#x27;</span>, <span class="built_in">decodeURI</span>(k));</span><br><span class="line">        q.addDescending(<span class="string">&#x27;createdAt&#x27;</span>);</span><br><span class="line">        q.addDescending(<span class="string">&#x27;insertedAt&#x27;</span>);</span><br><span class="line">        <span class="keyword">return</span> q;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> ids = <span class="built_in">JSON</span>.stringify(<span class="built_in">arguments</span>[<span class="number">1</span>]).replace(<span class="regexp">/(\[|\])/g</span>, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">        <span class="keyword">let</span> cql = <span class="string">`select * from <span class="subst">$&#123;root[<span class="string">&#x27;config&#x27;</span>][<span class="string">&#x27;clazzName&#x27;</span>]&#125;</span> where rid in (<span class="subst">$&#123;ids&#125;</span>) order by -createdAt,-createdAt`</span>;</span><br><span class="line">        <span class="keyword">return</span> AV.Query.doCloudQuery(cql)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> valine = <span class="keyword">new</span> Valine(&#123;</span><br><span class="line">      el: <span class="string">&#x27;#valine_container_ba（因为主题已经有valine的这些参数了，这里随意填都行）&#x27;</span>,</span><br><span class="line">      app_id: <span class="string">&#x27;换成自己的leancloud appid&#x27;</span>,</span><br><span class="line">      app_key: <span class="string">&#x27;换成自己的&#x27;</span>,</span><br><span class="line">      placeholder: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">      serverURLs: <span class="string">&#x27;换成自己的api&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断博主，heson改为自己的昵称</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bozhu</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (e == <span class="string">&quot;heson&quot;</span>)&#123;</span><br><span class="line">            nick = e + <span class="string">&#x27;[博主]&#x27;</span></span><br><span class="line">            <span class="keyword">return</span> nick;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> e</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//判断网址</span></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">wangzhi</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">        http = e.slice(<span class="number">0</span>,<span class="number">4</span>)</span><br><span class="line">        https = e.slice(<span class="number">0</span>,<span class="number">5</span>)</span><br><span class="line">        <span class="keyword">if</span> (http == <span class="string">&quot;http&quot;</span> || https == <span class="string">&quot;https&quot;</span> )&#123;</span><br><span class="line">             <span class="keyword">return</span> e</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e == <span class="string">&quot;&quot;</span> || e == <span class="literal">null</span> || e == <span class="literal">undefined</span>)&#123;</span><br><span class="line">          <span class="keyword">return</span> e</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          e = <span class="string">&#x27;http://&#x27;</span>+ e</span><br><span class="line">          <span class="keyword">return</span> e</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//查询评论</span></span><br><span class="line">    valine.Q(<span class="string">&#x27;*&#x27;</span>).limit(<span class="number">7</span>).find().then(<span class="function"><span class="keyword">function</span> (<span class="params">comments</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> hotComments = $(<span class="string">&quot;#hot-comments&quot;</span>);</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; comments.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i === <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(comments[<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> nick = bozhu(comments[i]._serverData.nick);</span><br><span class="line">        <span class="keyword">var</span> content = comments[i]._serverData.comment;</span><br><span class="line">        <span class="keyword">var</span> newcontent = content.substring(<span class="number">0</span>, <span class="number">50</span>).replace(<span class="regexp">/&lt;[^&gt;]+&gt;/g</span>,<span class="string">&quot;&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> url = comments[i]._serverData.url;</span><br><span class="line">        <span class="keyword">var</span> link = wangzhi(comments[i]._serverData.link);</span><br><span class="line">        <span class="keyword">var</span> updatedAt = timeago(comments[i].updatedAt);</span><br><span class="line">        <span class="keyword">var</span> commentId = <span class="string">&#x27;#&#x27;</span> + comments[i].id;</span><br><span class="line">        hotComments.append(<span class="string">&#x27;&lt;div class=&quot;card-comment-item&quot;&gt;&lt;div class=&quot;item-header-text&quot;&gt;&lt;a href=&quot;&#x27;</span>+ link +<span class="string">&#x27;&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot; class=&quot;newcomment&quot; &gt;&#x27;</span> + nick + <span class="string">&#x27;&lt;/a&gt;&amp;nbsp;发表于&#x27;</span> + updatedAt + <span class="string">&#x27;&lt;/div&gt;&lt;div class=&quot;item-text&quot;&gt;&lt;a href=&quot;&#x27;</span> + url + commentId +<span class="string">&#x27;&quot;  rel=&quot;nofollow&quot; style=&quot;color:#717171&quot; class=&quot;comments-detail&quot; &gt;&#x27;</span> + newcontent + <span class="string">&#x27;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&#x27;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">
+  function newcomment() &#123;
 
+    function queryLeanCloud(k) &#123;
+      let root = this;
+      let len = arguments.length;
+      if (len == 1) &#123;
+        let notExist = new AV.Query(&quot;Comment&quot;);
+        notExist.doesNotExist(&#39;rid&#39;);
+        let isEmpty = new AV.Query(&quot;Comment&quot;);
+        isEmpty.equalTo(&#39;rid&#39;, &#39;&#39;);
+        let q = AV.Query.or(notExist, isEmpty);
+        if (k === &#39;*&#39;) q.exists(&#39;url&#39;);
+        else q.equalTo(&#39;url&#39;, decodeURI(k));
+        q.addDescending(&#39;createdAt&#39;);
+        q.addDescending(&#39;insertedAt&#39;);
+        return q;
+      &#125; else &#123;
+        let ids = JSON.stringify(arguments[1]).replace(/(\[|\])/g, &#39;&#39;);
+        let cql = `select * from $&#123;root[&#39;config&#39;][&#39;clazzName&#39;]&#125; where rid in ($&#123;ids&#125;) order by -createdAt,-createdAt`;
+        return AV.Query.doCloudQuery(cql)
+      &#125;
+    &#125;
+    var valine = new Valine(&#123;
+      el: &#39;#valine_container_ba（因为主题已经有valine的这些参数了，这里随意填都行）&#39;,
+      app_id: &#39;换成自己的leancloud appid&#39;,
+      app_key: &#39;换成自己的&#39;,
+      placeholder: &#39;&#39;,
+      serverURLs: &#39;换成自己的api&#39;
+    &#125;);
+
+    //判断博主，heson改为自己的昵称
+    function bozhu(e)&#123;
+        if (e == &quot;heson&quot;)&#123;
+            nick = e + &#39;[博主]&#39;
+            return nick;
+        &#125; else &#123;
+          return e
+        &#125;
+    &#125;
+
+   //判断网址
+   function wangzhi(e)&#123;
+        http = e.slice(0,4)
+        https = e.slice(0,5)
+        if (http == &quot;http&quot; || https == &quot;https&quot; )&#123;
+             return e
+        &#125; else if (e == &quot;&quot; || e == null || e == undefined)&#123;
+          return e
+        &#125; else &#123;
+          e = &#39;http://&#39;+ e
+          return e
+        &#125;
+    &#125;
+
+    //查询评论
+    valine.Q(&#39;*&#39;).limit(7).find().then(function (comments) &#123;
+      var hotComments = $(&quot;#hot-comments&quot;);
+      for (var i = 0; i &lt; comments.length; i++) &#123;
+        if (i === 0) &#123;
+          console.log(comments[0]);
+        &#125;
+        var nick = bozhu(comments[i]._serverData.nick);
+        var content = comments[i]._serverData.comment;
+        var newcontent = content.substring(0, 50).replace(/&lt;[^&gt;]+&gt;/g,&quot;&quot;);
+        var url = comments[i]._serverData.url;
+        var link = wangzhi(comments[i]._serverData.link);
+        var updatedAt = timeago(comments[i].updatedAt);
+        var commentId = &#39;#&#39; + comments[i].id;
+        hotComments.append(&#39;&lt;div class=&quot;card-comment-item&quot;&gt;&lt;div class=&quot;item-header-text&quot;&gt;&lt;a href=&quot;&#39;+ link +&#39;&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot; class=&quot;newcomment&quot; &gt;&#39; + nick + &#39;&lt;/a&gt;&amp;nbsp;发表于&#39; + updatedAt + &#39;&lt;/div&gt;&lt;div class=&quot;item-text&quot;&gt;&lt;a href=&quot;&#39; + url + commentId +&#39;&quot;  rel=&quot;nofollow&quot; style=&quot;color:#717171&quot; class=&quot;comments-detail&quot; &gt;&#39; + newcontent + &#39;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&#39;);
+      &#125;
+    &#125;);
+&#125;;</code></pre>
 <p>注意在判断博主的位置，需要改成自己评论的昵称。</p>
 <p>在<code>content.substring(0, 50)</code>处是截断评论字数，这里设置为50个英文字符长度。</p>
 <p>通过F12控制台可以看到，这里还能根据邮箱信息，调用头像参数，但我就没写上去了，感觉没什么必要，如图所示：</p>
 <p><img src="https://picup.heson10.com/img/image-20200828143721578.png" alt="image-20200828143721578"></p>
 <h3 id="css-代码"><a href="#css-代码" class="headerlink" title="css 代码"></a>css 代码</h3><p>每个评论底部加上分割线用于区分，发表时间淡化字体颜色，链接hover用的主题的颜色，要改的基本就这些，如果含有头像的话，可以设置鼠标悬停显示，这样效果也挺不错，动手能力强的小伙伴可以自己加：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.card-comment-item</span></span><br><span class="line">  <span class="selector-tag">margin</span><span class="selector-pseudo">:10px</span> 0 10<span class="selector-tag">px</span> 0</span><br><span class="line">  <span class="selector-tag">border-bottom</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#e2dada</span></span><br><span class="line">  <span class="selector-tag">padding-bottom</span><span class="selector-pseudo">:5px</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item-header-text</span></span><br><span class="line">   <span class="selector-tag">color</span>:<span class="selector-id">#9a9a9a</span></span><br><span class="line"><span class="selector-class">.item-text</span></span><br><span class="line">  <span class="selector-tag">margin-top</span><span class="selector-pseudo">:5px</span></span><br><span class="line">  <span class="selector-tag">padding</span><span class="selector-pseudo">:0</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-class">.newcomment</span>&#123;</span><br><span class="line">  <span class="attribute">font-weight</span>:bold;</span><br><span class="line">  <span class="attribute">color</span>:<span class="number">#444</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-class">.newcomment</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>:<span class="number">#36ac91</span><span class="meta">!important</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-class">.comments-detail</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>:<span class="number">#36ac91</span><span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="css">.card-comment-item
+  margin:10px 0 10px 0
+  border-bottom: 1px solid #e2dada
+  padding-bottom:5px
 
+.item-header-text
+   color:#9a9a9a
+.item-text
+  margin-top:5px
+  padding:0
+
+a.newcomment&#123;
+  font-weight:bold;
+  color:#444;
+&#125;
+
+a.newcomment:hover&#123;
+  color:#36ac91!important; 
+&#125;
+
+a.comments-detail:hover&#123;
+  color:#36ac91!important;
+&#125;</code></pre>
 <h3 id="修改思路"><a href="#修改思路" class="headerlink" title="修改思路"></a>修改思路</h3><ul>
 <li>核心js代码加载<code>themes\volantis\layout\_third-party\comments\valine\script.ejs</code></li>
 </ul>
@@ -240,10 +330,15 @@
 <li><p>CSS直接丢在main.styl里了</p>
 </li>
 <li><p>主题配置里面要加上通用文本栏目，核心是<code>id为hot-comments的div框</code>，js要通过这个id进行渲染，代码如下：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">newcomment:</span></span><br><span class="line">  <span class="attr">class:</span> <span class="string">text</span></span><br><span class="line">  <span class="attr">display:</span> [<span class="string">desktop</span>] <span class="comment"># [desktop, mobile]</span></span><br><span class="line">  <span class="attr">header:</span></span><br><span class="line">    <span class="attr">icon:</span> <span class="string">far</span> <span class="string">fa-comments</span></span><br><span class="line">    <span class="attr">title:</span> <span class="string">最新评论</span></span><br><span class="line">    <span class="attr">url:</span> </span><br><span class="line">  <span class="attr">content:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">&#x27;&lt;div id=&quot;hot-comments&quot;&gt;&lt;/div&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="yaml">    newcomment:
+      class: text
+      display: [desktop] # [desktop, mobile]
+      header:
+        icon: far fa-comments
+        title: 最新评论
+        url: 
+      content:
+         - &#39;&lt;div id=&quot;hot-comments&quot;&gt;&lt;/div&gt;&#39;</code></pre>
 </li>
 </ul>
 
@@ -398,14 +493,13 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/28396.html"
-                            target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
-                 
-                        
+                <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/59108.html"
+                    target="_blank" style="background-image: url(https://picup.heson10.com/img/upyun/listtags.png);"> </a>
+                    
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 16 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/28396.html"
-                            class="list-title overflow-hidden h6">所有关于Valine评论系统的配置都在这里【合集】</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 09 月 24 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/59108.html"
+                            class="list-title overflow-hidden h6">Hexo 标签函数 list_tags 用法</a> </div>
                 </div>
             </div>
 
@@ -426,14 +520,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/27150.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/2635.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 09 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/27150.html"
-                            class="list-title overflow-hidden h6">Hexo在coding上持续集成</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 29 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/2635.html"
+                            class="list-title overflow-hidden h6">hexo删除algolia搜索增加本地搜索功能</a> </div>
                 </div>
             </div>
 
@@ -454,14 +548,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/54971.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/47102.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 11 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/54971.html"
-                            class="list-title overflow-hidden h6">Hexo在GitHub和Coding双线部署教程</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 24 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/47102.html"
+                            class="list-title overflow-hidden h6">hexo+next设置微信打赏功能</a> </div>
                 </div>
             </div>
 
@@ -508,7 +602,7 @@
 
     <div class="px3 pb3 pt1">
         <div class="bold h3 mb1"><i class="fas fa-cloud"></i> 标签云</div> 
-        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
+        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
             
          
        

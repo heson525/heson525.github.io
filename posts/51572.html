@@ -155,7 +155,7 @@
                             
                             
                             次</li> </div>
-                        <li class="mr1"><i class="fas fa-pen-nib"></i> 570 字</li>
+                        <li class="mr1"><i class="fas fa-pen-nib"></i> 572 字</li>
 
                         
                         
@@ -218,30 +218,46 @@
 <p><img src="https://pic.heson10.com/img/image-20200713230345046.png" alt="image-20200713230345046"></p>
 <h2 id="安装algolia搜索功能"><a href="#安装algolia搜索功能" class="headerlink" title="安装algolia搜索功能"></a>安装algolia搜索功能</h2><ul>
 <li><p>在Hexo工程根目录下执行下面的语句。</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-algolia --save</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">npm install hexo-algolia --save</code></pre>
 </li>
 <li><p>在Hexo根目录的<code>_config.yml</code>中加入<code>algolia</code>的配置，注意改成前面API Keys页面相应配置。</p>
 <p> 这里注意apikey填写刚才你创建的那个有权限的，其余的在your api keys里面可以找到</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">algolia:</span><br><span class="line">  applicationID: &#x27;your applicationID&#x27;</span><br><span class="line">  apiKey: &#x27;your apiKey&#x27;</span><br><span class="line">  adminApiKey: &#x27;your adminApiKey&#x27;</span><br><span class="line">  indexName: &#x27;your indexName&#x27;</span><br><span class="line">  chunkSize: 5000</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">algolia:
+  applicationID: &#39;your applicationID&#39;
+  apiKey: &#39;your apiKey&#39;
+  adminApiKey: &#39;your adminApiKey&#39;
+  indexName: &#39;your indexName&#39;
+  chunkSize: 5000</code></pre>
 </li>
 <li><p>上传数据到<code>algolia</code>，下面your apiKey替换为刚才自己创建拥有权限的api</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export HEXO_ALGOLIA_INDEXING_KEY=your apiKey</span><br><span class="line">hexo algolia</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">export HEXO_ALGOLIA_INDEXING_KEY=your apiKey
+hexo algolia</code></pre>
 <blockquote>
 <p>注意这里需要先设置环境变量，否则会报</p>
 </blockquote>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ERROR [Algolia] Please set an `HEXO_ALGOLIA_INDEXING_KEY` environment variable to enable content indexing.</span><br><span class="line">ERROR &gt;&gt; Read https://npmjs.com/hexo-algolia#api-key for more informations.</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">ERROR [Algolia] Please set an `HEXO_ALGOLIA_INDEXING_KEY` environment variable to enable content indexing.
+ERROR &gt;&gt; Read https://npmjs.com/hexo-algolia#api-key for more informations.</code></pre>
 </li>
 <li><p>看到如下信息，证明成功了，可以去<code>algolia</code>网站上查看，索引已经上传成功了。</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">INFO  [Algolia] Testing HEXO_ALGOLIA_INDEXING_KEY permissions.</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  [Algolia] Identified 5 pages and posts to index.</span><br><span class="line">INFO  [Algolia] Indexing chunk 1 of 1 (50 items each)</span><br><span class="line">INFO  [Algolia] Indexing done.</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">INFO  [Algolia] Testing HEXO_ALGOLIA_INDEXING_KEY permissions.
+INFO  Start processing
+INFO  [Algolia] Identified 5 pages and posts to index.
+INFO  [Algolia] Indexing chunk 1 of 1 (50 items each)
+INFO  [Algolia] Indexing done.</code></pre>
 </li>
 </ul>
 <h2 id="到Hexo开启algolia"><a href="#到Hexo开启algolia" class="headerlink" title="到Hexo开启algolia"></a>到Hexo开启algolia</h2><p>我使用的Next主题，开启只需要一步，到主题目录下的<code>_config.yml</code>，修改为开启。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">algolia_search:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">algolia_search:
+  enable: true</code></pre>
 <p>以下是我的设置：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">algolia_search:</span><br><span class="line">  enable: true</span><br><span class="line">  hits:</span><br><span class="line">    per_page: 10</span><br><span class="line">  labels:</span><br><span class="line">    input_placeholder: Search for Posts</span><br><span class="line">    hits_empty: &quot;我们没有找到任何搜索结果: $&#123;query&#125;&quot;</span><br><span class="line">    hits_stats: &quot;找到$&#123;hits&#125;条结果（用时$&#123;time&#125; ms）&quot;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">algolia_search:
+  enable: true
+  hits:
+    per_page: 10
+  labels:
+    input_placeholder: Search for Posts
+    hits_empty: &quot;我们没有找到任何搜索结果: $&#123;query&#125;&quot;
+    hits_stats: &quot;找到$&#123;hits&#125;条结果（用时$&#123;time&#125; ms）&quot;</code></pre>
 <p>ok，<code>hexo d -g</code>！</p>
 
 </article>
@@ -395,14 +411,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/49693.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/52911.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 23 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/49693.html"
-                            class="list-title overflow-hidden h6">hexo添加相关文章功能</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 12 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/52911.html"
+                            class="list-title overflow-hidden h6">Hexo+Next7.X 博客美化教程合集</a> </div>
                 </div>
             </div>
 
@@ -423,14 +439,13 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/31426.html"
-                            target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
-                 
-                        
+                <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/62369.html"
+                    target="_blank" style="background-image: url(https://cdn.jsdelivr.net/gh/heson10/pic@master/img/rengeceshi.png);"> </a>
+                    
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 02 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/31426.html"
-                            class="list-title overflow-hidden h6">SEO优化：Hexo-abbrlink插件生成永久固定链接</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 09 月 19 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/62369.html"
+                            class="list-title overflow-hidden h6">16种人格类型，你属于哪一种？</a> </div>
                 </div>
             </div>
 
@@ -451,14 +466,13 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/18074.html"
-                            target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
-                 
-                        
+                <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/32383.html"
+                    target="_blank" style="background-image: url(https://cdn.jsdelivr.net/gh/heson10/pic@master/img/ifontsvsziyou.png);"> </a>
+                    
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 06 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/18074.html"
-                            class="list-title overflow-hidden h6">写在最开始</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 09 月 07 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/32383.html"
+                            class="list-title overflow-hidden h6">如何找一款漂亮的字体并快速应用？iFonts字体助手！</a> </div>
                 </div>
             </div>
 
@@ -505,7 +519,7 @@
 
     <div class="px3 pb3 pt1">
         <div class="bold h3 mb1"><i class="fas fa-cloud"></i> 标签云</div> 
-        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
+        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
             
          
        

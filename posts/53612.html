@@ -155,7 +155,7 @@
                             
                             
                             次</li> </div>
-                        <li class="mr1"><i class="fas fa-pen-nib"></i> 987 字</li>
+                        <li class="mr1"><i class="fas fa-pen-nib"></i> 986 字</li>
 
                         
                         
@@ -219,24 +219,79 @@
 <li>源码需要修改适配码支付，下面简单讲一下</li>
 </ul>
 <h2 id="关于源码修改适配问题"><a href="#关于源码修改适配问题" class="headerlink" title="关于源码修改适配问题"></a>关于源码修改适配问题</h2><h3 id="核心函数php文件：Pay-Class-php"><a href="#核心函数php文件：Pay-Class-php" class="headerlink" title="核心函数php文件：Pay.Class.php"></a>核心函数php文件：<code>Pay.Class.php</code></h3><p>主要修改了<code>submit()</code>函数，增加了对码支付支付工具<code>type</code>的判断，以及财主爸爸昵称<code>nick</code>的调用，以及增加码支付一些自用参数，函数代码如下:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">submit</span>(<span class="params">$type, $out_trade_no, $notify_url, $return_url, $name, $money, $sitename, $nick</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ($type == <span class="string">&#x27;alipay&#x27;</span>) &#123;</span><br><span class="line">        $typeid = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ($type == <span class="string">&#x27;qqpay&#x27;</span>) &#123;</span><br><span class="line">        $typeid = <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ($type == <span class="string">&#x27;wxpay&#x27;</span>) &#123;</span><br><span class="line">        $typeid = <span class="number">3</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    $data = [</span><br><span class="line">        <span class="string">&#x27;id&#x27;</span> =&gt; <span class="keyword">$this</span>-&gt;pid,</span><br><span class="line">        <span class="string">&#x27;type&#x27;</span> =&gt; $typeid,</span><br><span class="line">        <span class="string">&#x27;out_trade_no&#x27;</span> =&gt; $out_trade_no,</span><br><span class="line">        <span class="string">&#x27;notify_url&#x27;</span> =&gt; $notify_url,</span><br><span class="line">        <span class="string">&#x27;return_url&#x27;</span> =&gt; $return_url,</span><br><span class="line">        <span class="string">&#x27;name&#x27;</span> =&gt; $name,</span><br><span class="line">        <span class="string">&#x27;price&#x27;</span> =&gt; $money,</span><br><span class="line">        <span class="string">&#x27;sitename&#x27;</span> =&gt; $sitename,</span><br><span class="line">        <span class="string">&#x27;act&#x27;</span> =&gt; <span class="number">0</span>,</span><br><span class="line">        <span class="string">&#x27;debug&#x27;</span> =&gt; <span class="number">0</span>,</span><br><span class="line">        <span class="string">&#x27;pay_type&#x27;</span> =&gt; <span class="number">1</span>,</span><br><span class="line">        <span class="string">&#x27;pay_id&#x27;</span> =&gt; $nick,</span><br><span class="line">        <span class="string">&#x27;param&#x27;</span> =&gt; $out_trade_no</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    ];</span><br><span class="line">    $string = http_build_query($data);</span><br><span class="line">    $sign = <span class="keyword">$this</span>-&gt;getsign($data);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;http://codepay.fateqq.com/create_order/?&#x27;</span> . $string . <span class="string">&#x27;&amp;token=换成自己的token&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="php">    public function submit($type, $out_trade_no, $notify_url, $return_url, $name, $money, $sitename, $nick)
+    &#123;
+        if ($type == &#39;alipay&#39;) &#123;
+            $typeid = 1;
+        &#125;
+        if ($type == &#39;qqpay&#39;) &#123;
+            $typeid = 2;
+        &#125;
+        if ($type == &#39;wxpay&#39;) &#123;
+            $typeid = 3;
+        &#125;
 
+
+        $data = [
+            &#39;id&#39; =&gt; $this-&gt;pid,
+            &#39;type&#39; =&gt; $typeid,
+            &#39;out_trade_no&#39; =&gt; $out_trade_no,
+            &#39;notify_url&#39; =&gt; $notify_url,
+            &#39;return_url&#39; =&gt; $return_url,
+            &#39;name&#39; =&gt; $name,
+            &#39;price&#39; =&gt; $money,
+            &#39;sitename&#39; =&gt; $sitename,
+            &#39;act&#39; =&gt; 0,
+            &#39;debug&#39; =&gt; 0,
+            &#39;pay_type&#39; =&gt; 1,
+            &#39;pay_id&#39; =&gt; $nick,
+            &#39;param&#39; =&gt; $out_trade_no
+
+
+        ];
+        $string = http_build_query($data);
+        $sign = $this-&gt;getsign($data);
+        return &#39;http://codepay.fateqq.com/create_order/?&#39; . $string . &#39;&amp;token=换成自己的token&#39;;
+    &#125;</code></pre>
 <p>其中<code>http://codepay.fateqq.com/create_order/?</code>是码支付API的地址，码支付的<code>token</code>写在<code>token=</code>的后面。</p>
 <p>网站端<code>yf.heson10.com/Admin/</code>后台里，要填写码支付的id：</p>
 <p><img src="https://picup.heson10.com/img/upyun/image-20200911075559955.png" alt="码支付ID"></p>
 <h3 id="Pay-Submit-index-php的修改"><a href="#Pay-Submit-index-php的修改" class="headerlink" title="Pay/Submit/index.php的修改"></a>Pay/Submit/index.php的修改</h3><p>主要是前面和前面submit()函数相对应。注意这里的https，如果服务器没开ssl，就换成http</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">submit($order[<span class="string">&#x27;type&#x27;</span>], $order[<span class="string">&#x27;trade_no&#x27;</span>], <span class="string">&#x27;https://&#x27;</span> . $_SERVER[<span class="string">&#x27;HTTP_HOST&#x27;</span>] . <span class="string">&#x27;/Pay/Notify/&#x27;</span>, <span class="string">&#x27;https://&#x27;</span> . $_SERVER[<span class="string">&#x27;HTTP_HOST&#x27;</span>] . <span class="string">&#x27;/Pay/Return/&#x27;</span>, config(<span class="string">&#x27;sitename&#x27;</span>) . <span class="string">&#x27; - 支付订单&#x27;</span>, $order[<span class="string">&#x27;money&#x27;</span>], config(<span class="string">&#x27;sitename&#x27;</span>), $order[<span class="string">&#x27;nick&#x27;</span>]);</span><br></pre></td></tr></table></figure>
-
+<pre><code class="php">submit($order[&#39;type&#39;], $order[&#39;trade_no&#39;], &#39;https://&#39; . $_SERVER[&#39;HTTP_HOST&#39;] . &#39;/Pay/Notify/&#39;, &#39;https://&#39; . $_SERVER[&#39;HTTP_HOST&#39;] . &#39;/Pay/Return/&#39;, config(&#39;sitename&#39;) . &#39; - 支付订单&#39;, $order[&#39;money&#39;], config(&#39;sitename&#39;), $order[&#39;nick&#39;]);</code></pre>
 <p>修改后附图：</p>
 <p><img src="https://picup.heson10.com/img/upyun/image-20200911075700994.png" alt="要饭系统submit修改图"></p>
 <h3 id="Pay-Ruturn-index-php的修改"><a href="#Pay-Ruturn-index-php的修改" class="headerlink" title="Pay/Ruturn/index.php的修改"></a>Pay/Ruturn/index.php的修改</h3><p>去掉验证数据，增加对订单号的验证，同时调用自定义参数<code>param</code>，用于定位当前订单号。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$data = $_REQUEST;</span><br><span class="line">$pay = <span class="keyword">new</span> Pay(config(<span class="string">&#x27;pid&#x27;</span>), config(<span class="string">&#x27;key&#x27;</span>),config(<span class="string">&#x27;api&#x27;</span>));</span><br><span class="line"><span class="keyword">if</span> ($data[<span class="string">&#x27;pay_no&#x27;</span>]) &#123;</span><br><span class="line">    $order = Db(<span class="string">&#x27;select * from yyhy_order where trade_no=&quot;&#x27;</span> . $data[<span class="string">&#x27;param&#x27;</span>] . <span class="string">&#x27;&quot;&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span> (!$order) <span class="keyword">exit</span>(<span class="string">&#x27;fail&#x27;</span>);</span><br><span class="line">    $order = $order[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">if</span> ($order[<span class="string">&#x27;status&#x27;</span>] != <span class="number">1</span>) &#123;</span><br><span class="line">        Db(<span class="string">&#x27;update yyhy_order set `status`=1,`endtime`=&quot;&#x27;</span> . date(<span class="string">&#x27;Y-m-d H:i:s&#x27;</span>) . <span class="string">&#x27;&quot; where trade_no=&quot;&#x27;</span> . $data[<span class="string">&#x27;param&#x27;</span>] . <span class="string">&#x27;&quot;&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    alert(<span class="string">&#x27;施舍成功，好人有好报！&#x27;</span>, <span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    alert(<span class="string">&#x27;支付验证失败,施舍失败了，又吃不到饭饭了！&#x27;</span>, <span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="php">$data = $_REQUEST;
+$pay = new Pay(config(&#39;pid&#39;), config(&#39;key&#39;),config(&#39;api&#39;));
+if ($data[&#39;pay_no&#39;]) &#123;
+    $order = Db(&#39;select * from yyhy_order where trade_no=&quot;&#39; . $data[&#39;param&#39;] . &#39;&quot;&#39;);
+    if (!$order) exit(&#39;fail&#39;);
+    $order = $order[0];
+    if ($order[&#39;status&#39;] != 1) &#123;
+        Db(&#39;update yyhy_order set `status`=1,`endtime`=&quot;&#39; . date(&#39;Y-m-d H:i:s&#39;) . &#39;&quot; where trade_no=&quot;&#39; . $data[&#39;param&#39;] . &#39;&quot;&#39;);
+    &#125;
+    alert(&#39;施舍成功，好人有好报！&#39;, &#39;/&#39;);
+&#125; else &#123;
+    alert(&#39;支付验证失败,施舍失败了，又吃不到饭饭了！&#39;, &#39;/&#39;);
+&#125;</code></pre>
 <p>修改后附图：</p>
 <p><img src="https://picup.heson10.com/img/upyun/image-20200911075745019.png" alt="要饭系统ruturn页面设置"></p>
 <h3 id="Pay-Notify-index-php的修改"><a href="#Pay-Notify-index-php的修改" class="headerlink" title="Pay/Notify/index.php的修改"></a>Pay/Notify/index.php的修改</h3><p>简单验证单号就行，还要具备补单功能：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span> <span class="string">&#x27;../../Core/Common.php&#x27;</span>;</span><br><span class="line"></span><br><span class="line">$data = $_REQUEST;</span><br><span class="line">$pay = <span class="keyword">new</span> Pay(config(<span class="string">&#x27;pid&#x27;</span>), config(<span class="string">&#x27;key&#x27;</span>),config(<span class="string">&#x27;api&#x27;</span>));</span><br><span class="line"><span class="keyword">if</span> ($data[<span class="string">&#x27;pay_no&#x27;</span>]) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&#x27;success&#x27;</span>;</span><br><span class="line">    $order = Db(<span class="string">&#x27;select * from yyhy_order where trade_no=&quot;&#x27;</span> . $data[<span class="string">&#x27;param&#x27;</span>] . <span class="string">&#x27;&quot;&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span> (!$order) <span class="keyword">exit</span>(<span class="string">&#x27;fail&#x27;</span>);</span><br><span class="line">    $order = $order[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">if</span> ($order[<span class="string">&#x27;status&#x27;</span>] != <span class="number">1</span>) &#123;</span><br><span class="line">        Db(<span class="string">&#x27;update yyhy_order set `status`=1,`endtime`=&quot;&#x27;</span> . date(<span class="string">&#x27;Y-m-d H:i:s&#x27;</span>) . <span class="string">&#x27;&quot; where trade_no=&quot;&#x27;</span> . $data[<span class="string">&#x27;param&#x27;</span>] . <span class="string">&#x27;&quot;&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&#x27;fail&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="php">include &#39;../../Core/Common.php&#39;;
 
+$data = $_REQUEST;
+$pay = new Pay(config(&#39;pid&#39;), config(&#39;key&#39;),config(&#39;api&#39;));
+if ($data[&#39;pay_no&#39;]) &#123;
+    echo &#39;success&#39;;
+    $order = Db(&#39;select * from yyhy_order where trade_no=&quot;&#39; . $data[&#39;param&#39;] . &#39;&quot;&#39;);
+    if (!$order) exit(&#39;fail&#39;);
+    $order = $order[0];
+    if ($order[&#39;status&#39;] != 1) &#123;
+        Db(&#39;update yyhy_order set `status`=1,`endtime`=&quot;&#39; . date(&#39;Y-m-d H:i:s&#39;) . &#39;&quot; where trade_no=&quot;&#39; . $data[&#39;param&#39;] . &#39;&quot;&#39;);
+    &#125;
+&#125; else &#123;
+    echo &#39;fail&#39;;
+&#125;</code></pre>
 <h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p><del>好吧，今天又水了一篇。😂😂</del></p>
 <p><del>Q:为什么写这么一篇水文？</del></p>
 <p><del>A:因为弄这个还是花了不少功夫，简单记录一下：</del></p>
@@ -404,14 +459,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/54971.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/44528.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 11 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/54971.html"
-                            class="list-title overflow-hidden h6">Hexo在GitHub和Coding双线部署教程</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 12 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/44528.html"
+                            class="list-title overflow-hidden h6">在腾讯云服务器上搭建WordPress博客</a> </div>
                 </div>
             </div>
 
@@ -432,14 +487,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/44528.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/54971.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 12 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/44528.html"
-                            class="list-title overflow-hidden h6">在腾讯云服务器上搭建WordPress博客</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 11 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/54971.html"
+                            class="list-title overflow-hidden h6">Hexo在GitHub和Coding双线部署教程</a> </div>
                 </div>
             </div>
 
@@ -514,7 +569,7 @@
 
     <div class="px3 pb3 pt1">
         <div class="bold h3 mb1"><i class="fas fa-cloud"></i> 标签云</div> 
-        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
+        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
             
          
        

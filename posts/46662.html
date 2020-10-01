@@ -155,7 +155,7 @@
                             
                             
                             次</li> </div>
-                        <li class="mr1"><i class="fas fa-pen-nib"></i> 345 字</li>
+                        <li class="mr1"><i class="fas fa-pen-nib"></i> 344 字</li>
 
                         
                         
@@ -202,11 +202,46 @@
    <p>效果预览：</p>
 <p><img src="https://pic.heson10.com/img/image-20200719000704508.png" alt="image-20200719000704508"></p>
 <p>1.找到<code>hexo\themes\next\layout\_partials\footer.swig</code>添加如下代码：<a id="more"></a></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--添加网站运行时间 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span> (<span class="attr">theme.running_time</span> &amp;&amp; <span class="attr">theme.running_time.enable</span> &amp;&amp; <span class="attr">theme.running_time.create_time</span>)&#123; %&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;timeDate&quot;</span>&gt;</span>载入天数...<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;times&quot;</span>&gt;</span>载入时分秒...<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">createtime</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//此处修改你的建站时间或者网站上线时间</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> create_time = <span class="string">&#x27;&lt;%- theme.running_time.create_time %&gt;&#x27;</span>;</span></span><br><span class="line">        now.setTime(now.getTime() + 250);</span><br><span class="line">        days = (now - grt) / 1000 / 60 / 60 / 24;</span><br><span class="line"><span class="javascript">        dnum = <span class="built_in">Math</span>.floor(days);</span></span><br><span class="line">        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);</span><br><span class="line"><span class="javascript">        hnum = <span class="built_in">Math</span>.floor(hours);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="built_in">String</span>(hnum).length == <span class="number">1</span>) &#123;</span></span><br><span class="line"><span class="javascript">            hnum = <span class="string">&quot;0&quot;</span> + hnum;</span></span><br><span class="line">        &#125;</span><br><span class="line">        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);</span><br><span class="line"><span class="javascript">        mnum = <span class="built_in">Math</span>.floor(minutes);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="built_in">String</span>(mnum).length == <span class="number">1</span>) &#123;</span></span><br><span class="line"><span class="javascript">            mnum = <span class="string">&quot;0&quot;</span> + mnum;</span></span><br><span class="line">        &#125;</span><br><span class="line">        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);</span><br><span class="line"><span class="javascript">        snum = <span class="built_in">Math</span>.round(seconds);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="built_in">String</span>(snum).length == <span class="number">1</span>) &#123;</span></span><br><span class="line"><span class="javascript">            snum = <span class="string">&quot;0&quot;</span> + snum;</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">&quot;timeDate&quot;</span>).innerHTML = <span class="string">&quot; | 本站已安全运行 &quot;</span> + dnum + <span class="string">&quot; 天 &quot;</span>;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">&quot;times&quot;</span>).innerHTML = hnum + <span class="string">&quot; 小时 &quot;</span> + mnum + <span class="string">&quot; 分 &quot;</span> + snum + <span class="string">&quot; 秒&quot;</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="javascript">    <span class="built_in">setInterval</span>(<span class="string">&quot;createtime()&quot;</span>, <span class="number">250</span>);</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 添加网站运行时间 --&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="html">&lt;!--添加网站运行时间 --&gt;
+&lt;% if (theme.running_time &amp;&amp; theme.running_time.enable &amp;&amp; theme.running_time.create_time)&#123; %&gt;
+    &lt;span id=&quot;timeDate&quot;&gt;载入天数...&lt;/span&gt;&lt;span id=&quot;times&quot;&gt;载入时分秒...&lt;/span&gt;
+    &lt;script&gt;
+    var now = new Date();
 
+    function createtime() &#123;
+        //此处修改你的建站时间或者网站上线时间
+        var create_time = &#39;&lt;%- theme.running_time.create_time %&gt;&#39;;
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) &#123;
+            hnum = &quot;0&quot; + hnum;
+        &#125;
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) &#123;
+            mnum = &quot;0&quot; + mnum;
+        &#125;
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) &#123;
+            snum = &quot;0&quot; + snum;
+        &#125;
+        document.getElementById(&quot;timeDate&quot;).innerHTML = &quot; | 本站已安全运行 &quot; + dnum + &quot; 天 &quot;;
+        document.getElementById(&quot;times&quot;).innerHTML = hnum + &quot; 小时 &quot; + mnum + &quot; 分 &quot; + snum + &quot; 秒&quot;;
+    &#125;
+    setInterval(&quot;createtime()&quot;, 250);
+    &lt;/script&gt;
+&lt;% &#125; %&gt;
+&lt;!-- 添加网站运行时间 --&gt;</code></pre>
 <p>2.修改主题配置文件<code>_config.yml</code>添加如下代码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 网站运行时间，格式形如：“本站已安全运行 12 天 11 小时 16 分 31 秒”</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Runing Time</span></span><br><span class="line">running_time:</span><br><span class="line"> enable: true</span><br><span class="line"> create_time: &#x27;07/05/2020 17:38:00&#x27; #此处修改你的建站时间或者网站上线时间</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell"># 网站运行时间，格式形如：“本站已安全运行 12 天 11 小时 16 分 31 秒”
+# Runing Time
+running_time:
+ enable: true
+ create_time: &#39;07/05/2020 17:38:00&#39; #此处修改你的建站时间或者网站上线时间</code></pre>
 <p>完毕！</p>
 
 </article>
@@ -360,14 +395,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/16996.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/31061.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 23 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/16996.html"
-                            class="list-title overflow-hidden h6">给hexo博客添加fancybox图片灯箱功能</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 09 月 28 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/31061.html"
+                            class="list-title overflow-hidden h6">测试多彩标签</a> </div>
                 </div>
             </div>
 
@@ -388,14 +423,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/795.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/52911.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 19 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/795.html"
-                            class="list-title overflow-hidden h6">Hexo博客添加canvas-nest几何条纹动态背景</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 12 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/52911.html"
+                            class="list-title overflow-hidden h6">Hexo+Next7.X 博客美化教程合集</a> </div>
                 </div>
             </div>
 
@@ -416,14 +451,13 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/57815.html"
-                            target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
-                 
-                        
+                <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/62369.html"
+                    target="_blank" style="background-image: url(https://cdn.jsdelivr.net/gh/heson10/pic@master/img/rengeceshi.png);"> </a>
+                    
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 27 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/57815.html"
-                            class="list-title overflow-hidden h6">Coding Studio实现hexo的云环境部署</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 09 月 19 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/62369.html"
+                            class="list-title overflow-hidden h6">16种人格类型，你属于哪一种？</a> </div>
                 </div>
             </div>
 
@@ -470,7 +504,7 @@
 
     <div class="px3 pb3 pt1">
         <div class="bold h3 mb1"><i class="fas fa-cloud"></i> 标签云</div> 
-        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
+        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
             
          
        

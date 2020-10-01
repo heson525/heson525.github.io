@@ -155,7 +155,7 @@
                             
                             
                             次</li> </div>
-                        <li class="mr1"><i class="fas fa-pen-nib"></i> 354 字</li>
+                        <li class="mr1"><i class="fas fa-pen-nib"></i> 359 字</li>
 
                         
                         
@@ -203,18 +203,50 @@
 
 <h2 id="修改h1-h6颜色"><a href="#修改h1-h6颜色" class="headerlink" title="修改h1-h6颜色"></a>修改h1-h6颜色</h2><p>在<code>hexo\themes\volantis\source\css\_layout</code>文件夹下找到<code>article.styl</code>文件</p>
 <p>在开头处增加h1-h6颜色参数：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//自定义参数设置</span></span><br><span class="line"><span class="variable">$color</span>-<span class="selector-tag">h2</span> = <span class="number">#ad2121</span></span><br><span class="line"><span class="variable">$color</span>-<span class="selector-tag">h3</span> = <span class="number">#0028bb</span></span><br><span class="line"><span class="variable">$color</span>-<span class="selector-tag">h4</span> = <span class="number">#ad9521</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="stylus">//自定义参数设置
+$color-h2 = #ad2121
+$color-h3 = #0028bb
+$color-h4 = #ad9521</code></pre>
 <p>以上是我加的，一般文章里不用h1标题，我就没有加进去，h5h6用的很少，我也就没加了。</p>
 <h2 id="加粗h1-h6"><a href="#加粗h1-h6" class="headerlink" title="加粗h1-h6"></a>加粗h1-h6</h2><p>同样是<code>article.styl</code>文件，找到h1-h6标签样式处：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">h1</span><br><span class="line">  <span class="attribute">text-align</span>: <span class="variable">$textalign</span>-h1</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$color</span>-h1</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="variable">$gap</span>-h2</span><br><span class="line">h2</span><br><span class="line"> ...</span><br></pre></td></tr></table></figure>
-
+<pre><code class="stylus">  h1
+    text-align: $textalign-h1
+    color: $color-h1
+    margin-top: $gap-h2
+  h2
+   ...</code></pre>
 <p>给每个加上<code>font-weight: bold</code>，如下图：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">h1</span><br><span class="line">  <span class="attribute">font-weight</span>: bold</span><br><span class="line">  <span class="attribute">text-align</span>: <span class="variable">$textalign</span>-h1</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$color</span>-h1</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="variable">$gap</span>-h2</span><br><span class="line">h2</span><br><span class="line">  <span class="attribute">font-weight</span>: bold</span><br><span class="line">  <span class="attribute">text-align</span>: <span class="variable">$textalign</span>-h2</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$color</span>-h2</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="variable">$gap</span>-h2</span><br><span class="line">h3</span><br><span class="line">  <span class="attribute">font-weight</span>: bold</span><br><span class="line">  <span class="attribute">text-align</span>: <span class="variable">$textalign</span>-h3</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$color</span>-h3</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="variable">$gap</span>-h3</span><br><span class="line">h4</span><br><span class="line">  <span class="attribute">font-weight</span>: bold</span><br><span class="line">  <span class="attribute">text-align</span>: <span class="variable">$textalign</span>-h4</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$color</span>-h4</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="variable">$gap</span>-h4</span><br><span class="line">h5</span><br><span class="line">  <span class="attribute">font-weight</span>: bold</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$color</span>-h5</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="variable">$gap</span>-paragraph</span><br><span class="line">h6</span><br><span class="line">  <span class="attribute">font-weight</span>: bold</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$color</span>-h6</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="variable">$gap</span>-paragraph</span><br></pre></td></tr></table></figure>
-
+<pre><code class="stylus">  h1
+    font-weight: bold
+    text-align: $textalign-h1
+    color: $color-h1
+    margin-top: $gap-h2
+  h2
+    font-weight: bold
+    text-align: $textalign-h2
+    color: $color-h2
+    margin-top: $gap-h2
+  h3
+    font-weight: bold
+    text-align: $textalign-h3
+    color: $color-h3
+    margin-top: $gap-h3
+  h4
+    font-weight: bold
+    text-align: $textalign-h4
+    color: $color-h4
+    margin-top: $gap-h4
+  h5
+    font-weight: bold
+    color: $color-h5
+    margin-top: $gap-paragraph
+  h6
+    font-weight: bold
+    color: $color-h6
+    margin-top: $gap-paragraph</code></pre>
 <p>或者直接在开头加</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span>,<span class="selector-tag">h2</span>,<span class="selector-tag">h3</span>,<span class="selector-tag">h4</span>,<span class="selector-tag">h5</span>,h6</span><br><span class="line">    <span class="attribute">font-weight</span>: bold</span><br></pre></td></tr></table></figure>
-
+<pre><code class="stylus">h1,h2,h3,h4,h5,h6
+    font-weight: bold</code></pre>
 <h2 id="效果对比图"><a href="#效果对比图" class="headerlink" title="效果对比图"></a>效果对比图</h2><p><img src="https://picup.heson10.com/img/volantis%E4%BF%AE%E6%94%B9h1.jpg" alt="volantis修改h1"></p>
 <p>长文效果图预览：<a href="https://www.heson10.com/posts/28396.html">所有关于Valine的配置都在这里【合集】</a></p>
 <article class="message moren"><div class="message_body"><p>warning ,自用修改，不喜勿喷。</p></div></article>
@@ -371,14 +403,13 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/899.html"
-                            target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
-                 
-                        
+                <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/7207.html"
+                    target="_blank" style="background-image: url(https://picup.heson10.com/img/upyun/newcomment.png);"> </a>
+                    
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 24 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/899.html"
-                            class="list-title overflow-hidden h6">用Python给Markdown文件优雅更名</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 28 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/7207.html"
+                            class="list-title overflow-hidden h6">Hexo博客调用Valine最新评论</a> </div>
                 </div>
             </div>
 
@@ -399,41 +430,42 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/16996.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/10441.html"
+                            target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
+                 
+                        
+                <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 22 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/10441.html"
+                            class="list-title overflow-hidden h6">关于Hexo+next主题的SEO优化</a> </div>
+                </div>
+            </div>
+
+
+
+
+
+
+        </section>
+
+
+
+
+        
+            
+
+        <section class="pb2 px2 mybox-content">
+
+            <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
+                
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/60484.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
                     <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 23 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/16996.html"
-                            class="list-title overflow-hidden h6">给hexo博客添加fancybox图片灯箱功能</a> </div>
-                </div>
-            </div>
-
-
-
-
-
-
-        </section>
-
-
-
-
-        
-            
-
-        <section class="pb2 px2 mybox-content">
-
-            <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
-                
-                <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/62369.html"
-                    target="_blank" style="background-image: url(https://cdn.jsdelivr.net/gh/heson10/pic@master/img/rengeceshi.png);"> </a>
-                    
-                <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 09 月 19 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/62369.html"
-                            class="list-title overflow-hidden h6">16种人格类型，你属于哪一种？</a> </div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/60484.html"
+                            class="list-title overflow-hidden h6">解决Hexo分类页面访问404问题</a> </div>
                 </div>
             </div>
 
@@ -480,7 +512,7 @@
 
     <div class="px3 pb3 pt1">
         <div class="bold h3 mb1"><i class="fas fa-cloud"></i> 标签云</div> 
-        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
+        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
             
          
        

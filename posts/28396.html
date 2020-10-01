@@ -250,8 +250,7 @@
 <li>添加js链接、并在配置文件增加参数</li>
 </ul>
 <p>使用的是懒人大佬修改的js：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js</span><br></pre></td></tr></table></figure>
-
+<pre><code class="html">https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js</code></pre>
 <details cyan open><summary> <p>与原生的相比，多了以下功能：</p> </summary>
               <div class='content'>
               <ul><li><p>添加博主，小伙伴，访客标签</p></li><li><p>添加浏览器和操作系统图标，需 <code>fontawesomeV5</code> 支持</p></li><li><p>邮箱检测更严格</p></li><li><p>增加 QQ 邮箱识别（原版只能通过昵称栏输入 QQ 号识别）</p></li><li><p>meta placeholder 可自定义</p></li></ul>
@@ -276,8 +275,8 @@
 </li>
 </ul>
 <p>代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">master: &#39;[&lt;%&#x3D; theme.comments.valine.master %&gt;]&#39;,</span><br><span class="line">friends: &#39;[&lt;%&#x3D; theme.comments.valine.friends %&gt;]&#39;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="ejs">      master: &#39;[&lt;%= theme.comments.valine.master %&gt;]&#39;,
+      friends: &#39;[&lt;%= theme.comments.valine.friends %&gt;]&#39;</code></pre>
 <p>至此，就可以在主题配置文件中，直接填写master和friends参数，通过MD5加密的邮箱地址判断博主和小伙伴了。其他参数、其他主题原理相同：</p>
 <details cyan open><summary> <p>原理</p> </summary>
               <div class='content'>
@@ -289,10 +288,7 @@
 <p><img src="https://picup.heson10.com/img/image-20200816143208797.png" alt="image-20200816143208797"></p>
 <h4 id="进行部署"><a href="#进行部署" class="headerlink" title="进行部署"></a>进行部署</h4><p>安利下我用的自己valine-admin-server （基于小康大佬），去掉了一些二次元的东西（本博主年龄偏大，对此不感冒😂）。</p>
 <p>地址如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/heson525/Valine-Admin-Server</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="html"> https://github.com/heson525/Valine-Admin-Server</code></pre>
 <p><img src="https://picup.heson10.com/img/image-20200816143419197.png" alt="image-20200816143419197"></p>
 <p><img src="https://picup.heson10.com/img/image-20200816144049811.png" alt="- "></p>
 <p><img src="https://picup.heson10.com/img/image-20200816144630444.png" alt="image-20200816144630444"></p>
@@ -320,7 +316,7 @@
 <tr>
 <td align="center">SMTP_USER</td>
 <td align="center">[必填] SMTP 服务用户名，一般为邮箱地址。</td>
-<td align="center"><a href="mailto:&#109;&#97;&#x69;&#x6c;&#x40;&#104;&#x65;&#115;&#111;&#110;&#x31;&#48;&#x2e;&#99;&#x6f;&#109;">&#109;&#97;&#x69;&#x6c;&#x40;&#104;&#x65;&#115;&#111;&#110;&#x31;&#48;&#x2e;&#99;&#x6f;&#109;</a></td>
+<td align="center"><a href="mailto:&#109;&#97;&#x69;&#108;&#x40;&#x68;&#x65;&#x73;&#x6f;&#x6e;&#49;&#48;&#x2e;&#x63;&#x6f;&#x6d;">&#109;&#97;&#x69;&#108;&#x40;&#x68;&#x65;&#x73;&#x6f;&#x6e;&#49;&#48;&#x2e;&#x63;&#x6f;&#x6d;</a></td>
 </tr>
 <tr>
 <td align="center">SMTP_PASS</td>
@@ -340,12 +336,12 @@
 <tr>
 <td align="center">TO_EMAIL</td>
 <td align="center">[可选] 博主通知收件地址，默认使用 SMTP_USER</td>
-<td align="center"><a href="mailto:&#x6d;&#x61;&#x69;&#x6c;&#64;&#x68;&#101;&#115;&#x6f;&#x6e;&#x31;&#x30;&#x2e;&#x63;&#x6f;&#x6d;">&#x6d;&#x61;&#x69;&#x6c;&#64;&#x68;&#101;&#115;&#x6f;&#x6e;&#x31;&#x30;&#x2e;&#x63;&#x6f;&#x6d;</a></td>
+<td align="center"><a href="mailto:&#x6d;&#x61;&#105;&#x6c;&#x40;&#x68;&#101;&#115;&#x6f;&#x6e;&#49;&#x30;&#x2e;&#99;&#x6f;&#x6d;">&#x6d;&#x61;&#105;&#x6c;&#x40;&#x68;&#101;&#115;&#x6f;&#x6e;&#49;&#x30;&#x2e;&#99;&#x6f;&#x6d;</a></td>
 </tr>
 <tr>
 <td align="center">BLOGGER_EMAIL</td>
 <td align="center">[可选] 如果设置则作为后台管理员邮箱（/sign-up 页面设置），不设置则默认以 SMTP_USER</td>
-<td align="center"><a href="mailto:&#x6d;&#97;&#x69;&#x6c;&#64;&#x68;&#x65;&#x73;&#111;&#110;&#x31;&#48;&#46;&#99;&#x6f;&#109;">&#x6d;&#97;&#x69;&#x6c;&#64;&#x68;&#x65;&#x73;&#111;&#110;&#x31;&#48;&#46;&#99;&#x6f;&#109;</a></td>
+<td align="center"><a href="mailto:&#109;&#97;&#105;&#x6c;&#x40;&#104;&#101;&#115;&#x6f;&#x6e;&#x31;&#x30;&#46;&#99;&#111;&#x6d;">&#109;&#97;&#105;&#x6c;&#x40;&#104;&#101;&#115;&#x6f;&#x6e;&#x31;&#x30;&#46;&#99;&#111;&#x6d;</a></td>
 </tr>
 <tr>
 <td align="center">TEMPLATE_NAME</td>
@@ -683,13 +679,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/59108.html"
-                    target="_blank" style="background-image: url(https://picup.heson10.com/img/upyun/listtags.png);"> </a>
-                    
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/60484.html"
+                            target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
+                 
+                        
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 09 月 24 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/59108.html"
-                            class="list-title overflow-hidden h6">Hexo 标签函数 list_tags 用法</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 23 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/60484.html"
+                            class="list-title overflow-hidden h6">解决Hexo分类页面访问404问题</a> </div>
                 </div>
             </div>
 
@@ -710,14 +707,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/121.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/38720.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 08 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/121.html"
-                            class="list-title overflow-hidden h6">用hexo+github pages+独立域名搭建个人博客</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 21 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/38720.html"
+                            class="list-title overflow-hidden h6">Typora+Picgo+七牛云实现图片快速上传</a> </div>
                 </div>
             </div>
 
@@ -738,14 +735,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/47102.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/31426.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 24 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/47102.html"
-                            class="list-title overflow-hidden h6">hexo+next设置微信打赏功能</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 02 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/31426.html"
+                            class="list-title overflow-hidden h6">SEO优化：Hexo-abbrlink插件生成永久固定链接</a> </div>
                 </div>
             </div>
 
@@ -792,7 +789,7 @@
 
     <div class="px3 pb3 pt1">
         <div class="bold h3 mb1"><i class="fas fa-cloud"></i> 标签云</div> 
-        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
+        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
             
          
        

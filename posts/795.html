@@ -200,15 +200,18 @@
 <hr>
             <article id="Post_wysiwyg" class="duta">
    <h2 id="进入主题文件夹"><a href="#进入主题文件夹" class="headerlink" title="进入主题文件夹"></a>进入主题文件夹</h2><p>以我用的next主题为例子</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd themes/next</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">cd themes/next</code></pre>
 <h2 id="从github下载canvas-nest"><a href="#从github下载canvas-nest" class="headerlink" title="从github下载canvas-nest"></a>从github下载canvas-nest</h2><p>把canvas-nest下载到next目录下的<code>ource/lib</code>目录里</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/theme-next-canvas-nest source/lib/canvas-nest</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">git clone https://github.com/theme-next/theme-next-canvas-nest source/lib/canvas-nest</code></pre>
 <h2 id="在主题开启配置"><a href="#在主题开启配置" class="headerlink" title="在主题开启配置"></a>在主题开启配置</h2><p>在NexT配置文件<code>_config.yml</code>中配置开启canvas_nest</p>
 <p>在配置文件中找到canvas_nest，将enable设置成true，还可以自定义颜色、透明度、数量等。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">canvas_nest:</span><br><span class="line">  enable: true    #开启canvas</span><br><span class="line">  onmobile: true # 是否在移动站开启canvas</span><br><span class="line">  color: &#x27;34,34,34&#x27; # 颜色值</span><br><span class="line">  opacity: 0.5 # 数值 0~1 ，线条透明度</span><br><span class="line">  zIndex: -1 # 背景叠层大小，-1代表放在文章的后面</span><br><span class="line">  count: 200 # 线条数量</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">canvas_nest:
+  enable: true    #开启canvas
+  onmobile: true # 是否在移动站开启canvas
+  color: &#39;34,34,34&#39; # 颜色值
+  opacity: 0.5 # 数值 0~1 ，线条透明度
+  zIndex: -1 # 背景叠层大小，-1代表放在文章的后面
+  count: 200 # 线条数量</code></pre>
 <p>完毕，hexo clean &amp; hexo g &amp; hexo d </p>
 
 </article>
@@ -362,68 +365,70 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/53612.html"
-                    target="_blank" style="background-image: url(https://cdn.jsdelivr.net/gh/heson10/pic@master/img/dafadian3.png);"> </a>
-                    
-                <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 09 月 08 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/53612.html"
-                            class="list-title overflow-hidden h6">记录一次24H在线要饭系统的搭建</a> </div>
-                </div>
-            </div>
-
-
-
-
-
-
-        </section>
-
-
-
-
-        
-            
-
-        <section class="pb2 px2 mybox-content">
-
-            <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
-                
-                <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/59108.html"
-                    target="_blank" style="background-image: url(https://picup.heson10.com/img/upyun/listtags.png);"> </a>
-                    
-                <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 09 月 24 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/59108.html"
-                            class="list-title overflow-hidden h6">Hexo 标签函数 list_tags 用法</a> </div>
-                </div>
-            </div>
-
-
-
-
-
-
-        </section>
-
-
-
-
-        
-            
-
-        <section class="pb2 px2 mybox-content">
-
-            <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
-                
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/10441.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/28396.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 22 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/10441.html"
-                            class="list-title overflow-hidden h6">关于Hexo+next主题的SEO优化</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 16 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/28396.html"
+                            class="list-title overflow-hidden h6">所有关于Valine评论系统的配置都在这里【合集】</a> </div>
+                </div>
+            </div>
+
+
+
+
+
+
+        </section>
+
+
+
+
+        
+            
+
+        <section class="pb2 px2 mybox-content">
+
+            <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
+                
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/38720.html"
+                            target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
+                 
+                        
+                <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 21 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/38720.html"
+                            class="list-title overflow-hidden h6">Typora+Picgo+七牛云实现图片快速上传</a> </div>
+                </div>
+            </div>
+
+
+
+
+
+
+        </section>
+
+
+
+
+        
+            
+
+        <section class="pb2 px2 mybox-content">
+
+            <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
+                
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/27150.html"
+                            target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
+                 
+                        
+                <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 09 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/27150.html"
+                            class="list-title overflow-hidden h6">Hexo在coding上持续集成</a> </div>
                 </div>
             </div>
 
@@ -470,7 +475,7 @@
 
     <div class="px3 pb3 pt1">
         <div class="bold h3 mb1"><i class="fas fa-cloud"></i> 标签云</div> 
-        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
+        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
             
          
        

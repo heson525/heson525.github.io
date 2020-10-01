@@ -155,7 +155,7 @@
                             
                             
                             次</li> </div>
-                        <li class="mr1"><i class="fas fa-pen-nib"></i> 667 字</li>
+                        <li class="mr1"><i class="fas fa-pen-nib"></i> 660 字</li>
 
                         
                         
@@ -201,9 +201,9 @@
             <article id="Post_wysiwyg" class="duta">
    <p>最近正在研究Hexo主题文档，关于标签函数有两条：</p>
 <ul>
-<li><pre><code class="ejs">&lt;%- list_tags([options]) %&gt;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- &#96;&#96;&#96;ejs</span><br><span class="line">  &lt;%- tagcloud([tags], [options]) %&gt;</span><br></pre></td></tr></table></figure>
-</code></pre>
+<li><pre><code class="ejs">&lt;%- list_tags([options]) %&gt;</code></pre>
+</li>
+<li><pre><code class="ejs">&lt;%- tagcloud([tags], [options]) %&gt;</code></pre>
 </li>
 </ul>
 <p>因为现在用的主题采用的是<code>list_tag</code>标签，着重讲一下这个标签。</p>
@@ -263,14 +263,12 @@
 </tr>
 </tbody></table>
 <h2 id="list-tags用法详解"><a href="#list-tags用法详解" class="headerlink" title="list_tags用法详解"></a>list_tags用法详解</h2><p>函数写法示例如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list_tags(site.tags,&#123;orderby: &#39;name&#39;, order: &#39;desc&#39;, amount: 0,class: &#123;ul: &#39;ululul&#39;, li: &#39;lilili&#39;, a: &#39;aaa&#39;, count: &#39;ccc&#39;&#125;, style: list, separator: &#39; | &#39;&#125;)</span><br></pre></td></tr></table></figure>
-
+<pre><code>list_tags(site.tags,&#123;orderby: &#39;name&#39;, order: &#39;desc&#39;, amount: 0,class: &#123;ul: &#39;ululul&#39;, li: &#39;lilili&#39;, a: &#39;aaa&#39;, count: &#39;ccc&#39;&#125;, style: list, separator: &#39; | &#39;&#125;)</code></pre>
 <ul>
 <li><p>其中第一个参数<code>site.tags</code>还可以写<code>post.tags</code>，意思是分别调用<strong>全站标签</strong>和当前<strong>文章标签</strong></p>
 </li>
 <li><p><code>orderby</code>这里默认值是<code>name</code>，如果想按照标签下的文章数量来进行排序的话，很明显<code>name</code>已经满足不了我们的需求，于是我们可以这样调用，使用<code>length</code>参数（<strong>之前一直想要找到这样的写法，最后还是在hexo官方github的issue上看到的，还是个外国朋友提供的</strong>），这样也称之为<strong>热门标签</strong>，并通过amount参数控制显示数量，这样的标签群放在侧边栏效果更佳：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- list_tags(site.tags,&#123;orderby: &#39;length&#39;, order: &#39;desc&#39;,amount: 8&#125;) %&gt;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="ejs">&lt;%- list_tags(site.tags,&#123;orderby: &#39;length&#39;, order: &#39;desc&#39;,amount: 8&#125;) %&gt;</code></pre>
 <p>效果如下图：</p>
 <p><img src="https://picup.heson10.com/img/upyun/image-20200924132046400.png" alt="黑石博客热门标签"></p>
 </li>
@@ -282,16 +280,14 @@
 <p><img src="https://picup.heson10.com/img/upyun/image-20200924133032110.png" alt="黑石博客标签class"></p>
 </li>
 <li><p><code>style</code>和<code>separator</code>配合使用，给标签与标签之间加上分隔符：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">style: false, separator: &#39; | &#39;</span><br></pre></td></tr></table></figure>
-
+<pre><code>style: false, separator: &#39; | &#39;</code></pre>
 <p>效果：</p>
 <p><img src="https://picup.heson10.com/img/upyun/image-20200924133652342.png" alt="黑石标签分隔符"></p>
 </li>
 <li><p><code>show_count</code>为是否显示每个标签的文章数，这个就很好理解了，填<code>true</code>和<code>false</code>即可。</p>
 </li>
 <li><p><code>transform</code>可为标签字符串进行转化，最常见的就是大小写转化，这也是一个常见的方法，比如我喜欢给每个标签用小写，如<code>hexo</code>，但显示出来不好看，于是我们可以利用<code>transform</code>转为大写，写法如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- list_tags(site.tags,&#123;orderby: &#39;length&#39;, order: &#39;desc&#39;, amount: 0,transform(str) &#123;return str.toUpperCase();&#125;&#125;) %&gt;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="ejs">&lt;%- list_tags(site.tags,&#123;orderby: &#39;length&#39;, order: &#39;desc&#39;, amount: 0,transform(str) &#123;return str.toUpperCase();&#125;&#125;) %&gt;</code></pre>
 <p>原本小写的<code>hexo</code>，转变为大写，效果如下：</p>
 <p><img src="https://picup.heson10.com/img/upyun/image-20200924134802819.png" alt="黑石标签大小写转化"></p>
 </li>
@@ -449,14 +445,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/51572.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/54971.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 13 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/51572.html"
-                            class="list-title overflow-hidden h6">为Hexo增加algolia搜索功能</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 11 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/54971.html"
+                            class="list-title overflow-hidden h6">Hexo在GitHub和Coding双线部署教程</a> </div>
                 </div>
             </div>
 
@@ -477,13 +473,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/7207.html"
-                    target="_blank" style="background-image: url(https://picup.heson10.com/img/upyun/newcomment.png);"> </a>
-                    
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/38719.html"
+                            target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
+                 
+                        
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 28 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/7207.html"
-                            class="list-title overflow-hidden h6">Hexo博客调用Valine最新评论</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 16 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/38719.html"
+                            class="list-title overflow-hidden h6">Hexo中next主题启用文章置顶功能</a> </div>
                 </div>
             </div>
 
@@ -504,14 +501,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/31061.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/47102.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 09 月 28 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/31061.html"
-                            class="list-title overflow-hidden h6">测试多彩标签</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 24 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/47102.html"
+                            class="list-title overflow-hidden h6">hexo+next设置微信打赏功能</a> </div>
                 </div>
             </div>
 
@@ -558,7 +555,7 @@
 
     <div class="px3 pb3 pt1">
         <div class="bold h3 mb1"><i class="fas fa-cloud"></i> 标签云</div> 
-        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
+        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
             
          
        

@@ -155,7 +155,7 @@
                             
                             
                             次</li> </div>
-                        <li class="mr1"><i class="fas fa-pen-nib"></i> 757 字</li>
+                        <li class="mr1"><i class="fas fa-pen-nib"></i> 736 字</li>
 
                         
                         
@@ -213,26 +213,90 @@
 </li>
 </ul>
 <p>下面我们打开<code>tag.ejs</code>页面，复制以下内容（下面是我修改过的，增加了标题）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;article id&#x3D;&quot;tag&quot; class&#x3D;&quot;post article white-box reveal &lt;%- theme.custom_css.body.effect.join(&#39; &#39;) %&gt;&quot;&gt;</span><br><span class="line">	&lt;h2&gt;&lt;i class&#x3D;&quot;fas fa-cloud&quot;&gt;&lt;&#x2F;i&gt;&amp;nbsp;标签云&lt;&#x2F;h2&gt;</span><br><span class="line">	&lt;div class&#x3D;&quot;all-tags&quot;&gt;</span><br><span class="line">	  &lt;% let tc &#x3D; theme.sidebar.widget_library.tagcloud; %&gt;</span><br><span class="line">	  &lt;%- list_tags(&#123;&#125;) %&gt;</span><br><span class="line">	&lt;&#x2F;div&gt;</span><br><span class="line">	&lt;script&gt;colortag();&lt;&#x2F;script&gt;</span><br><span class="line">	&lt;br&gt;</span><br><span class="line">	&lt;%- page.content %&gt;</span><br><span class="line">&lt;&#x2F;article&gt;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="ejs">        &lt;article id=&quot;tag&quot; class=&quot;post article white-box reveal &lt;%- theme.custom_css.body.effect.join(&#39; &#39;) %&gt;&quot;&gt;
+            &lt;h2&gt;&lt;i class=&quot;fas fa-cloud&quot;&gt;&lt;/i&gt;&amp;nbsp;标签云&lt;/h2&gt;
+            &lt;div class=&quot;all-tags&quot;&gt;
+              &lt;% let tc = theme.sidebar.widget_library.tagcloud; %&gt;
+              &lt;%- list_tags(&#123;&#125;) %&gt;
+            &lt;/div&gt;
+            &lt;script&gt;colortag();&lt;/script&gt;
+            &lt;br&gt;
+            &lt;%- page.content %&gt;
+     &lt;/article&gt;</code></pre>
 <p>到<code>archive.ejs</code>页面：</p>
 <p><img src="https://picup.heson10.com/img/upyun/image-20200902200436173.png" alt="标签云添加"></p>
 <p>加到如图这个地方，同时我加了标签云和归档的标题：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2&gt;&lt;i class&#x3D;&quot;fas fa-cloud&quot;&gt;&lt;&#x2F;i&gt;&amp;nbsp;标签云&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2&gt;&lt;i class&#x3D;&quot;fas fa-book-open&quot;&gt;&lt;&#x2F;i&gt;&amp;nbsp;时间轴&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="ejs">&lt;h2&gt;&lt;i class=&quot;fas fa-cloud&quot;&gt;&lt;/i&gt;&amp;nbsp;标签云&lt;/h2&gt;</code></pre>
+<pre><code class="ejs">&lt;h2&gt;&lt;i class=&quot;fas fa-book-open&quot;&gt;&lt;/i&gt;&amp;nbsp;时间轴&lt;/h2&gt;</code></pre>
 <h2 id="添加CSS样式"><a href="#添加CSS样式" class="headerlink" title="添加CSS样式"></a>添加CSS样式</h2><p>同样直接扔到main.styl里面：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">.tagred</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#feecf0</span></span><br><span class="line">  <span class="attribute">color</span>:<span class="number">#cc0f35</span></span><br><span class="line"></span><br><span class="line">.tagyellow</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#f4e9ff</span></span><br><span class="line">  <span class="attribute">color</span>:<span class="number">#8a51c0</span></span><br><span class="line"></span><br><span class="line">.tagblue</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#eef3fc</span></span><br><span class="line">  <span class="attribute">color</span>:<span class="number">#2160c4</span></span><br><span class="line"></span><br><span class="line">.taggreen</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ebfffc</span></span><br><span class="line">  <span class="attribute">color</span>:<span class="number">#00947e</span></span><br><span class="line"></span><br><span class="line">.tagpurple</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#f4e9ff</span></span><br><span class="line">  <span class="attribute">color</span>:<span class="number">#8a51c0</span></span><br><span class="line"></span><br><span class="line">.taggrown</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#fffbeb</span></span><br><span class="line">  <span class="attribute">color</span>:<span class="number">#947600</span></span><br></pre></td></tr></table></figure>
+<pre><code class="stylus">.tagred
+  background: #feecf0
+  color:#cc0f35
 
+.tagyellow
+  background: #f4e9ff
+  color:#8a51c0
+
+.tagblue
+  background: #eef3fc
+  color:#2160c4
+
+.taggreen
+  background: #ebfffc
+  color:#00947e
+
+.tagpurple
+  background: #f4e9ff
+  color:#8a51c0
+
+.taggrown
+  background: #fffbeb
+  color:#947600</code></pre>
 <p>若有的童鞋不变色的话，请给此css加上最高优先级，如下：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">.tagred</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#feecf0</span>!important</span><br><span class="line">  <span class="attribute">color</span>:<span class="number">#cc0f35</span>!important</span><br><span class="line"></span><br><span class="line">.tagyellow</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#f4e9ff</span>!important</span><br><span class="line">  <span class="attribute">color</span>:<span class="number">#8a51c0</span>!important</span><br><span class="line"></span><br><span class="line">.tagblue</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#eef3fc</span>!important</span><br><span class="line">  <span class="attribute">color</span>:<span class="number">#2160c4</span>!important</span><br><span class="line"></span><br><span class="line">.taggreen</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ebfffc</span>!important</span><br><span class="line">  <span class="attribute">color</span>:<span class="number">#00947e</span>!important</span><br><span class="line"></span><br><span class="line">.tagpurple</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#f4e9ff</span>!important</span><br><span class="line">  <span class="attribute">color</span>:<span class="number">#8a51c0</span>!important</span><br><span class="line"></span><br><span class="line">.taggrown</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#fffbeb</span>!important</span><br><span class="line">  <span class="attribute">color</span>:<span class="number">#947600</span>!important</span><br></pre></td></tr></table></figure>
+<pre><code class="stylus">.tagred
+  background: #feecf0!important
+  color:#cc0f35!important
 
+.tagyellow
+  background: #f4e9ff!important
+  color:#8a51c0!important
 
+.tagblue
+  background: #eef3fc!important
+  color:#2160c4!important
 
+.taggreen
+  background: #ebfffc!important
+  color:#00947e!important
+
+.tagpurple
+  background: #f4e9ff!important
+  color:#8a51c0!important
+
+.taggrown
+  background: #fffbeb!important
+  color:#947600!important</code></pre>
 <h3 id="增加jQuery函数"><a href="#增加jQuery函数" class="headerlink" title="增加jQuery函数"></a>增加jQuery函数</h3><p>放到<code>themes\volantis\source\js\app.js</code>里面</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">colortag</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">$(<span class="string">&quot;ul.tag-list li&quot;</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">let</span> random = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="number">5</span>+<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">if</span>(random == <span class="number">2</span>)&#123;</span><br><span class="line">		$(<span class="built_in">this</span>).find(<span class="string">&#x27;a&#x27;</span>).addClass(<span class="string">&#x27;tagred&#x27;</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> ( random == <span class="number">3</span> )&#123;</span><br><span class="line">		$(<span class="built_in">this</span>).find(<span class="string">&#x27;a&#x27;</span>).addClass(<span class="string">&#x27;tagyellow&#x27;</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> ( random == <span class="number">4</span> )&#123;</span><br><span class="line">		$(<span class="built_in">this</span>).find(<span class="string">&#x27;a&#x27;</span>).addClass(<span class="string">&#x27;tagblue&#x27;</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> ( random == <span class="number">5</span> )&#123;</span><br><span class="line">		$(<span class="built_in">this</span>).find(<span class="string">&#x27;a&#x27;</span>).addClass(<span class="string">&#x27;taggreen&#x27;</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> ( random == <span class="number">2</span> )&#123;</span><br><span class="line">		$(<span class="built_in">this</span>).find(<span class="string">&#x27;a&#x27;</span>).addClass(<span class="string">&#x27;tagpurple&#x27;</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> ( random == <span class="number">1</span> )&#123;</span><br><span class="line">		$(<span class="built_in">this</span>).find(<span class="string">&#x27;a&#x27;</span>).addClass(<span class="string">&#x27;taggrown&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">&#125;);&#125;</span><br><span class="line"></span><br><span class="line">colortag();</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">function colortag()&#123;
+$(&quot;ul.tag-list li&quot;).each(function()&#123;
+    let random = Math.floor(Math.random()*5+1);
+    if(random == 2)&#123;
+        $(this).find(&#39;a&#39;).addClass(&#39;tagred&#39;);
+    &#125; else if ( random == 3 )&#123;
+        $(this).find(&#39;a&#39;).addClass(&#39;tagyellow&#39;);
+    &#125; else if ( random == 4 )&#123;
+        $(this).find(&#39;a&#39;).addClass(&#39;tagblue&#39;);
+    &#125; else if ( random == 5 )&#123;
+        $(this).find(&#39;a&#39;).addClass(&#39;taggreen&#39;);
+    &#125; else if ( random == 2 )&#123;
+        $(this).find(&#39;a&#39;).addClass(&#39;tagpurple&#39;);
+    &#125; else if ( random == 1 )&#123;
+        $(this).find(&#39;a&#39;).addClass(&#39;taggrown&#39;);
+    &#125;
 
+&#125;);&#125;
+
+colortag();</code></pre>
 <p>此函数主要随机取得标签云的a链接，并添加随机颜色的class，之前class样式已经在css里设置了。</p>
 <p>修改完毕！</p>
 <p>最后，发布一条声明：</p>
@@ -403,7 +467,7 @@
 
     <div class="px3 pb3 pt1">
         <div class="bold h3 mb1"><i class="fas fa-cloud"></i> 标签云</div> 
-        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
+        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
             
          
        

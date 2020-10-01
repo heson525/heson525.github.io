@@ -222,16 +222,18 @@
 <li><p>用<code>git init</code>初始化仓库</p>
 </li>
 <li><p>因为你不是第一次用git上传，所以<strong>不用</strong>设置用户名、邮箱，否则：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email &quot;you@example.com&quot;</span><br><span class="line">git config --global user.name &quot;Your Name&quot;</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">git config --global user.email &quot;you@example.com&quot;
+git config --global user.name &quot;Your Name&quot;</code></pre>
 </li>
 <li><p>关联远程仓库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://令牌用户名:令牌密码@项目地址</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">git remote add origin https://令牌用户名:令牌密码@项目地址</code></pre>
 <p>这个地方注意一下，因为是私有仓库，这里要填<strong>带令牌</strong>的https地址，coding令牌获取<a target="_blank" rel="noopener" href="https://heson.xyz/posts/57815.html#Coding-token">传送门</a>，如图（<strong>绿色文字</strong>）：</p>
 <p><img src="https://pic.heson.xyz/img/image-20200810105415871.png" alt="image-20200810105415871"></p>
 </li>
 <li><p><strong>分行</strong>输入一下代码：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .     //添加目录下所有发生改变的文件</span><br><span class="line">git commit -m &#x27;上传博客源码（随意填写）&#x27;           //注释信息一定要写，方便标记</span><br><span class="line">git push -u origin master      //本地仓库代码提交至远程仓库</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">git add .     //添加目录下所有发生改变的文件
+git commit -m &#39;上传博客源码（随意填写）&#39;           //注释信息一定要写，方便标记
+git push -u origin master      //本地仓库代码提交至远程仓库</code></pre>
 </li>
 <li><p>上传后如图所示：</p>
 <p><img src="https://pic.heson.xyz/img/image-20200810110715075.png" alt="image-20200810110715075"></p>
@@ -251,10 +253,30 @@
 </li>
 </ul>
 <p>代码如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">  agent any</span><br><span class="line">  stages &#123;</span><br><span class="line">    stage(&#x27;克隆项目&#x27;) &#123;</span><br><span class="line">      steps &#123;</span><br><span class="line">        sh &#x27;git clone https://你的令牌用户名:令牌密码@e.coding.net/hesonxyz/hexoblog/hexoblog.git（这换成博客源码地址） .&#x27;</span><br><span class="line">        sh &#x27;ls -a&#x27;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    stage(&#x27;安装依赖&#x27;) &#123;</span><br><span class="line">      steps &#123;</span><br><span class="line">        sh &#x27;ls -a&#x27;</span><br><span class="line">        sh &#x27;npm install -g hexo-cli&#x27;</span><br><span class="line">        sh &#x27;npm install hexo --save&#x27;</span><br><span class="line">        sh &#x27;npm install&#x27;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    stage(&#x27;构建发布&#x27;) &#123;</span><br><span class="line">      steps &#123;</span><br><span class="line">        sh &#x27;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&#x27;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="shell">pipeline &#123;
+  agent any
+  stages &#123;
+    stage(&#39;克隆项目&#39;) &#123;
+      steps &#123;
+        sh &#39;git clone https://你的令牌用户名:令牌密码@e.coding.net/hesonxyz/hexoblog/hexoblog.git（这换成博客源码地址） .&#39;
+        sh &#39;ls -a&#39;
+      &#125;
+    &#125;
+    stage(&#39;安装依赖&#39;) &#123;
+      steps &#123;
+        sh &#39;ls -a&#39;
+        sh &#39;npm install -g hexo-cli&#39;
+        sh &#39;npm install hexo --save&#39;
+        sh &#39;npm install&#39;
+      &#125;
+    &#125;
+    stage(&#39;构建发布&#39;) &#123;
+      steps &#123;
+        sh &#39;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&#39;
+      &#125;
+    &#125;
+  &#125;
+&#125;</code></pre>
 <ul>
 <li><p>触发规则一般是推送到<code>master</code>时触发构建，如图：</p>
 <p><img src="https://pic.heson.xyz/img/image-20200810111911987.png" alt="image-20200810111911987"></p>
@@ -451,14 +473,14 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/795.html"
+                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/28396.html"
                             target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
                  
                         
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 19 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/795.html"
-                            class="list-title overflow-hidden h6">Hexo博客添加canvas-nest几何条纹动态背景</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 08 月 16 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/28396.html"
+                            class="list-title overflow-hidden h6">所有关于Valine评论系统的配置都在这里【合集】</a> </div>
                 </div>
             </div>
 
@@ -479,14 +501,13 @@
 
             <div class="mybox-item relative flex flex-column overflow-hidden new-list-overlay-content">
                 
-                        <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/38720.html"
-                            target="_blank" style="background-image: url(http://api.btstu.cn/sjbz/api.php?lx=dongman&format=images);"> </a>
-                 
-                        
+                <a class="absolute top-0 left-0 right-0 bottom-0 media-content " href="https://www.heson10.com/posts/32383.html"
+                    target="_blank" style="background-image: url(https://cdn.jsdelivr.net/gh/heson10/pic@master/img/ifontsvsziyou.png);"> </a>
+                    
                 <div class="list-content p1 absolute left-0 right-0 bottom-0 w100">
-                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 07 月 21 日</div>
-                    <div class="list-body"> <a href="https://www.heson10.com/posts/38720.html"
-                            class="list-title overflow-hidden h6">Typora+Picgo+七牛云实现图片快速上传</a> </div>
+                    <div class=" my1 h6 "><i class="far fa-clock"></i>2020 年 09 月 07 日</div>
+                    <div class="list-body"> <a href="https://www.heson10.com/posts/32383.html"
+                            class="list-title overflow-hidden h6">如何找一款漂亮的字体并快速应用？iFonts字体助手！</a> </div>
                 </div>
             </div>
 
@@ -533,7 +554,7 @@
 
     <div class="px3 pb3 pt1">
         <div class="bold h3 mb1"><i class="fas fa-cloud"></i> 标签云</div> 
-        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
+        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
             
          
        
