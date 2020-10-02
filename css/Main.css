@@ -3053,3 +3053,4 @@ details[open]>div.content>.highlight:first-child,details[open]>div.content>.note
 details[open]>div.content>.highlight:last-child,details[open]>div.content>.note:last-child,details[open]>div.content>.tabs:last-child,details[open]>div.content>details:last-child,details[open]>div.content>ol:last-child,details[open]>div.content>p:last-child,details[open]>div.content>ul:last-child {
 	margin-bottom: 0
 }
+.DarkMode details summary p,.DarkMode details .content p,.DarkMode details .content ul li {color: rgb(75, 75, 75);}
