@@ -940,7 +940,7 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 			mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
 			seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
 			snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
-			document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
-			document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+			document.getElementById("timeDate").innerHTML = "黑石已于 "+dnum+" 天 ";
+			document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒前重生";
 		}
 	 setInterval("createtime()",250);
