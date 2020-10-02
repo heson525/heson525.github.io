@@ -906,8 +906,6 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 		if ( width_resize < device_width ) {	
 		   $('#forpc').removeClass('d-d').addClass('d-n');
 		   $('#formobile,.formobile').removeClass('d-n').addClass('d-d');
-		   
-
 		} else {
 
 			$('#forpc').removeClass('d-n').addClass('d-d');
