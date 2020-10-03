@@ -2864,8 +2864,10 @@ font-size: 1.2rem;
 	color:#ff0000 ;
   }
 
-  .DarkMode #local-search-input{
-	  color: #706d6d;
+
+  .DarkMode .input:not(#searchNameAccept){
+	color: #706d6d;
+
   }
   .DarkMode p.search-result, .DarkMode ul.search-result-list a{
 	color: #706d6d;

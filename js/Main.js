@@ -956,4 +956,6 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 			 $("body").removeClass("mobile-nav-open");
 			
 		 });
-	
+	$('ul.search-result-list a').click(function(){
+        $('#searchbox').attr("aria-hidden","true");
+	})
