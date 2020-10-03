@@ -943,12 +943,6 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 			document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒前重生";
 		}
 	 setInterval("createtime()",250);
-
-
-
-
-
-	 
 	 
 		 $('#hero,#pjax').click(function(){
 			
@@ -956,6 +950,3 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 			 $("body").removeClass("mobile-nav-open");
 			
 		 });
-	$('ul.search-result-list a').click(function(){
-        $('#searchbox').attr("aria-hidden","true");
-	})
