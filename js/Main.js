@@ -905,11 +905,11 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 		var device_width = 800 
 		if ( width_resize < device_width ) {	
 		   $('#forpc').removeClass('d-d').addClass('d-n');
-		   $('#formobile,.formobile').removeClass('d-n').addClass('d-d');
+		   $('#formobile,.formobile,.formobilenav').removeClass('d-n').addClass('d-d');
 		} else {
 
 			$('#forpc').removeClass('d-n').addClass('d-d');
-			$('#formobile,.formobile').removeClass('d-d').addClass('d-n');
+			$('#formobile,.formobile,.formobilenav').removeClass('d-d').addClass('d-n');
 
 		}
 	});
@@ -921,7 +921,9 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 			$('#forpc').addClass('d-n');
 			$('#formobile,.formobile').removeClass('d-n').addClass('d-d');
 
-		 } 
+		 } else {
+			 $('.formobilenav').removeClass('d-d').addClass('d-n');
+		 }
 	
 	
 		 
