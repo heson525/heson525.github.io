@@ -1558,7 +1558,7 @@ html::-webkit-scrollbar-thumb:hover {
 	list-style: none
 }
 
-.toc-list {
+.toc-list,.toc-list-child {
 	margin: 0;
 	padding-left: 10px;
 	list-style: none;
@@ -1573,12 +1573,12 @@ html::-webkit-scrollbar-thumb:hover {
 	width: 100%;
 }
 
-a.toc-link {
+a.toc-link,a.toc-list-link {
 	color: currentColor;
 	height: 100%
 }
 
-.is-collapsible {
+.is-collapsible,.toc-list-child {
 	max-height: 1000px;
 	overflow: hidden;
 	transition: all 300ms ease-in-out
