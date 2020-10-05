@@ -112,14 +112,7 @@ var CuteenFunc = {
 				return false;
 			});
 		});
-		$(function () {
-			$("#say").click(function () {
-				$('body,html').animate({
-					scrollTop: $('html, body').get(0).scrollHeight
-				}, 500);
-				return false;
-			});
-		})
+		
 	},
 	Toc: function () {
 		if ($("#right-menu").length > 0) {
