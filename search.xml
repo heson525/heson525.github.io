@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>Hexo博客实现随机文章功能</title>
+      <link href="posts/31514.html"/>
+      <url>posts/31514.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>动态博客程序提高内链数量必备功能之随机文章。随机文章这个功能旨在增加一定数量的文章内链，往往对增加访客黏性有着很大的帮助。</p><p>当然，静态博客也能实现（<strong>只不过在生成之后就固定了</strong>）。效果：</p><p><img src="https://picup.heson10.com/img/upyun/2020/10/image-20201005230607926.png" alt="黑石博客随机文章功能"></p><h2 id="方法思路"><a href="#方法思路" class="headerlink" title="方法思路"></a>方法思路</h2><h3 id="关键函数"><a href="#关键函数" class="headerlink" title="关键函数"></a>关键函数</h3><pre><code class="ejs">//打乱顺序function shuffle(a) &#123;    for (let i = a.length; i; i--) &#123;        let j = Math.floor(Math.random() * i);        [a[i - 1], a[j]] = [a[j], a[i - 1]];    &#125;    return a;&#125;//随机文章函数，根据标签实现相关性function recommended_posts(page, site, limit = 5) &#123;    page.tags = page.tags || []    if (page.tags.length == 0) return [];    let pageTags = page.tags.map(x =&gt; x.name);    let sitePosts = site.posts.toArray().map(x =&gt; &#123;        return &#123; tags: x.tags.toArray().map(y =&gt; y.name), title: x.title, permalink: x.permalink, date: x.date, img: x.headimg &#125;    &#125;);    let relatedPosts = pageTags.map(x =&gt; sitePosts.filter(y =&gt; y.title != page.title &amp;&amp; (y.tags.indexOf(x) != -1 || y.date.format(&#39;MM/DD&#39;) == page.date.format(&#39;MM/DD&#39;) || y.headimg == page.headimg))).reduce((prev, next) =&gt; &#123;        return prev.concat(next);    &#125;, []);    return shuffle(Array.from(new Set(relatedPosts))).slice(0, limit);&#125;//随机头图，根据标题link.title生成固定的随机头图var hashCode = function (str) &#123;    if (!str &amp;&amp; str.length === 0) &#123;        return 0;    &#125;    var hash = 0;    for (var i = 0, len = str.length; i &lt; len; i++) &#123;        hash = ((hash &lt;&lt; 5) - hash) + str.charCodeAt(i);        hash |= 0;    &#125;    return hash;&#125;;  var featureimg = &#39;https://picup.heson10.com/img/upyun/home_top_bg.webp&#39;; var featureImages = theme.featureImages;featureimg = featureImages[Math.abs(hashCode(link.title) % featureImages.length)];//把绝对链接改为相对链接，下面的30代表从30个字符开始截取//取值要自己去试试，改为相对链接的好处就是可用pjax                            var lianjie = function (e)&#123;    return e.substr(30)&#125;</code></pre><p>加上随机头图的调用，ejs模板可写成以下形式（根据主题需要，自行修改以下模板）：</p><pre><code class="ejs">&lt;% var post_list = recommended_posts(page, site, theme.recommended_posts.limit)  %&gt;&lt;% if(post_list.length &gt; 0 &amp;&amp; theme.recommended_posts.enable) &#123; %&gt;//此处放侧边栏外框        &lt;% post_list.forEach(function(link) &#123;  %&gt;         //以下开始文章循环        &lt;%            var hashCode = function (str) &#123;                if (!str &amp;&amp; str.length === 0) &#123;                    return 0;                &#125;                var hash = 0;                for (var i = 0, len = str.length; i &lt; len; i++) &#123;                    hash = ((hash &lt;&lt; 5) - hash) + str.charCodeAt(i);                    hash |= 0;                &#125;                return hash;            &#125;;              var featureimg = &#39;https://picup.heson10.com/img/upyun/home_top_bg.webp&#39;;            var featureImages = theme.featureImages;            featureimg = featureImages[Math.abs(hashCode(link.title) % featureImages.length)];            var lianjie = function (e)&#123;                return e.substr(30)            &#125;            %&gt;          //以下参数调用         &lt;%= link.permalink %&gt;//文章绝对链接         &lt;%= lianjie(link.permalink) %&gt; //文章相对链接         &lt;%- link.img %&gt;//文章头图         &lt;%- url_for(featureimg) %&gt;//随机头图地址         &lt;%= date(link.date, config.date_format) %&gt;//日期         &lt;%= link.title %&gt;//文章标题 &lt;% &#125;) %&gt;//此处放侧边栏外框（对应）     &lt;% &#125; %&gt;</code></pre><p>配置文件如下：</p><pre><code class="yaml"># 随机文章模块recommended_posts:  enable: true  title: &#39;随便看看&#39;  limit: 3# 随机图片featureImages:                - https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg  - https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg  - https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg  - https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg  - 自己加图片。。。。</code></pre><article class="message hong"><div class="message_body"><p>模板html和CSS样式根据博客需要自行修改</p></div></article><h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><p>感谢<a href="https://shoka.lostyu.me/">Ruri Shimotsuki</a>（Shoka主题作者）随机文章提供的shuffle思路。</p><p>感谢<a href="https://xaoxuu.com/">xaoxuu</a>（Volantis主题作者）在调用文章头图时提供的查错思路。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> 随机 </tag>
+            
+            <tag> 文章 </tag>
+            
+            <tag> 功能 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>给博客优雅地加上谷歌思源宋体</title>
       <link href="posts/16283.html"/>
       <url>posts/16283.html</url>
