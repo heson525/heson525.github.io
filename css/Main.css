@@ -2242,7 +2242,9 @@ article kbd {
 }
 
 a.forside_a:hover{color:#00947e;}
-
+.DarkMode .tag-list-item a,.DarkMode .tag-list-item span{
+	color: rgb(143, 143, 143)!important;
+}
 
 /* 归档页面 */
 div.timenode {
