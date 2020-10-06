@@ -730,7 +730,7 @@ function colortag(){
             path = defaultPath || decodeURI(window.location.pathname);
         }
 
-        var valine = new Valine();
+        var valine = new MiniValine();
         valine.init({
             el: '#valine_container',
             meta: meta,
