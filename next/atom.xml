@@ -27,16 +27,10 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;动态博客程序提高内链数量必备功能之随机文章。随机文章这个功能旨在增加一定数量的文章内链，往往对增加访客黏性有着很大的帮助。&lt;/p&gt;
-&lt;p&gt;当然，静态博客也能实现（&lt;strong&gt;只不过在生成之后就固定了&lt;/strong&gt;）。效果：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://picup.heson10.com/img/upyun/2020/10/image-20201005230607926.png&quot; alt=&quot;黑石博客随机文章功能&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;关键函数&quot;&gt;&lt;a href=&quot;#关键函数&quot; class=&quot;headerlink&quot; title=&quot;关键函数&quot;&gt;&lt;/a&gt;关键函数&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;47&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#x2F;&amp;#x2F;打乱顺序&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;function shuffle(a) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    for (let i &amp;#x3D; a.length; i; i--) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        let j &amp;#x3D; Math.floor(Math.random() * i);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        [a[i - 1], a[j]] &amp;#x3D; [a[j], a[i - 1]];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return a;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#x2F;&amp;#x2F;随机文章函数，根据标签实现相关性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;function recommended_posts(page, site, limit &amp;#x3D; 5) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    page.tags &amp;#x3D; page.tags || []&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    if (page.tags.length &amp;#x3D;&amp;#x3D; 0) return [];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    let pageTags &amp;#x3D; page.tags.map(x &amp;#x3D;&amp;gt; x.name);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    let sitePosts &amp;#x3D; site.posts.toArray().map(x &amp;#x3D;&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return &amp;#123; tags: x.tags.toArray().map(y &amp;#x3D;&amp;gt; y.name), title: x.title, permalink: x.permalink, date: x.date, img: x.headimg &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    let relatedPosts &amp;#x3D; pageTags.map(x &amp;#x3D;&amp;gt; sitePosts.filter(y &amp;#x3D;&amp;gt; y.title !&amp;#x3D; page.title &amp;amp;&amp;amp; (y.tags.indexOf(x) !&amp;#x3D; -1 || y.date.format(&amp;#39;MM&amp;#x2F;DD&amp;#39;) &amp;#x3D;&amp;#x3D; page.date.format(&amp;#39;MM&amp;#x2F;DD&amp;#39;) || y.headimg &amp;#x3D;&amp;#x3D; page.headimg))).reduce((prev, next) &amp;#x3D;&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return prev.concat(next);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;, []);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return shuffle(Array.from(new Set(relatedPosts))).slice(0, limit);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#x2F;&amp;#x2F;随机头图，根据标题link.title生成固定的随机头图&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var hashCode &amp;#x3D; function (str) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    if (!str &amp;amp;&amp;amp; str.length &amp;#x3D;&amp;#x3D;&amp;#x3D; 0) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var hash &amp;#x3D; 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    for (var i &amp;#x3D; 0, len &amp;#x3D; str.length; i &amp;lt; len; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        hash &amp;#x3D; ((hash &amp;lt;&amp;lt; 5) - hash) + str.charCodeAt(i);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        hash |&amp;#x3D; 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return hash;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var featureimg &amp;#x3D; &amp;#39;https:&amp;#x2F;&amp;#x2F;picup.heson10.com&amp;#x2F;img&amp;#x2F;upyun&amp;#x2F;home_top_bg.webp&amp;#39;; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var featureImages &amp;#x3D; theme.featureImages;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;featureimg &amp;#x3D; featureImages[Math.abs(hashCode(link.title) % featureImages.length)];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#x2F;&amp;#x2F;把绝对链接改为相对链接，下面的30代表从30个字符开始截取&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#x2F;&amp;#x2F;取值要自己去试试，改为相对链接的好处就是可用pjax                            &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var lianjie &amp;#x3D; function (e)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return e.substr(30)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;加上随机头图的调用，ejs模板可写成以下形式（根据主题需要，自行修改以下模板）：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;% var post_list &amp;#x3D; recommended_posts(page, site, theme.recommended_posts.limit)  %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;% if(post_list.length &amp;gt; 0 &amp;amp;&amp;amp; theme.recommended_posts.enable) &amp;#123; %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#x2F;&amp;#x2F;此处放侧边栏外框&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;% post_list.forEach(function(link) &amp;#123;  %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         &amp;#x2F;&amp;#x2F;以下开始文章循环&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;%&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            var hashCode &amp;#x3D; function (str) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                if (!str &amp;amp;&amp;amp; str.length &amp;#x3D;&amp;#x3D;&amp;#x3D; 0) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    return 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                var hash &amp;#x3D; 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                for (var i &amp;#x3D; 0, len &amp;#x3D; str.length; i &amp;lt; len; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    hash &amp;#x3D; ((hash &amp;lt;&amp;lt; 5) - hash) + str.charCodeAt(i);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    hash |&amp;#x3D; 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                return hash;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            var featureimg &amp;#x3D; &amp;#39;https:&amp;#x2F;&amp;#x2F;picup.heson10.com&amp;#x2F;img&amp;#x2F;upyun&amp;#x2F;home_top_bg.webp&amp;#39;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            var featureImages &amp;#x3D; theme.featureImages;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            featureimg &amp;#x3D; featureImages[Math.abs(hashCode(link.title) % featureImages.length)];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            var lianjie &amp;#x3D; function (e)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                return e.substr(30)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &amp;#x2F;&amp;#x2F;以下参数调用&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         &amp;lt;%&amp;#x3D; link.permalink %&amp;gt;&amp;#x2F;&amp;#x2F;文章绝对链接&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         &amp;lt;%&amp;#x3D; lianjie(link.permalink) %&amp;gt; &amp;#x2F;&amp;#x2F;文章相对链接&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         &amp;lt;%- link.img %&amp;gt;&amp;#x2F;&amp;#x2F;文章头图&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         &amp;lt;%- url_for(featureimg) %&amp;gt;&amp;#x2F;&amp;#x2F;随机头图地址&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         &amp;lt;%&amp;#x3D; date(link.date, config.date_format) %&amp;gt;&amp;#x2F;&amp;#x2F;日期&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         &amp;lt;%&amp;#x3D; link.title %&amp;gt;&amp;#x2F;&amp;#x2F;文章标题&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &amp;lt;% &amp;#125;) %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#x2F;&amp;#x2F;此处放侧边栏外框（对应）     &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;% &amp;#125; %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;配置文件如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight yaml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 随机文章模块&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;recommended_posts:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;enable:&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;title:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;随便看看&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;limit:&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 随机图片&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;featureImages:&lt;/span&gt;              &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;bullet&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;bullet&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;bullet&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;bullet&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;bullet&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;自己加图片。。。。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      
+      
+        &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;动态博客程序提高内链数量必备功能之随机文章。随机文章这个功能旨在增加一定数量的文章内链，往往对增加访客黏性有着很大的帮助。&lt;
+      
     
     </summary>
     
@@ -65,15 +59,12 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;🎈写在前面&quot;&gt;&lt;a href=&quot;#🎈写在前面&quot; class=&quot;headerlink&quot; title=&quot;🎈写在前面&quot;&gt;&lt;/a&gt;🎈写在前面&lt;/h2&gt;&lt;rainbow-text&gt;首先祝大家国庆节中秋节双节快乐！&lt;/rainbow-text&gt;
+      
+      
+        &lt;h2 id=&quot;🎈写在前面&quot;&gt;&lt;a href=&quot;#🎈写在前面&quot; class=&quot;headerlink&quot; title=&quot;🎈写在前面&quot;&gt;&lt;/a&gt;🎈写在前面&lt;/h2&gt;&lt;rainbow-text&gt;首先祝大家国庆节中秋节双节快乐！&lt;/rainbow-text&gt;
 
-&lt;p&gt;好久没更新了，今天蹭着国庆节休息，&lt;del&gt;更新一篇。&lt;/del&gt; &lt;u&gt;水一篇。&lt;/u&gt; &lt;/p&gt;
-&lt;h2 id=&quot;🎏教程&quot;&gt;&lt;a href=&quot;#🎏教程&quot; class=&quot;headerlink&quot; title=&quot;🎏教程&quot;&gt;&lt;/a&gt;🎏教程&lt;/h2&gt;&lt;p&gt;之前我记得好伙伴问了下怎么加谷歌的思源宋体，网上方法很多，有自己上传字体直接引用、或者用有字库里面的js简单快速，但我认为最好用的那就是引用谷歌字体的API了。&lt;/p&gt;
-&lt;p&gt;谷歌中文字体api地址：&lt;a href=&quot;https://fonts.google.com/?subset=chinese-simplified&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://fonts.google.com/?subset=chinese-simplified&lt;/a&gt; &lt;/p&gt;
-&lt;p&gt;进入Noto Serif SC思源宋体的界面：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://picup.heson10.com/img/upyun/image-20201001225452635.png&quot; alt=&quot;谷歌字体api思源宋体&quot;&gt;&lt;/p&gt;
-&lt;p&gt;在这里就像超市挑选商品一样，选择一款自己喜欢的字体样式。&lt;/p&gt;
-&lt;p&gt;点击后面的&lt;code&gt;select this style&lt;/code&gt; 浏览器地址栏就是接下来需要引用的api链接了。&lt;/p&gt;
+&lt;p&gt;好久没更新了，
+      
     
     </summary>
     
@@ -102,15 +93,16 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;文字样式&quot;&gt;&lt;a href=&quot;#文字样式&quot; class=&quot;headerlink&quot; title=&quot;文字样式&quot;&gt;&lt;/a&gt;文字样式&lt;/h2&gt;&lt;u&gt;下划线&lt;/u&gt;
+      
+      
+        &lt;h2 id=&quot;文字样式&quot;&gt;&lt;a href=&quot;#文字样式&quot; class=&quot;headerlink&quot; title=&quot;文字样式&quot;&gt;&lt;/a&gt;文字样式&lt;/h2&gt;&lt;u&gt;下划线&lt;/u&gt;
 &lt;br&gt;
 &lt;emp&gt;着重号&lt;/emp&gt;
 &lt;br&gt;
 &lt;wavy&gt;波浪线&lt;/wavy&gt;
 &lt;br&gt;
-&lt;del&gt;删除线&lt;/del&gt;
-&lt;br&gt;
-&lt;kbd&gt;command&lt;/kbd&gt;
+&lt;del&gt;删除
+      
     
     </summary>
     
@@ -131,103 +123,13 @@
     
     <summary type="html">
     
-      &lt;p&gt;最近正在研究Hexo主题文档，关于标签函数有两条：&lt;/p&gt;
+      
+      
+        &lt;p&gt;最近正在研究Hexo主题文档，关于标签函数有两条：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;pre&gt;&lt;code class=&quot;ejs&quot;&gt;&amp;lt;%- list_tags([options]) %&amp;gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- &amp;#96;&amp;#96;&amp;#96;ejs&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;%- tagcloud([tags], [options]) %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;因为现在用的主题采用的是&lt;code&gt;list_tag&lt;/code&gt;标签，着重讲一下这个标签。&lt;/p&gt;
-&lt;h2 id=&quot;官网参数&quot;&gt;&lt;a href=&quot;#官网参数&quot; class=&quot;headerlink&quot; title=&quot;官网参数&quot;&gt;&lt;/a&gt;官网参数&lt;/h2&gt;&lt;p&gt;其中&lt;code&gt;list_tag&lt;/code&gt;有以下参数：&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&quot;left&quot;&gt;选项&lt;/th&gt;
-&lt;th align=&quot;left&quot;&gt;描述&lt;/th&gt;
-&lt;th align=&quot;left&quot;&gt;预设值&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;code&gt;orderby&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;标签排列方式&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;name&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;code&gt;order&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;标签排列顺序。&lt;code&gt;1&lt;/code&gt;, &lt;code&gt;asc&lt;/code&gt; 升序；&lt;code&gt;-1&lt;/code&gt;, &lt;code&gt;desc&lt;/code&gt; 降序。&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;code&gt;show_count&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;显示每个标签的文章总数&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;true&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;code&gt;style&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;标签列表的显示方式。使用 &lt;code&gt;list&lt;/code&gt; 以无序列表（unordered list）方式显示。&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;list&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;code&gt;separator&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;标签间的分隔符号。只有在 &lt;code&gt;style&lt;/code&gt; 不是 &lt;code&gt;list&lt;/code&gt; 时有用。&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;,&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;code&gt;class&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;Class name of tag list (string) or customize each tag’s class (object, see below).&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;tag&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;code&gt;transform&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;改变标签名称显示方法的函数。&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;code&gt;amount&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;要显示的标签数量（0 = 无限制）&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;code&gt;suffix&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;为链接添加前缀&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;None&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
-&lt;h2 id=&quot;list-tags用法详解&quot;&gt;&lt;a href=&quot;#list-tags用法详解&quot; class=&quot;headerlink&quot; title=&quot;list_tags用法详解&quot;&gt;&lt;/a&gt;list_tags用法详解&lt;/h2&gt;&lt;p&gt;函数写法示例如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;list_tags(site.tags,&amp;#123;orderby: &amp;#39;name&amp;#39;, order: &amp;#39;desc&amp;#39;, amount: 0,class: &amp;#123;ul: &amp;#39;ululul&amp;#39;, li: &amp;#39;lilili&amp;#39;, a: &amp;#39;aaa&amp;#39;, count: &amp;#39;ccc&amp;#39;&amp;#125;, style: list, separator: &amp;#39; | &amp;#39;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;其中第一个参数&lt;code&gt;site.tags&lt;/code&gt;还可以写&lt;code&gt;post.tags&lt;/code&gt;，意思是分别调用&lt;strong&gt;全站标签&lt;/strong&gt;和当前&lt;strong&gt;文章标签&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;orderby&lt;/code&gt;这里默认值是&lt;code&gt;name&lt;/code&gt;，如果想按照标签下的文章数量来进行排序的话，很明显&lt;code&gt;name&lt;/code&gt;已经满足不了我们的需求，于是我们可以这样调用，使用&lt;code&gt;length&lt;/code&gt;参数（&lt;strong&gt;之前一直想要找到这样的写法，最后还是在hexo官方github的issue上看到的，还是个外国朋友提供的&lt;/strong&gt;），这样也称之为&lt;strong&gt;热门标签&lt;/strong&gt;，并通过amount参数控制显示数量，这样的标签群放在侧边栏效果更佳：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;%- list_tags(site.tags,&amp;#123;orderby: &amp;#39;length&amp;#39;, order: &amp;#39;desc&amp;#39;,amount: 8&amp;#125;) %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;效果如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://picup.heson10.com/img/upyun/image-20200924132046400.png&quot; alt=&quot;黑石博客热门标签&quot;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;order&lt;/code&gt;是升序和降序的参数&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;amount&lt;/code&gt;标签数量的控制&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;class&lt;/code&gt;这里是个参数集，区分&lt;code&gt;ul&lt;/code&gt;、&lt;code&gt;li&lt;/code&gt;、&lt;code&gt;span&lt;/code&gt;分别给其加上css类，用于css美化，示例如图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://picup.heson10.com/img/upyun/image-20200924133032110.png&quot; alt=&quot;黑石博客标签class&quot;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;style&lt;/code&gt;和&lt;code&gt;separator&lt;/code&gt;配合使用，给标签与标签之间加上分隔符：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;style: false, separator: &amp;#39; | &amp;#39;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;效果：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://picup.heson10.com/img/upyun/image-20200924133652342.png&quot; alt=&quot;黑石标签分隔符&quot;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;show_count&lt;/code&gt;为是否显示每个标签的文章数，这个就很好理解了，填&lt;code&gt;true&lt;/code&gt;和&lt;code&gt;false&lt;/code&gt;即可。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;transform&lt;/code&gt;可为标签字符串进行转化，最常见的就是大小写转化，这也是一个常见的方法，比如我喜欢给每个标签用小写，如&lt;code&gt;hexo&lt;/code&gt;，但显示出来不好看，于是我们可以利用&lt;code&gt;transform&lt;/code&gt;转为大写，写法如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;%- list_tags(site.tags,&amp;#123;orderby: &amp;#39;length&amp;#39;, order: &amp;#39;desc&amp;#39;, amount: 0,transform(str) &amp;#123;return str.toUpperCase();&amp;#125;&amp;#125;) %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;原本小写的&lt;code&gt;hexo&lt;/code&gt;，转变为大写，效果如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://picup.heson10.com/img/upyun/image-20200924134802819.png&quot; alt=&quot;黑石标签大小写转化&quot;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;t
+      
     
     </summary>
     
@@ -252,19 +154,11 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;简单快速粗暴地直接推荐16PF人格测试站点：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.16personalities.com/ch&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.16personalities.com/ch&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;黑石推荐理由：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;扁平化卡通人物画风，异常清新可爱。&lt;/li&gt;
-&lt;li&gt;人物特点分明，职业化参考。&lt;/li&gt;
-&lt;li&gt;问卷调查简单明了，不拖沓。&lt;/li&gt;
-&lt;li&gt;中文支持！&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;网站缩略图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://picup.heson10.com/img/upyun/image-20200919120915098.png&quot; alt=&quot;16pf测试网站&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;16PF简介&quot;&gt;&lt;a href=&quot;#16PF简介&quot; class=&quot;headerlink&quot; title=&quot;16PF简介&quot;&gt;&lt;/a&gt;16PF简介&lt;/h2&gt;&lt;p&gt;16种人格因素问卷是美国伊利诺州立大学人格及能力测验研究所&lt;a href=&quot;https://baike.baidu.com/item/卡特尔&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;卡特尔&lt;/a&gt;教授编制的用于人格检测的一种问卷，简称16PF。&lt;/p&gt;
-&lt;h2 id=&quot;调查问卷功能&quot;&gt;&lt;a href=&quot;#调查问卷功能&quot; class=&quot;headerlink&quot; title=&quot;调查问卷功能&quot;&gt;&lt;/a&gt;调查问卷功能&lt;/h2&gt;
+      
+      
+        &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;简单快速粗暴地直接推荐16PF人格测试站点：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.16personalities.com
+      
     
     </summary>
     
@@ -287,14 +181,12 @@
     
     <summary type="html">
     
-      &lt;p&gt;先上地址：&lt;a href=&quot;https://yf.heson10.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://yf.heson10.com&lt;/a&gt;&lt;/p&gt;
+      
+      
+        &lt;p&gt;先上地址：&lt;a href=&quot;https://yf.heson10.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://yf.heson10.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;前方高能音乐来袭。。。。注意保护耳朵，可预先试听：&lt;/p&gt;
-&lt;div class=&quot;audio&quot;&gt;&lt;audio controls preload&gt;&lt;source src=&quot;https://yf.heson10.com/Static/music/yaofan.mp3&quot; type=&quot;audio/mp3&quot;&gt;Your browser does not support the audio tag.&lt;/audio&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;为什么搭建？&quot;&gt;&lt;a href=&quot;#为什么搭建？&quot; class=&quot;headerlink&quot; title=&quot;为什么搭建？&quot;&gt;&lt;/a&gt;为什么搭建？&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://picup.heson10.com/img/upyun/image-20200908220604976.png&quot; alt=&quot;因为穷&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;效果图&quot;&gt;&lt;a href=&quot;#效果图&quot; class=&quot;headerlink&quot; title=&quot;效果图&quot;&gt;&lt;/a&gt;效果图&lt;/h2&gt;&lt;h3 id=&quot;前台效果图&quot;&gt;&lt;a href=&quot;#前台效果图&quot; class=&quot;headerlink&quot; title=&quot;前台效果图&quot;&gt;&lt;/a&gt;前台效果图&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/heson10/pic@master/img/image-20200908215411128.png&quot; alt=&quot;黑石要饭系统前台界面&quot;&gt;&lt;/p&gt;
-&lt;p&gt;前三个没付款的家伙，你们有本事倒是付啊！😂&lt;/p&gt;
-&lt;h3 id=&quot;后台&quot;&gt;&lt;a href=&quot;#后台&quot; class=&quot;headerlink&quot; title=&quot;后台&quot;&gt;&lt;/a&gt;后台&lt;/h3&gt;
+&lt;div
+      
     
     </summary>
     
@@ -319,42 +211,12 @@
     
     <summary type="html">
     
-      &lt;article class=&quot;message warning&quot;&gt;&lt;div class=&quot;message_body&quot;&gt;&lt;p&gt;嗯，首先声明：这是一篇水文。&lt;/p&gt;&lt;/div&gt;&lt;/article&gt;
+      
+      
+        &lt;article class=&quot;message warning&quot;&gt;&lt;div class=&quot;message_body&quot;&gt;&lt;p&gt;嗯，首先声明：这是一篇水文。&lt;/p&gt;&lt;/div&gt;&lt;/article&gt;
 
-&lt;p&gt;今天主要介绍一下这款字体管理软件，&lt;strong&gt;iFonts字体管理助手&lt;/strong&gt;，老规矩，先上在Photoshop里更换字体的效果图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://picup.heson10.com/img/upyun/ifont.gif&quot; alt=&quot;iFonts字体管理助手效果图&quot;&gt;&lt;/p&gt;
-&lt;article class=&quot;message success&quot;&gt;&lt;div class=&quot;message_body&quot;&gt;&lt;p&gt;怎么样？被这个一键更换字体惊呆了吧？无需下载安装字体文件，只需在iFonts中点击你想要的字体即可应用到任何软件中，省去传统的找寻字体→预览字体→下载字体→安装字体→再在软件找寻字体的繁琐步骤。竟然还有这么好用的东西，爱了。&lt;/p&gt;&lt;/div&gt;&lt;/article&gt;
-
-&lt;h2 id=&quot;功能介绍&quot;&gt;&lt;a href=&quot;#功能介绍&quot; class=&quot;headerlink&quot; title=&quot;功能介绍&quot;&gt;&lt;/a&gt;功能介绍&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;轻松应用管理字体&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;1、无需下载字体文件，点击即用&lt;/strong&gt;&lt;br&gt;点击字体一键使用，快速查看字体效果，无需下载安装。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;2、右键管理字体分类&lt;/strong&gt;&lt;br&gt;收藏您喜欢的字体，给喜欢的字体打分类标签。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;3、本地字体 自动读取&lt;/strong&gt;&lt;br&gt;自动读取本地字体，无需额外操作。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;一键缺失字体补齐&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;1、系统自动补齐&lt;/strong&gt;&lt;br&gt;打开应用软件，再打开iFonts客户端，系统自动补齐字体。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;2、点击智能补齐&lt;/strong&gt;&lt;br&gt;系统自动没有补齐的情况下，点击补齐按钮，可智能后台补齐。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;3、上传文件补齐&lt;/strong&gt;&lt;br&gt;在系统智能都没有补齐都情况下，可上传源文件补齐。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;炫酷特效 拖拽即用&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;1、在线预览 拖拽即用&lt;/strong&gt;&lt;br&gt;在线输入文案，及时生成拖拽到任何应用软件。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;下载地址&quot;&gt;&lt;a href=&quot;#下载地址&quot; class=&quot;headerlink&quot; title=&quot;下载地址&quot;&gt;&lt;/a&gt;下载地址&lt;/h2&gt;&lt;p&gt;Mac和Windows都支持，点我下载：&lt;a class=&quot;btn&quot; href=&quot;点我下载&quot;&gt;
-            &lt;i class=&quot;fas fa-download&quot;&gt;&lt;/i&gt;https://51ifonts.com/client?inviter_uid=2619993&amp;from=&amp;pic=1
-          &lt;/a&gt;&lt;br&gt;&lt;img src=&quot;https://51ifonts.com/images/activity/laxin/share2.jpg&quot; alt=&quot;ifonts字体管理软件邀请图&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;写在后面&quot;&gt;&lt;a href=&quot;#写在后面&quot; class=&quot;headerlink&quot; title=&quot;写在后面&quot;&gt;&lt;/a&gt;写在后面&lt;/h2&gt;
+&lt;p&gt;今天主要介绍一下这款字体管理软件，&lt;strong&gt;iFonts字体管理助手&lt;/
+      
     
     </summary>
     
@@ -377,13 +239,10 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;标签云个人认为最重要的作用，是方便用户根据标签分类，进行文章查找，对于提升博客浏览深度很有帮助。同样，归档和分类页面同样有着相同的作用。&lt;/p&gt;
-&lt;p&gt;至于SEO方面，一是可以丰富博客内链，二是用于提升关键词密度。&lt;/p&gt;
-&lt;p&gt;鉴于此，通过修改模板可以把标签云和归档放在同一页面下，同时给标签云加上彩色的背景和文字，使它更加的好(zhuang)看(bi)。于是有了下面这个页面：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://picup.heson10.com/img/upyun/image-20200902195728556.png&quot; alt=&quot;黑石博客彩色标签云&quot;&gt;&lt;/p&gt;
-&lt;p&gt;闲话不多说，下面是教程&lt;/p&gt;
-&lt;h2 id=&quot;教程&quot;&gt;&lt;a href=&quot;#教程&quot; class=&quot;headerlink&quot; title=&quot;教程&quot;&gt;&lt;/a&gt;教程&lt;/h2&gt;&lt;p&gt;同样是以&lt;a href=&quot;https://volantis.js.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;volantis&lt;/a&gt;主题为例（我是4.0版本）：&lt;/p&gt;
-&lt;h3 id=&quot;合并标签云和归档页面&quot;&gt;&lt;a href=&quot;#合并标签云和归档页面&quot; class=&quot;headerlink&quot; title=&quot;合并标签云和归档页面&quot;&gt;&lt;/a&gt;合并标签云和归档页面&lt;/h3&gt;&lt;p&gt;合并之前，需要搞清楚这两个页面是通过哪个文件生成的。&lt;/p&gt;
+      
+      
+        &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;标签云个人认为最重要的作用，是方便用户根据标签分类，进行文章查找，对于提升博客浏览深度很有帮助。同样，归档和分类页面同样有着相同的作用。&lt;/
+      
     
     </summary>
     
@@ -574,9 +433,9 @@
       <category term="WordPress" scheme="https://www.heson10.com/next/categories/WordPress/"/>
     
     
-      <category term="搭建" scheme="https://www.heson10.com/next/tags/%E6%90%AD%E5%BB%BA/"/>
-    
       <category term="博客" scheme="https://www.heson10.com/next/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="搭建" scheme="https://www.heson10.com/next/tags/%E6%90%AD%E5%BB%BA/"/>
     
       <category term="WordPress" scheme="https://www.heson10.com/next/tags/WordPress/"/>
     
@@ -651,19 +510,11 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;黑石博客之前已经用七牛云作为博客图床，速度加载都挺快。那为什么还要整一个Github图床呢？&lt;/p&gt;
-&lt;p&gt;因为免费啊，放博客里面经常加载的&lt;strong&gt;背景图片&lt;/strong&gt;、&lt;strong&gt;头像&lt;/strong&gt;什么的，不香吗？：）&lt;/p&gt;
-&lt;p&gt;jsDelivr 是国外的一家优秀的公共 CDN 服务提供商，也是首个「打通中国大陆（网宿公司运营）与海外的免费 CDN 服务」。jsDelivr 有一个十分好用的功能——&lt;strong&gt;它可以加速 Github 仓库的文件&lt;/strong&gt;。我们可以借此搭建一个免费、全球访问速度超快的图床。&lt;/p&gt;
-&lt;h2 id=&quot;教程&quot;&gt;&lt;a href=&quot;#教程&quot; class=&quot;headerlink&quot; title=&quot;教程&quot;&gt;&lt;/a&gt;教程&lt;/h2&gt;&lt;h3 id=&quot;主要思路&quot;&gt;&lt;a href=&quot;#主要思路&quot; class=&quot;headerlink&quot; title=&quot;主要思路&quot;&gt;&lt;/a&gt;主要思路&lt;/h3&gt;&lt;p&gt;整个过程比较简单，创建 Github 仓库，并获取 token，填入 PicGo 配置即可完成。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;使用 jsDelivr 加速静态文件访问，能够优化博客体验。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;在 Github 存储图片，利于博主对于图片的掌控。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;使用 PicGo 的原因是因为能够方便地将上传图片到 Github，并直接获取 jsDelivr 的加速后的图片地址。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;获取Github-Token&quot;&gt;&lt;a href=&quot;#获取Github-Token&quot; class=&quot;headerlink&quot; title=&quot;获取Github Token&quot;&gt;&lt;/a&gt;获取Github Token&lt;/h3&gt;&lt;p&gt;  之前讲利用cloud studio进行云部署的时候已经说过，详见：&lt;a href=&quot;https://www.heson10.com/posts/57815.html#GitHub&quot;&gt;https://www.heson10.com/posts/57815.html#GitHub&lt;/a&gt;&lt;/p&gt;
+      
+      
+        &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;黑石博客之前已经用七牛云作为博客图床，速度加载都挺快。那为什么还要整一个Github图床呢？&lt;/p&gt;
+&lt;p&gt;因为免费啊，放博客里面经常加载的
+      
     
     </summary>
     
