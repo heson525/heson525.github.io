@@ -1,0 +1,3185 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport"  content="width=device-width, initial-scale=1.0, user-scalable=no,minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <link rel="icon" type="image/png" href="https://pic.heson10.com/wallpapers/favicon.png">
+    <link href="https://pic.heson10.com/wallpapers/favicon.png" rel="icon">
+    <link rel="apple-touch-icon-precomposed" href="https://pic.heson10.com/wallpapers/favicon.png">
+      <!-- 页面元数据 -->
+  
+<title>黑石博客 - Hexo博客</title>
+    
+    
+      
+        <meta name="description" content="
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  hexo博客valine评论系统配置合集（valine-admin、微信提醒、博主标签） - 黑石博客 - Hexo博客
+  
+    
+  
+
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+...">
+      
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+    
+<link rel="stylesheet" href="/css/app.min.css">
+
+    
+<link rel="stylesheet" href="/css/duta.css">
+
+    
+<link rel="stylesheet" href="/css/Main.css">
+
+    
+<link rel="stylesheet" href="/css/UI.css">
+
+    <script async src="//at.alicdn.com/t/font_1826851_x246yki7bra.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+    
+<script src="/js/loading.js"></script>
+
+    
+<script src="/js/app.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- ba -->
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            setTimeout(function () {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?5fb5fd0062e816d3a3ca2dacf095bc0f";
+                hm.defer = true;
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            }, 5000);
+        })();
+    </script>
+    
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<style>
+    body,
+    input,
+    select,
+    textarea {
+        font-family: 'Mulish', -apple-system, 'Noto Serif SC', "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif
+    }
+
+    .ajaxcard:hover {
+        transform: unset;
+    }
+</style>
+<script> CUTEEN_SETTING = { PJAX: true, HERO_IMG: true, IS_MOBILE: false, NOPA: false, SITE_URL: "https://www.heson10.com/", THEME_COLOR: 0, STATIC_PATH: "/", AJAX_PAGE: false, HEADROOM: false, CDN_PATH: "", MUSICDATA1: "5130986289", MUSICDATA2: "netease", QIPAO: true, }</script>
+<body class="">
+    <!--
+<div id="page-loading">
+    <div class="circle"></div>
+  </div>
+    -->
+    <div id="forpc" class="nav w100 fixed clearfix border-box haveimg nobg p1">
+    <div class="flex justify-between mx-auto nav-content items-center">  
+        <ul class="bold table nowrap">
+            <li class="pr1 h2 table-cell align-middle sitetitle"><a href="/">黑石博客</a></li>         
+          
+
+                    <li class="xs-hide px1 h4 table-cell align-middle relative dropdown"><a>🔎找文章 </a>
+                        <div class="mt1 absolute dropblur rounded">
+                            <ul class=" py1">
+                                <li><a class="block px2 p1"
+                                        href="/archives/">📚归档</a></li>
+                                <li><a class="block px2 p1"
+                                        href="/tags/">🔖标签</a></li>
+                                <li><a class="block px2 p1"
+                                        href="/categories/">📦分类</a></li>
+                            </ul>
+                        </div>
+                    </li>
+            <li class="xs-hide px1 h4 table-cell align-middle relative dropdown"><a> 📑页面 </a>
+                <div class="mt1 absolute dropblur rounded">
+                    <ul class=" py1">
+                        <li><a class="block px2 p1"
+                            href="/guestbook/">📬留言板</a></li>
+                        <li><a class="block px2 p1"
+                                href="/links/">🤝友链</a></li>
+                        <li><a  class="block px2 p1"  href="/bb/" no-pjax>🔊说说</a></li>
+                        <li><a class="block px2 p1"
+                                href="/about/">👑关于</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="xs-hide px1 h4 table-cell align-middle relative"><a target="_blank" rel="noopener" href="https://yf.heson10.com/">💰
+                要饭</a></li>
+            <li class="xs-hide px1 h4 table-cell align-middle relative"><a target="_blank" rel="noopener" href="https://box.heson10.com/">💖
+                百宝箱</a></li>
+            <li class="xs-hide px1 h4 table-cell align-middle relative"><a rel="noopener external nofollow noreferrer noopener" target="_blank" href="https://travellings.now.sh/">🚀
+                开往</a></li>
+        </ul> 
+        <ul class="table">
+            <li class="table-cell align-middle">
+                <div id="CTPlayer" class="relative flex items-center">
+                    
+                </div>
+            </li> <a class="table-cell align-middle" href="javascript:void(0)" onclick="CuteenFunc.SwitchDarkMode();">
+                <li class="center circle icon ml1 icon align-middle"> <svg class="icon" aria-hidden="true">
+                        <use id="modeicon" xlink:href="#icon-_moon"></use>
+                    </svg> </li>
+            </a> <a class="table-cell align-middle" href="#" data-izimodal-open="#searchbox"
+                data-izimodal-transitionin="fadeInDown">
+                <li class="center circle icon ml1 icon align-middle"> <svg class="icon" aria-hidden="true" width="128"
+                        height="128">
+                        <use xlink:href="#icon-chazhao"></use>
+                    </svg> </li>
+            </a>
+        </ul>
+    </div>
+</div>
+    <div id="formobile" class="d-n">
+    <div class="nav w100 fixed clearfix border-box haveimg nobg p1">
+    <div class="flex justify-between items-center z4 mobile_nav">
+        <div id="left-menu" onclick="CuteenFunc.MobileMenu()" class="h3"><i class="fas fa-bars"></i></div>
+        <div class="pr1 h2 table-cell align-middle sitetitle"><a href="/">黑石博客</a></div>
+        <div class="h3"> <a href="#" data-izimodal-open="#searchbox" data-izimodal-transitionin="fadeInDown"> <i
+                    class="fas fa-search"></i> </a> </div>
+    </div>
+</div>
+    <div id="mobar">
+    <nav id="site-navigation" class="fixed top-0 bottom-0 z4 sidebar no-user-select">
+        <div id="nav" class="h100 absolute top-0 bottom-0">
+            <hr>
+            <div class="mt4">
+                <div class="Nav_mobile_content flex justify-center items-center"> <a onclick="CuteenFunc.MobileMenu()"
+                        class="Nav_mobile_logo block circle" href="/about/"
+                        style="background-image:url(https://cdn.jsdelivr.net/gh/heson525/pic@master/pic/avatar03.png)"></a>
+                </div>
+            </div>
+            <div class="h4 bold center"> 黑石博客 </div>
+            <div class="h5 center mt1"> 人生在勤，不索何获 </div>
+            <hr>
+            <div class="h6 p2">
+                <li class="fas fa-stream pr1"></li>独立页面
+            </div>
+            <li class="px3 py1 h5"><a class="ml2" href="/guestbook/" title="留言板">📬留言板</a></li>
+            <li class="px3 py1 h5"><a class="ml2" href="/links/" title="友链">🤝友链</a></li>
+            <li class="px3 py1 h5"><a class="ml2" href="/bb/" title="说说" no-pjax>🔊说说</a></li>
+            <li class="px3 py1 h5"><a class="ml2" href="/about/" title="关于">👑关于</a></li>
+
+
+            <li class="px3 py1 h5"><a class="ml2" target="_blank" rel="noopener" href="https://yf.heson10.com/" title="要饭">💰要饭</a></li>
+            <li class="px3 py1 h5"><a class="ml2" target="_blank" rel="noopener" href="https://box.heson10.com/" title="百宝箱">💖百宝箱</a></li>
+            <li class="px3 py1 h5 mobfl"><span class="ml2 mobzk flex justify-between items-center">
+                    <p>🔎找文章</p><i class="fas fa-angle-right"></i>
+                </span></li>
+            <ul class="mobzkcon pl3 h5 " style="display: none;">
+                <li class="p1"><a onclick="CuteenFunc.MobileMenu()" class="ml3"
+                        href="/archives/" title="📚归档">📚归档</a></li>
+                <li class="p1"><a onclick="CuteenFunc.MobileMenu()" class="ml3"
+                        href="/tags/" title="🔖标签">🔖标签</a></li>
+                <li class="p1"><a onclick="CuteenFunc.MobileMenu()" class="ml3"
+                        href="/categories/" title="📦分类">📦分类</a></li>
+  
+            </ul>
+
+
+            <hr>
+            <div class="h6 p2">
+                <li class="fas fa-stream pr1"></li>分类页面
+            </div>
+            <li class="px3 py1 h5"><a class="ml2" href="/categories/hexo/" title="">🍰
+                    HEXO</a></li>
+            <li class="px3 py1 h5"><a class="ml2" href="/categories/WordPress/" title="">🍱
+                    WordPress</a></li>
+            <li class="px3 py1 h5"><a class="ml2" href="/categories/生活随笔/" title="生活随笔">🍹
+                    生活随笔</a></li>
+            <hr>
+            <div class="h6 p2">
+                <li class="fas fa-stream pr1"></li>其他页面
+            </div>
+            <li class="px3 py1 h5"><a class="ml2" target="_blank" rel="noopener" href="https://travellings.now.sh/" title="开往">🚀开往</a></li>
+        </div>
+        <div class="side-toolbar bottom-0 fixed flex items-center justify-center">
+            <div id="CTPlayer-mob" class="relative flex items-center">
+            </div>
+        </div>
+    </nav>
+</div>
+    </div>
+    <div id="pjax">
+        
+        
+            <div id="hero" class="w100 overflow-hidden flex relative mb2 pt4 hero-bai" style="height:600px">
+    
+        
+        <div class="w100 h100 left-0 top-0 absolute hero-img"> <img class="w100 h100 hero_image lazyload"
+            data-src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg"> </div>
+    
+    <div class="z4 relative hero-title p4 mb3 flex w100 justify-center self-center">
+        <div class="bas-title center">
+            <p class="big-title bold"></p>
+            
+        </div>
+    </div>
+</div>
+        
+        
+        
+        <div class="card-box clearfix mx-auto ">
+            <div class="card-content mx-auto" style='max-width: 1200px'>
+                <div class="cuteup xs-col-12 lg-col lg-col-9">
+    <div class="mybox m1 mb2 ">
+        <div class="Post_content_box">
+           
+            <article id="Post_wysiwyg" class="duta">
+   <!DOCTYPE html>
+<html>
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0-rc.2'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>hexo博客valine评论系统配置合集（valine-admin、微信提醒、博主标签） - 黑石博客 - Hexo博客</title>
+  
+    <meta name="keywords" content="valine,评论,合集,配置">
+  
+
+  
+    <meta name="description" content="用Hexo博客的小伙伴们对于Valine并不陌生，这款快速、简洁且高效的无后端评论系统，既能快速加载又能提供文章阅读统计，加上一些魔改，可以增加微信与QQ提醒、后台管理、垃圾评论过滤，可以说非常好用。本文主要是介绍配置Valine和可能会遇到的问题【合集】，很多都是搬运过来的教程，文后会附上参考资料。在此感谢这些...">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/volantis/atom.xml" title="黑石博客 - Hexo博客" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/heson525/fontawesome-pro@5.13.1/css/all.min.css">
+
+  
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+
+  
+
+  
+    <link rel="shortcut icon" type='image/x-icon' href="https://pic.heson10.com/wallpapers/favicon.png">
+  
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC&display=swap" media="print" onload="this.media='all'">
+  
+
+
+  <!-- import link -->
+  
+
+  
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.2.0/styles/a11y-dark.css">
+
+    
+  
+  
+    
+<link rel="stylesheet" href="/volantis/css/style.css">
+
+  
+  
+  
+    <!-- ba -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+	  setTimeout(function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?5fb5fd0062e816d3a3ca2dacf095bc0f";
+		hm.defer=true;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+	  }, 5000);
+    })();
+    </script>
+  
+    <!-- 脚本懒加载函数 -->
+    <script>
+      function loadScript(src, cb) {
+        var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+        var script = document.createElement('script');
+        script.setAttribute('type','text/javascript');
+        if (cb) script.onload = cb;
+        script.setAttribute('src', src);
+        HEAD.appendChild(script);
+      }
+       </script>
+    
+</head>
+
+<body>
+  <header class="l_header auto shadow floatable blur" style='opacity: 0' >
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/volantis/'>
+          
+            <img no-lazy class='logo' src='https://picup.heson10.com/img/upyun/hesonlogoyasuo.gif'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/volantis/
+                  
+                  
+                  
+                    id="volantis"
+                  >
+                  <i class='fal fa-home fa-fw'></i>首页
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fal fa-search fa-fw'></i>找文章
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/volantis/archives/
+                  
+                  
+                  
+                    id="volantisarchives"
+                  >
+                  <i class='fal fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/volantis/tags/
+                  
+                  
+                  
+                    id="volantistags"
+                  >
+                  <i class='fal fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/volantis/categories/
+                  
+                  
+                  
+                    id="volantiscategories"
+                  >
+                  <i class='fal fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/volantis/guestbook/
+                  
+                  
+                  
+                    id="volantisguestbook"
+                  >
+                  <i class='fal fa-comments fa-fw'></i>留言板
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/volantis/links/
+                  
+                  
+                  
+                    id="volantislinks"
+                  >
+                  <i class='fal fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/volantis/bb/
+                  
+                  
+                  
+                    id="volantisbb"
+                  >
+                  <i class='fal fa-microphone-alt fa-fw'></i>说说
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fal fa-redo fa-spin fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/volantis/about/
+                  
+                  
+                  
+                    id="volantisabout"
+                  >
+                  <i class='fal fa-address-card fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://box.heson10.com
+                  
+                  
+                  
+                    id="https:boxheson10com"
+                  >
+                  <i class='fal fa-heart fa-fw'></i>宝盒
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://travellings.now.sh/
+                  
+                  
+                  
+                    id="https:travellingsnowsh"
+                  >
+                  <i class='fal fa-paper-plane fa-fw'></i>开往
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://yf.heson10.com/
+                  
+                  
+                  
+                    id="https:yfheson10com"
+                  >
+                  <i class='fal fa-donate fa-fw'></i>要饭
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://tongji.baidu.com/web/10000238090/overview/index?siteId=15706250
+                  
+                  
+                  
+                    id="https:tongjibaiducomweb10000238090overviewindex?siteId=15706250"
+                  >
+                  <i class='fal fa-industry fa-fw'></i>百度统计
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.heson10.com/atom.xml
+                  
+                  
+                  
+                    id="https:wwwheson10comatomxml"
+                  >
+                  <i class='fal fa-rss fa-fw'></i>RSS订阅
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://leancloud.heson10.com
+                  
+                  
+                  
+                    id="https:leancloudheson10com"
+                  >
+                  <i class='fal fa-comments fa-fw'></i>评论管理
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fal fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fal fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/volantis/
+                  
+                  
+                  
+                    id="volantis"
+                  >
+                  <i class='fal fa-home fa-fw'></i>首页
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fal fa-search fa-fw'></i>找文章
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/volantis/archives/
+                  
+                  
+                  
+                    id="volantisarchives"
+                  >
+                  <i class='fal fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/volantis/tags/
+                  
+                  
+                  
+                    id="volantistags"
+                  >
+                  <i class='fal fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/volantis/categories/
+                  
+                  
+                  
+                    id="volantiscategories"
+                  >
+                  <i class='fal fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/volantis/guestbook/
+                  
+                  
+                  
+                    id="volantisguestbook"
+                  >
+                  <i class='fal fa-comments fa-fw'></i>留言板
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/volantis/links/
+                  
+                  
+                  
+                    id="volantislinks"
+                  >
+                  <i class='fal fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/volantis/bb/
+                  
+                  
+                  
+                    id="volantisbb"
+                  >
+                  <i class='fal fa-microphone-alt fa-fw'></i>说说
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fal fa-redo fa-spin fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/volantis/about/
+                  
+                  
+                  
+                    id="volantisabout"
+                  >
+                  <i class='fal fa-address-card fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://box.heson10.com
+                  
+                  
+                  
+                    id="https:boxheson10com"
+                  >
+                  <i class='fal fa-heart fa-fw'></i>宝盒
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://travellings.now.sh/
+                  
+                  
+                  
+                    id="https:travellingsnowsh"
+                  >
+                  <i class='fal fa-paper-plane fa-fw'></i>开往
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://yf.heson10.com/
+                  
+                  
+                  
+                    id="https:yfheson10com"
+                  >
+                  <i class='fal fa-donate fa-fw'></i>要饭
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://tongji.baidu.com/web/10000238090/overview/index?siteId=15706250
+                  
+                  
+                  
+                    id="https:tongjibaiducomweb10000238090overviewindex?siteId=15706250"
+                  >
+                  <i class='fal fa-industry fa-fw'></i>百度统计
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.heson10.com/atom.xml
+                  
+                  
+                  
+                    id="https:wwwheson10comatomxml"
+                  >
+                  <i class='fal fa-rss fa-fw'></i>RSS订阅
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://leancloud.heson10.com
+                  
+                  
+                  
+                    id="https:leancloudheson10com"
+                  >
+                  <i class='fal fa-comments fa-fw'></i>评论管理
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div class="l_body">
+    <div class="l_cover">
+
+  
+  
+      <div class='cover-wrapper post featured' style="display: none;">
+        <canvas id="header_canvas" style="position:absolute;bottom:0;z-index: 1;" width="900" height="350"></canvas>
+        
+          <div class='cover-bg lazyload placeholder' data-bg="https://picup.heson10.com/img/upyun/home_top_bg.webp"></div>
+        
+        <div class='cover-body'>
+  <div class='top'>
+    
+      <img no-lazy class='logo' src='https://picup.heson10.com/img/upyun/heson10logo5.png'/>
+    
+    
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+          
+            <a href="/volantis/"
+              
+              
+              id="volantis">
+              <i class='fad fa-home fa-fw'></i><p>首页</p>
+            </a>
+          
+            <a href="/volantis/archives/"
+              
+              
+              id="volantisarchives">
+              <i class='fad fa-archive fa-fw'></i><p>归档</p>
+            </a>
+          
+            <a href="/volantis/bb/"
+              
+              
+              id="volantisbb">
+              <i class='fad fa-microphone-alt fa-fw'></i><p>说说</p>
+            </a>
+          
+            <a href="/volantis/links/"
+              
+              
+              id="volantislinks">
+              <i class='fad fa-link fa-fw'></i><p>友链</p>
+            </a>
+          
+            <a target="_blank" rel="noopener" href="https://box.heson10.com"
+              
+              
+              id="https:boxheson10com">
+              <i class='fad fa-heart fa-fw'></i><p>宝盒</p>
+            </a>
+          
+            <a target="_blank" rel="noopener" href="https://yf.heson10.com/"
+              
+              
+              id="https:yfheson10com">
+              <i class='fad fa-donate fa-fw'></i><p>要饭</p>
+            </a>
+          
+            <a target="_blank" rel="noopener" href="https://travellings.now.sh/"
+              
+              
+              id="https:travellingsnowsh">
+              <i class='fad fa-paper-plane fa-fw'></i><p>开往</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+      </div>
+  
+
+</div>
+
+    <div class='safearea'>
+      <div class='body-wrapper' id="pjax-container">
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+
+
+<div id="pjax-data" style="display: none">
+  <div id="pjax-ispage">true</div>
+  <div id="pjax-pageTitle">所有关于Valine评论系统的配置都在这里【合集】</div>
+  <div id="pjax-enable-cover">true</div>
+  <div id="pjax-comment-path"></div>
+  <div id="pjax-comment-placeholder"></div>
+</div>
+
+
+<script>
+  // 处理封面 此时 jquery 还没加载
+  if ("none" == "none") { // 移除封面
+    document.getElementsByClassName('cover-wrapper')[0].style.display = "none";
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show");
+  } else {
+    if ("none" == "half") { // 半屏
+      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half');
+      document.getElementsByClassName('scroll-down')[0].style.display = "none";
+    } else if ("none" == "full") { // 全屏
+      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full');
+      document.getElementsByClassName('scroll-down')[0].style.display = "";
+    }
+    document.getElementsByClassName('cover-wrapper')[0].style.display = "";
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show");
+  }
+</script>
+
+
+        
+        
+
+<aside class='l_side'>
+  <div style="margin-bottom: 16px;border-radius: 8px;" class='shadow floatable widget_author desktop'>
+    <div id="zuozhebg" class="newauthor"
+      style="background: url(https://cdn.jsdelivr.net/gh/heson525/pic@master/pic/avatar03.png) center center no-repeat;background-size:cover">
+    </div>
+    <div class="relive_widget_v3">
+      <div class="box-author-info">
+        <div class="author-face">
+          <a href="/about" target="_blank" rel="nofollow" title="关于黑石博客">
+            <img no-lazy alt="" src="https://cdn.jsdelivr.net/gh/heson525/pic@master/pic/avatar03.png"
+              class="avatar avatar-200 photo" height="200" width="200"> </a>
+        </div>
+        <div class="author-name">Heson</div>
+        <div id="author-one" class="author-one">人生在勤，不索何获
+          <script>
+            var binft = function (r) {
+              function t() {
+                return b[Math.floor(Math.random() * b.length)]
+              }
+              function e() {
+                return String.fromCharCode(94 * Math.random() + 33)
+              }
+              function n(r) {
+                for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
+                  var l = document.createElement("span");
+                  l.textContent = e(), l.style.color = t(), n.appendChild(l)
+                }
+                return n
+              }
+              function i() {
+                var t = o[c.skillI];
+                c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
+              }
+              var l = "",
+                o = ["人生在勤，不索何获", "日日待明日,万事成蹉跎", "丈夫志四海，万里犹比邻", "还在看这里吗？", "能不能别看了？", "文章更精彩...."].map(function (r) {
+                  return r + ""
+                }),
+                a = 2,
+                g = 1,
+                s = 5,
+                d = 75,
+                b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
+                c = {
+                  text: "",
+                  prefixP: -s,
+                  skillI: 0,
+                  skillP: 0,
+                  direction: "forward",
+                  delay: a,
+                  step: g
+                };
+              i()
+            };
+            binft(document.getElementById('author-one'));
+          </script>
+
+
+        </div>
+        <div class="site-state-wrap motion-element">
+          <nav class="site-state">
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <dl class="article-newest">
+        <dt>———<span class="tit" style="font-weight: bold;">热门文章</span>———</dt>
+        <li>
+          <span class="order od-1">1</span>
+          <a href="/posts/7207.html" title="Hexo博客调用Valine最新评论"><i
+              class="iconfont icon-sanjiao"></i>Hexo博客调用Valine最新评论</a>
+        </li>
+        <li>
+          <span class="order od-2">2</span>
+          <a href="/posts/53612.html" title="记录一次24H在线要饭系统的搭建"><i class="iconfont icon-sanjiao"></i>记录一次24H在线要饭系统的搭建</a>
+        </li>
+        <li>
+          <span class="order od-3">3</span>
+          <a href="/posts/5892.html" title="给博客增加彩色标签云"><i class="iconfont icon-sanjiao"></i>给博客增加彩色标签云</a>
+        </li>
+        <li>
+          <span class="order od-4">4</span>
+          <a href="/posts/28396.html" title="所有关于Valine评论系统的配置都在这里【合集】"><i
+              class="iconfont icon-sanjiao"></i>所有关于Valine评论系统的配置都在这里【合集】</a>
+        </li>
+        <li>
+          <span class="order od-5">5</span>
+          <a href="/posts/54971.html" title="Hexo在GitHub和Coding双线部署教程"><i
+              class="iconfont icon-sanjiao"></i>Hexo在GitHub和Coding双线部署教程</a>
+        </li>
+        <li>
+          <span class="order od-6">6</span>
+          <a href="/posts/121.html" title="用hexo+github pages+独立域名搭建个人博客"><i
+              class="iconfont icon-sanjiao"></i>用hexo+github pages+独立域名搭建个人博客</a>
+        </li>
+      </dl>
+    </div>
+  </div>
+  <div style="text-align:center;border-radius: 8px;margin-bottom: 8px;" class="widget desktop">
+    <a target="_blank" rel="noopener" href="https://jq.qq.com/?_wv=1027&k=n8aoCAN0"><img style="border-radius: 5px;"
+        src="https://picup.heson10.com/img/upyun/qqqun.webp" /></a>
+  </div>
+
+
+  
+  
+    
+    
+  
+
+  <section class="widget category shadow floatable desktop">
+    
+  <header>
+    
+      <a href='/categories/'><i class="fal fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/volantis/categories/MIUI/" href="/volantis/categories/MIUI/"
+            id="volantiscategoriesMIUI"
+            ><div class='name'>MIUI</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/volantis/categories/WordPress/" href="/volantis/categories/WordPress/"
+            id="volantiscategoriesWordPress"
+            ><div class='name'>WordPress</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/volantis/categories/hexo/" href="/volantis/categories/hexo/"
+            id="volantiscategorieshexo"
+            ><div class='name'>hexo</div><div class='badge'>(27)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/volantis/categories/python/" href="/volantis/categories/python/"
+            id="volantiscategoriespython"
+            ><div class='name'>python</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/volantis/categories/%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81/" href="/volantis/categories/%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81/"
+            id="volantiscategoriesE68A80E69CAFE4BAA4E6B581"
+            ><div class='name'>技术交流</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/volantis/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/" href="/volantis/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/"
+            id="volantiscategoriesE7949FE6B4BBE99A8FE7AC94"
+            ><div class='name'>生活随笔</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/volantis/categories/%E8%BD%AF%E4%BB%B6/" href="/volantis/categories/%E8%BD%AF%E4%BB%B6/"
+            id="volantiscategoriesE8BDAFE4BBB6"
+            ><div class='name'>软件</div><div class='badge'>(2)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+  
+
+  
+
+  
+    
+    
+
+<section class="widget text shadow floatable desktop">
+  
+  <header>
+    
+      <i class="fal fa-comments fa-fw" aria-hidden="true"></i><span class='name'>最新评论</span>
+    
+  </header>
+
+
+  <div class='content'>
+    
+      <div id="hot-comments"></div>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget shadow floatable desktop mobile">
+  
+  <header>
+    
+      <i class="fal fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
+    
+  </header>
+
+
+  <div class='content'>
+    <div class="webinfo">
+      
+        <div class="webinfo-item">
+          <div>文章数目：</div>
+          <div>36 篇</div>
+        </div>
+      
+
+      
+        <div class="webinfo-item">
+          <div>已运行时间：</div>
+          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
+        </div>
+        <script>
+          var BirthDay = new Date(new Date('2020/07/06'));
+          var today = new Date();
+          var timeold = (today.getTime() - BirthDay.getTime());
+          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
+          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
+        </script>
+      
+
+
+      
+        <div class="webinfo-item">
+          <div>本站总字数：</div>
+          <div>25.5k 字</div>
+        </div>
+      
+
+      
+        <div class="webinfo-item">
+          <div>本站访客数：</div>
+          <div><span id="busuanzi_value_site_uv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 人</div>
+        </div>
+      
+
+      
+        <div class="webinfo-item">
+          <div>本站总访问量：</div>
+          <div><span id="busuanzi_value_site_pv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 次</div>
+        </div>
+      
+
+      
+        <div class="webinfo-item">
+          <div>最后活动时间：</div>
+          
+            <div id="last-update" style="display: none;">Tue Oct 06 2020 23:26:09 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update-show">2020-10-06 日</div>
+          
+        </div>
+        
+        <script>
+          function timeago(dateTimeStamp) {
+              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
+              var hour = minute * 60;
+              var day = hour * 24;
+              var week = day * 7;
+              var month = day * 30;
+              var now = new Date().getTime(); //获取当前时间毫秒
+              var diffValue = now - dateTimeStamp; //时间差
+              if (diffValue < 0) {
+                  return;
+              }
+              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
+              var hourC = diffValue / hour;
+              var dayC = diffValue / day;
+              var weekC = diffValue / week;
+              var monthC = diffValue / month;
+              if (monthC >= 1 && monthC <= 3) {
+                  result = " " + parseInt(monthC) + " 月前"
+              } else if (weekC >= 1 && weekC <= 3) {
+                  result = " " + parseInt(weekC) + " 周前"
+              } else if (dayC >= 1 && dayC <= 6) {
+                  result = " " + parseInt(dayC) + " 天前"
+              } else if (hourC >= 1 && hourC <= 23) {
+                  result = " " + parseInt(hourC) + " 小时前"
+              } else if (minC >= 1 && minC <= 59) {
+                  result = " " + parseInt(minC) + " 分钟前"
+              } else if (diffValue >= 0 && diffValue <= minute) {
+                  result = "刚刚"
+              } else {
+                  var datetime = new Date();
+                  datetime.setTime(dateTimeStamp);
+                  var Nyear = datetime.getFullYear();
+                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
+                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
+                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
+                  result = Nyear + "-" + Nmonth + "-" + Ndate
+              }
+              return result;
+          }
+          var lastUpDate = document.getElementById('last-update').innerHTML;
+          try {
+            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
+          } catch (error) {
+            document.getElementById('last-update-show').innerHTML = '2020-10-06 日';
+          }
+        </script>
+        
+      
+    </div>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow floatable desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fal fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo%E8%AE%BE%E7%BD%AEValine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F"><span class="toc-text">Hexo设置Valine评论系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%B3%E8%AF%B7LeanCloud%E8%B4%A6%E5%8F%B7"><span class="toc-text">申请LeanCloud账号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Volantis%E4%B8%BB%E9%A2%98%E5%BC%80%E5%90%AFvaline%E8%AF%84%E8%AE%BA"><span class="toc-text">Volantis主题开启valine评论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Valine%E5%A2%9E%E5%BC%BA%E7%89%88%E9%85%8D%E7%BD%AE%EF%BC%9A%E5%8D%9A%E4%B8%BB%E6%A0%87%E7%AD%BE%E3%80%81%E8%AF%84%E8%AE%BA%E5%90%8E%E5%8F%B0%E3%80%81%E5%BE%AE%E4%BF%A1qq%E6%8F%90%E9%86%92%E3%80%81%E5%9E%83%E5%9C%BE%E8%AF%84%E8%AE%BA%E8%BF%87%E6%BB%A4"><span class="toc-text">Valine增强版配置：博主标签、评论后台、微信qq提醒、垃圾评论过滤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%9A%E4%B8%BB%E3%80%81%E5%B0%8F%E4%BC%99%E4%BC%B4%E3%80%81%E8%AE%BF%E5%AE%A2%E6%A0%87%E7%AD%BE"><span class="toc-text">博主、小伙伴、访客标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2Valine-Admin%E8%AF%84%E8%AE%BA%E5%90%8E%E5%8F%B0"><span class="toc-text">部署Valine-Admin评论后台</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8"><span class="toc-text">创建应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E8%A1%8C%E9%83%A8%E7%BD%B2"><span class="toc-text">进行部署</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E8%AF%84%E8%AE%BA%E5%90%8E%E5%8F%B0%E5%9F%9F%E5%90%8D"><span class="toc-text">绑定评论后台域名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%8F%82%E6%95%B0"><span class="toc-text">添加参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E6%B3%A8%E5%86%8C"><span class="toc-text">后台管理员注册</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E8%AF%84%E8%AE%BA%E7%AE%A1%E7%90%86"><span class="toc-text">后台评论管理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E4%BF%A1%E3%80%81QQ%E6%8F%90%E9%86%92"><span class="toc-text">微信、QQ提醒</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E4%BF%A1Server%E9%85%B1-SCKEY-%E8%8E%B7%E5%8F%96"><span class="toc-text">微信Server酱 SCKEY 获取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#QQmsg-%E5%AF%86%E9%92%A5%E8%8E%B7%E5%8F%96"><span class="toc-text">QQmsg 密钥获取</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E8%AF%84%E8%AE%BA%E8%BF%87%E6%BB%A4"><span class="toc-text">垃圾评论过滤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3LeanCloud%E6%B5%81%E6%8E%A7%E9%97%AE%E9%A2%98"><span class="toc-text">解决LeanCloud流控问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E4%B9%8BGitHub-Actions%E5%A4%A7%E6%B3%95"><span class="toc-text">解决方法之GitHub+Actions大法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAToken"><span class="toc-text">新建一个Token</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Fork%E9%A1%B9%E7%9B%AE%E5%9C%B0%E5%9D%80"><span class="toc-text">Fork项目地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%94%A4%E9%86%92%E9%A1%B9%E7%9B%AE"><span class="toc-text">配置唤醒项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8"><span class="toc-text">启动</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+<div class='l_main'>
+  <article
+  class="article post white-box reveal md shadow floatable article-type-post"
+  id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+      <a title='所有关于Valine评论系统的配置都在这里【合集】' href='/volantis/posts/28396.html'>
+        
+          
+            <img class='thumbnail lazyload' src='https://picup.heson10.com/img/valine%E9%85%8D%E7%BD%AE%E5%90%88%E9%9B%86.png'>
+          
+        
+      </a>
+    
+    
+      <h1 class="title">
+        所有关于Valine评论系统的配置都在这里【合集】
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/heson525/pic@master/pic/avatar03.png">
+    <p>Heson</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fal fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/volantis/categories/hexo/">hexo</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fal fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年8月16日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="所有关于Valine评论系统的配置都在这里【合集】" data-path="/volantis/posts/28396.html">
+        <i class="fal fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+
+  
+  <div class="note"><p>用Hexo博客的小伙伴们对于Valine并不陌生，这款快速、简洁且高效的无后端评论系统，既能快速加载又能提供文章阅读统计，加上一些魔改，可以增加微信与QQ提醒、后台管理、垃圾评论过滤，可以说非常好用。本文主要是介绍配置Valine和可能会遇到的问题【合集】，很多都是搬运过来的教程，文后会附上参考资料。在此感谢这些大佬的参考教程。</p></div><a id="more"></a>
+
+
+
+
+
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>以下标题点击可直接跳转：</p>
+<ul>
+<li><a href="/posts/28396.html#Hexo%E8%AE%BE%E7%BD%AEValine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F">Hexo设置Valine评论系统</a></li>
+<li><a href="/posts/28396.html#Valine%E5%A2%9E%E5%BC%BA%E7%89%88%E9%85%8D%E7%BD%AE%EF%BC%9A%E5%8D%9A%E4%B8%BB%E6%A0%87%E7%AD%BE%E3%80%81%E8%AF%84%E8%AE%BA%E5%90%8E%E5%8F%B0%E3%80%81%E5%BE%AE%E4%BF%A1qq%E6%8F%90%E9%86%92%E3%80%81%E5%9E%83%E5%9C%BE%E8%AF%84%E8%AE%BA%E8%BF%87%E6%BB%A4">Valine增强版配置：博主标签、评论后台、微信qq提醒、垃圾评论过滤</a></li>
+<li><a href="/posts/28396.html#%E8%A7%A3%E5%86%B3LeanCloud%E6%B5%81%E6%8E%A7%E9%97%AE%E9%A2%98">解决LeanCloud流控问题</a></li>
+</ul>
+<p class='p center red'>如有其他疑问，或者还需要添加的教程，请在评论区留言。</p>
+
+<span class='btn center large'><a class="button" href='#comments' title='评论区直达'>评论区直达</a></span>
+
+
+
+
+
+<h2 id="Hexo设置Valine评论系统"><a href="#Hexo设置Valine评论系统" class="headerlink" title="Hexo设置Valine评论系统"></a>Hexo设置Valine评论系统</h2><h3 id="申请LeanCloud账号"><a href="#申请LeanCloud账号" class="headerlink" title="申请LeanCloud账号"></a>申请LeanCloud账号</h3><div class="note "><p>Valine 是基于LeanCloud开发的，所以要去LeanCloud申请一个Serverless服务。</p></div>
+
+<p>1.官网地址：<a target="_blank" rel="noopener" href="https://leancloud.cn/">https://leancloud.cn/</a>   （国内版）     <a target="_blank" rel="noopener" href="https://leancloud.app/">https://leancloud.app/</a>   （国际版）</p>
+<div class="note warning"><p>国内和国际版功能上没有区别，只不过国版版本绑定后台域名时，需要绑定备案域名</p></div>
+
+<p>2.注册后登陆，创建一个应用，名称随意填写，开发版即可。</p>
+<p>3.进入刚才创建的应用→点击设置→应用Keys→记录<strong>AppID</strong>、<strong>AppKey</strong></p>
+<p><img src="https://picup.heson10.com/img/image-20200816112412581.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816112412581.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816112412581"></p>
+<h3 id="Volantis主题开启valine评论"><a href="#Volantis主题开启valine评论" class="headerlink" title="Volantis主题开启valine评论"></a>Volantis主题开启valine评论</h3><p><strong>以下适合3.0版本，4.0建议看官网文档</strong></p>
+<p><strong>任何主题都是一样，建议多看看官方文档。看官方文档是配置主题各项功能的第一步。</strong></p>
+<p>1.打开主题配置文件，开启Valine评论</p>
+<p><img src="https://picup.heson10.com/img/image-20200816115120959.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816115120959.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816115120959"></p>
+<p>2.开启文章阅读数量统计</p>
+<p>要在主题配置文件以下地方加上<code>counter</code>和<code>valinecount</code>，才能开启</p>
+<p><img src="https://picup.heson10.com/img/image-20200816114141334.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816114141334.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816114141334"></p>
+<p>3.配置好了之后记得要设置<strong>安全域名</strong>：<a target="_blank" rel="noopener" href="https://valine.js.org/quickstart.html#%E5%AE%89%E5%85%A8%E5%9F%9F%E5%90%8D">传送门</a></p>
+<div class="note "><p>Valine官网已经给出了集成了valine评论功能的主题，开启方法跟上面大同小异：1.找到主题评论模块设置；2.按照相关参数进行设置。欢迎各位小伙伴选用支持valine的主题→<a target="_blank" rel="noopener" href="https://valine.js.org/hexo.html">传送门</a></p></div>
+
+
+
+<h2 id="Valine增强版配置：博主标签、评论后台、微信qq提醒、垃圾评论过滤"><a href="#Valine增强版配置：博主标签、评论后台、微信qq提醒、垃圾评论过滤" class="headerlink" title="Valine增强版配置：博主标签、评论后台、微信qq提醒、垃圾评论过滤"></a>Valine增强版配置：博主标签、评论后台、微信qq提醒、垃圾评论过滤</h2><div class="note "><p>Valine增强版主要功能是给Valine评论增加一个后台管理功能，经过DesertsP、zhaojun1998、HCLonely、Dreamy.TZK等多位大佬开发、修改，现在功能逐渐完善并实现邮件回复提醒、微信QQ消息推送、邮件回复模板多样化、垃圾评论过滤等功能，主要基于小康修改的valine-admin ，为了符合自己的口味，专门</p></div>
+
+<h3 id="博主、小伙伴、访客标签"><a href="#博主、小伙伴、访客标签" class="headerlink" title="博主、小伙伴、访客标签"></a>博主、小伙伴、访客标签</h3><p>效果如图所示：</p>
+<p>博主<img src="https://picup.heson10.com/img/image-20200816122716653.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816122716653.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816122716653"></p>
+<p>小伙伴<img src="https://picup.heson10.com/img/image-20200816122744048.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816122744048.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816122744048"></p>
+<p>访客<img src="https://picup.heson10.com/img/image-20200816122809206.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816122809206.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816122809206"></p>
+<p>下面以Volantis设置为例：</p>
+<ul>
+<li>添加js链接、并在配置文件增加参数</li>
+</ul>
+<p>使用的是懒人大佬修改的js：</p>
+<pre><code class="html">https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js</code></pre>
+<details cyan open><summary> <p>与原生的相比，多了以下功能：</p> </summary>
+              <div class='content'>
+              <ul><li><p>添加博主，小伙伴，访客标签</p></li><li><p>添加浏览器和操作系统图标，需 <code>fontawesomeV5</code> 支持</p></li><li><p>邮箱检测更严格</p></li><li><p>增加 QQ 邮箱识别（原版只能通过昵称栏输入 QQ 号识别）</p></li><li><p>meta placeholder 可自定义</p></li></ul>
+              </div>
+            </details>
+
+<details cyan open><summary> <p>使用方法与原生的类似，不同的是可以多设置几个参数：</p> </summary>
+              <div class='content'>
+              <table><thead><tr><th align="center">参数</th><th align="center">类型</th><th align="center">说明</th><th align="center">默认</th><th align="center">示例</th></tr></thead><tbody><tr><td align="center">tagMeta</td><td align="center">Array</td><td align="center">标签要显示的文字</td><td align="center">[“博主”,“小伙伴”,“访客”]</td><td align="center">[“博主”,“小伙伴”,“访客”]</td></tr><tr><td align="center">master</td><td align="center">Array/String</td><td align="center">md5 加密后的博主邮箱</td><td align="center">[]</td><td align="center">[“fc2c9b067f65c9e2d7057ba797f7cfca”]</td></tr><tr><td align="center">friends</td><td align="center">Array</td><td align="center">md5 加密后的小伙伴邮箱</td><td align="center">[]</td><td align="center">[“4a713ec085a4431f15a8da0942656713”]</td></tr><tr><td align="center">metaPlaceholder</td><td align="center">Object</td><td align="center">meta placeholder 内容</td><td align="center">{}</td><td align="center">{“nick”:“昵称 / QQ 号”,“mail”:“邮箱 (必填)”}</td></tr><tr><td align="center">verify</td><td align="center">Boolean</td><td align="center">评论时是否需要验证，需 jQuery 支持</td><td align="center">false</td><td align="center">true</td></tr></tbody></table>
+              </div>
+            </details>
+
+<ul>
+<li>volantis在主题配置文件中可直接更换，如图：</li>
+</ul>
+<p><img src="https://picup.heson10.com/img/image-20200816122250476.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816122250476.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816122250476"></p>
+<p>MD5加密网站：<a target="_blank" rel="noopener" href="https://md5jiami.51240.com/">https://md5jiami.51240.com/</a></p>
+<ul>
+<li><p>修改主题文件</p>
+<p>找到主题文件<code>volantis\layout\_third-party\comments\valine\script.ejs</code>，按图添加增加的配置</p>
+<p><img src="https://picup.heson10.com/img/image-20200816123439166.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816123439166.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816123439166"></p>
+</li>
+</ul>
+<p>代码：</p>
+<pre><code class="ejs">      master: &#39;[&lt;%= theme.comments.valine.master %&gt;]&#39;,
+      friends: &#39;[&lt;%= theme.comments.valine.friends %&gt;]&#39;</code></pre>
+<p>至此，就可以在主题配置文件中，直接填写master和friends参数，通过MD5加密的邮箱地址判断博主和小伙伴了。其他参数、其他主题原理相同：</p>
+<details cyan open><summary> <p>原理</p> </summary>
+              <div class='content'>
+              <div class='checkbox green checked'><input type="radio" checked="checked"/>            <p>在配置文件增加参数。</p>            </div><div class='checkbox red checked'><input type="radio" checked="checked"/>            <p>主题模板里增加参数调用。</p>            </div>
+              </div>
+            </details>
+
+<h3 id="部署Valine-Admin评论后台"><a href="#部署Valine-Admin评论后台" class="headerlink" title="部署Valine-Admin评论后台"></a>部署Valine-Admin评论后台</h3><h4 id="创建应用"><a href="#创建应用" class="headerlink" title="创建应用"></a>创建应用</h4><p>进入leancloud，登陆之前创建的Valine应用</p>
+<p><img src="https://picup.heson10.com/img/image-20200816143208797.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816143208797.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816143208797"></p>
+<h4 id="进行部署"><a href="#进行部署" class="headerlink" title="进行部署"></a>进行部署</h4><p>安利下我用的自己valine-admin-server （基于小康大佬），去掉了一些二次元的东西（本博主年龄偏大，对此不感冒😂）。</p>
+<p>地址如下：</p>
+<pre><code class="html"> https://github.com/heson525/Valine-Admin-Server</code></pre>
+<p><img src="https://picup.heson10.com/img/image-20200816143419197.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816143419197.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816143419197"></p>
+<p><img src="https://picup.heson10.com/img/image-20200816144049811.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816144049811.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="- "></p>
+<p><img src="https://picup.heson10.com/img/image-20200816144630444.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816144630444.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816144630444"></p>
+<h4 id="绑定评论后台域名"><a href="#绑定评论后台域名" class="headerlink" title="绑定评论后台域名"></a>绑定评论后台域名</h4><div class="note"><p>warning ,国内leancloud绑定域名必须使用备案过的域名</p></div>
+
+<p><img src="https://picup.heson10.com/img/image-20200816192418216.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816192418216.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816192418216"></p>
+<h4 id="添加参数"><a href="#添加参数" class="headerlink" title="添加参数"></a>添加参数</h4><table>
+<thead>
+<tr>
+<th align="center">变量名</th>
+<th align="center">说明</th>
+<th align="center">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">SITE_NAME</td>
+<td align="center">[必填] 网站名称</td>
+<td align="center">黑石博客</td>
+</tr>
+<tr>
+<td align="center">SITE_URL</td>
+<td align="center">[必填] 网站地址，最后不要加 /</td>
+<td align="center"><a href="https://www.heson10.com/">https://www.heson10.com</a></td>
+</tr>
+<tr>
+<td align="center">SMTP_USER</td>
+<td align="center">[必填] SMTP 服务用户名，一般为邮箱地址。</td>
+<td align="center"><a href="mailto:&#109;&#x61;&#x69;&#108;&#x40;&#x68;&#x65;&#115;&#x6f;&#x6e;&#x31;&#48;&#x2e;&#x63;&#111;&#x6d;">&#109;&#x61;&#x69;&#108;&#x40;&#x68;&#x65;&#115;&#x6f;&#x6e;&#x31;&#48;&#x2e;&#x63;&#111;&#x6d;</a></td>
+</tr>
+<tr>
+<td align="center">SMTP_PASS</td>
+<td align="center">[必填] SMTP 密码，一般为授权码，而不是邮箱的登陆密码，请自行查询对应邮件服务商的获取方式</td>
+<td align="center">XXXXXXXXXX</td>
+</tr>
+<tr>
+<td align="center">SMTP_SERVICE</td>
+<td align="center">[新版支持] 邮件服务提供商，<a target="_blank" rel="noopener" href="https://nodemailer.com/smtp/well-known/">内置支持</a></td>
+<td align="center">163</td>
+</tr>
+<tr>
+<td align="center">SENDER_NAME</td>
+<td align="center">[必填] 寄件人名称。</td>
+<td align="center">黑石博客</td>
+</tr>
+<tr>
+<td align="center">TO_EMAIL</td>
+<td align="center">[可选] 博主通知收件地址，默认使用 SMTP_USER</td>
+<td align="center"><a href="mailto:&#x6d;&#97;&#105;&#108;&#x40;&#104;&#x65;&#115;&#x6f;&#110;&#x31;&#48;&#x2e;&#99;&#111;&#x6d;">&#x6d;&#97;&#105;&#108;&#x40;&#104;&#x65;&#115;&#x6f;&#110;&#x31;&#48;&#x2e;&#99;&#111;&#x6d;</a></td>
+</tr>
+<tr>
+<td align="center">BLOGGER_EMAIL</td>
+<td align="center">[可选] 如果设置则作为后台管理员邮箱（/sign-up 页面设置），不设置则默认以 SMTP_USER</td>
+<td align="center"><a href="mailto:&#109;&#x61;&#105;&#108;&#x40;&#x68;&#x65;&#x73;&#x6f;&#110;&#49;&#x30;&#46;&#x63;&#x6f;&#109;">&#109;&#x61;&#105;&#108;&#x40;&#x68;&#x65;&#x73;&#x6f;&#110;&#49;&#x30;&#46;&#x63;&#x6f;&#109;</a></td>
+</tr>
+<tr>
+<td align="center">TEMPLATE_NAME</td>
+<td align="center">[必填] 设置提醒邮件的主题</td>
+<td align="center">custom2</td>
+</tr>
+<tr>
+<td align="center">AKISMET_KEY</td>
+<td align="center">[可选] Akismet Key 用于垃圾评论检测，设为 MANUAL_REVIEW 开启人工审核，留空不使用反垃圾</td>
+<td align="center">xxxx</td>
+</tr>
+<tr>
+<td align="center">ADMIN_URL</td>
+<td align="center">[可选] 后台管理地址 (非博客地址)</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://xxxx.leanapp.cn/">https://xxxx.leanapp.cn/</a></td>
+</tr>
+<tr>
+<td align="center">COMMENT</td>
+<td align="center">[可选] 评论 div 的 ID 名</td>
+<td align="center">#comments</td>
+</tr>
+<tr>
+<td align="center">SCKEY</td>
+<td align="center">[可选] server 酱的 SCKEY</td>
+<td align="center">xxx</td>
+</tr>
+<tr>
+<td align="center">AKISMET_KEY</td>
+<td align="center">[可选] Akismet Key 用于垃圾评论检测</td>
+<td align="center">xxxxxxxxxxxx</td>
+</tr>
+<tr>
+<td align="center">QMSG_KEY</td>
+<td align="center">[可选] Qmsg 酱的密钥</td>
+<td align="center">xxxxx</td>
+</tr>
+<tr>
+<td align="center">QQ</td>
+<td align="center">[可选] Qmsg 酱发送的 qq，不填为全部。支持多个，用英文逗号分隔即可</td>
+<td align="center">535668586</td>
+</tr>
+<tr>
+<td align="center">DISABLE_EMAIL</td>
+<td align="center">[可选]，填写则代表停止发送邮件</td>
+<td align="center">TRUE</td>
+</tr>
+<tr>
+<td align="center">QQ_SHAKE</td>
+<td align="center">[可选]，填写代表发送 QQ 戳一戳</td>
+<td align="center">TRUE</td>
+</tr>
+<tr>
+<td align="center">ICP</td>
+<td align="center">[可选] 备案信息，直接填写即可。</td>
+<td align="center">赣ICP备20008960号</td>
+</tr>
+<tr>
+<td align="center">INFO</td>
+<td align="center">[可选] 自定义信息输出，支持 HTML 代码</td>
+<td align="center"><p style='color:red'>test<p></td>
+</tr>
+<tr>
+<td align="center">favicon</td>
+<td align="center">[可选] 网页 favicon 图标</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/heson525/pic@master/pic/favicon.ico">https://cdn.jsdelivr.net/gh/heson525/pic@master/pic/favicon.ico</a></td>
+</tr>
+<tr>
+<td align="center">SPAM_WORDS</td>
+<td align="center">[可选] 需要对屏蔽的关键词，关键词用半角逗号分隔</td>
+<td align="center">单号，物流</td>
+</tr>
+<tr>
+<td align="center">MAIN_COLOR</td>
+<td align="center">[可选] 仅针对 custom2 模板主题的主要颜色</td>
+<td align="center">#ff9191</td>
+</tr>
+<tr>
+<td align="center">MAIN_IMG</td>
+<td align="center">[可选] 仅针对 custom2 模板主题的头图</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://bing.rthe.net/wallpaper">https://bing.rthe.net/wallpaper</a></td>
+</tr>
+</tbody></table>
+<p>当使用自定义邮件服务器时（需将 <code>SMTP_SERVICE</code> 变量删掉哦！）</p>
+<table>
+<thead>
+<tr>
+<th align="center">变量名</th>
+<th align="center">说明</th>
+<th align="center">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">SMTP_HOST</td>
+<td align="center">邮件服务提供商 SMTP 地址，此项需要自行查询或询问其服务商。</td>
+<td align="center"><code>smtp.ym.163.com</code></td>
+</tr>
+<tr>
+<td align="center">SMTP_PORT</td>
+<td align="center">邮件服务提供商 SMTP 端口，<em>此项需要自行查询或询问其服务商</em>。</td>
+<td align="center">994</td>
+</tr>
+<tr>
+<td align="center">SMTP_SECURE</td>
+<td align="center">是否启用加密，默认为 <code>true</code>，一般不需要设置，如有特殊请自行配置。 <em>此项需要自行查询或询问其服务商</em>。</td>
+<td align="center">true</td>
+</tr>
+</tbody></table>
+<p>此项目的主题字段</p>
+<table>
+<thead>
+<tr>
+<th align="center">模板名称</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">default</td>
+<td align="center">默认主题</td>
+</tr>
+<tr>
+<td align="center">rainbow</td>
+<td align="center">原版的 rainbow</td>
+</tr>
+<tr>
+<td align="center">custom1</td>
+<td align="center">基于<a target="_blank" rel="noopener" href="https://pbas.club/">🎉梨花町の肾兄さん🎉</a>的模板</td>
+</tr>
+<tr>
+<td align="center">custom2</td>
+<td align="center">对 custom1 的改进版</td>
+</tr>
+</tbody></table>
+<p>设置位置：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/heson525/pic@master/pic/image-20200816192116792.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/heson525/pic@master/pic/image-20200816192116792.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816192116792"></p>
+<h4 id="后台管理员注册"><a href="#后台管理员注册" class="headerlink" title="后台管理员注册"></a>后台管理员注册</h4><p>打开绑定的域名 +<code>/sign-up</code>，例如我的域名为 <code>https://leancloud.heson10.com/</code>，那么我访问的地址就是 <code>https://leancloud.heson10.com/sign-up</code>。接下来设置你的登录信息。</p>
+<p><img src="https://picup.heson10.com/img/image-20200816194246888.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816194246888.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816194246888"></p>
+<h4 id="后台评论管理"><a href="#后台评论管理" class="headerlink" title="后台评论管理"></a>后台评论管理</h4><p>登录地址：<a target="_blank" rel="noopener" href="https://leancloud.heson10.com/">https://leancloud.heson10.com</a></p>
+<p><img src="https://picup.heson10.com/img/image-20200816194400223.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816194400223.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816194400223"></p>
+<p> 至此，Valine-admin已设置完毕。</p>
+<h3 id="微信、QQ提醒"><a href="#微信、QQ提醒" class="headerlink" title="微信、QQ提醒"></a>微信、QQ提醒</h3><h4 id="微信Server酱-SCKEY-获取"><a href="#微信Server酱-SCKEY-获取" class="headerlink" title="微信Server酱 SCKEY 获取"></a>微信Server酱 SCKEY 获取</h4><p>官网注册：<a target="_blank" rel="noopener" href="http://sc.ftqq.com/3.version">http://sc.ftqq.com/3.version</a></p>
+<ul>
+<li>用github账户登录</li>
+<li>获取SCKEY并填入变量</li>
+<li>在Server酱上绑定微信即可</li>
+</ul>
+<h4 id="QQmsg-密钥获取"><a href="#QQmsg-密钥获取" class="headerlink" title="QQmsg 密钥获取"></a>QQmsg 密钥获取</h4><p>官网注册：<a target="_blank" rel="noopener" href="https://qmsg.zendee.cn/">https://qmsg.zendee.cn/</a></p>
+<p><del>最近貌似官网要停业了，已经不开放注册了</del></p>
+<p><del>建议设置微信提醒。</del></p>
+<p>又被续命了！</p>
+<p><img src="https://picup.heson10.com/img/image-20200816193845192.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816193845192.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816193845192"></p>
+<h3 id="垃圾评论过滤"><a href="#垃圾评论过滤" class="headerlink" title="垃圾评论过滤"></a>垃圾评论过滤</h3><div class="note"><p>info,Akismet (Automattic Kismet) 是应用广泛的一个垃圾留言过滤系统，其作者是大名鼎鼎的 WordPress 创始人 Matt Mullenweg，Akismet 也是 WordPress 默认安装的插件，其使用非常广泛，设计目标便是帮助博客网站来过滤留言 Spam。有了 Akismet 之后，基本上不用担心垃圾留言的烦恼了。 启用 Akismet 后，当博客再收到留言会自动将其提交到 Akismet 并与 Akismet 上的黑名单进行比对，如果名列该黑名单中，则该条留言会被标记为垃圾评论且不会发布。</p></div>
+
+<p>只需在<code>AKISMET_KEY</code>变量上填入<code>Akismet Key</code></p>
+<p>申请地址：<a target="_blank" rel="noopener" href="https://akismet.com/development/">https://akismet.com/development/</a></p>
+<h2 id="解决LeanCloud流控问题"><a href="#解决LeanCloud流控问题" class="headerlink" title="解决LeanCloud流控问题"></a>解决LeanCloud流控问题</h2><p>之前几天后台不能发送邮件通知，查看日志显示”因流控原因，通过定时任务唤醒体验版实例失败，建议升级至标准版云引擎实例避免休眠”，相信大家会碰到这样的问题。</p>
+<p>因为好多都是同一时间用定时任务触发容器运行，leancloud服务器不堪重负。</p>
+<p>多得理论性知识可直接查看小康大佬的<a target="_blank" rel="noopener" href="https://www.antmoe.com/posts/ff6aef7b/index.html">这篇帖子</a>。下面只讲方法：</p>
+<h3 id="解决方法之GitHub-Actions大法"><a href="#解决方法之GitHub-Actions大法" class="headerlink" title="解决方法之GitHub+Actions大法"></a>解决方法之GitHub+Actions大法</h3><h4 id="新建一个Token"><a href="#新建一个Token" class="headerlink" title="新建一个Token"></a>新建一个Token</h4><p>方法之前教程有写很详细，<a href="https://www.heson10.com/posts/57815.html#GitHub">点这里</a>。不过这里用到的权限很少。勾上：</p>
+<ul>
+<li>repo    </li>
+<li>admin:repo_hook</li>
+<li>worflow</li>
+</ul>
+<div class="note warning"><p><strong>TOKEN名字请务必使用</strong><code>GITHUB_TOKEN</code></p></div>
+
+<h4 id="Fork项目地址"><a href="#Fork项目地址" class="headerlink" title="Fork项目地址"></a>Fork项目地址</h4><p>地址： <a target="_blank" rel="noopener" href="https://github.com/blogimg/WakeLeanCloud">https://github.com/blogimg/WakeLeanCloud</a></p>
+<p>进入后点击右上角的 fork，这样会fork到自己的账户下。</p>
+<p><img src="https://picup.heson10.com/img/image-20200816183305383.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816183305383.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816183305383"></p>
+<h4 id="配置唤醒项目"><a href="#配置唤醒项目" class="headerlink" title="配置唤醒项目"></a>配置唤醒项目</h4><p>在自己fork的仓库下，进入Secrets ，设置SITE变量</p>
+<p><img src="https://picup.heson10.com/img/image-20200816183547131.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816183547131.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816183547131"></p>
+<p>填评论后台的地址，这个leancloud国内版本是自己域名绑定的后台地址。我的是<a target="_blank" rel="noopener" href="https://leancloud.heson10.com/">https://leancloud.heson10.com</a></p>
+<p><img src="https://picup.heson10.com/img/image-20200816183822992.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816183822992.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816183822992"></p>
+<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><p>接下来对自己的项目点个 star 就能启动了，启动后请切换到 actions，看看是否运行成功。</p>
+<p><img src="https://picup.heson10.com/img/image-20200816183913657.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816183913657.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816183913657"></p>
+<p>在actions选项，可以看是否唤醒成功。</p>
+<p><img src="https://picup.heson10.com/img/image-20200816183958108.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816183958108.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816183958108"></p>
+<p>如果你的 GitHub 从来没有用过 actions，那么需要先 “了解”。方法很简单，点击绿色的按钮即可。</p>
+<p><img src="https://picup.heson10.com/img/image-20200816184035113.png" class="lazyload" data-srcset="https://picup.heson10.com/img/image-20200816184035113.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200816184035113"></p>
+<p>然后再取消star，再点击一次就可以看到了。</p>
+<details cyan open><summary> <p>参考文档</p> </summary>
+              <div class='content'>
+              <div class='checkbox green checked'><input type="radio" checked="checked"/>            <p>1.Valine官方文档：<a target="_blank" rel="noopener" href="https://valine.js.org/">https://valine.js.org/</a></p>            </div><div class='checkbox red checked'><input type="radio" checked="checked"/>            <p>2.懒人大佬：<a target="_blank" rel="noopener" href="https://blog.hclonely.com/posts/409d3090/">https://blog.hclonely.com/posts/409d3090/</a></p>            </div><div class='checkbox yellow checked'><input type="radio" checked="checked"/>            <p>3.小康博客：<a target="_blank" rel="noopener" href="https://www.antmoe.com/posts/2380732b/index.html">https://www.antmoe.com/posts/2380732b/index.html</a></p>            </div>
+              </div>
+            </details>
+
+
+  
+  
+  
+  <div class='footer'>
+    
+    
+    
+  <div class="related_posts">
+    <section class='header'>
+      <i class="fal fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
+    </section>
+    <section class='body'>
+      <div class="vlts-rps"><a class="item" href="\volantis\posts\7207.html" title="Hexo博客调用Valine最新评论" rel="bookmark "><img src="https://picup.heson10.com/img/upyun/newcomment.png" class="lazyload" data-srcset="https://picup.heson10.com/img/upyun/newcomment.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" /><span class="title">Hexo博客调用Valine最新评论</span><span class="excerpt">给博客加上最新评论栏目。以Volantis主题为例，给侧边栏加上最新评论功能，实现整站调用。</span></a><a class="item" href="\volantis\posts\10441.html" title="关于Hexo+next主题的SEO优化" rel="bookmark "><img src="https://pic.heson10.com/img/image-20200722193917096.png" class="lazyload" data-srcset="https://pic.heson10.com/img/image-20200722193917096.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" /><span class="title">关于Hexo+next主题的SEO优化</span></a></div></section></div>
+    
+    
+    <div class='copyright'>
+      <blockquote>
+        
+        
+        <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+        
+        
+        
+        <p>本文永久链接是：<a href=https://www.heson10.com/volantis/posts/28396.html>https://www.heson10.com/volantis/posts/28396.html</a></p>
+        
+        
+      </blockquote>
+    </div>
+    
+    
+  </div>
+  
+  
+  
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-24T22:40:06+08:00">
+  <a class='notlink'>
+    <i class="fal fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年9月24日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/volantis/tags/valine/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>valine</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/volantis/tags/%E8%AF%84%E8%AE%BA/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>评论</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/volantis/tags/%E5%90%88%E9%9B%86/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>合集</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/volantis/tags/%E9%85%8D%E7%BD%AE/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>配置</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.heson10.com/volantis/posts/28396.html&title=hexo博客valine评论系统配置合集（valine-admin、微信提醒、博主标签） - 黑石博客 - Hexo博客&pics=https://picup.heson10.com/img/valine%E9%85%8D%E7%BD%AE%E5%90%88%E9%9B%86.png&summary=用Hexo博客的小伙伴们对于Valine并不陌生，这款快速、简洁且高效的无后端评论系统，既能快速加载又能提供文章阅读统计，加上一些魔改，可以增加微信与QQ提醒、后台管理、垃圾评论过滤，可以说非常好用。本文主要是介绍配置Valine和可能会遇到的问题【合集】，很多都是搬运过来的教程，文后会附上参考资料。在此感谢这些大佬的参考教程。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.heson10.com/volantis/posts/28396.html&title=hexo博客valine评论系统配置合集（valine-admin、微信提醒、博主标签） - 黑石博客 - Hexo博客&pics=https://picup.heson10.com/img/valine%E9%85%8D%E7%BD%AE%E5%90%88%E9%9B%86.png&summary=用Hexo博客的小伙伴们对于Valine并不陌生，这款快速、简洁且高效的无后端评论系统，既能快速加载又能提供文章阅读统计，加上一些魔改，可以增加微信与QQ提醒、后台管理、垃圾评论过滤，可以说非常好用。本文主要是介绍配置Valine和可能会遇到的问题【合集】，很多都是搬运过来的教程，文后会附上参考资料。在此感谢这些大佬的参考教程。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.heson10.com/volantis/posts/28396.html&title=hexo博客valine评论系统配置合集（valine-admin、微信提醒、博主标签） - 黑石博客 - Hexo博客&pics=https://picup.heson10.com/img/valine%E9%85%8D%E7%BD%AE%E5%90%88%E9%9B%86.png&summary=用Hexo博客的小伙伴们对于Valine并不陌生，这款快速、简洁且高效的无后端评论系统，既能快速加载又能提供文章阅读统计，加上一些魔改，可以增加微信与QQ提醒、后台管理、垃圾评论过滤，可以说非常好用。本文主要是介绍配置Valine和可能会遇到的问题【合集】，很多都是搬运过来的教程，文后会附上参考资料。在此感谢这些大佬的参考教程。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+  <div class="prev-next">
+    
+    <a class='prev' href='/volantis/posts/35039.html'>
+      <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>优化Volantis主题中文章页面h1—h6标签（排版更清爽）</p>
+      <p class='content'>,Volantis是一个非常优秀的主题，各种模块化的小功能让人眼前一亮。但………这个文章内容页h1、h2、h3等标签感觉都是一个样，加上昏暗的#444颜色，着实让人感觉很着急。特别是今天写这个V...</p>
+    </a>
+    
+    
+    <a class='next' href='/volantis/posts/30982.html'>
+      <p class='title'>hexo博客访问速度优化：又拍云CDN<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+      <p class='content'>,为了追求极致的博客访问速度，还是决定把博客挂上又拍云CDN，之前已经申请了又拍云联盟，每个月送15GB的CDN流量，关键还是HTTPS的。访问速度已经在17CE测试过了，全国绿油油的一片，简直...</p>
+    </a>
+    
+  </div>
+  
+</article>
+
+
+
+
+  <article class="post white-box reveal shadow floatable" id="comments">
+    <p ct><i class='fal fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+</div>
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    
+    
+      
+        <div class='copyright'>
+        <p>Copyright © 2020 <a href="/">黑石博客</a></p>
+
+        </div>
+      
+    
+      
+        
+          <div><div><p>本站使用 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://volantis.js.org/" data-pjax-state="">Volantis</a> 作为主题 | 由 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io/zh-cn/" data-pjax-state="">Hexo</a> 强力驱动</p> </div></div>
+        
+      
+    
+      
+        
+          <div><p><a rel="noopener" href="https://beian.miit.gov.cn" target="_blank">赣ICP备20008960号</a> </p>
+</div>
+        
+      
+    
+      
+        
+          <div><p><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="nofollow noopener noreferrer"><img src="https://pic.heson10.com/wallpapers/yun_logo6.png" class="lazyload" data-srcset="https://pic.heson10.com/wallpapers/yun_logo6.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="  width="60px" height="30px"/></a></p>
+</div>
+        
+      
+    
+    
+  </footer>
+
+
+      <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+  </div>
+  <div>
+    <!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".md").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      // 背景层
+      var bgDiv = document.createElement("div");
+      $(bgDiv).addClass("bg");
+      if ($(this).attr('bg')) {
+        $(bgDiv).css('background', $(this).attr('bg'));
+      }
+      $(this).wrap(bgDiv); // 背景层
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+
+
+  <script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+    setTimeout(function() {
+      loadScript('/js/issues.js');
+    }, 1);
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+</script>
+
+
+
+<!-- optional -->
+
+  <script>
+  
+  var SEARCH_SERVICE = "hexo" || "hexo";
+  var ROOT = "/volantis/" || "/";
+  if (!ROOT.endsWith('/')) ROOT += '/';
+</script>
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+
+
+   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+<script type="text/javascript">
+  function pjax_scrollrebeal() {
+    ScrollReveal().reveal('.l_main .reveal', {
+      distance: '32px',
+      duration: '800',
+      interval: '20',
+      scale: '1',
+      easing: 'ease-out'
+    });
+  }
+  $(function () {
+    pjax_scrollrebeal();
+  });
+</script>
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js"></script>
+
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+
+    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) || "填写邮箱会收到回复提示！粘贴图片可直接上传~";
+
+    let path = $.trim($('#pjax-comment-path').text());
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: path,
+      appId: "C1qWqsDatomXVctTafBuJADI-gzGzoHsz",
+      appKey: "J4CujIoElz1Wo7yLUbY4SOO5",
+      pageSize: '10',
+      avatar: 'robohash',
+      lang: 'zh-cn',
+      visitor: 'true',
+      highlight: 'true',
+      mathJax: 'false',
+      enableQQ: 'true',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps,
+      master: '[fc2c9b067f65c9e2d7057ba797f7cfca]',
+      friends: '[104e5bfa98048a2dac66f28ca4d4d846,e399c5e8f4b4b8b86fc88e2b5bd04497,32d39099d6da89788fe3827cb90b1eb7,a5c27d1df34fcd4d8195e7e7d16675d4,09c82fd631755bf5dbb04b4189225637,b548550ae129b82aa01b60e18ccbf141,6a565e6c47127afdd40d5d46089db2c5,4a713ec085a4431f15a8da0942656713&#34;,58bc3a8cecadf26a676e1b8f217698bc,aaf4fe5dd76d0a1390cbd08cdb16c05f,0a106ca9ec8d5e8a2d14f99e5b8bd863,3ecc56d90844b70e49d9f8a61e9cd98c,8a6f99e8ce4af26a93f20c0cbab8a186,5392ad0ec563aa56f6faf597ef966762,6bcf44de7033a4451f38d576fb6e6822,135ae111f8fcfeecc1ea1f06fde149ab]'
+    })
+  }
+
+  function newcomment() {
+
+function queryLeanCloud(k) {
+  let root = this;
+  let len = arguments.length;
+  if (len == 1) {
+    let notExist = new AV.Query("Comment");
+    notExist.doesNotExist('rid');
+    let isEmpty = new AV.Query("Comment");
+    isEmpty.equalTo('rid', '');
+    let q = AV.Query.or(notExist, isEmpty);
+    if (k === '*') q.exists('url');
+    else q.equalTo('url', decodeURI(k));
+    q.addDescending('createdAt');
+    q.addDescending('insertedAt');
+    return q;
+  } else {
+    let ids = JSON.stringify(arguments[1]).replace(/(\[|\])/g, '');
+    let cql = `select * from ${root['config']['clazzName']} where rid in (${ids}) order by -createdAt,-createdAt`;
+    return AV.Query.doCloudQuery(cql)
+  }
+}
+var valine = new Valine({
+      el: '#valine_container_ba',
+      notify: false,
+      verify: false,
+      app_id: 'C1qWqsDatomXVctTafBuJADI-gzGzoHsz',
+      app_key: 'J4CujIoElz1Wo7yLUbY4SOO5',
+      placeholder: '发表您的意见，让我们一起交流，共同提高吧...',
+      serverURLs: 'https://valineapi.heson10.com'
+});
+
+//判断博主，heson改为自己的昵称
+function bozhu(e){
+    if (e == "heson"){
+        nick = e + '[博主]'
+        return nick;
+    } else {
+      return e
+    }
+}
+
+//判断网址
+function wangzhi(e){
+    http = e.slice(0,4)
+    https = e.slice(0,5)
+    if (http == "http" || https == "https" ){
+         return e
+    } else if (e == "" || e == null || e == undefined){
+      return e
+    } else {
+      e = 'http://'+ e
+      return e
+    }
+}
+
+
+
+
+//查询评论
+valine.Q('*').limit(7).find().then(function (comments) {
+  var hotComments = $("#hot-comments");
+  for (var i = 0; i < comments.length; i++) {
+    if (i === 0) {
+      console.log(comments[0]);
+    }
+    var nick = bozhu(comments[i]._serverData.nick);
+    var content = comments[i]._serverData.comment;
+    var newcontent = content.replace(/<[^>]+>/g,"").replace(/:.*?:/g,"[表情]").substring(0, 50);
+    var url = comments[i]._serverData.url;
+    var link = wangzhi(comments[i]._serverData.link);
+    var updatedAt = timeago(comments[i].updatedAt);
+    var commentId = '#' + comments[i].id;
+    hotComments.append('<div class="card-comment-item"><div class="item-header-text"><a href="'+ link +'" target="_blank" rel="nofollow noopener noreferrer" class="newcomment" >' + nick + '</a>&nbsp;发表于' + updatedAt + '</div><div class="item-text"><a href="' + url + commentId +'"  rel="nofollow" style="color:#717171" class="comments-detail" >' + newcontent + '</a></div></div>');
+  }
+});
+};
+
+
+
+  $(function () {
+    pjax_valine();
+    newcomment();
+  });
+</script>
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+  
+<script src="/volantis/js/app.js"></script>
+
+
+
+
+  
+    
+<script src="/volantis/js/search.js"></script>
+
+  
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'C1qWqsDatomXVctTafBuJADI-gzGzoHsz',
+    app_key: 'J4CujIoElz1Wo7yLUbY4SOO5',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'https://www.heson10.com/volantis' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'https://www.heson10.com/volantis' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'https://www.heson10.com/volantis' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              if (pv.getAttribute('data-path') == window.location.pathname) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == window.location.pathname) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+<a id="more"></a>
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+    <div id="loading-bar-wrapper"><script>NProgress.configure({parent:"#loading-bar-wrapper",trickleSpeed: 100})</script></div>
+    <script>
+      window.ShowLoading = function() {
+        NProgress.start();
+      };
+      window.HideLoading = function() {
+        NProgress.done();
+      }
+    </script>
+  
+</div>
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = ["/bb/"];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      $.fancybox.close();    // 关闭弹窗
+      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
+      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      $('.s-top').unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+      window.ShowLoading();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+       
+       _hmt.push(['_trackPageview', document.location.pathname]);
+       
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+        pjax_fancybox();
+        
+        
+        document.querySelectorAll('pre code').forEach((block) => {
+          hljs.highlightBlock(block);
+        });
+        
+        
+          pjax_scrollrebeal();
+        
+        
+          if (typeof IssuesAPI == "undefined") {
+            loadIssuesJS();
+          }
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+          newcomment();
+        
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+      window.HideLoading();
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.HideLoading();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>
+
+</article>
+           
+        </div>
+    </div>
+    <div class="mybox m1">
+    <div class="center pt3 pb1">
+        <p class="bold">—— 评论区 ——</p>
+        </div>
+<section class="post white-box reveal " id="comments">
+
+    <div id="valine_container" class="mx3 px3 pt2 pb3">
+
+    </div>
+
+</section>
+</div>
+
+
+
+<script>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var meta = 'nick,mail,link'.split(',').filter(function (item) {
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+    var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+        return REQUIRED_FIELDS.indexOf(item) > -1
+    });
+
+    function emoji(path, idx, ext) {
+        return path + "/" + path + "-" + idx + "." + ext;
+    }
+
+    var emojiMaps = {};
+    for (var i = 1; i <= 54; i++) {
+        emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+    }
+    for (var i = 1; i <= 101; i++) {
+        emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+    }
+    for (var i = 1; i <= 116; i++) {
+        emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+    }
+    for (var i = 1; i <= 125; i++) {
+        emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+    }
+    for (var i = 1; i <= 4; i++) {
+        emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+    }
+
+  
+  
+</script>
+</div>
+                <div id="qjcbl" class="qjcbl md-hide lg-col lg-col-3">
+    <div id="sidebar">
+        <div class="p1">
+            <div class=" mybox relative">
+                <div class="widthhhh">
+                    <div class="banner w100 overflow-hidden relative"
+                        style="background-image:url(https://tva3.sinaimg.cn/large/0084aYsLgy1ggstmn4t0mj30pk08cwgg.jpg)">
+                    </div>
+                    <div class="center"><a target="_self" href="/about/" ><img class="circle absolute datou"
+                            src="https://cdn.jsdelivr.net/gh/heson525/pic@master/pic/avatar03.png" /></a>
+                    </div>
+                    <h3 class="center" style="padding-top: 2.5rem">Heson</h3>
+                    <div class="flex center justify-around p2">
+                        <div class="flex flex-column"> <a class="forside_a" style="display: block;width:28px;" href="/archives/"><span
+                            class="font-theme font-weight-bold text-md">39</span><small
+                                    class="d-block text-xs text-muted">文章</small> </a>
+                                </div>
+                        <div class="flex flex-column"> 
+                            <a  class="forside_a" style="display: block;width:28px;" href="/categories/"><span
+                                class="font-theme font-weight-bold text-md">&nbsp;7&nbsp;</span><small
+                                class="d-block text-xs text-muted">分类</small></a> </div>
+                        <div class="flex flex-column">  <a  class="forside_a" style="display: block;width:28px;" href="/tags/"><span
+                                class="font-theme font-weight-bold text-md">77</span><small
+                                class="d-block text-xs text-muted">标签</small></a> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p1">
+            <div class=" sidebar-1 mybox relative">
+                <div class="widthhhh">
+                   
+                        <a target="_blank" rel="noopener" href="https://jq.qq.com/?_wv=1027&k=n8aoCAN0"><img style="border-radius: 5px;"
+                            src="https://picup.heson10.com/img/upyun/qqqun.webp" /></a>
+                     
+                </div>
+            </div>
+        </div>
+        
+        <div class="p1">
+    <div class=" sidebar-1 mybox relative">
+        <div class="p2"><i class="fab fa-facebook-messenger mr1"></i>最新回复</div>
+
+
+        <div id="hot-comments">
+            
+
+
+        </div>
+        
+    </div>
+</div>
+        
+        
+
+
+
+
+        
+    </div>
+</div>
+            </div>
+        </div>
+        <div id="RightDownBtn" class="fixed p1 yj shadow z4 flex flex-column flex-end">
+    <a id="btn" href="javascript:void(0)" target="_self">
+        <svg style=' width: 1.5em;height: 1.5em;' class='icon' aria-hidden='true'>
+            <use xlink:href='#icon-xuanfufanhuidingbu'></use>
+        </svg>
+    </a>
+    <div class="formobilenav d-d">
+        <a href="javascript:void(0)" onclick="CuteenFunc.SwitchDarkMode();">
+            <svg style=" width: 1.5em;height: 1.5em;" class="icon" aria-hidden="true">
+                <use id="modeicon2" xlink:href="#icon-_moon"></use>
+            </svg>
+        </a>
+    </div>
+    
+    <a id="right-menu" onclick="$('body').toggleClass('rightopen');">
+        <svg style=" width: 1.5em;height: 1.5em;" class="icon" aria-hidden="true">
+            <use xlink:href="#icon-ziliaoguizidongshengchengmulu"></use>
+        </svg>
+    </a>
+    
+    
+      
+ 
+
+   
+</div>
+    </div>
+    <div id="searchbox">
+    <div class="flex mx2 mb1 mt2">
+        <div class="col-12" action=""> 
+            <input autocomplete="off" id="local-search-input" class="input mr1 form-control" name="q" results="0" type="text" placeholder="请输入搜索关键词……" required />
+            <div id="local-search-result"></div>
+        </div> 
+    </div>
+
+
+
+    
+
+
+    <div class="px3 pb3 pt1">
+        <div class="bold h3 mb1"><i class="fas fa-cloud"></i> 标签云</div> 
+        <ul class="tag-list" itemprop="keywords"><li class="searchbox_tags"><a class="tag-list-link" href="/tags/hexo/" rel="tag">HEXO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag">搭建</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%AD%97%E4%BD%93/" rel="tag">字体</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/next/" rel="tag">NEXT</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag">评论</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/algolia/" rel="tag">ALGOLIA</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2/" rel="tag">页面</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/markdown/" rel="tag">MARKDOWN</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/volantis/" rel="tag">VOLANTIS</a></li><li class="searchbox_tags"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%A0%BC/" rel="tag">人格</a></li></ul>
+            
+         
+       
+    </div>
+</div>
+    <footer id="footer" class="mx-auto w100 p3 mt3">
+    <div class="Footer_content center">
+        <p class="h5"> &copy; 2020 <a href="https://www.heson10.com/">黑石博客</a> </p>
+
+        <p class="h5"> <a href="https://hexo.io/zh-cn/" target="_blank">Hexo</a> 强力驱动 | 主题 <a
+                href="https://blog.zwying.com/archives/39.html" target="_blank">Cuteen</a> | 由 <a
+                href="https://www.heson10.com" title="由 HESON 移植到 Hexo" target="_blank">Heson</a> 移植</p>
+
+        <p class="h5 mb1"><span id="lc-sv"><i class="fas fa-eye"></i> &nbsp;<span id='number'><i class="fas fa-circle-notch fa-spin fa-fw"
+                        aria-hidden="true"></i></span> 次</span>
+            <span id="lc-uv"> &nbsp;&nbsp;<i class="fas fa-user"></i> &nbsp;<span id='number'><i class="fas fa-circle-notch fa-spin fa-fw"
+                        aria-hidden="true"></i></span> 人&nbsp;|&nbsp;</span><span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span></p>
+        <p class="h5 mb1"> <svg style=' width: 1.5em;height: 1.5em;' class='icon' aria-hidden='true'>
+                <use xlink:href='#icon-ICP'></use>
+            </svg> <a href="https://beian.miit.gov.cn" target="_blank"> 赣ICP备20008960号</a></p>
+            
+    </div>
+</footer>
+<div id="post-menu" class="fixed top-0 bottom-0 h100 z1 table shadow">
+    <div id="MENU"> </div>
+</div>
+<script src="/js/code-and-copy.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.min.css" rel="stylesheet">
+<script async src="/js/Smooth.js"></script>
+<script src="/js/circleMagic.min.js"></script>
+<script async src="/js/Player.js"></script>
+<script src="/js/sidebar-follow-jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+<script async src="/js/Main.js"></script>
+
+<script src="/js/valine.js"></script>
+
+
+<script src="/js/issues.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+<script> $(document).pjax('a:not(a[target="_blank"], a[no-pjax])', { container: '#pjax', fragment: '#pjax', timeout: 8000 }).on('pjax:send', function () { before_pjax(); }).on('pjax:complete', function () { after_pjax(); addAlt(); LCCounter.refreshCounter(); colortag(); newcomment(); loadIssuesJS();_hmt.push(['_trackPageview', document.location.pathname]); }).on('pjax:end', function () { end_pjax(); pjax_valine();dingwei();IssuesAPI.request(); });
+
+
+</script>
+
+    <script defer>
+
+  const LCCounter = {
+    app_id: 'C1qWqsDatomXVctTafBuJADI-gzGzoHsz',
+    app_key: 'J4CujIoElz1Wo7yLUbY4SOO5',
+    custom_api_server: 'https://valineapi.heson10.com',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'https://www.heson10.com' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'https://www.heson10.com' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'https://www.heson10.com' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              if (pv.getAttribute('data-path') == window.location.pathname) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == window.location.pathname) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+ 
+</script>
+
+   </body>
+</html>
