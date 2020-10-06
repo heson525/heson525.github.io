@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+<meta name="google-site-verification" content="dbKmo670WqpgxlRhUMJ3kpsFkRJ1xPgS3FSpukqa9M8" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://pic.heson.xyz/img/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://pic.heson.xyz/img/favicon-32x32-my.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://pic.heson.xyz/img/favicon-16x16-my.png">
+  <link rel="mask-icon" href="https://pic.heson.xyz/img/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/next/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|EB Garamond:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.heson10.com","root":"/next/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"我们没有找到任何搜索结果: ${query}","hits_stats":"找到${hits}条结果（用时${time} ms）"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="写在最前面这两天刚认识Hexo博客系统，人就像着了魔一样，跟当年倒腾WordPress博客一样，每天想着怎么能让自己的博客更好看、更实用、更有人气。 要想达到上面的要求，首先得从美化自己的博客开始… 话说网上教程也特别多，在此我想做个合集，一来作为自己的记录，二来能给后来的朋友留点东西，把自己在倒腾过程中踩得坑也一并说清楚，让后面的童鞋更快的入门。 （关于博客搭建→点击传送门：用hexo+gith">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo+Next7.X 博客美化教程合集">
+<meta property="og:url" content="https://www.heson10.com/next/posts/52911.html">
+<meta property="og:site_name" content="黑石博客 - Hexo博客 - Next分站">
+<meta property="og:description" content="写在最前面这两天刚认识Hexo博客系统，人就像着了魔一样，跟当年倒腾WordPress博客一样，每天想着怎么能让自己的博客更好看、更实用、更有人气。 要想达到上面的要求，首先得从美化自己的博客开始… 话说网上教程也特别多，在此我想做个合集，一来作为自己的记录，二来能给后来的朋友留点东西，把自己在倒腾过程中踩得坑也一并说清楚，让后面的童鞋更快的入门。 （关于博客搭建→点击传送门：用hexo+gith">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.heson10.com/img/image-20200712232432523.png">
+<meta property="og:image" content="https://pic.heson10.com/img/image-20200712232805384.png">
+<meta property="og:image" content="https://pic.heson10.com/img/image-20200714124506874.png">
+<meta property="og:image" content="https://pic.heson10.com/img/image-20200712235101730.png">
+<meta property="og:image" content="https://pic.heson10.com/img/image-20200728123513817.png">
+<meta property="og:image" content="https://pic.heson10.com/img/image-20200728123524548.png">
+<meta property="og:image" content="https://pic.heson10.com/img/image-20200729233056695.png">
+<meta property="og:image" content="https://pic.heson10.com/img/image-20200729233025868.png">
+<meta property="article:published_time" content="2020-07-12T14:42:19.000Z">
+<meta property="article:modified_time" content="2020-09-21T05:17:57.346Z">
+<meta property="article:author" content="Heson">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="美化">
+<meta property="article:tag" content="主题">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.heson10.com/img/image-20200712232432523.png">
+
+<link rel="canonical" href="https://www.heson10.com/next/posts/52911.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Hexo+Next7.X 博客美化教程合集 | 黑石博客 - Hexo博客 - Next分站</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0f111c1a8d3bed577987c96b06c8bd99";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+
+<link rel="alternate" href="/next/atom.xml" title="黑石博客 - Hexo博客 - Next分站" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="https://schema.org/WebPage">
+  <div class="container use-motion">
+   
+
+    <header class="header" itemscope itemtype="https://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/next/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <img src="https://pic.heson.xyz/img/hesonlogo.png">
+      <span class="logo-line-after"><i></i></span>
+    </a>
+    
+      <p class="site-subtitle" style="display:none;" itemprop="description">Hexo技术分享博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/next/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/next/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/next/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/next/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a>
+
+  </li>
+        <li class="menu-item menu-item-loveblog">
+
+    <a href="https://wp.heson10.com/" rel="noopener" target="_blank"><i class="fa fa-heart fa-fw"></i>情侣博客演示站</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/next/404.html" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/next/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="https://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.heson10.com/next/posts/52911.html">
+
+    <span hidden itemprop="author" itemscope itemtype="https://schema.org/Person">
+      <meta itemprop="image" content="https://pic.heson.xyz/img/avatar03.png">
+      <meta itemprop="name" content="Heson">
+      <meta itemprop="description" content="黑石博客，草根博客站长Heson的Hexo博客站点，专注分享Hexo学习心得。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+      <meta itemprop="name" content="黑石博客 - Hexo博客 - Next分站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo+Next7.X 博客美化教程合集
+        </h1>
+
+        <div class="post-meta">
+
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-12 22:42:19" itemprop="dateCreated datePublished" datetime="2020-07-12T22:42:19+08:00">2020-07-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-21 13:17:57" itemprop="dateModified" datetime="2020-09-21T13:17:57+08:00">2020-09-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/next/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/next/posts/52911.html" class="post-meta-item leancloud_visitors" data-flag-title="Hexo+Next7.X 博客美化教程合集" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>℃
+               </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/next/posts/52911.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/next/posts/52911.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="写在最前面"><a href="#写在最前面" class="headerlink" title="写在最前面"></a>写在最前面</h1><p>这两天刚认识Hexo博客系统，人就像着了魔一样，跟当年倒腾WordPress博客一样，每天想着怎么能让自己的博客更好看、更实用、更有人气。</p>
+<p>要想达到上面的要求，首先得从美化自己的博客开始…</p>
+<p>话说网上教程也特别多，在此我想做个合集，一来作为自己的记录，二来能给后来的朋友留点东西，把自己在倒腾过程中踩得坑也一并说清楚，让后面的童鞋更快的入门。</p>
+<p>（关于博客搭建→点击传送门：<a href="https://www.heson10.com/posts/121.html">用hexo+github pages+独立域名搭建个人博客</a>）</p>
+<p><strong>此教程贴持续更新，没写完的地方请见谅。</strong></p>
+<h1 id="关于Next主题安装"><a href="#关于Next主题安装" class="headerlink" title="关于Next主题安装"></a>关于Next主题安装</h1><p>next主题的官网地址：<a href="https://theme-next.iissnan.com/" target="_blank" rel="noopener">https://theme-next.iissnan.com/</a></p>
+<h2 id="下载next"><a href="#下载next" class="headerlink" title="下载next"></a>下载next</h2><p>在终端窗口下，定位到 Hexo 站点目录下。使用 <code>Git</code> checkout 代码：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> your-hexo-site</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="启用next"><a href="#启用next" class="headerlink" title="启用next"></a>启用next</h2><p>与所有 Hexo 主题启用的模式一样。 当 克隆/下载 完成后，打开 <strong>站点配置文件</strong>， 找到 <code>theme</code> 字段，并将其值更改为 <code>next</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+
+<p>到此，NexT 主题安装完成。下一步我们将验证主题是否正确启用。在切换主题之后、验证之前， 我们最好使用 <code>hexo clean</code> 来清除 Hexo 的缓存。</p>
+<h2 id="验证主题"><a href="#验证主题" class="headerlink" title="验证主题"></a>验证主题</h2><p>首先启动 Hexo 本地站点，并开启调试模式（即加上 <code>--debug</code>），整个命令是 <code>hexo s --debug</code>。 在服务启动的过程，注意观察命令行输出是否有任何异常信息，如果你碰到问题，这些信息将帮助他人更好的定位错误。 当命令行输出中提示出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+
+<h2 id="主题设定"><a href="#主题设定" class="headerlink" title="主题设定"></a>主题设定</h2><p>Scheme 是 NexT 提供的一种特性，借助于 Scheme，NexT 为你提供多种不同的外观。同时，几乎所有的配置都可以 在 Scheme 之间共用。目前 NexT 支持三种 Scheme，他们是：</p>
+<ul>
+<li>Muse - 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白</li>
+<li>Mist - Muse 的紧凑版本，整洁有序的单栏外观</li>
+<li>Pisces - 双栏 Scheme，小家碧玉似的清新</li>
+<li>Gemini - <strong>我现在用的这款</strong></li>
+</ul>
+<p>Scheme 的切换通过更改 <strong>主题配置文件</strong>，搜索 scheme 关键字。 你会看到有三行 scheme 的配置，将你需用启用的 scheme 前面注释 <code>#</code> 去除即可。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Schemes</span></span><br><span class="line"><span class="meta">#</span><span class="bash">scheme: Muse</span></span><br><span class="line"><span class="meta">#</span><span class="bash">scheme: Mist</span></span><br><span class="line"><span class="meta">#</span><span class="bash">scheme: Pisces</span></span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
+
+<h1 id="教程开始"><a href="#教程开始" class="headerlink" title="教程开始"></a>教程开始</h1><h2 id="设置背景图片"><a href="#设置背景图片" class="headerlink" title="设置背景图片"></a>设置背景图片</h2><ul>
+<li>找到CSS存放位置： </li>
+</ul>
+<p><img src="https://pic.heson10.com/img/image-20200712232432523.png" alt="image-20200712232432523"></p>
+<p>新建 <code>_other.styl</code> 文件，用来存放自己后面添加的CSS样式</p>
+<ul>
+<li><p>打开主要CSS文件 <code>main.styl</code> ，引入<code>_other.styl</code> CSS样式文件，添加如下代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//个人添加</span><br><span class="line"><span class="keyword">@import</span> <span class="string">"_other.styl"</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://pic.heson10.com/img/image-20200712232805384.png" alt="image-20200712232805384"></p>
+</li>
+<li><p>插入博客背景的CSS样式到<code>_other.styl</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//背景图片</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>:<span class="built_in">url</span>(https://pic.heson10.com/img/image-<span class="number">20200712231958010</span>.png);</span><br><span class="line">    <span class="attribute">background-repeat</span>: no-repeat;</span><br><span class="line">    <span class="attribute">background-attachment</span>:fixed;</span><br><span class="line">    <span class="attribute">background-size</span>: cover;</span><br><span class="line">    <span class="attribute">background-position</span>:<span class="number">50%</span> <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码中url的链接就是你想要替换的博客背景图片链接，建议上传到图床，然后粘贴上去。</p>
+</li>
+</ul>
+<h2 id="设置半透明效果"><a href="#设置半透明效果" class="headerlink" title="设置半透明效果"></a>设置半透明效果</h2><p>插入半透明的CSS样式到<code>_other.styl</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//博客内容透明化</span><br><span class="line">//文章内容的透明度设置</span><br><span class="line"><span class="selector-class">.content-wrap</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//侧边框的透明度设置</span><br><span class="line"><span class="selector-class">.sidebar</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//菜单栏的透明度设置</span><br><span class="line"><span class="selector-class">.header-inner</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.9</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//搜索框（local-search）的透明度设置</span><br><span class="line"><span class="selector-class">.popup</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>0.9代表透明度为90%，这个可以自己设置，当然不要设置的太低，要不文章看不见了。</p>
+<h2 id="博主头像实现圆形并旋转360°"><a href="#博主头像实现圆形并旋转360°" class="headerlink" title="博主头像实现圆形并旋转360°"></a>博主头像实现圆形并旋转360°</h2><h3 id="方法一：适用next7-x-以上（2020-7-14更新）"><a href="#方法一：适用next7-x-以上（2020-7-14更新）" class="headerlink" title="方法一：适用next7.x 以上（2020.7.14更新）"></a>方法一：适用next7.x 以上（2020.7.14更新）</h3><p>直接在主题配置文件里面找到<code>rounded</code>和<code>rotated</code>设置成true：</p>
+<p><img src="https://pic.heson10.com/img/image-20200714124506874.png" alt="image-20200714124506874"></p>
+<p>完毕！</p>
+<h3 id="方法二：适用老版本next"><a href="#方法二：适用老版本next" class="headerlink" title="方法二：适用老版本next"></a>方法二：适用老版本next</h3><ul>
+<li><p>找到作者头像CSS样式位置：</p>
+<p><code>\hexo\themes\next\source\css\_common\outline\sidebar\sidebar-author.styl</code></p>
+</li>
+<li><p>添加如下代码到<strong>.site-author-image</strong>这个样式的括号<strong>里面</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//头像圆形</span><br><span class="line"><span class="selector-tag">border-radius</span>: 50%;</span><br><span class="line"><span class="selector-tag">webkit-border-radius</span>: 1<span class="selector-class">.4s</span> <span class="selector-tag">all</span>;</span><br><span class="line"><span class="selector-tag">moz-transition</span>: 1<span class="selector-class">.4s</span> <span class="selector-tag">all</span>;</span><br><span class="line"><span class="selector-tag">ms-transition</span>: 1<span class="selector-class">.4s</span> <span class="selector-tag">all</span>;</span><br><span class="line"><span class="selector-tag">transition</span>: 1<span class="selector-class">.4s</span> <span class="selector-tag">all</span>;  </span><br><span class="line"></span><br><span class="line">//鼠标经过头像旋转360度</span><br><span class="line">  <span class="selector-tag">-webkit-transition</span>: <span class="selector-tag">-webkit-transform</span> 1<span class="selector-class">.0s</span> <span class="selector-tag">ease-out</span>;</span><br><span class="line">  <span class="selector-tag">-moz-transition</span>: <span class="selector-tag">-moz-transform</span> 1<span class="selector-class">.0s</span> <span class="selector-tag">ease-out</span>;</span><br><span class="line">  <span class="selector-tag">transition</span>: <span class="selector-tag">transform</span> 1<span class="selector-class">.0s</span> <span class="selector-tag">ease-out</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>括号外面添加：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="comment">/* 鼠标经过停止头像旋转</span></span><br><span class="line"><span class="comment">  -webkit-animation-play-state:paused;</span></span><br><span class="line"><span class="comment">  animation-play-state:paused;*/</span></span><br><span class="line">  <span class="comment">/* 鼠标经过头像旋转360度 */</span></span><br><span class="line">  <span class="attribute">-webkit-transform</span>: <span class="built_in">rotateZ</span>(<span class="number">360deg</span>);</span><br><span class="line">  <span class="attribute">-moz-transform</span>: <span class="built_in">rotateZ</span>(<span class="number">360deg</span>);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(<span class="number">360deg</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Z 轴旋转动画 */</span></span><br><span class="line"><span class="keyword">@-webkit-keyframes</span> play &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">rotateZ</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">rotateZ</span>(-<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@-moz-keyframes</span> play &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    <span class="attribute">-moz-transform</span>: <span class="built_in">rotateZ</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">-moz-transform</span>: <span class="built_in">rotateZ</span>(-<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@keyframes</span> play &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(-<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如图所示：</p>
+<p><img src="https://pic.heson10.com/img/image-20200712235101730.png" alt="image-20200712235101730"></p>
+</li>
+</ul>
+<p>效果完成。</p>
+<h2 id="为Hexo增加algolia搜索功能"><a href="#为Hexo增加algolia搜索功能" class="headerlink" title="为Hexo增加algolia搜索功能"></a>为Hexo增加algolia搜索功能</h2><p>传送门：<a href="https://www.heson10.com/posts/51572.html">为Hexo增加algolia搜索功能</a></p>
+<h2 id="Next主题启用文章置顶功能"><a href="#Next主题启用文章置顶功能" class="headerlink" title="Next主题启用文章置顶功能"></a>Next主题启用文章置顶功能</h2><p>传送门：<a href="https://www.heson10.com/posts/38719.html">Hexo中next主题启用文章置顶功能</a></p>
+<h2 id="添加canvas-nest几何条纹动态背景"><a href="#添加canvas-nest几何条纹动态背景" class="headerlink" title="添加canvas-nest几何条纹动态背景"></a>添加canvas-nest几何条纹动态背景</h2><p>传送门：<a href="https://www.heson10.com/posts/795.html">Hexo博客添加canvas-nest几何条纹动态背景</a></p>
+<h2 id="关于Hexo-next主题的SEO优化"><a href="#关于Hexo-next主题的SEO优化" class="headerlink" title="关于Hexo+next主题的SEO优化"></a><a href="https://www.heson10.com/posts/10441.html">关于Hexo+next主题的SEO优化</a></h2><h2 id="Typora-Picgo-七牛云实现图片快速上传"><a href="#Typora-Picgo-七牛云实现图片快速上传" class="headerlink" title="Typora+Picgo+七牛云实现图片快速上传"></a><a href="https://www.heson10.com/posts/38720.html">Typora+Picgo+七牛云实现图片快速上传</a></h2><h2 id="Hexo-next主题自定义友情链接页面"><a href="#Hexo-next主题自定义友情链接页面" class="headerlink" title="Hexo+next主题自定义友情链接页面"></a><a href="https://www.heson10.com/posts/3243.html">Hexo+next主题自定义友情链接页面</a></h2><h2 id="hexo-next设置网站运行时间"><a href="#hexo-next设置网站运行时间" class="headerlink" title="hexo+next设置网站运行时间"></a><a href="https://www.heson10.com/posts/46662.html">hexo+next设置网站运行时间</a></h2><h2 id="首页顶部留白"><a href="#首页顶部留白" class="headerlink" title="首页顶部留白"></a>首页顶部留白</h2><p>顶部留白个人感觉更好看，同样找到<code>_other.styl</code>（之前自己加的，可以看此篇文章开头）</p>
+<p>效果：</p>
+<p><img src="https://pic.heson10.com/img/image-20200728123513817.png" alt="image-20200728123513817"></p>
+<p>加上如下代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//首页顶部留白</span><br><span class="line"><span class="selector-class">.container</span>&#123;<span class="attribute">margin-top</span>:<span class="number">10px</span>;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="首页banner渐变色"><a href="#首页banner渐变色" class="headerlink" title="首页banner渐变色"></a>首页banner渐变色</h2><p>效果：</p>
+<p><img src="https://pic.heson10.com/img/image-20200728123524548.png" alt="image-20200728123524548"></p>
+<p>修改<code>_other.styl</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//首页banner渐变色</span><br><span class="line"><span class="selector-class">.site-brand-container</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(<span class="number">200deg</span>, #<span class="number">2</span>e80a5, #<span class="number">0</span>c0c0b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>颜色可以自己选</p>
+<h2 id="设置所有边框为圆角"><a href="#设置所有边框为圆角" class="headerlink" title="设置所有边框为圆角"></a>设置所有边框为圆角</h2><p>打开文件，路径：\themes\next\source\css_variables\Gemini.styl ，添加以下代码：</p>
+<p>ps：Gemini是我用的样式，用哪个样式修改哪个文件</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 修改主题页面布局为圆角</span><br><span class="line">$border-radius-inner = 15px 15px 15px 15px;</span><br><span class="line">$border-radius = 15px;</span><br></pre></td></tr></table></figure>
+
+<h2 id="阅读人数改为热度"><a href="#阅读人数改为热度" class="headerlink" title="阅读人数改为热度"></a>阅读人数改为热度</h2><p>文章阅读人数是由<a href="https://www.leancloud.cn/" target="_blank" rel="noopener">LeanCloud</a>提供的PageView服务。在主题配置里面设置好参数后，可直接开启。</p>
+<p>1.找到<code>themes\next\layout\_macro\post.swig</code>文件，找到代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;# LeanCloud PageView #&#125;</span><br><span class="line">          &#123;%- if theme.leancloud_visitors.enable or (theme.valine.enable and theme.valine.appid and theme.valine.appkey and theme.valine.visitor) %&#125;</span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"&#123;&#123; url_for(post.path) &#125;&#125;"</span> <span class="attr">class</span>=<span class="string">"post-meta-item leancloud_visitors"</span> <span class="attr">data-flag-title</span>=<span class="string">"&#123;&#123; post.title &#125;&#125;"</span> <span class="attr">title</span>=<span class="string">"&#123;&#123; __('post.views') &#125;&#125;"</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"post-meta-item-icon"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-eye"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"post-meta-item-text"</span>&gt;</span>&#123;&#123; __('post.views') + __('symbol.colon') &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"leancloud-visitors-count"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">          &#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 <span class="leancloud-visitors-count"></span> 后面加上 ℃</p>
+<p><img src="https://pic.heson10.com/img/image-20200729233056695.png" alt="image-20200729233056695"></p>
+<p>2.找到\themes\next\languages\zh-CN.yml</p>
+<p>更改views的中文译名为 <strong>热度</strong></p>
+<p><img src="https://pic.heson10.com/img/image-20200729233025868.png" alt="image-20200729233025868"></p>
+<h2 id="SEO优化：Hexo-abbrlink插件生成永久固定链接"><a href="#SEO优化：Hexo-abbrlink插件生成永久固定链接" class="headerlink" title="SEO优化：Hexo-abbrlink插件生成永久固定链接"></a><a href="https://www.heson10.com/posts/31426.html">SEO优化：Hexo-abbrlink插件生成永久固定链接</a></h2><h2 id="Next7-8主题更换思源宋体"><a href="#Next7-8主题更换思源宋体" class="headerlink" title="Next7.8主题更换思源宋体"></a><a href="https://www.heson10.com/posts/19246.html">Next7.8主题更换思源宋体</a></h2><h2 id="hexo删除algolia搜索增加本地搜索功能"><a href="#hexo删除algolia搜索增加本地搜索功能" class="headerlink" title="hexo删除algolia搜索增加本地搜索功能"></a><a href="https://www.heson10.com/posts/2635.html">hexo删除algolia搜索增加本地搜索功能</a></h2><h2 id="Coding-Studio实现hexo的云环境部署"><a href="#Coding-Studio实现hexo的云环境部署" class="headerlink" title="Coding Studio实现hexo的云环境部署"></a><a href="https://www.heson10.com/posts/57815.html">Coding Studio实现hexo的云环境部署</a></h2><h2 id="给hexo博客添加fancybox图片灯箱功能"><a href="#给hexo博客添加fancybox图片灯箱功能" class="headerlink" title="给hexo博客添加fancybox图片灯箱功能"></a><a href="https://www.heson10.com/posts/16996.html">给hexo博客添加fancybox图片灯箱功能</a></h2><h2 id="hexo添加相关文章功能"><a href="#hexo添加相关文章功能" class="headerlink" title="hexo添加相关文章功能"></a><a href="https://www.heson10.com/posts/49693.html">hexo添加相关文章功能</a></h2>
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章推荐</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\next\posts\19246.html" rel="bookmark">Next7.8主题更换思源宋体</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\next\posts\795.html" rel="bookmark">Hexo博客添加canvas-nest几何条纹动态背景</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\next\posts\38719.html" rel="bookmark">Hexo中next主题启用文章置顶功能</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\next\posts\31514.html" rel="bookmark">Hexo博客实现随机文章功能</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\next\posts\59108.html" rel="bookmark">Hexo 标签函数 list_tags 用法</a></div>
+    </li>
+  </ul>
+
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/next/images/wechatpay.jpg" alt="Heson 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/next/images/alipay.jpg" alt="Heson 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Heson
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.heson10.com/next/posts/52911.html" title="Hexo+Next7.X 博客美化教程合集">https://www.heson10.com/next/posts/52911.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/next/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/next/tags/%E7%BE%8E%E5%8C%96/" rel="tag"># 美化</a>
+              <a href="/next/tags/%E4%B8%BB%E9%A2%98/" rel="tag"># 主题</a>
+              <a href="/next/tags/%E6%95%99%E7%A8%8B/" rel="tag"># 教程</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/next/posts/14925.html" rel="prev" title="小米10降级回稳定版教程">
+      <i class="fa fa-chevron-left"></i> 小米10降级回稳定版教程
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/next/posts/51572.html" rel="next" title="为Hexo增加algolia搜索功能">
+      为Hexo增加algolia搜索功能 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在最前面"><span class="nav-number">1.</span> <span class="nav-text">写在最前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于Next主题安装"><span class="nav-number">2.</span> <span class="nav-text">关于Next主题安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载next"><span class="nav-number">2.1.</span> <span class="nav-text">下载next</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启用next"><span class="nav-number">2.2.</span> <span class="nav-text">启用next</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证主题"><span class="nav-number">2.3.</span> <span class="nav-text">验证主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题设定"><span class="nav-number">2.4.</span> <span class="nav-text">主题设定</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#教程开始"><span class="nav-number">3.</span> <span class="nav-text">教程开始</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置背景图片"><span class="nav-number">3.1.</span> <span class="nav-text">设置背景图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置半透明效果"><span class="nav-number">3.2.</span> <span class="nav-text">设置半透明效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博主头像实现圆形并旋转360°"><span class="nav-number">3.3.</span> <span class="nav-text">博主头像实现圆形并旋转360°</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一：适用next7-x-以上（2020-7-14更新）"><span class="nav-number">3.3.1.</span> <span class="nav-text">方法一：适用next7.x 以上（2020.7.14更新）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二：适用老版本next"><span class="nav-number">3.3.2.</span> <span class="nav-text">方法二：适用老版本next</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为Hexo增加algolia搜索功能"><span class="nav-number">3.4.</span> <span class="nav-text">为Hexo增加algolia搜索功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Next主题启用文章置顶功能"><span class="nav-number">3.5.</span> <span class="nav-text">Next主题启用文章置顶功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加canvas-nest几何条纹动态背景"><span class="nav-number">3.6.</span> <span class="nav-text">添加canvas-nest几何条纹动态背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于Hexo-next主题的SEO优化"><span class="nav-number">3.7.</span> <span class="nav-text">关于Hexo+next主题的SEO优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Typora-Picgo-七牛云实现图片快速上传"><span class="nav-number">3.8.</span> <span class="nav-text">Typora+Picgo+七牛云实现图片快速上传</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-next主题自定义友情链接页面"><span class="nav-number">3.9.</span> <span class="nav-text">Hexo+next主题自定义友情链接页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-next设置网站运行时间"><span class="nav-number">3.10.</span> <span class="nav-text">hexo+next设置网站运行时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首页顶部留白"><span class="nav-number">3.11.</span> <span class="nav-text">首页顶部留白</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首页banner渐变色"><span class="nav-number">3.12.</span> <span class="nav-text">首页banner渐变色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置所有边框为圆角"><span class="nav-number">3.13.</span> <span class="nav-text">设置所有边框为圆角</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阅读人数改为热度"><span class="nav-number">3.14.</span> <span class="nav-text">阅读人数改为热度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SEO优化：Hexo-abbrlink插件生成永久固定链接"><span class="nav-number">3.15.</span> <span class="nav-text">SEO优化：Hexo-abbrlink插件生成永久固定链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Next7-8主题更换思源宋体"><span class="nav-number">3.16.</span> <span class="nav-text">Next7.8主题更换思源宋体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo删除algolia搜索增加本地搜索功能"><span class="nav-number">3.17.</span> <span class="nav-text">hexo删除algolia搜索增加本地搜索功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Coding-Studio实现hexo的云环境部署"><span class="nav-number">3.18.</span> <span class="nav-text">Coding Studio实现hexo的云环境部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给hexo博客添加fancybox图片灯箱功能"><span class="nav-number">3.19.</span> <span class="nav-text">给hexo博客添加fancybox图片灯箱功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo添加相关文章功能"><span class="nav-number">3.20.</span> <span class="nav-text">hexo添加相关文章功能</span></a></li></ol></li></ol></div>
+      </div>	  
+      <!--/noindex-->
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="https://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Heson"
+      src="https://pic.heson.xyz/img/avatar03.png">
+  <p class="site-author-name" itemprop="name">Heson</p>
+  <div class="site-description" itemprop="description"><div id="binft"></div>  
+  <script>
+    var binft = function (r) {
+      function t() {
+        return b[Math.floor(Math.random() * b.length)]
+      }  
+      function e() {
+        return String.fromCharCode(94 * Math.random() + 33)
+      }
+      function n(r) {
+        for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
+          var l = document.createElement("span");
+          l.textContent = e(), l.style.color = t(), n.appendChild(l)
+        }
+        return n
+      }
+      function i() {
+        var t = o[c.skillI];
+        c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
+      }
+      var l = "",
+      o = ["人生在勤，不索何获", "专注Hexo技术分享","日日待明日,万事成蹉跎"].map(function (r) {
+      return r + ""
+      }),
+      a = 2,
+      g = 1,
+      s = 5,
+      d = 75,
+      b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
+      c = {
+        text: "",
+        prefixP: -s,
+        skillI: 0,
+        skillP: 0,
+        direction: "forward",
+        delay: a,
+        step: g
+      };
+      i()
+      };
+      binft(document.getElementById('binft'));
+  </script>
+  </div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/next/archives/">
+        
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="tencent://message/?uin=251261362&Site=hesonxyz&Menu=yes" title="QQ → tencent:&#x2F;&#x2F;message&#x2F;?uin&#x3D;251261362&amp;Site&#x3D;hesonxyz&amp;Menu&#x3D;yes" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/heson525" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;heson525" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/next/heson525@163.com" title="E-Mail → heson525@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+	<!--  显示近期文章 -->
+
+
+
+
+
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+	
+
+
+	
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Heson</span>
+
+
+
+  
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">Next7.8</a> 强力驱动
+  
+   <span class="hostby" >Host By Github & Coding</span>
+  </div>
+  <div class="beian"><a href="https://www.beian.miit.gov.cn/" rel="noopener" target="_blank">赣ICP备20008960号 </a>
+  
+  <span id="timeDate">载入天数...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/05/2020 00:00:01");//在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本博客已安全运行 "+dnum+" 天 "; 
+       // document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+  
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/next/js/utils.js"></script>
+
+<script src="/next/js/motion.js"></script>
+
+
+<script src="/next/js/schemes/pisces.js"></script>
+
+
+<script src="/next/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/next/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'C1qWqsDatomXVctTafBuJADI-gzGzoHsz',
+      appKey     : 'J4CujIoElz1Wo7yLUbY4SOO5',
+      placeholder: "欢迎畅所欲言...",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+ 
+</body>
+</html>

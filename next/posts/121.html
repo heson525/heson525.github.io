@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+<meta name="google-site-verification" content="dbKmo670WqpgxlRhUMJ3kpsFkRJ1xPgS3FSpukqa9M8" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://pic.heson.xyz/img/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://pic.heson.xyz/img/favicon-32x32-my.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://pic.heson.xyz/img/favicon-16x16-my.png">
+  <link rel="mask-icon" href="https://pic.heson.xyz/img/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/next/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|EB Garamond:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.heson10.com","root":"/next/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"我们没有找到任何搜索结果: ${query}","hits_stats":"找到${hits}条结果（用时${time} ms）"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="摘要用hexo建立博客这个教程，查阅了很多资料，自己倒腾了两三个小时弄好了。 现在简单记录下，以便不时之需。 基本环境 Window10      Node.js  （点击进入官网下载）博主版本号为 Node.js 12.18.2 LTS  在 Windows 环境下安装 Node.js 非常简单，仅须到官网下载安装文件并执行即可完成安装。  Git（点击进入官网下载）版本号为2.27.0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用hexo+github pages+独立域名搭建个人博客">
+<meta property="og:url" content="https://www.heson10.com/next/posts/121.html">
+<meta property="og:site_name" content="黑石博客 - Hexo博客 - Next分站">
+<meta property="og:description" content="摘要用hexo建立博客这个教程，查阅了很多资料，自己倒腾了两三个小时弄好了。 现在简单记录下，以便不时之需。 基本环境 Window10      Node.js  （点击进入官网下载）博主版本号为 Node.js 12.18.2 LTS  在 Windows 环境下安装 Node.js 非常简单，仅须到官网下载安装文件并执行即可完成安装。  Git（点击进入官网下载）版本号为2.27.0">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.heson10.com/img/image-20200708231743517.png">
+<meta property="og:image" content="https://pic.heson10.com/img/image-20200708231819287.png">
+<meta property="og:image" content="https://pic.heson10.com/img/image-20200708232535741.png">
+<meta property="og:image" content="https://pic.heson10.com/img/image-20200708235116025.png">
+<meta property="og:image" content="https://pic.heson10.com/img/image-20200708235604290.png">
+<meta property="og:image" content="https://pic.heson10.com/img/image-20200708235845417.png">
+<meta property="og:image" content="https://pic.heson10.com/img/image-20200708235946378.png">
+<meta property="og:image" content="https://pic.heson10.com/img/image-20200709000545353.png">
+<meta property="og:image" content="https://pic.heson10.com/img/image-20200709000943792.png">
+<meta property="og:image" content="https://pic.heson10.com/img/image-20200709001109935.png">
+<meta property="og:image" content="https://pic.heson10.com/img/image-20200709001142220.png">
+<meta property="article:published_time" content="2020-07-08T11:28:00.000Z">
+<meta property="article:modified_time" content="2020-09-21T05:18:22.554Z">
+<meta property="article:author" content="Heson">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="域名">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.heson10.com/img/image-20200708231743517.png">
+
+<link rel="canonical" href="https://www.heson10.com/next/posts/121.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>用hexo+github pages+独立域名搭建个人博客 | 黑石博客 - Hexo博客 - Next分站</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0f111c1a8d3bed577987c96b06c8bd99";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+
+<link rel="alternate" href="/next/atom.xml" title="黑石博客 - Hexo博客 - Next分站" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="https://schema.org/WebPage">
+  <div class="container use-motion">
+   
+
+    <header class="header" itemscope itemtype="https://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/next/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <img src="https://pic.heson.xyz/img/hesonlogo.png">
+      <span class="logo-line-after"><i></i></span>
+    </a>
+    
+      <p class="site-subtitle" style="display:none;" itemprop="description">Hexo技术分享博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/next/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/next/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/next/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/next/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a>
+
+  </li>
+        <li class="menu-item menu-item-loveblog">
+
+    <a href="https://wp.heson10.com/" rel="noopener" target="_blank"><i class="fa fa-heart fa-fw"></i>情侣博客演示站</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/next/404.html" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/next/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="https://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.heson10.com/next/posts/121.html">
+
+    <span hidden itemprop="author" itemscope itemtype="https://schema.org/Person">
+      <meta itemprop="image" content="https://pic.heson.xyz/img/avatar03.png">
+      <meta itemprop="name" content="Heson">
+      <meta itemprop="description" content="黑石博客，草根博客站长Heson的Hexo博客站点，专注分享Hexo学习心得。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+      <meta itemprop="name" content="黑石博客 - Hexo博客 - Next分站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          用hexo+github pages+独立域名搭建个人博客
+        </h1>
+
+        <div class="post-meta">
+
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-08 19:28:00" itemprop="dateCreated datePublished" datetime="2020-07-08T19:28:00+08:00">2020-07-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-21 13:18:22" itemprop="dateModified" datetime="2020-09-21T13:18:22+08:00">2020-09-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/next/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/next/posts/121.html" class="post-meta-item leancloud_visitors" data-flag-title="用hexo+github pages+独立域名搭建个人博客" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>℃
+               </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/next/posts/121.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/next/posts/121.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>用hexo建立博客这个教程，查阅了很多资料，自己倒腾了两三个小时弄好了。</p>
+<p>现在简单记录下，以便不时之需。</p>
+<h2 id="基本环境"><a href="#基本环境" class="headerlink" title="基本环境"></a>基本环境</h2><ul>
+<li><p>Window10    </p>
+</li>
+<li><p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>  （点击进入官网下载）博主版本号为 <strong>Node.js 12.18.2 LTS</strong></p>
+<p><img src="https://pic.heson10.com/img/image-20200708231743517.png" alt="image-20200708231743517"></p>
+<p>在 Windows 环境下安装 Node.js 非常简单，仅须到官网下载安装文件并执行即可完成安装。</p>
+</li>
+<li><p><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git</a>（点击进入官网下载）版本号为<strong>2.27.0</strong><a id="more"></a></p>
+<p><img src="https://pic.heson10.com/img/image-20200708231819287.png" alt="image-20200708231819287"></p>
+<p><a href="https://jingyan.baidu.com/article/90895e0fb3495f64ed6b0b50.html" target="_blank" rel="noopener">GIT安装教程</a></p>
+</li>
+</ul>
+<h2 id="安装Hexo-版本4-2-1"><a href="#安装Hexo-版本4-2-1" class="headerlink" title="安装Hexo (版本4.2.1)"></a>安装Hexo (版本4.2.1)</h2><ul>
+<li><p>在任意盘新建hexo文件夹并右键，选择Bit Bash Here，如图：</p>
+<p><img src="https://pic.heson10.com/img/image-20200708232535741.png" alt="image-20200708232535741"></p>
+</li>
+<li><p>输入安装hexo命令</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>接下来我们对hexo 进行初始化</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br><span class="line">hexo g 或者hexo generate</span><br><span class="line">hexo s 或者hexo server</span><br></pre></td></tr></table></figure>
+
+<p>  这样就可以到<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 查看了</p>
+<h2 id="Github-设置"><a href="#Github-设置" class="headerlink" title="Github 设置"></a>Github 设置</h2><h3 id="GitHub的优点"><a href="#GitHub的优点" class="headerlink" title="GitHub的优点"></a>GitHub的优点</h3><p>GitHub是基于git实现的代码托管。git可能是目前最好用的版本控制系统了，非常受欢迎。</p>
+<p>GitHub可以免费使用，并且快速稳定。</p>
+<p>Github上面的世界很精彩，用久了你的眼界会开阔很多。</p>
+<h3 id="什么是GitHub-Pages？"><a href="#什么是GitHub-Pages？" class="headerlink" title="什么是GitHub Pages？"></a>什么是GitHub Pages？</h3><p>Github Pages可以被认为是用户编写的、托管在github上的静态网页。GitHub Pages 本用于介绍托管在GitHub的项目，不过，由于他的空间免费稳定，用来做搭建一个博客再好不过了。</p>
+<h3 id="为什么使用GitHub-Pages"><a href="#为什么使用GitHub-Pages" class="headerlink" title="为什么使用GitHub Pages"></a>为什么使用GitHub Pages</h3><p>可以绑定你的域名(但只能绑定一个)。</p>
+<p>简单快捷，使用Github Pages可以为你提供一个免费的服务器，免去了自己搭建服务器和写数据库的麻烦.</p>
+<h3 id="相关操作"><a href="#相关操作" class="headerlink" title="相关操作"></a>相关操作</h3><ul>
+<li><h3 id="注册GitHub账号"><a href="#注册GitHub账号" class="headerlink" title="注册GitHub账号"></a>注册GitHub账号</h3><p>在创建博客之前，当然必须有GitHub的帐号，该帐号将用来创建项目，默认的域名username.github.com/projectName 中的username也要用到这个帐号。（请记住username，之后会多次用到）</p>
+<p>注意：下面涉及到的一些命令凡是更用户名和项目名有关的一律会用这里的username和projectName代替，注意替换</p>
+<p>访问：<a href="https://www.github.com/" target="_blank" rel="noopener">https://www.github.com/</a>  注册你的username和邮箱，邮箱十分重要，GitHub上很多通知都是通过邮箱的。比如你的主页上传并构建成功会通过邮箱通知，更重要的是，如果构建失败的话也会在邮件中说明原因。</p>
+</li>
+<li><h3 id="创建项目仓库"><a href="#创建项目仓库" class="headerlink" title="创建项目仓库"></a>创建项目仓库</h3><p>在创建博客之前，还需要用已有的帐号创建一个项目，上面那个链接的projectName将是这里即将创建的项目名称。</p>
+<p>在Git中，项目被称为仓库(Repository)，仓库顾名思义，当然可以包含代码或者非代码。将来我们的网页或者模板实际上都是保存在这个仓库中的。</p>
+<p>登录后，访问<a href="https://github.com/new" target="_blank" rel="noopener">https://github.com/new</a> ，创建仓库如下图：</p>
+<p><img src="https://pic.heson10.com/img/image-20200708235116025.png" alt="image-20200708235116025"></p>
+<p><strong>注意Repository name这里一定要填写username.github.io  这样后面才能使用Github Pages功能。</strong></p>
+<p>每个帐号只能有一个仓库来存放个人主页，而且仓库的名字必须是username/username.github.io，这是特殊的命名约定。你可以通过<a href="http://username.github.io" target="_blank" rel="noopener">http://username.github.io</a> 来访问你的个人主页。</p>
+<p>创建了仓库后，我们就需要管理它，无论是管理本地仓库还是远程仓库都需要Git客户端；Git客户端实际上十分强大，它本身就可以offline的创建本地仓库，而本地仓库和远程仓库之间的同步也是通过Git客户端完成的。</p>
+</li>
+</ul>
+<ul>
+<li><h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h3><p>上传文件需要配置ssh key，不然无法上传。<br>首先先检查一下本地是否已经存在ssh key,在Git Bash输入以下指令（任意位置点击鼠标右键），检查是否已经存在了SSH keys。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -al ~/.ssh</span><br></pre></td></tr></table></figure>
+
+<p>设置你的那么和email（如果你安装git时已经有了这步操作就跳过，name可以随意，但最好设置成你的github的name防止遗忘。邮箱与你的github邮箱没什么关系，但是最好写为同一个，好记住）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name "name"</span><br><span class="line">git config --global user.email "&lt;your email&gt;"</span><br></pre></td></tr></table></figure>
+</li>
+<li><h3 id="生成ssh密钥"><a href="#生成ssh密钥" class="headerlink" title="生成ssh密钥"></a>生成ssh密钥</h3><p>输入以下指令（邮箱就是你注册Github时候的邮箱）后，回车：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C “XXXXX@163.com”</span><br></pre></td></tr></table></figure>
+<p>一路回车就可以了，如果设置了密码就记住。</p>
+<p>这一步在~/.ssh/下生成了两个文件id_rsa 和 id_rsa.pub</p>
+</li>
+<li><h3 id="获取key"><a href="#获取key" class="headerlink" title="获取key"></a>获取key</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>然后拷贝key（key是以ssr（应该是这个开头的）开头 你的邮箱结尾的一长串字符。</p>
+</li>
+<li><h3 id="在GitHub上添加SSH密钥"><a href="#在GitHub上添加SSH密钥" class="headerlink" title="在GitHub上添加SSH密钥"></a>在GitHub上添加SSH密钥</h3><p>在<a href="https://github.com/settings/keys" target="_blank" rel="noopener">https://github.com/settings/keys</a> 下 add new ssh key</p>
+<p><img src="https://pic.heson10.com/img/image-20200708235604290.png" alt="image-20200708235604290"></p>
+<p>title可随意填写，key就是我们拷贝的key</p>
+<p>接下来测试一下是否配置正确。</p>
+<p>输入一下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure>
+
+<p>成功后大概会出现一下内容：（可能会有部分不一致）</p>
+<p><img src="https://pic.heson10.com/img/image-20200708235845417.png" alt="image-20200708235845417"></p>
+</li>
+</ul>
+<h2 id="部署到GitHub"><a href="#部署到GitHub" class="headerlink" title="部署到GitHub"></a>部署到GitHub</h2><ul>
+<li><h3 id="配置-config-yml"><a href="#配置-config-yml" class="headerlink" title="配置_config.yml"></a>配置_config.yml</h3><p>编辑 你所建立的hexo文件夹中_config.yml（用记事本打开）修改deployment部分。</p>
+<p><img src="https://pic.heson10.com/img/image-20200708235946378.png" alt="image-20200708235946378"></p>
+<p>自行替换成你的GitHub的名称。注意：每个：后面必须有一个空格！！！</p>
+</li>
+<li><h3 id="安装Git包"><a href="#安装Git包" class="headerlink" title="安装Git包"></a>安装Git包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><h3 id="部署到GitHub上"><a href="#部署到GitHub上" class="headerlink" title="部署到GitHub上"></a>部署到GitHub上</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<p>  现在我们可以通过访问 <a href="http://username.github.io/" target="_blank" rel="noopener">http://username.github.io/</a> 来访问我们自己的博客啦,可以看到我们的博客已成功搭建，接下来就是一些主题的优化和配置呢。</p>
+<h2 id="如何添加一篇文章"><a href="#如何添加一篇文章" class="headerlink" title="如何添加一篇文章"></a>如何添加一篇文章</h2><p>新建一篇博文可通过以下的命令</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new</span><br></pre></td></tr></table></figure>
+
+<h2 id="HEXO主题"><a href="#HEXO主题" class="headerlink" title="HEXO主题"></a>HEXO主题</h2><p>我用的是Next 7，版本更新很快，插件也很多，样式很简单，折腾的东西也很多，确实非常喜欢。</p>
+<p>具体主题的使用，后面再做记录。<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a>  这里可以下载主题。</p>
+<p><img src="https://pic.heson10.com/img/image-20200709000545353.png" alt="image-20200709000545353"></p>
+<p>通过搜索框搜索自己喜欢的主题。</p>
+<h2 id="关于Markdown编辑器"><a href="#关于Markdown编辑器" class="headerlink" title="关于Markdown编辑器"></a>关于Markdown编辑器</h2><p>推荐使用Typora这一款，试用了一段时间，非常符合我的预期。</p>
+<p>加上现在Typora可以联合Picgo实现快速上传图片到图床，简直是神器。放出截图：</p>
+<ul>
+<li><p>Typora截图</p>
+<p><img src="https://pic.heson10.com/img/image-20200709000943792.png" alt="image-20200709000943792"></p>
+</li>
+</ul>
+<ul>
+<li><p>Picgo截图</p>
+<p><img src="https://pic.heson10.com/img/image-20200709001109935.png" alt="image-20200709001109935"></p>
+</li>
+<li><p>Typora联合Picgo功能设置截图</p>
+<p><img src="https://pic.heson10.com/img/image-20200709001142220.png" alt="image-20200709001142220"></p>
+</li>
+</ul>
+<p>关于这个markdown编辑器，出了一个教程贴，大家可以看看：</p>
+<h2 id="Typora-Picgo-七牛云实现图片快速上传"><a href="#Typora-Picgo-七牛云实现图片快速上传" class="headerlink" title="Typora+Picgo+七牛云实现图片快速上传"></a><a href="https://www.heson10.com/posts/38720.html">Typora+Picgo+七牛云实现图片快速上传</a></h2>
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章推荐</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\next\posts\16283.html" rel="bookmark">给博客优雅地加上谷歌思源宋体</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\next\posts\44528.html" rel="bookmark">在腾讯云服务器上搭建WordPress博客</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\next\posts\8045.html" rel="bookmark">帮助网友搭建WORDPRESS博客</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\next\posts\31514.html" rel="bookmark">Hexo博客实现随机文章功能</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\next\posts\59108.html" rel="bookmark">Hexo 标签函数 list_tags 用法</a></div>
+    </li>
+  </ul>
+
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/next/images/wechatpay.jpg" alt="Heson 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/next/images/alipay.jpg" alt="Heson 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Heson
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.heson10.com/next/posts/121.html" title="用hexo+github pages+独立域名搭建个人博客">https://www.heson10.com/next/posts/121.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/next/tags/%E5%8D%9A%E5%AE%A2/" rel="tag"># 博客</a>
+              <a href="/next/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/next/tags/%E5%9F%9F%E5%90%8D/" rel="tag"># 域名</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/next/posts/18074.html" rel="prev" title="写在最开始">
+      <i class="fa fa-chevron-left"></i> 写在最开始
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/next/posts/54971.html" rel="next" title="Hexo在GitHub和Coding双线部署教程">
+      Hexo在GitHub和Coding双线部署教程 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本环境"><span class="nav-number">2.</span> <span class="nav-text">基本环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo-版本4-2-1"><span class="nav-number">3.</span> <span class="nav-text">安装Hexo (版本4.2.1)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github-设置"><span class="nav-number">4.</span> <span class="nav-text">Github 设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub的优点"><span class="nav-number">4.1.</span> <span class="nav-text">GitHub的优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是GitHub-Pages？"><span class="nav-number">4.2.</span> <span class="nav-text">什么是GitHub Pages？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么使用GitHub-Pages"><span class="nav-number">4.3.</span> <span class="nav-text">为什么使用GitHub Pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关操作"><span class="nav-number">4.4.</span> <span class="nav-text">相关操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册GitHub账号"><span class="nav-number">4.5.</span> <span class="nav-text">注册GitHub账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建项目仓库"><span class="nav-number">4.6.</span> <span class="nav-text">创建项目仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置SSH"><span class="nav-number">4.7.</span> <span class="nav-text">配置SSH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成ssh密钥"><span class="nav-number">4.8.</span> <span class="nav-text">生成ssh密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取key"><span class="nav-number">4.9.</span> <span class="nav-text">获取key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在GitHub上添加SSH密钥"><span class="nav-number">4.10.</span> <span class="nav-text">在GitHub上添加SSH密钥</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到GitHub"><span class="nav-number">5.</span> <span class="nav-text">部署到GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-config-yml"><span class="nav-number">5.1.</span> <span class="nav-text">配置_config.yml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Git包"><span class="nav-number">5.2.</span> <span class="nav-text">安装Git包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署到GitHub上"><span class="nav-number">5.3.</span> <span class="nav-text">部署到GitHub上</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何添加一篇文章"><span class="nav-number">6.</span> <span class="nav-text">如何添加一篇文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HEXO主题"><span class="nav-number">7.</span> <span class="nav-text">HEXO主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于Markdown编辑器"><span class="nav-number">8.</span> <span class="nav-text">关于Markdown编辑器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Typora-Picgo-七牛云实现图片快速上传"><span class="nav-number">9.</span> <span class="nav-text">Typora+Picgo+七牛云实现图片快速上传</span></a></li></ol></div>
+      </div>	  
+      <!--/noindex-->
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="https://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Heson"
+      src="https://pic.heson.xyz/img/avatar03.png">
+  <p class="site-author-name" itemprop="name">Heson</p>
+  <div class="site-description" itemprop="description"><div id="binft"></div>  
+  <script>
+    var binft = function (r) {
+      function t() {
+        return b[Math.floor(Math.random() * b.length)]
+      }  
+      function e() {
+        return String.fromCharCode(94 * Math.random() + 33)
+      }
+      function n(r) {
+        for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
+          var l = document.createElement("span");
+          l.textContent = e(), l.style.color = t(), n.appendChild(l)
+        }
+        return n
+      }
+      function i() {
+        var t = o[c.skillI];
+        c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
+      }
+      var l = "",
+      o = ["人生在勤，不索何获", "专注Hexo技术分享","日日待明日,万事成蹉跎"].map(function (r) {
+      return r + ""
+      }),
+      a = 2,
+      g = 1,
+      s = 5,
+      d = 75,
+      b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
+      c = {
+        text: "",
+        prefixP: -s,
+        skillI: 0,
+        skillP: 0,
+        direction: "forward",
+        delay: a,
+        step: g
+      };
+      i()
+      };
+      binft(document.getElementById('binft'));
+  </script>
+  </div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/next/archives/">
+        
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="tencent://message/?uin=251261362&Site=hesonxyz&Menu=yes" title="QQ → tencent:&#x2F;&#x2F;message&#x2F;?uin&#x3D;251261362&amp;Site&#x3D;hesonxyz&amp;Menu&#x3D;yes" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/heson525" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;heson525" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/next/heson525@163.com" title="E-Mail → heson525@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+	<!--  显示近期文章 -->
+
+
+
+
+
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+	
+
+
+	
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Heson</span>
+
+
+
+  
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">Next7.8</a> 强力驱动
+  
+   <span class="hostby" >Host By Github & Coding</span>
+  </div>
+  <div class="beian"><a href="https://www.beian.miit.gov.cn/" rel="noopener" target="_blank">赣ICP备20008960号 </a>
+  
+  <span id="timeDate">载入天数...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/05/2020 00:00:01");//在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本博客已安全运行 "+dnum+" 天 "; 
+       // document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+  
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/next/js/utils.js"></script>
+
+<script src="/next/js/motion.js"></script>
+
+
+<script src="/next/js/schemes/pisces.js"></script>
+
+
+<script src="/next/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/next/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'C1qWqsDatomXVctTafBuJADI-gzGzoHsz',
+      appKey     : 'J4CujIoElz1Wo7yLUbY4SOO5',
+      placeholder: "欢迎畅所欲言...",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+ 
+</body>
+</html>

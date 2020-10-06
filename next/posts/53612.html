@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+<meta name="google-site-verification" content="dbKmo670WqpgxlRhUMJ3kpsFkRJ1xPgS3FSpukqa9M8" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://pic.heson.xyz/img/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://pic.heson.xyz/img/favicon-32x32-my.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://pic.heson.xyz/img/favicon-16x16-my.png">
+  <link rel="mask-icon" href="https://pic.heson.xyz/img/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/next/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|EB Garamond:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.heson10.com","root":"/next/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"我们没有找到任何搜索结果: ${query}","hits_stats":"找到${hits}条结果（用时${time} ms）"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="先上地址：https:&#x2F;&#x2F;yf.heson10.com 前方高能音乐来袭。。。。注意保护耳朵，可预先试听： Your browser does not support the audio tag.  为什么搭建？ 效果图前台效果图 前三个没付款的家伙，你们有本事倒是付啊！😂 后台">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记录一次24H在线要饭系统的搭建">
+<meta property="og:url" content="https://www.heson10.com/next/posts/53612.html">
+<meta property="og:site_name" content="黑石博客 - Hexo博客 - Next分站">
+<meta property="og:description" content="先上地址：https:&#x2F;&#x2F;yf.heson10.com 前方高能音乐来袭。。。。注意保护耳朵，可预先试听： Your browser does not support the audio tag.  为什么搭建？ 效果图前台效果图 前三个没付款的家伙，你们有本事倒是付啊！😂 后台">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://picup.heson10.com/img/upyun/image-20200908220604976.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/heson10/pic@master/img/image-20200908215411128.png">
+<meta property="og:image" content="https://picup.heson10.com/img/upyun/image-20200908215618777.png">
+<meta property="og:image" content="https://picup.heson10.com/img/upyun/image-20200908220215882.png">
+<meta property="og:image" content="https://picup.heson10.com/img/upyun/image-20200911075559955.png">
+<meta property="og:image" content="https://picup.heson10.com/img/upyun/image-20200911075700994.png">
+<meta property="og:image" content="https://picup.heson10.com/img/upyun/image-20200911075745019.png">
+<meta property="article:published_time" content="2020-09-08T13:44:04.000Z">
+<meta property="article:modified_time" content="2020-09-22T14:25:11.106Z">
+<meta property="article:author" content="Heson">
+<meta property="article:tag" content="搭建">
+<meta property="article:tag" content="源码">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://picup.heson10.com/img/upyun/image-20200908220604976.png">
+
+<link rel="canonical" href="https://www.heson10.com/next/posts/53612.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>记录一次24H在线要饭系统的搭建 | 黑石博客 - Hexo博客 - Next分站</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0f111c1a8d3bed577987c96b06c8bd99";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+
+<link rel="alternate" href="/next/atom.xml" title="黑石博客 - Hexo博客 - Next分站" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="https://schema.org/WebPage">
+  <div class="container use-motion">
+   
+
+    <header class="header" itemscope itemtype="https://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/next/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <img src="https://pic.heson.xyz/img/hesonlogo.png">
+      <span class="logo-line-after"><i></i></span>
+    </a>
+    
+      <p class="site-subtitle" style="display:none;" itemprop="description">Hexo技术分享博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/next/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/next/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/next/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/next/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a>
+
+  </li>
+        <li class="menu-item menu-item-loveblog">
+
+    <a href="https://wp.heson10.com/" rel="noopener" target="_blank"><i class="fa fa-heart fa-fw"></i>情侣博客演示站</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/next/404.html" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/next/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="https://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.heson10.com/next/posts/53612.html">
+
+    <span hidden itemprop="author" itemscope itemtype="https://schema.org/Person">
+      <meta itemprop="image" content="https://pic.heson.xyz/img/avatar03.png">
+      <meta itemprop="name" content="Heson">
+      <meta itemprop="description" content="黑石博客，草根博客站长Heson的Hexo博客站点，专注分享Hexo学习心得。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+      <meta itemprop="name" content="黑石博客 - Hexo博客 - Next分站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          记录一次24H在线要饭系统的搭建
+        </h1>
+
+        <div class="post-meta">
+
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-08 21:44:04" itemprop="dateCreated datePublished" datetime="2020-09-08T21:44:04+08:00">2020-09-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-22 22:25:11" itemprop="dateModified" datetime="2020-09-22T22:25:11+08:00">2020-09-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/next/categories/%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81/" itemprop="url" rel="index"><span itemprop="name">技术交流</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/next/posts/53612.html" class="post-meta-item leancloud_visitors" data-flag-title="记录一次24H在线要饭系统的搭建" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>℃
+               </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/next/posts/53612.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/next/posts/53612.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>先上地址：<a href="https://yf.heson10.com" target="_blank" rel="noopener">https://yf.heson10.com</a></p>
+<p>前方高能音乐来袭。。。。注意保护耳朵，可预先试听：</p>
+<div class="audio"><audio controls preload><source src='https://yf.heson10.com/Static/music/yaofan.mp3' type='audio/mp3'>Your browser does not support the audio tag.</audio></div>
+
+<h2 id="为什么搭建？"><a href="#为什么搭建？" class="headerlink" title="为什么搭建？"></a>为什么搭建？</h2><p><img src="https://picup.heson10.com/img/upyun/image-20200908220604976.png" alt="因为穷"></p>
+<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><h3 id="前台效果图"><a href="#前台效果图" class="headerlink" title="前台效果图"></a>前台效果图</h3><p><img src="https://cdn.jsdelivr.net/gh/heson10/pic@master/img/image-20200908215411128.png" alt="黑石要饭系统前台界面"></p>
+<p>前三个没付款的家伙，你们有本事倒是付啊！😂</p>
+<h3 id="后台"><a href="#后台" class="headerlink" title="后台"></a>后台</h3><p><img src="https://picup.heson10.com/img/upyun/image-20200908215618777.png" alt="黑石要饭系统后台界面"></p>
+<h2 id="搭建摘要"><a href="#搭建摘要" class="headerlink" title="搭建摘要"></a>搭建摘要</h2><ul>
+<li><p>源码用的是烟雨要饭 源码下载地址：<a href="http://cdn.yyhy.me/yaofan.zip" target="_blank" rel="noopener">http://cdn.yyhy.me/yaofan.zip</a></p>
+</li>
+<li><p>对接的是<strong>码支付</strong>，特点：支付宝 QQ全免 微信免手续费只需交易额度  码支付地址→<a href="https://codepay.fateqq.com/i/570001" target="_blank" rel="noopener">点击我</a>   下面是其网站的宣传图：</p>
+<p><img src="https://picup.heson10.com/img/upyun/image-20200908220215882.png" alt="码支付功能介绍"></p>
+</li>
+</ul>
+<ul>
+<li>支付宝开通了商家服务、qq钱包上传了收款码、微信付费签约了并上传收款码</li>
+<li>源码需要修改适配码支付，下面简单讲一下</li>
+</ul>
+<h2 id="关于源码修改适配问题"><a href="#关于源码修改适配问题" class="headerlink" title="关于源码修改适配问题"></a>关于源码修改适配问题</h2><h3 id="核心函数php文件：Pay-Class-php"><a href="#核心函数php文件：Pay-Class-php" class="headerlink" title="核心函数php文件：Pay.Class.php"></a>核心函数php文件：<code>Pay.Class.php</code></h3><p>主要修改了<code>submit()</code>函数，增加了对码支付支付工具<code>type</code>的判断，以及财主爸爸昵称<code>nick</code>的调用，以及增加码支付一些自用参数，函数代码如下:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">submit</span><span class="params">($type, $out_trade_no, $notify_url, $return_url, $name, $money, $sitename, $nick)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ($type == <span class="string">'alipay'</span>) &#123;</span><br><span class="line">        $typeid = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ($type == <span class="string">'qqpay'</span>) &#123;</span><br><span class="line">        $typeid = <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ($type == <span class="string">'wxpay'</span>) &#123;</span><br><span class="line">        $typeid = <span class="number">3</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    $data = [</span><br><span class="line">        <span class="string">'id'</span> =&gt; <span class="keyword">$this</span>-&gt;pid,</span><br><span class="line">        <span class="string">'type'</span> =&gt; $typeid,</span><br><span class="line">        <span class="string">'out_trade_no'</span> =&gt; $out_trade_no,</span><br><span class="line">        <span class="string">'notify_url'</span> =&gt; $notify_url,</span><br><span class="line">        <span class="string">'return_url'</span> =&gt; $return_url,</span><br><span class="line">        <span class="string">'name'</span> =&gt; $name,</span><br><span class="line">        <span class="string">'price'</span> =&gt; $money,</span><br><span class="line">        <span class="string">'sitename'</span> =&gt; $sitename,</span><br><span class="line">        <span class="string">'act'</span> =&gt; <span class="number">0</span>,</span><br><span class="line">        <span class="string">'debug'</span> =&gt; <span class="number">0</span>,</span><br><span class="line">        <span class="string">'pay_type'</span> =&gt; <span class="number">1</span>,</span><br><span class="line">        <span class="string">'pay_id'</span> =&gt; $nick,</span><br><span class="line">        <span class="string">'param'</span> =&gt; $out_trade_no</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    ];</span><br><span class="line">    $string = http_build_query($data);</span><br><span class="line">    $sign = <span class="keyword">$this</span>-&gt;getsign($data);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'http://codepay.fateqq.com/create_order/?'</span> . $string . <span class="string">'&amp;token=换成自己的token'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>http://codepay.fateqq.com/create_order/?</code>是码支付API的地址，码支付的<code>token</code>写在<code>token=</code>的后面。</p>
+<p>网站端<code>yf.heson10.com/Admin/</code>后台里，要填写码支付的id：</p>
+<p><img src="https://picup.heson10.com/img/upyun/image-20200911075559955.png" alt="码支付ID"></p>
+<h3 id="Pay-Submit-index-php的修改"><a href="#Pay-Submit-index-php的修改" class="headerlink" title="Pay/Submit/index.php的修改"></a>Pay/Submit/index.php的修改</h3><p>主要是前面和前面submit()函数相对应。注意这里的https，如果服务器没开ssl，就换成http</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">submit($order[<span class="string">'type'</span>], $order[<span class="string">'trade_no'</span>], <span class="string">'https://'</span> . $_SERVER[<span class="string">'HTTP_HOST'</span>] . <span class="string">'/Pay/Notify/'</span>, <span class="string">'https://'</span> . $_SERVER[<span class="string">'HTTP_HOST'</span>] . <span class="string">'/Pay/Return/'</span>, config(<span class="string">'sitename'</span>) . <span class="string">' - 支付订单'</span>, $order[<span class="string">'money'</span>], config(<span class="string">'sitename'</span>), $order[<span class="string">'nick'</span>]);</span><br></pre></td></tr></table></figure>
+
+<p>修改后附图：</p>
+<p><img src="https://picup.heson10.com/img/upyun/image-20200911075700994.png" alt="要饭系统submit修改图"></p>
+<h3 id="Pay-Ruturn-index-php的修改"><a href="#Pay-Ruturn-index-php的修改" class="headerlink" title="Pay/Ruturn/index.php的修改"></a>Pay/Ruturn/index.php的修改</h3><p>去掉验证数据，增加对订单号的验证，同时调用自定义参数<code>param</code>，用于定位当前订单号。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$data = $_REQUEST;</span><br><span class="line">$pay = <span class="keyword">new</span> Pay(config(<span class="string">'pid'</span>), config(<span class="string">'key'</span>),config(<span class="string">'api'</span>));</span><br><span class="line"><span class="keyword">if</span> ($data[<span class="string">'pay_no'</span>]) &#123;</span><br><span class="line">    $order = Db(<span class="string">'select * from yyhy_order where trade_no="'</span> . $data[<span class="string">'param'</span>] . <span class="string">'"'</span>);</span><br><span class="line">    <span class="keyword">if</span> (!$order) <span class="keyword">exit</span>(<span class="string">'fail'</span>);</span><br><span class="line">    $order = $order[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">if</span> ($order[<span class="string">'status'</span>] != <span class="number">1</span>) &#123;</span><br><span class="line">        Db(<span class="string">'update yyhy_order set `status`=1,`endtime`="'</span> . date(<span class="string">'Y-m-d H:i:s'</span>) . <span class="string">'" where trade_no="'</span> . $data[<span class="string">'param'</span>] . <span class="string">'"'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    alert(<span class="string">'施舍成功，好人有好报！'</span>, <span class="string">'/'</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    alert(<span class="string">'支付验证失败,施舍失败了，又吃不到饭饭了！'</span>, <span class="string">'/'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改后附图：</p>
+<p><img src="https://picup.heson10.com/img/upyun/image-20200911075745019.png" alt="要饭系统ruturn页面设置"></p>
+<h3 id="Pay-Notify-index-php的修改"><a href="#Pay-Notify-index-php的修改" class="headerlink" title="Pay/Notify/index.php的修改"></a>Pay/Notify/index.php的修改</h3><p>简单验证单号就行，还要具备补单功能：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span> <span class="string">'../../Core/Common.php'</span>;</span><br><span class="line"></span><br><span class="line">$data = $_REQUEST;</span><br><span class="line">$pay = <span class="keyword">new</span> Pay(config(<span class="string">'pid'</span>), config(<span class="string">'key'</span>),config(<span class="string">'api'</span>));</span><br><span class="line"><span class="keyword">if</span> ($data[<span class="string">'pay_no'</span>]) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'success'</span>;</span><br><span class="line">    $order = Db(<span class="string">'select * from yyhy_order where trade_no="'</span> . $data[<span class="string">'param'</span>] . <span class="string">'"'</span>);</span><br><span class="line">    <span class="keyword">if</span> (!$order) <span class="keyword">exit</span>(<span class="string">'fail'</span>);</span><br><span class="line">    $order = $order[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">if</span> ($order[<span class="string">'status'</span>] != <span class="number">1</span>) &#123;</span><br><span class="line">        Db(<span class="string">'update yyhy_order set `status`=1,`endtime`="'</span> . date(<span class="string">'Y-m-d H:i:s'</span>) . <span class="string">'" where trade_no="'</span> . $data[<span class="string">'param'</span>] . <span class="string">'"'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'fail'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p><del>好吧，今天又水了一篇。😂😂</del></p>
+<p><del>Q:为什么写这么一篇水文？</del></p>
+<p><del>A:因为弄这个还是花了不少功夫，简单记录一下：</del></p>
+<ul>
+<li><del>一是做笔记让自己知道修改了哪些东西</del></li>
+<li><del>二是为需要的小伙伴提供思路。</del></li>
+</ul>
+<p><strong>9月11日更新：</strong></p>
+<p>已经不算是水文了，更新的文章加上了修改方法和配图，学会的扣<strong>111111111111111</strong>，没学会的扣<strong>眼珠子</strong>！</p>
+<p><strong>9月12日更新：</strong></p>
+<p>解决微信、qq支付异步问题。</p>
+<h2 id="后期打算更新"><a href="#后期打算更新" class="headerlink" title="后期打算更新"></a>后期打算更新</h2><ul>
+<li>前台界面二开</li>
+<li>待定</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章推荐</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\next\posts\44528.html" rel="bookmark">在腾讯云服务器上搭建WordPress博客</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\next\posts\8045.html" rel="bookmark">帮助网友搭建WORDPRESS博客</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\next\posts\54971.html" rel="bookmark">Hexo在GitHub和Coding双线部署教程</a></div>
+    </li>
+  </ul>
+
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/next/images/wechatpay.jpg" alt="Heson 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/next/images/alipay.jpg" alt="Heson 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Heson
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.heson10.com/next/posts/53612.html" title="记录一次24H在线要饭系统的搭建">https://www.heson10.com/next/posts/53612.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/next/tags/%E6%90%AD%E5%BB%BA/" rel="tag"># 搭建</a>
+              <a href="/next/tags/%E6%BA%90%E7%A0%81/" rel="tag"># 源码</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/next/posts/32383.html" rel="prev" title="如何找一款漂亮的字体并快速应用？iFonts字体助手！">
+      <i class="fa fa-chevron-left"></i> 如何找一款漂亮的字体并快速应用？iFonts字体助手！
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/next/posts/62369.html" rel="next" title="16种人格类型，你属于哪一种？">
+      16种人格类型，你属于哪一种？ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么搭建？"><span class="nav-number">1.</span> <span class="nav-text">为什么搭建？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果图"><span class="nav-number">2.</span> <span class="nav-text">效果图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前台效果图"><span class="nav-number">2.1.</span> <span class="nav-text">前台效果图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后台"><span class="nav-number">2.2.</span> <span class="nav-text">后台</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建摘要"><span class="nav-number">3.</span> <span class="nav-text">搭建摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于源码修改适配问题"><span class="nav-number">4.</span> <span class="nav-text">关于源码修改适配问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#核心函数php文件：Pay-Class-php"><span class="nav-number">4.1.</span> <span class="nav-text">核心函数php文件：Pay.Class.php</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pay-Submit-index-php的修改"><span class="nav-number">4.2.</span> <span class="nav-text">Pay&#x2F;Submit&#x2F;index.php的修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pay-Ruturn-index-php的修改"><span class="nav-number">4.3.</span> <span class="nav-text">Pay&#x2F;Ruturn&#x2F;index.php的修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pay-Notify-index-php的修改"><span class="nav-number">4.4.</span> <span class="nav-text">Pay&#x2F;Notify&#x2F;index.php的修改</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写在后面"><span class="nav-number">5.</span> <span class="nav-text">写在后面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后期打算更新"><span class="nav-number">6.</span> <span class="nav-text">后期打算更新</span></a></li></ol></div>
+      </div>	  
+      <!--/noindex-->
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="https://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Heson"
+      src="https://pic.heson.xyz/img/avatar03.png">
+  <p class="site-author-name" itemprop="name">Heson</p>
+  <div class="site-description" itemprop="description"><div id="binft"></div>  
+  <script>
+    var binft = function (r) {
+      function t() {
+        return b[Math.floor(Math.random() * b.length)]
+      }  
+      function e() {
+        return String.fromCharCode(94 * Math.random() + 33)
+      }
+      function n(r) {
+        for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
+          var l = document.createElement("span");
+          l.textContent = e(), l.style.color = t(), n.appendChild(l)
+        }
+        return n
+      }
+      function i() {
+        var t = o[c.skillI];
+        c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
+      }
+      var l = "",
+      o = ["人生在勤，不索何获", "专注Hexo技术分享","日日待明日,万事成蹉跎"].map(function (r) {
+      return r + ""
+      }),
+      a = 2,
+      g = 1,
+      s = 5,
+      d = 75,
+      b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
+      c = {
+        text: "",
+        prefixP: -s,
+        skillI: 0,
+        skillP: 0,
+        direction: "forward",
+        delay: a,
+        step: g
+      };
+      i()
+      };
+      binft(document.getElementById('binft'));
+  </script>
+  </div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/next/archives/">
+        
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="tencent://message/?uin=251261362&Site=hesonxyz&Menu=yes" title="QQ → tencent:&#x2F;&#x2F;message&#x2F;?uin&#x3D;251261362&amp;Site&#x3D;hesonxyz&amp;Menu&#x3D;yes" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/heson525" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;heson525" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/next/heson525@163.com" title="E-Mail → heson525@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+	<!--  显示近期文章 -->
+
+
+
+
+
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+	
+
+
+	
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Heson</span>
+
+
+
+  
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">Next7.8</a> 强力驱动
+  
+   <span class="hostby" >Host By Github & Coding</span>
+  </div>
+  <div class="beian"><a href="https://www.beian.miit.gov.cn/" rel="noopener" target="_blank">赣ICP备20008960号 </a>
+  
+  <span id="timeDate">载入天数...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/05/2020 00:00:01");//在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本博客已安全运行 "+dnum+" 天 "; 
+       // document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+  
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/next/js/utils.js"></script>
+
+<script src="/next/js/motion.js"></script>
+
+
+<script src="/next/js/schemes/pisces.js"></script>
+
+
+<script src="/next/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/next/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'C1qWqsDatomXVctTafBuJADI-gzGzoHsz',
+      appKey     : 'J4CujIoElz1Wo7yLUbY4SOO5',
+      placeholder: "欢迎畅所欲言...",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+ 
+</body>
+</html>
