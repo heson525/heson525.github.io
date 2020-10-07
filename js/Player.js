@@ -293,7 +293,7 @@ var _createClass = function () {
 	}();
 
     var player = new CTPlayer({
-        autoplay: true,
+        autoplay: false,
         listshow: false,
         mode: 'listloop',
         music: {
