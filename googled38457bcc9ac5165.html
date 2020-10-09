@@ -232,7 +232,7 @@
     <div class="mybox m1 mb2 ">
         <div class="Post_content_box">
            
-            <article id="Post_wysiwyg" class="duta">
+            <article id="Post_wysiwyg" class="duta md">
    google-site-verification: googled38457bcc9ac5165.html
 </article>
            
@@ -423,10 +423,12 @@
 <script src="https://cdn.jsdelivr.net/gh/zwying0814/Cuteen@v3.1.200810/Static/Js/sidebar-follow-jquery.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/heson10/pic@master/js/valine.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/heson10/pic@master/js/Main.js"></script>
+
+<script src="/js/Main.js"></script>
+
 <script src="https://cdn.jsdelivr.net/gh/heson10/pic@master/js/issues.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
-<script> $(document).pjax('a:not(a[target="_blank"], a[no-pjax])', { container: '#pjax', fragment: '#pjax', timeout: 8000 }).on('pjax:send', function () { before_pjax(); }).on('pjax:complete', function () { after_pjax(); addAlt(); LCCounter.refreshCounter(); colortag(); newcomment(); loadIssuesJS();_hmt.push(['_trackPageview', document.location.pathname]); }).on('pjax:end', function () { end_pjax(); pjax_valine();dingwei();IssuesAPI.request(); });
+<script> $(document).pjax('a:not(a[target="_blank"], a[no-pjax])', { container: '#pjax', fragment: '#pjax', timeout: 8000 }).on('pjax:send', function () { before_pjax(); }).on('pjax:complete', function () { after_pjax(); addAlt(); LCCounter.refreshCounter(); colortag(); newcomment(); loadIssuesJS();_hmt.push(['_trackPageview', document.location.pathname]); }).on('pjax:end', function () { end_pjax(); pjax_valine();dingwei();IssuesAPI.request(); pjax_fancybox(); });
 
 
 </script>
