@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>为Hexo博客建立其他主题分站</title>
+      <link href="posts/46324.html"/>
+      <url>posts/46324.html</url>
+      
+        <content type="html"><![CDATA[<p>换了hexo主题后，之前魔改的主题又舍不得删，索性就把他们做成了分站，跟主站一起托管在github平台了。</p><p><img src="https://picup.heson10.com/img/upyun/2020/10/image-20201009122853516.png" alt="黑石hexo分站"></p><p>hexo静态博客这点不错，生成的页面全是html静态页面，直接拖入分站文件夹就ok了。</p><p>有几个地方要注意的是：</p><ul><li>分站域名和url的设置</li><li>主站跳过渲染文件夹的设置</li></ul><h2 id="设置教程"><a href="#设置教程" class="headerlink" title="设置教程"></a>设置教程</h2><h3 id="根目录config-yml设置"><a href="#根目录config-yml设置" class="headerlink" title="根目录config.yml设置"></a>根目录config.yml设置</h3><ul><li><p>切换到分站主题，如volantis主题</p><pre><code class="yaml">theme: volantis</code></pre></li><li><p>url和root设置</p><pre><code class="yaml">url: https://你的域名/volantisroot: /volantis/</code></pre></li></ul><p>设置好之后<code>hexo g</code>生成volantis分站public文件夹下的的html的文件，复制后放入主站的<code>source/volantis</code>文件夹 </p><p><img src="https://picup.heson10.com/img/upyun/2020/10/image-20201009125756974.png" alt="分站复制到主站"></p><h3 id="主站跳过渲染设置"><a href="#主站跳过渲染设置" class="headerlink" title="主站跳过渲染设置"></a>主站跳过渲染设置</h3><p>在主站的根目录设置里面，找到<code>skip_render</code> 我的设置如下：</p><pre><code class="yaml">skip_render:   - &#39;volantis/**&#39;  - &#39;next/**&#39;</code></pre><p>而后主站<code>hexo cl &amp;&amp; hexo g -d</code>就可以了。</p><h2 id="分站效果"><a href="#分站效果" class="headerlink" title="分站效果"></a>分站效果</h2><p>volantis分站：<a href="https://www.heson10.com/volantis/">https://www.heson10.com/volantis/</a></p><p>next分站: <a href="https://www.heson10.com/next/">https://www.heson10.com/next/</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 博客 </tag>
+            
+            <tag> hexo </tag>
+            
+            <tag> 主题 </tag>
+            
+            <tag> 分站 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo博客实现随机文章功能</title>
       <link href="posts/31514.html"/>
       <url>posts/31514.html</url>

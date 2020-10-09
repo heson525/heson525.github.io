@@ -6,7 +6,7 @@
   <link href="https://www.heson10.com/atom.xml" rel="self"/>
   
   <link href="https://www.heson10.com/"/>
-  <updated>2020-10-05T15:46:54.729Z</updated>
+  <updated>2020-10-09T05:13:18.823Z</updated>
   <id>https://www.heson10.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>为Hexo博客建立其他主题分站</title>
+    <link href="https://www.heson10.com/posts/46324.html"/>
+    <id>https://www.heson10.com/posts/46324.html</id>
+    <published>2020-10-09T04:20:01.000Z</published>
+    <updated>2020-10-09T05:13:18.823Z</updated>
+    
+    <content type="html"><![CDATA[<p>换了hexo主题后，之前魔改的主题又舍不得删，索性就把他们做成了分站，跟主站一起托管在github平台了。</p><p><img src="https://picup.heson10.com/img/upyun/2020/10/image-20201009122853516.png" alt="黑石hexo分站"></p><p>hexo静态博客这点不错，生成的页面全是html静态页面，直接拖入分站文件夹就ok了。</p><p>有几个地方要注意的是：</p><ul><li>分站域名和url的设置</li><li>主站跳过渲染文件夹的设置</li></ul><h2 id="设置教程"><a href="#设置教程" class="headerlink" title="设置教程"></a>设置教程</h2><h3 id="根目录config-yml设置"><a href="#根目录config-yml设置" class="headerlink" title="根目录config.yml设置"></a>根目录config.yml设置</h3><ul><li><p>切换到分站主题，如volantis主题</p><pre><code class="yaml">theme: volantis</code></pre></li><li><p>url和root设置</p><pre><code class="yaml">url: https://你的域名/volantisroot: /volantis/</code></pre></li></ul><p>设置好之后<code>hexo g</code>生成volantis分站public文件夹下的的html的文件，复制后放入主站的<code>source/volantis</code>文件夹 </p><p><img src="https://picup.heson10.com/img/upyun/2020/10/image-20201009125756974.png" alt="分站复制到主站"></p><h3 id="主站跳过渲染设置"><a href="#主站跳过渲染设置" class="headerlink" title="主站跳过渲染设置"></a>主站跳过渲染设置</h3><p>在主站的根目录设置里面，找到<code>skip_render</code> 我的设置如下：</p><pre><code class="yaml">skip_render:   - &#39;volantis/**&#39;  - &#39;next/**&#39;</code></pre><p>而后主站<code>hexo cl &amp;&amp; hexo g -d</code>就可以了。</p><h2 id="分站效果"><a href="#分站效果" class="headerlink" title="分站效果"></a>分站效果</h2><p>volantis分站：<a href="https://www.heson10.com/volantis/">https://www.heson10.com/volantis/</a></p><p>next分站: <a href="https://www.heson10.com/next/">https://www.heson10.com/next/</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;换了hexo主题后，之前魔改的主题又舍不得删，索性就把他们做成了分站，跟主站一起托管在github平台了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://picup.heson10.com/img/upyun/2020/10/image-2020100912285351</summary>
+      
+    
+    
+    
+    <category term="hexo" scheme="https://www.heson10.com/categories/hexo/"/>
+    
+    
+    <category term="博客" scheme="https://www.heson10.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+    <category term="hexo" scheme="https://www.heson10.com/tags/hexo/"/>
+    
+    <category term="主题" scheme="https://www.heson10.com/tags/%E4%B8%BB%E9%A2%98/"/>
+    
+    <category term="分站" scheme="https://www.heson10.com/tags/%E5%88%86%E7%AB%99/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo博客实现随机文章功能</title>
@@ -522,37 +553,6 @@
     <category term="插件" scheme="https://www.heson10.com/tags/%E6%8F%92%E4%BB%B6/"/>
     
     <category term="链接" scheme="https://www.heson10.com/tags/%E9%93%BE%E6%8E%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Next7.8主题更换思源宋体</title>
-    <link href="https://www.heson10.com/posts/19246.html"/>
-    <id>https://www.heson10.com/posts/19246.html</id>
-    <published>2020-08-01T01:39:33.000Z</published>
-    <updated>2020-08-16T15:19:03.442Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="https://pic.heson10.com/img/image-20200801094412407.png" alt="image-20200801094412407"></p><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>Google Fonts在2018年12月7日支持思源宋体。<strong>这是一款适合长时间阅读的字体。</strong></p><p>国内的网络对 Google 的域名并不友好，建议将<code>fonts.googleapis.com</code>修改为<a href="https://sb.sb/blog/css-cdn/">烧饼博客</a>提供的镜像<code>fonts.loli.net</code><a id="more"></a>&gt;</p><h3 id="Next7-8主题配置文件-config-yml"><a href="#Next7-8主题配置文件-config-yml" class="headerlink" title="Next7.8主题配置文件_config.yml"></a>Next7.8主题配置文件<code>_config.yml</code></h3><pre><code class="yaml">font:  enable: true  # Uri of fonts host, e.g. https://fonts.googleapis.com (Default).  # 使用烧饼博客的CDN  host: https://fonts.loli.net  # Font options:  # `external: true` will load this font family from `host` above.  # `family: Times New Roman`. Without any quotes.  # `size: x.x`. Use `em` as unit. Default: 1 (16px)  # Global font settings used for all elements inside &lt;body&gt;.  # 全局字体设置  global:    external: true    #family: EB Garamond    family: Noto Serif SC    size: 0.9  # Font settings for site title (.site-title).  # .site-title 站点标题字体设置  title:    external: true    family: Lobster Two    size:  # Font settings for headlines (&lt;h1&gt; to &lt;h6&gt;).  # 文章标题字体设置  headings:    external: true    #family: Roboto Slab    family: EB Garamond    size:  # Font settings for posts (.post-body).  # 文章页面字体设置  posts:    external: true    #family: Roboto Slab  # Font settings for &lt;code&gt; and code blocks.  # 代码块字体设置  codes:    external: true    family: Source Code Pro</code></pre><p>改为我上面的配置就可以了。解释说明已经在上方注释，按需修改。</p>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;&lt;a href=&quot;#效果&quot; class=&quot;headerlink&quot; title=&quot;效果&quot;&gt;&lt;/a&gt;效果&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://pic.heson10.com/img/image-20200801094412407.png&quot; alt=&quot;image-20200801094412407&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;配置&quot;&gt;&lt;a href=&quot;#配置&quot; class=&quot;headerlink&quot; title=&quot;配置&quot;&gt;&lt;/a&gt;配置&lt;/h2&gt;&lt;p&gt;Google Fonts在2018年12月7日支持思源宋体。&lt;strong&gt;这是一款适合长时间阅读的字体。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;国内的网络对 Google 的域名并不友好，建议将&lt;code&gt;fonts.googleapis.com&lt;/code&gt;修改为&lt;a href=&quot;https://sb.sb/blog/css-cdn/&quot;&gt;烧饼博客&lt;/a&gt;提供的镜像&lt;code&gt;fonts.loli.net&lt;/code&gt;</summary>
-    
-    
-    
-    <category term="hexo" scheme="https://www.heson10.com/categories/hexo/"/>
-    
-    
-    <category term="字体" scheme="https://www.heson10.com/tags/%E5%AD%97%E4%BD%93/"/>
-    
-    <category term="hexo" scheme="https://www.heson10.com/tags/hexo/"/>
-    
-    <category term="next" scheme="https://www.heson10.com/tags/next/"/>
-    
-    <category term="美化" scheme="https://www.heson10.com/tags/%E7%BE%8E%E5%8C%96/"/>
-    
-    <category term="更换" scheme="https://www.heson10.com/tags/%E6%9B%B4%E6%8D%A2/"/>
     
   </entry>
   
