@@ -396,7 +396,7 @@
 </div>
     <footer id="footer" class="mx-auto w100 p3 mt3">
     <div class="Footer_content center">
-        <p class="h5"> &copy; 2020 <a href="https://www.heson10.com/">黑石博客</a> 最近活动于 <span id="last-update" style="display: none;">2020 年 10 月 10 日 </span><span id="last-update-show"> </span></p>
+        <p class="h5"> &copy; 2020 <a href="https://www.heson10.com/">黑石博客</a></p>
 
         <p class="h5"> <a href="https://hexo.io/zh-cn/" target="_blank">Hexo</a> 强力驱动 | 主题 <a
                 href="https://blog.zwying.com/archives/39.html" target="_blank">Cuteen</a> | 由 <a
@@ -431,12 +431,7 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
 <script> $(document).pjax('a:not(a[target="_blank"], a[no-pjax])', { container: '#pjax', fragment: '#pjax', timeout: 8000 }).on('pjax:send', function () { before_pjax(); }).on('pjax:complete', function () { after_pjax(); addAlt(); LCCounter.refreshCounter(); colortag(); newcomment();  if (typeof IssuesAPI == "undefined") { loadIssuesJS();} _hmt.push(['_trackPageview', document.location.pathname]); }).on('pjax:end', function () { end_pjax(); pjax_valine(); dingwei(); IssuesAPI.request(); pjax_fancybox(); });
 
-var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2020 年 10 月 10 日';
-          }
+
 
 </script>
     <script defer>
