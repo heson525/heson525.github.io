@@ -750,7 +750,7 @@ function colortag(){
             emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
             emojiMaps: emojiMaps,
             master: '[fc2c9b067f65c9e2d7057ba797f7cfca]',
-            friends: '[adb7d1cd192658a55c0ad22a3309cecf,104e5bfa98048a2dac66f28ca4d4d846,e399c5e8f4b4b8b86fc88e2b5bd04497,32d39099d6da89788fe3827cb90b1eb7,a5c27d1df34fcd4d8195e7e7d16675d4,09c82fd631755bf5dbb04b4189225637,b548550ae129b82aa01b60e18ccbf141,6a565e6c47127afdd40d5d46089db2c5,4a713ec085a4431f15a8da0942656713&#34;,58bc3a8cecadf26a676e1b8f217698bc,aaf4fe5dd76d0a1390cbd08cdb16c05f,0a106ca9ec8d5e8a2d14f99e5b8bd863,3ecc56d90844b70e49d9f8a61e9cd98c,8a6f99e8ce4af26a93f20c0cbab8a186,5392ad0ec563aa56f6faf597ef966762,6bcf44de7033a4451f38d576fb6e6822,135ae111f8fcfeecc1ea1f06fde149ab]'
+            friends: '[e011329178b200bcb5d94f0d0ff7544a,adb7d1cd192658a55c0ad22a3309cecf,104e5bfa98048a2dac66f28ca4d4d846,e399c5e8f4b4b8b86fc88e2b5bd04497,32d39099d6da89788fe3827cb90b1eb7,a5c27d1df34fcd4d8195e7e7d16675d4,09c82fd631755bf5dbb04b4189225637,b548550ae129b82aa01b60e18ccbf141,6a565e6c47127afdd40d5d46089db2c5,4a713ec085a4431f15a8da0942656713&#34;,58bc3a8cecadf26a676e1b8f217698bc,aaf4fe5dd76d0a1390cbd08cdb16c05f,0a106ca9ec8d5e8a2d14f99e5b8bd863,3ecc56d90844b70e49d9f8a61e9cd98c,8a6f99e8ce4af26a93f20c0cbab8a186,5392ad0ec563aa56f6faf597ef966762,6bcf44de7033a4451f38d576fb6e6822,135ae111f8fcfeecc1ea1f06fde149ab]'
         })
 	}
 	
@@ -776,9 +776,7 @@ function colortag(){
 		  loadScript('/js/issues.js');
 		}, 1);
 	  };
-	  $(function () {
-		loadIssuesJS();
-	  });
+	
 
 
 function dingwei(){
@@ -948,14 +946,10 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 function pjax_fancybox(){
 		 $('.md').each(function(i){
 			$(this).find('img').each(function(){
-			  
 			  if ($(this).parent().hasClass('isfancybox')) return;
-		
 			  var alt = this.alt;
-			  
 			  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" data-fancybox="gallery" class="isfancybox"></a>');
 			});
-		
-			
  })};
  pjax_fancybox();
+
