@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta charset="UTF-8">
+<title>鼠标点击效果</title>
+<meta name="keywords" content="Canvas,Canvas 效果,鼠标" />
+<meta name="description" content="鼠标点击效果" />
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="thumbnail_canvas" class="single-thumbnail-card">
+        <div class="single-thumbnail">
+            <div class="single-image" style="background-image: url('https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg')"></div>
+        </div>
+        
+        <div class="single-thumbnail-overlay"> 
+            <div class="single-title">
+                <a href="https://www.heson10.com">黑石博客</a>
+                <h1 style="margin-top: 0;">鼠标点击特效，canvas点击效果</h1>
+                <p>点击鼠标测试效果</p>
+            </div>
+        </div>
+    </div>	
+    <a class="button" href="https://github.com/heson525/heson-demo/tree/main/click">下载</a>
+    <div id="clickCanvas" style=" position:fixed;left:0;top:0;z-index:999999999;pointer-events:none;"></div>
+    <script src="js/click.js"></script>
+</body>
+</html>
