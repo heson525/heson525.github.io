@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.heson10.com/posts/16197.html</loc>
-    <lastmod>2020-11-09</lastmod>
-  </url>
-  <url>
     <loc>https://www.heson10.com/posts/62369.html</loc>
     <lastmod>2020-11-09</lastmod>
   </url>
@@ -181,6 +177,10 @@
     <lastmod>2020-11-09</lastmod>
   </url>
   <url>
+    <loc>https://www.heson10.com/posts/3882.html</loc>
+    <lastmod>2020-11-09</lastmod>
+  </url>
+  <url>
     <loc>https://www.heson10.com/posts/19736.html</loc>
     <lastmod>2020-11-09</lastmod>
   </url>
@@ -194,6 +194,10 @@
   </url>
   <url>
     <loc>https://www.heson10.com/posts/58339.html</loc>
+    <lastmod>2020-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://www.heson10.com/posts/16197.html</loc>
     <lastmod>2020-11-09</lastmod>
   </url>
 </urlset> 
