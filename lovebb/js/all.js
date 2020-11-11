@@ -66,7 +66,6 @@ jQuery(document).ready(function($) {
 
             
             
-            $("#pageHeader").mousedown(function(){location.href="/"})
     });
     function togglecebian(n) {
         if (n === 0) {
