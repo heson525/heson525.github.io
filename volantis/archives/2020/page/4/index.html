@@ -866,19 +866,19 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
 
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
             <div class="site-state-item site-state-categories">
               <a href="/categories/">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
             <div class="site-state-item site-state-tags">
               <a href="/tags/">
-                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-count">92</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -926,7 +926,7 @@
    
   <div style="text-align:center;border-radius: 8px;margin-bottom: 8px;" class="widget desktop">
     <a target="_blank" rel="noopener" href="https://qm.qq.com/cgi-bin/qm/qr?k=2ymZ9hQ7tz9zykn3GMwk1nikIlBtDsxq&amp;jump_from=webapi"><img style="border-radius: 5px;"
-        src="https://picup.heson10.com/img/upyun/2020/10/qqqun2.webp" /></a>
+        src="https://cdn.jsdelivr.net/gh/heson10/pic@master/js/qun33.jpg" /></a>
   </div>
   
 
@@ -961,7 +961,7 @@
           <li><a class="flat-box"
             title="/volantis/categories/hexo/" href="/volantis/categories/hexo/"
             id="volantiscategorieshexo"
-            ><div class='name'>hexo</div><div class='badge'>(28)</div></a></li>
+            ><div class='name'>hexo</div><div class='badge'>(35)</div></a></li>
         
           <li><a class="flat-box"
             title="/volantis/categories/python/" href="/volantis/categories/python/"
@@ -969,14 +969,19 @@
             ><div class='name'>python</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box"
+            title="/volantis/categories/typecho/" href="/volantis/categories/typecho/"
+            id="volantiscategoriestypecho"
+            ><div class='name'>typecho</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
             title="/volantis/categories/%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81/" href="/volantis/categories/%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81/"
             id="volantiscategoriesE68A80E69CAFE4BAA4E6B581"
-            ><div class='name'>技术交流</div><div class='badge'>(1)</div></a></li>
+            ><div class='name'>技术交流</div><div class='badge'>(4)</div></a></li>
         
           <li><a class="flat-box"
             title="/volantis/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/" href="/volantis/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/"
             id="volantiscategoriesE7949FE6B4BBE99A8FE7AC94"
-            ><div class='name'>生活随笔</div><div class='badge'>(2)</div></a></li>
+            ><div class='name'>生活随笔</div><div class='badge'>(4)</div></a></li>
         
           <li><a class="flat-box"
             title="/volantis/categories/%E8%BD%AF%E4%BB%B6/" href="/volantis/categories/%E8%BD%AF%E4%BB%B6/"
@@ -1032,7 +1037,7 @@
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>37 篇</div>
+          <div>51 篇</div>
         </div>
       
 
@@ -1054,7 +1059,7 @@
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>26.3k 字</div>
+          <div>42.7k 字</div>
         </div>
       
 
@@ -1076,8 +1081,8 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Mon Nov 09 2020 17:39:14 GMT+0800 (GMT+08:00)</div>
-            <div id="last-update-show">2020-11-09 日</div>
+            <div id="last-update" style="display: none;">Sun Nov 15 2020 22:40:54 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update-show">2020-11-15 日</div>
           
         </div>
         
@@ -1127,7 +1132,7 @@
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2020-11-09 日';
+            document.getElementById('last-update-show').innerHTML = '2020-11-15 日';
           }
         </script>
         
@@ -1157,30 +1162,21 @@
   
     
     <h2 class="article-title" >
-      <a href="/volantis/posts/38719.html">
-        Hexo中next主题启用文章置顶功能
+      <a href="/volantis/posts/31426.html">
+        SEO优化：Hexo-abbrlink插件生成永久固定链接
       </a>
     </h2>
   
   <div class='md'>
     
-      
-        方法很简单，仓库已经有代码，直接安装
-$ npm uninstall hexo-generator-index --save
-$ npm install hexo-generator-index-pin-top --save
-然后在需要置顶的文章的Front-matter中加上top: true即可。比如我这篇文章：
-title: 写在最开始
-tags:
-  - 网站
-  - 爱好
-  - ...
-      
+      <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hexo默认的静态URL格式是 <code>:year/:month/:day/:title</code>，也就是按照年、月、日、标题来生成固定链接的。如<code>http://xxx.yy.com/2020/07/06/hello-world</code></p>
+<p>这种默认配置的缺点就是一般文件名是中文，导致url链接里有中文出现，这会造成很多问题，也不利于seo，另外就是年月日都会有分隔符。
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
-        <time>2020-07-16</time>
+        <time>2020-08-02</time>
         
           <span class="dot"></span>
           <a class="category-link" href="/volantis/categories/hexo/">hexo</a>
@@ -1188,7 +1184,7 @@ tags:
       </div>
       
         <div>
-            <a class='readmore' href='/volantis/posts/38719.html'>
+            <a class='readmore' href='/volantis/posts/31426.html'>
             阅读全文
           </a>
         </div>
@@ -1210,26 +1206,22 @@ tags:
   
     
     <h2 class="article-title" >
-      <a href="/volantis/posts/51572.html">
-        为Hexo增加algolia搜索功能
+      <a href="/volantis/posts/19246.html">
+        Next7.8主题更换思源宋体
       </a>
     </h2>
   
   <div class='md'>
     
-      <p>今天给博客增加了algolia站内搜索功能，中途有个地方整了半天，现在把遇到的坑填了。</p>
-<p>功能预览：</p>
-<p><img src="https://pic.heson10.com/img/image-20200713225007017.png" class="lazyload" data-srcset="https://pic.heson10.com/img/image-20200713225007017.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200713225007017"></p>
-<h2 id="注册algolia"><a href="#注册algolia" class="headerlink" title="注册algolia"></a>注册algolia</h2><ul>
-<li><p>官网注册：<a target="_blank" rel="noopener" href="https://www.algolia.com/">https://www.algolia.com/</a> ，或者直接用GitHub账号登陆，登陆地址： <a target="_blank" rel="noopener" href="https://www.algolia.com/users/sign_in">https://www.algolia.com/users/sign_in</a>  我就是用GitHub账号登陆的</p>
-</li>
-<li><p>新建一个index
+      <h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="https://pic.heson10.com/img/image-20200801094412407.png" class="lazyload" data-srcset="https://pic.heson10.com/img/image-20200801094412407.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200801094412407"></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>Google Fonts在2018年12月7日支持思源宋体。<strong>这是一款适合长时间阅读的字体。</strong></p>
+<p>国内的网络对 Google 的域名并不友好，建议将<code>fonts.googleapis.com</code>修改为<a target="_blank" rel="noopener" href="https://sb.sb/blog/css-cdn/">烧饼博客</a>提供的镜像<code>fonts.loli.net</code>
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
-        <time>2020-07-13</time>
+        <time>2020-08-01</time>
         
           <span class="dot"></span>
           <a class="category-link" href="/volantis/categories/hexo/">hexo</a>
@@ -1237,7 +1229,7 @@ tags:
       </div>
       
         <div>
-            <a class='readmore' href='/volantis/posts/51572.html'>
+            <a class='readmore' href='/volantis/posts/19246.html'>
             阅读全文
           </a>
         </div>
@@ -1259,25 +1251,23 @@ tags:
   
     
     <h2 class="article-title" >
-      <a href="/volantis/posts/52911.html">
-        Hexo+Next7.X 博客美化教程合集
+      <a href="/volantis/posts/2635.html">
+        hexo删除algolia搜索增加本地搜索功能
       </a>
     </h2>
   
   <div class='md'>
     
-      
-        写在最前面这两天刚认识Hexo博客系统，人就像着了魔一样，跟当年倒腾WordPress博客一样，每天想着怎么能让自己的博客更好看、更实用、更有人气。
-要想达到上面的要求，首先得从美化自己的博客开始…
-话说网上教程也特别多，在此我想做个合集，一来作为自己的记录，二来能给后来的朋友留点东西，把自己在倒腾过程中踩得坑也一并说清楚，让后面的童鞋更快的入门。
-（关于博客搭建→点击传送门：用hexo+g...
-      
+      <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>之前博客里面用的是algolia第三方搜索功能，后来发现有几个问题：一是js加载时间特别慢；二是每次增加文章都要重新提交一下如下代码：</p>
+<pre><code class="shell">export HEXO_ALGOLIA_INDEXING_KEY=your apiKey
+hexo algolia</code></pre>
+<p>这个就是最不能忍的原因。于是准备换上local search（本地搜索服务）。
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
-        <time>2020-07-12</time>
+        <time>2020-07-29</time>
         
           <span class="dot"></span>
           <a class="category-link" href="/volantis/categories/hexo/">hexo</a>
@@ -1285,7 +1275,7 @@ tags:
       </div>
       
         <div>
-            <a class='readmore' href='/volantis/posts/52911.html'>
+            <a class='readmore' href='/volantis/posts/2635.html'>
             阅读全文
           </a>
         </div>
@@ -1307,46 +1297,32 @@ tags:
   
     
     <h2 class="article-title" >
-      <a href="/volantis/posts/14925.html">
-        小米10降级回稳定版教程
+      <a href="/volantis/posts/8045.html">
+        帮助网友搭建WORDPRESS博客
       </a>
     </h2>
   
   <div class='md'>
     
-      <p>7月9日看到小米10推出了最新的MIUI内测包，作为400勇士的我，毫不犹豫的升级了手机。</p>
-<img src="https://pic.heson10.com/img/image-20200712113151702.png" class="lazyload" data-srcset="https://pic.heson10.com/img/image-20200712113151702.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200712113151702" style="zoom:33%;" />
+      
+        前些天加了一个WordPress的博客群，在里面帮助一些萌新小白网友解答一些关于网站建设方面的问题，中途有几个网友加了我的微信。        今天呢，有个网友在搭建wp的过程中遇到了一些问题（域名访问不了，wp无法安装，http500错误等等），向我请教。微信教了下，发现还是把这位网友整的有点云里雾里的。我就干脆要了他阿里云的账号，直接帮他整起来了！
 
-<p>然后····然后我后悔了。</p>
-<p>真的是各种bug：</p>
-<ul>
-<li><p>屏幕有时候不能动，只能重启解决；</p>
-</li>
-<li><p>微信看不了word文档，说是存储设备有问题，只能重启；</p>
-</li>
-<li><p>状态栏有花屏现象；</p>
-</li>
-<li><p>各种app不兼容（这个问题还好，内测版，正常）</p>
-</li>
-<li><p>等等bug，论坛上反馈了好多</p>
-</li>
-</ul>
-<p>作为骨灰级米粉的我，遇到bug很正常，但有bug不能代表不能用吧，最让人忍受不了的就是手机卡住不动…..</p>
-<p>实在没办法，现在只好线刷回去了，放上教程：
+熟悉的界面，熟悉的配方，熟悉的感觉。...
+      
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
-        <time>2020-07-12</time>
+        <time>2020-07-29</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/volantis/categories/MIUI/">MIUI</a>
+          <a class="category-link" href="/volantis/categories/WordPress/">WordPress</a>
         
       </div>
       
         <div>
-            <a class='readmore' href='/volantis/posts/14925.html'>
+            <a class='readmore' href='/volantis/posts/8045.html'>
             阅读全文
           </a>
         </div>
@@ -1368,26 +1344,21 @@ tags:
   
     
     <h2 class="article-title" >
-      <a href="/volantis/posts/54971.html">
-        Hexo在GitHub和Coding双线部署教程
+      <a href="/volantis/posts/57815.html">
+        Coding Studio实现hexo的云环境部署
       </a>
     </h2>
   
   <div class='md'>
     
-      
-        写在前面使用GitHub+coding双托管博客，可以提升国内访问博客的速度。总的来讲就是：国内访问coding的服务器，国外访问GitHub的服务器，访问速度更快。
-教程创建Coding仓库1.官网注册 https://coding.net/ 
-2.打开密钥，之前部署GitHub的时候已经用过，可以用everything这个搜索神器搜索一下id_rsa.pub文件，复制其内容。
-
-打开Co...
-      
+      <p>这些天一直在思考一个问题，怎么才能让hexo想wordpress一样随时随地写博客？</p>
+<p>昨天上午研究了一番，发现还真的可以。思路是这样的：我的博客是在GitHub和Coding上双部署，想要云端写博客就必须拿到两个平台的最强token，把token直接写在根目录<code>_config.yml</code>里面，就可以直接在云端推送。
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
-        <time>2020-07-11</time>
+        <time>2020-07-27</time>
         
           <span class="dot"></span>
           <a class="category-link" href="/volantis/categories/hexo/">hexo</a>
@@ -1395,7 +1366,7 @@ tags:
       </div>
       
         <div>
-            <a class='readmore' href='/volantis/posts/54971.html'>
+            <a class='readmore' href='/volantis/posts/57815.html'>
             阅读全文
           </a>
         </div>
@@ -1417,29 +1388,21 @@ tags:
   
     
     <h2 class="article-title" >
-      <a href="/volantis/posts/121.html">
-        用hexo+github pages+独立域名搭建个人博客
+      <a href="/volantis/posts/47102.html">
+        hexo+next设置微信打赏功能
       </a>
     </h2>
   
   <div class='md'>
     
-      <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>用hexo建立博客这个教程，查阅了很多资料，自己倒腾了两三个小时弄好了。</p>
-<p>现在简单记录下，以便不时之需。</p>
-<h2 id="基本环境"><a href="#基本环境" class="headerlink" title="基本环境"></a>基本环境</h2><ul>
-<li><p>Window10    </p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a>  （点击进入官网下载）博主版本号为 <strong>Node.js 12.18.2 LTS</strong></p>
-<p><img src="https://pic.heson10.com/img/image-20200708231743517.png" class="lazyload" data-srcset="https://pic.heson10.com/img/image-20200708231743517.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200708231743517"></p>
-<p>在 Windows 环境下安装 Node.js 非常简单，仅须到官网下载安装文件并执行即可完成安装。</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://git-scm.com/downloads">Git</a>（点击进入官网下载）版本号为<strong>2.27.0</strong>
+      <p>Next主题里面直接集成了这个功能，可以直接打开就行。</p>
+<p><img src="https://pic.heson10.com/img/image-20200724234637881.png" class="lazyload" data-srcset="https://pic.heson10.com/img/image-20200724234637881.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200724234637881">
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
-        <time>2020-07-08</time>
+        <time>2020-07-24</time>
         
           <span class="dot"></span>
           <a class="category-link" href="/volantis/categories/hexo/">hexo</a>
@@ -1447,7 +1410,7 @@ tags:
       </div>
       
         <div>
-            <a class='readmore' href='/volantis/posts/121.html'>
+            <a class='readmore' href='/volantis/posts/47102.html'>
             阅读全文
           </a>
         </div>
@@ -1469,35 +1432,196 @@ tags:
   
     
     <h2 class="article-title" >
-      <a href="/volantis/posts/18074.html">
-        写在最开始
+      <a href="/volantis/posts/16996.html">
+        给hexo博客添加fancybox图片灯箱功能
       </a>
     </h2>
   
   <div class='md'>
     
-      <p>&ensp;&ensp; &ensp;&ensp; 2010年，那时还在大学的时候，凭着对网页设计及网站制作的热爱，建立了自己的一个博客，网名也就是我现在这个域名的网名heson，也认识了很多志同道合的小伙伴。当时用的是风靡一时的WordPress博客系统，平时喜欢在博客里面分享一些制作网站和WordPress模板之中遇到的一些难点问题。同时呢，在度娘和谷哥的辅导之下，制作了一些好看的WordPress模板，得到了不少网友的认可和支持，感到非常开心，很有成就感。</p>
-<p>&ensp;&ensp; &ensp;&ensp; 作品展示：<!--more  --></p>
-<p><img src="https://pic.heson10.com/img/Snipaste_2020-07-15_12-45-07.png" class="lazyload" data-srcset="https://pic.heson10.com/img/Snipaste_2020-07-15_12-45-07.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Snipaste_2020-07-15_12-45-07"></p>
-<p><img src="https://pic.heson10.com/img/image-20200716122407064.png" class="lazyload" data-srcset="https://pic.heson10.com/img/image-20200716122407064.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200716122407064"></p>
-<p><img src="https://pic.heson10.com/img/image-20200716123511324.png" class="lazyload" data-srcset="https://pic.heson10.com/img/image-20200716123511324.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200716123511324"></p>
-<p><img src="https://pic.heson10.com/img/image-20200716122500619.png" class="lazyload" data-srcset="https://pic.heson10.com/img/image-20200716122500619.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200716122500619"></p>
-<p>演示站点：<a target="_blank" rel="noopener" href="https://wp.heson10.com/">https://wp.heson10.com</a></p>
-<p>&ensp;&ensp; &ensp;&ensp; 后来由于工作的关系，把博客荒废了。这一晃就是十年了…..最近不知怎么心血来潮,又想干起”老本行”，想搞个博客分享一下平时的生活，而且这次想一直坚持下去。查了下现在最流行的博客系统,发现hexo最适合我这样的佛系博主了，一来hexo+github pages能做到免费搭建个人博客；二来就是时隔多年后，我不想因为使用的是其他博客系统而看到Unknown database。</p>
+      
+        效果图
+教程
+首先安装依赖：
+git clone https://github.com/theme-next/theme-next-fancybox3 themes/next/source/lib/fancybox
+
+安装后打开主题配置文件，找到fancybox
+fancybox: true
+完毕！
+
+
+
+      
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
-        <time>2020-07-06</time>
+        <time>2020-07-23</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/volantis/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/">生活随笔</a>
+          <a class="category-link" href="/volantis/categories/hexo/">hexo</a>
         
       </div>
       
         <div>
-            <a class='readmore' href='/volantis/posts/18074.html'>
+            <a class='readmore' href='/volantis/posts/16996.html'>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/volantis/posts/49693.html">
+        hexo添加相关文章功能
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        效果预览
+教程该功能由 hexo-related-popular-posts 插件提供，在站点根目录下Git中执行以下命令安装依赖：
+npm install hexo-related-popular-posts --save
+next主题配置文件里面已经有参数，直接搜索related_posts:
+related_posts:
+  enable: true
+  title: 相关文章推荐  ...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        <time>2020-07-23</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/volantis/categories/hexo/">hexo</a>
+        
+      </div>
+      
+        <div>
+            <a class='readmore' href='/volantis/posts/49693.html'>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/volantis/posts/60484.html">
+        解决Hexo分类页面访问404问题
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        问题访问Hexo分类页面会出现404页面。
+之前我Hexo是用的大写，后来改成hexo了，即H改成h了。hexo博客正常生成，本地访问没问题，但是上传到github和coding上就访问不了分类页面。
+原因git 检查不到文件大小写的变更，默认设置为忽略文件名大小写。
+解决办法
+git 博客根目录 ，输入：
+cd .deploy_git
+vim .git/config
+如图：
+
+
+按下键盘上...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        <time>2020-07-23</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/volantis/categories/hexo/">hexo</a>
+        
+      </div>
+      
+        <div>
+            <a class='readmore' href='/volantis/posts/60484.html'>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/volantis/posts/10441.html">
+        关于Hexo+next主题的SEO优化
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        问题用了hexo博客中的next主题，发现主题中的&lt;meta property=&quot;og:description&quot; content=&quot;xxxxxxx&quot;&gt; 网站描述内容，跟头像下面的描述是一样的。（我自己的已经改过来了，下面用别人的博客举个例子）
+
+
+上面两张图红框都是显示的description，此描述可以在hexo配置中修改。
+
+一般弄过S...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        <time>2020-07-22</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/volantis/categories/hexo/">hexo</a>
+        
+      </div>
+      
+        <div>
+            <a class='readmore' href='/volantis/posts/10441.html'>
             阅读全文
           </a>
         </div>
@@ -1524,8 +1648,14 @@ tags:
           </a>
         
         <p class="current">
-          4 / 4
+          4 / 6
         </p>
+        
+          <a class="next" rel="next" href="/volantis/archives/2020/page/5/">
+            <section class="post next white-box shadow floatable">
+              &nbsp;下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
+            </section>
+          </a>
         
       </div>
     

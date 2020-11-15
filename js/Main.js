@@ -703,9 +703,12 @@ function colortag(){
 			if (i === 0) {
 			  console.log(comments[0]);
 			}
+			let regimg =/<img.*?src=[\"|\']?(.*?)[\"|\']?\s.*?>/i;
+			let regimghtml = /<\/?((?!img).)*?\/?>/g;
+			let reghtml = /<[^>]+>/g;
 			var nick = bozhu(comments[i]._serverData.nick);
 			var content = comments[i]._serverData.comment;
-			var newcontent = content.replace(/<[^>]+>/g,"").substring(0, 50);
+			var newcontent = content.replace(regimg,"[表情]").replace(reghtml,"").substring(0, 50);
 			var url = comments[i]._serverData.url;
 			var mail = getAvater(comments[i]._serverData.mail);
 			var link = wangzhi(comments[i]._serverData.link);
