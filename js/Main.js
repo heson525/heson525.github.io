@@ -3,10 +3,23 @@
 var CuteenFunc = {
 	sidebar: function () {
 		var b;
-		(CUTEEN_SETTING.HEADROOM) ? b = 16 : b = 85
+		(CUTEEN_SETTING.HEADROOM) ? b = 316 : b = 535
 		if (0 < $("#sidebar").length) {
 			(new SidebarFollow()).init({
 				element: jQuery('.sidebar-2'),
+				prevElement: jQuery('.sidebar-1'),
+				distanceToTop: b
+			});
+		}
+		
+
+	},
+	sidebar2: function () {
+		var b;
+		(CUTEEN_SETTING.HEADROOM) ? b = 16 : b = 82
+		if (0 < $("#sidebar").length) {
+			(new SidebarFollow()).init({
+				element: jQuery('.sidebar-3'),
 				prevElement: jQuery('.sidebar-1'),
 				distanceToTop: b
 			});
@@ -410,10 +423,10 @@ var CuteenFunc = {
 	},
 
 	FixSomeStyle: function () {
-		$(".sidebar-2").css("width", $(".widthhhh").width());
 		if (0 < $('.sidebar-2').prev().length) {
 			$('.sidebar-2').css('position', 'static').prev().remove();
 		}
+		
 		if (CUTEEN_SETTING.HEADROOM) {
 			var myElement = document.querySelector(".nav");
 			var headroom = new Headroom(myElement);
@@ -427,7 +440,7 @@ Cuteen = {
 		CuteenFunc.SearchModel(); CuteenFunc.MobileBarAcc();
 		CuteenFunc.owo(); CuteenFunc.FixSomeStyle(); CuteenFunc.QiPao();
 		CuteenFunc.Toc(); CuteenFunc.NoCopy(); CuteenFunc.NavBgFix();
-		CuteenFunc.Acc(); CuteenFunc.Tab(); CuteenFunc.sidebar();
+		CuteenFunc.Acc(); CuteenFunc.Tab(); CuteenFunc.sidebar();CuteenFunc.sidebar2();
 		CuteenFunc.DarkModeChecked(); CuteenFunc.FixSidebarHeight();
 		CuteenFunc.highlightJsRender(); CuteenFunc.AjaxNext(); CuteenFunc.BackTop();
 	},
