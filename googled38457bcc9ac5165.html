@@ -356,7 +356,7 @@
         </div>
 <section class="post white-box reveal " id="comments">
 
-    <div id="valine_container" class="mx3 px3 pt2 pb3">
+    <div id="tcomment" class="mx3 px3 pt2 pb3">
 
     </div>
 
@@ -364,41 +364,6 @@
 </div>
 
 
-
-<script>
-    var GUEST_INFO = ['nick', 'mail', 'link'];
-    var meta = 'nick,mail,link'.split(',').filter(function (item) {
-        return GUEST_INFO.indexOf(item) > -1
-    });
-    var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
-    var requiredFields = 'nick,mail'.split(',').filter(function (item) {
-        return REQUIRED_FIELDS.indexOf(item) > -1
-    });
-
-    function emoji(path, idx, ext) {
-        return path + "/" + path + "-" + idx + "." + ext;
-    }
-
-    var emojiMaps = {};
-    for (var i = 1; i <= 54; i++) {
-        emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
-    }
-    for (var i = 1; i <= 101; i++) {
-        emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
-    }
-    for (var i = 1; i <= 116; i++) {
-        emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
-    }
-    for (var i = 1; i <= 125; i++) {
-        emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
-    }
-    for (var i = 1; i <= 4; i++) {
-        emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
-    }
-
-  
-  
-</script>
 </div>
                 
             </div>
@@ -479,18 +444,14 @@
 <script src="https://cdn.jsdelivr.net/gh/zwying0814/Cuteen@v3.1.200810/Static/Js/circleMagic.min.js"></script>
 <script async src="https://cdn.jsdelivr.net/gh/zwying0814/Cuteen@v3.1.200810/Static/Js/Player.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/zwying0814/Cuteen@v3.1.200810/Static/Js/sidebar-follow-jquery.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/heson10/pic@master/js/valine.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/heson10/pic@master/js/Main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/twikoo@0.2.7/dist/twikoo.all.min.js"></script>
+
+<script src="/js/Main.js"></script>
+
 <script src="https://cdn.jsdelivr.net/gh/heson10/pic@master/js/issues.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/tiny-slider@2.9.2/dist/tiny-slider.min.js"></script>
-
-
-<script> $(document).pjax('a:not(a[target="_blank"], a[no-pjax])', { container: '#pjax', fragment: '#pjax', timeout: 8000 }).on('pjax:send', function () { before_pjax(); }).on('pjax:complete', function () { after_pjax(); addAlt(); LCCounter.refreshCounter(); colortag(); newcomment(); if (typeof IssuesAPI == "undefined") { loadIssuesJS(); } _hmt.push(['_trackPageview', document.location.pathname]); }).on('pjax:end', function () { end_pjax(); pjax_valine(); IssuesAPI.request(); dingwei(); pjax_fancybox(); });
-
-
-
+<script> $(document).pjax('a:not(a[target="_blank"], a[no-pjax])', { container: '#pjax', fragment: '#pjax', timeout: 8000 }).on('pjax:send', function () { before_pjax(); }).on('pjax:complete', function () { after_pjax(); addAlt(); LCCounter.refreshCounter(); colortag();  if (typeof IssuesAPI == "undefined") { loadIssuesJS(); } _hmt.push(['_trackPageview', document.location.pathname]); }).on('pjax:end', function () { end_pjax(); pjax_twikoo();IssuesAPI.request(); dingwei(); pjax_fancybox(); });
 </script>
     <script defer>
 
