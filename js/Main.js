@@ -679,12 +679,7 @@ function newcomment() {
 		var hotComments = $("#hot-comments");
 
 		for (var i = 0; i < res.length; i++) {
-			if (i === 0) {
-				console.log(res[0]);
-			}
-			let regimg = /<img.*?src=[\"|\']?(.*?)[\"|\']?\s.*?>/i;
-			let regimghtml = /<\/?((?!img).)*?\/?>/g;
-			let reghtml = /<[^>]+>/g;
+
 			var nick = res[i].nick;
 			var content = res[i].commentText;
 			var newcontent = content.substring(0, 50);
