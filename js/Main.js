@@ -673,7 +673,7 @@ function newcomment() {
 	twikoo.getRecentComments({
 		envId: 'twikoo-2g6393upcf52d9e4', // 环境 ID
 		pageSize: 7, // 获取多少条，默认：10，最大：100
-		includeReply: true // 是否包括最新回复，默认：false
+		includeReply: false // 是否包括最新回复，默认：false
 	}).then(function (res) {
 		console.log(res);
 		var hotComments = $("#hot-comments");
