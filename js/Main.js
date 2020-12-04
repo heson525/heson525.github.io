@@ -679,7 +679,6 @@ function newcomment() {
 		var hotComments = $("#hot-comments");
 
 		for (var i = 0; i < res.length; i++) {
-
 			var nick = res[i].nick;
 			var content = res[i].commentText;
 			var newcontent = content.substring(0, 50);
