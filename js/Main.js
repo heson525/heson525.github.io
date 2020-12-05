@@ -609,44 +609,6 @@ function colortag() {
 
 colortag();
 
-function timeago(dateTimeStamp) {
-	var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示 
-	var hour = minute * 60;
-	var day = hour * 24;
-	var week = day * 7;
-	var month = day * 30;
-	var now = new Date().getTime(); //获取当前时间毫秒 
-	var diffValue = now - dateTimeStamp; //时间差 
-	if (diffValue < 0) {
-		return;
-	}
-	var minC = diffValue / minute; //计算时间差的分，时，天，周，月 
-	var hourC = diffValue / hour;
-	var dayC = diffValue / day;
-	var weekC = diffValue / week;
-	var monthC = diffValue / month;
-	if (monthC >= 1 && monthC <= 3) {
-		result = " " + parseInt(monthC) + " 月前"
-	} else if (weekC >= 1 && weekC <= 3) {
-		result = " " + parseInt(weekC) + " 周前"
-	} else if (dayC >= 1 && dayC <= 6) {
-		result = " " + parseInt(dayC) + " 天前"
-	} else if (hourC >= 1 && hourC <= 23) {
-		result = " " + parseInt(hourC) + " 小时前"
-	} else if (minC >= 1 && minC <= 59) {
-		result = " " + parseInt(minC) + " 分钟前"
-	} else if (diffValue >= 0 && diffValue <= minute) {
-		result = "刚刚"
-	} else {
-		var datetime = new Date();
-		datetime.setTime(dateTimeStamp);
-		var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-		var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-		result = Nmonth + "-" + Ndate
-	}
-	return result;
-}
-
 
 	   //判断网址
 	   function wangzhi(e){
@@ -662,10 +624,7 @@ function timeago(dateTimeStamp) {
 		}
 	}
 
-//获取头像
-function getAvater(mail) {
-	return 'https://gravatar.loli.net/avatar/' + mail
-}
+
 
 //调用twikoo最新评论
 function newcomment() {
@@ -683,26 +642,23 @@ function newcomment() {
 			var content = res[i].commentText;
 			var newcontent = content.substring(0, 50);
 			var url = res[i].url;
-			var mail = getAvater(res[i].mailMd5);
+			var mail = res[i].avatar;
 			var link = wangzhi(res[i].link);
-			var updatedAt = timeago(res[i].created);
+			var updatedAt = res[i].relativeTime;
 			var commentId = '#' + res[i].id;
 			hotComments.append('<li class="px1 pb2 flex items-center"><img style="width: 40px;height:40px" class="circle mx1 listavatar" src="' + mail + '"><div class="w100"><div class="flex justify-between"><div class="h6 listauthor overflow-hidden" title="' + nick + '"><a  target="_blank" rel="noopener external nofollow noreferrer" href="' + link + '">' + nick + '</a></div><span class="h6 mr1 listdate wenzi hang1">' + updatedAt + '</span></div> <a href="' + url + commentId + '"><div class="h5 list-comcontent overflow-hidden">' + newcontent + '</div></a></div></li>');
 		}
-		// 返回 Array，包含最新评论的
-		//   * id:          评论 ID
-		//   * url:         评论地址
-		//   * nick:        昵称
-		//   * mailMd5:     邮箱的 MD5 值，可用于展示头像
-		//   * link:        网址
-		//   * comment:     HTML 格式的评论内容
-		//   * commentText: 纯文本格式的评论内容
-		//   * created:     评论时间，格式为毫秒级时间戳
-		// 返回示例: [ // 从新到旧顺序
-		//   { id: '', url: '', nick: '', mailMd5: '', link: '', comment: '', commentText: '', created: 0 },
-		//   { id: '', url: '', nick: '', mailMd5: '', link: '', comment: '', commentText: '', created: 0 },
-		//   { id: '', url: '', nick: '', mailMd5: '', link: '', comment: '', commentText: '', created: 0 }
-		// ]
+  // 返回 Array，包含最新评论的
+  //   * id:           评论 ID
+  //   * url:          评论地址
+  //   * nick:         昵称
+  //   * mailMd5:      邮箱的 MD5 值，可用于展示头像
+  //   * link:         网址
+  //   * comment:      HTML 格式的评论内容
+  //   * commentText:  纯文本格式的评论内容
+  //   * created:      评论时间，格式为毫秒级时间戳
+  //   * avatar:       头像地址（0.2.9 新增）
+  //   * relativeTime: 相对评论时间，如 “1 小时前”（0.2.9 新增）
 	}).catch(function (err) {
 		// 发生错误
 		console.error(err);
