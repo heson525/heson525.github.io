@@ -1081,8 +1081,8 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sun Nov 15 2020 22:40:53 GMT+0800 (GMT+08:00)</div>
-            <div id="last-update-show">2020-11-15 日</div>
+            <div id="last-update" style="display: none;">Sat Dec 05 2020 23:17:07 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update-show">2020-12-05 日</div>
           
         </div>
         
@@ -1132,7 +1132,7 @@
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2020-11-15 日';
+            document.getElementById('last-update-show').innerHTML = '2020-12-05 日';
           }
         </script>
         
@@ -1243,7 +1243,9 @@
   
 
   
-  <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>黑石博客之前已经用七牛云作为博客图床，速度加载都挺快。那为什么还要整一个Github图床呢？</p>
+  <div style="text-align: center;">
+  <a href="https://www.heson10.com" title="黑石博客主站" target="_self"><img title="黑石博客主站" src="https://cdn.jsdelivr.net/gh/heson10/pic@master/pic/%E9%BB%91%E7%9F%B3%E5%8D%9A%E5%AE%A2%E4%B8%BB%E7%AB%99.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/heson10/pic@master/pic/%E9%BB%91%E7%9F%B3%E5%8D%9A%E5%AE%A2%E4%B8%BB%E7%AB%99.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" ></a>
+  </div><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>黑石博客之前已经用七牛云作为博客图床，速度加载都挺快。那为什么还要整一个Github图床呢？</p>
 <p>因为免费啊，放博客里面经常加载的<strong>背景图片</strong>、<strong>头像</strong>什么的，不香吗？：）</p>
 <p>jsDelivr 是国外的一家优秀的公共 CDN 服务提供商，也是首个「打通中国大陆（网宿公司运营）与海外的免费 CDN 服务」。jsDelivr 有一个十分好用的功能——<strong>它可以加速 Github 仓库的文件</strong>。我们可以借此搭建一个免费、全球访问速度超快的图床。</p>
 <h2 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h2><h3 id="主要思路"><a href="#主要思路" class="headerlink" title="主要思路"></a>主要思路</h3><p>整个过程比较简单，创建 Github 仓库，并获取 token，填入 PicGo 配置即可完成。</p>
