@@ -87,8 +87,7 @@ function getData(page = 0) {
       reqData = false;
       resC.forEach((i) => {
         let d = new Date(i.createdAt);
-        datetime = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
-        i.attributes.time = datetime;
+        i.attributes.time = timeago(d);
         i.attributes.content =  urlToLink(i.attributes.content) ;
         app.contents.push(i);
       })
